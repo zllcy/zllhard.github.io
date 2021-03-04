@@ -86,6 +86,8 @@
 					<a class="zhihu" target="_blank" href="#" title="zhihu"><i class="icon-zhihu"></i></a>
 		        
 			</div>
+			<!-- 网易云音乐插件 -->
+			
 		</nav>
 	</header>		
 </div>
@@ -151,6 +153,128 @@
           </div>
           <div id="js-content" class="content-ll">
             
+  
+    <article id="post-八大排序算法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="八大排序算法"><a href="#八大排序算法" class="headerlink" title="八大排序算法"></a>八大排序算法</h1><h2 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h2><h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p><strong>冒泡排序的基本思想：</strong>以升序为例，依次比较相邻元素的值，如果前者大于后者则交换。重复上述操作直到没有任何一对数字需要比较。</p>
+<p><strong>优化</strong>：如何一趟比较下来没有元素交换，说明已经排序完成，可以提前结束循环</p>
+<p>平均时间复杂度：O(n^2)<br>最差时间复杂度：O(n^2)<br>空间复杂度： O(1)</p>
+<h3 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h3><pre><code>import java.util.Arrays;
+
+public class BubbleSort &#123;
+    public static void main(String[] args) &#123;
+    //测试
+    int[] arr = &#123;1,5,2,9,10&#125;;
+    bubbleSort(arr);
+    System.out.println(Arrays.toString(arr));
+&#125;
+
+/**
+ * 冒泡排序
+ * @param arr
+ */
+public static void bubbleSort(int[] arr) &#123;
+    int temp = 0;
+    boolean flag = false;  //记录一趟下来是否进行过交换
+    for (int i = 0; i &lt; arr.length - 1; i++) &#123;
+        for (int j = 0; j &lt; arr.length - 1 -i; j++) &#123;
+            if (arr[j] &gt; arr[j+1]) &#123;
+                flag = true;
+                temp = arr[j];
+                arr[j] = arr[j+1];
+                arr[j+1] = temp;
+            &#125;
+        &#125;
+
+        if (!flag) &#123;
+            break;
+        &#125;else &#123;
+            flag = false;   //重置flag，进行下一轮判断
+        &#125;
+    &#125;
+&#125;
+</code></pre>
+<p>}</p>
+<h2 id="选择排序"><a href="#选择排序" class="headerlink" title="选择排序"></a>选择排序</h2><h3 id="介绍-1"><a href="#介绍-1" class="headerlink" title="介绍"></a>介绍</h3><p><strong>选择排序基本思想：</strong>以升序为例，从arr[0]<del>arr[n-1]中找出最小的数和arr[0]交换，继续从arr[1]</del>arr[n-1]中找出最小的数和arr[1]交换，总共经过n-1次得到升序数组</p>
+<p>平均时间复杂度：O(n^2)<br>最差时间复杂度：O(n^2)<br>空间复杂度： O(1)</p>
+<p>比冒泡快，但是不稳定</p>
+<h3 id="代码实现-1"><a href="#代码实现-1" class="headerlink" title="代码实现"></a>代码实现</h3><pre><code>import java.util.Arrays;
+
+public class SelectSort &#123;
+
+    public static void main(String[] args) &#123;
+    int[] arr = &#123;1,5,2,9,10&#125;;
+    selectSort(arr);
+    System.out.println(Arrays.toString(arr));
+&#125;
+
+/**
+ * 选择排序
+ * @param arr
+ */
+public static void selectSort(int[] arr) &#123;
+    for (int i = 0; i &lt; arr.length - 1; i++) &#123;
+        int minIndex = i;
+        int min = arr[i];
+        for (int j = i+1; j &lt; arr.length; j++) &#123;
+            if (min &gt; arr[j]) &#123;
+                min = arr[j];
+                minIndex = j;
+            &#125;
+        &#125;
+        if (minIndex != i) &#123;
+            arr[minIndex] = arr[i];
+            arr[i] = min;
+        &#125;
+    &#125;
+&#125;
+</code></pre>
+<p>}</p>
+<h2 id="插入排序"><a href="#插入排序" class="headerlink" title="插入排序"></a>插入排序</h2><h3 id="介绍-2"><a href="#介绍-2" class="headerlink" title="介绍"></a>介绍</h3><p><strong>插入排序的基本思想：</strong></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/03/03/%E5%85%AB%E5%A4%A7%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
   
     <article id="post-hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
