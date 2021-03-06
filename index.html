@@ -164,6 +164,92 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-HttpServletRequest类和HttpServletResponse类" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/03/06/HttpServletRequest%E7%B1%BB%E5%92%8CHttpServletResponse%E7%B1%BB/">HttpServletRequest类和HttpServletResponse类</a>
+    </h1>
+  
+
+		<!--显示阅读次数-->
+		
+        
+        <a href="/2021/03/06/HttpServletRequest%E7%B1%BB%E5%92%8CHttpServletResponse%E7%B1%BB/" class="archive-article-date">
+  	<time datetime="2021-03-06T15:12:33.911Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-06</time>
+</a>
+        
+      </header>
+    
+	<!-- 目录内容 -->
+             
+        <!-- 目录内容结束 -->
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="HttpServletRequest类"><a href="#HttpServletRequest类" class="headerlink" title="HttpServletRequest类"></a>HttpServletRequest类</h2><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>每次只要有请求进入Tomcat服务器，Tomcat服务器就会把请求过来的HTTP协议信息解析好封装到Request对象中。然后传递到service方法（doGet和doPost）中给我们使用。我们可以通过HttpServletRequest对象，获取到所有请求的信息。</p>
+<h3 id="常用方法"><a href="#常用方法" class="headerlink" title="常用方法"></a>常用方法</h3><p>getRequestURI()           获取请求的资源路径<br>getRequestURL()           获取请求的统一资源定位符（绝对路径）<br>getRemoteHost()           获取客户端的 ip 地址<br>getHeader()               获取请求头<br>getParameter()            获取请求的参数<br>getParameterValues()      获取请求的参数（多个值的时候使用）<br>getMethod()               获取请求的方式 GET 或 POST<br>setAttribute(key, value)  设置域数据<br>getAttribute(key)         获取域数据<br>getRequestDispatcher()    获取请求转发对象</p>
+<h3 id="请求的转发"><a href="#请求的转发" class="headerlink" title="请求的转发"></a>请求的转发</h3><p>请求转发是指，服务器收到请求后，从一次资源跳转到另一个资源的操作叫请求转发。<br><strong>请求转发的特点：</strong><br>1、浏览器地址栏没有变化<br>2、它们是一次请求<br>3、它们共享Request域中的数据<br>4、可以转发到WEB-INF目录下<br>5、不可以访问工程以外的资源</p>
+<h3 id="base标签"><a href="#base标签" class="headerlink" title="base标签"></a>base标签</h3><p>base标签可以设置当前页面中所有相对路径工作时，参照哪个路径来进行跳转</p>
+<h3 id="Web中的相对路径和绝对路径"><a href="#Web中的相对路径和绝对路径" class="headerlink" title="Web中的相对路径和绝对路径"></a>Web中的相对路径和绝对路径</h3><p>相对路径：<br>    .        当前目录<br>    ..       表示上一级目录<br>    资源名    表示当前目录/资源名<br>绝对路径：<br>    <a href="http://ip:port/工程路径、资源路径">http://ip:port/工程路径、资源路径</a></p>
+<p>在Web中 /斜杠 是一种绝对路径<br>/斜杠 被浏览器解析，得到的地址是：<a href="http://ip:port/">http://ip:port/</a><br>/斜杠 被服务器解析，得到的地址是：<a href="http://ip:port/工程路径">http://ip:port/工程路径</a></p>
+<p>实际开发使用绝对路径或者base+相对路径</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Servlet</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/03/06/HttpServletRequest%E7%B1%BB%E5%92%8CHttpServletResponse%E7%B1%BB/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+  
     <article id="post-七大排序算法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -410,6 +496,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
             <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
           </label>
           <ul class="article-tag-list" q-show="showTags">
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Servlet</a>
+              </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">算法</a>
