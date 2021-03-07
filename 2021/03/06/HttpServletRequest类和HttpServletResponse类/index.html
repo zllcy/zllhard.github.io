@@ -8,18 +8,20 @@
   <link rel="dns-prefetch" href="http://example.com">
   <title>HttpServletRequest类和HttpServletResponse类 | Welcome To Study</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="HttpServletRequest类作用每次只要有请求进入Tomcat服务器，Tomcat服务器就会把请求过来的HTTP协议信息解析好封装到Request对象中。然后传递到service方法（doGet和doPost）中给我们使用。我们可以通过HttpServletRequest对象，获取到所有请求的信息。 常用方法getRequestURI()           获取请求的资源路径getRe">
+  <meta name="description" content="HttpServletRequest类作用每次只要有请求进入Tomcat服务器，Tomcat服务器就会把请求过来的HTTP协议信息解析好封装到Request对象中。然后传递到service方法（doGet和doPost）中给我们使用。我们可以通过HttpServletRequest对象，获取到所有请求的信息。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="HttpServletRequest类和HttpServletResponse类">
 <meta property="og:url" content="http://example.com/2021/03/06/HttpServletRequest%E7%B1%BB%E5%92%8CHttpServletResponse%E7%B1%BB/index.html">
 <meta property="og:site_name" content="Welcome To Study">
-<meta property="og:description" content="HttpServletRequest类作用每次只要有请求进入Tomcat服务器，Tomcat服务器就会把请求过来的HTTP协议信息解析好封装到Request对象中。然后传递到service方法（doGet和doPost）中给我们使用。我们可以通过HttpServletRequest对象，获取到所有请求的信息。 常用方法getRequestURI()           获取请求的资源路径getRe">
+<meta property="og:description" content="HttpServletRequest类作用每次只要有请求进入Tomcat服务器，Tomcat服务器就会把请求过来的HTTP协议信息解析好封装到Request对象中。然后传递到service方法（doGet和doPost）中给我们使用。我们可以通过HttpServletRequest对象，获取到所有请求的信息。">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/2021/03/06/HttpServletRequest%E7%B1%BB%E5%92%8CHttpServletResponse%E7%B1%BB/1.jpg">
 <meta property="article:published_time" content="2021-03-06T15:12:33.911Z">
-<meta property="article:modified_time" content="2021-03-06T15:14:11.064Z">
+<meta property="article:modified_time" content="2021-03-07T06:46:56.712Z">
 <meta property="article:author" content="zllhard">
 <meta property="article:tag" content="Servlet">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2021/03/06/HttpServletRequest%E7%B1%BB%E5%92%8CHttpServletResponse%E7%B1%BB/1.jpg">
   
     <link rel="alternative" href="/atom.xml" title="Welcome To Study" type="application/atom+xml">
   
@@ -204,7 +206,7 @@
             <div id="toc-article" class="toc-article">
                 <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
                 <strong class="toc-title">文章目录</strong>
-                <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#HttpServletRequest%E7%B1%BB"><span class="toc-number">1.</span> <span class="toc-text">HttpServletRequest类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%9C%E7%94%A8"><span class="toc-number">1.1.</span> <span class="toc-text">作用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95"><span class="toc-number">1.2.</span> <span class="toc-text">常用方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%B7%E6%B1%82%E7%9A%84%E8%BD%AC%E5%8F%91"><span class="toc-number">1.3.</span> <span class="toc-text">请求的转发</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#base%E6%A0%87%E7%AD%BE"><span class="toc-number">1.4.</span> <span class="toc-text">base标签</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Web%E4%B8%AD%E7%9A%84%E7%9B%B8%E5%AF%B9%E8%B7%AF%E5%BE%84%E5%92%8C%E7%BB%9D%E5%AF%B9%E8%B7%AF%E5%BE%84"><span class="toc-number">1.5.</span> <span class="toc-text">Web中的相对路径和绝对路径</span></a></li></ol></li></ol>
+                <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#HttpServletRequest%E7%B1%BB"><span class="toc-number">1.</span> <span class="toc-text">HttpServletRequest类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%9C%E7%94%A8"><span class="toc-number">1.1.</span> <span class="toc-text">作用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95"><span class="toc-number">1.2.</span> <span class="toc-text">常用方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#doGet%E8%AF%B7%E6%B1%82%E7%9A%84%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81%E8%A7%A3%E5%86%B3"><span class="toc-number">1.3.</span> <span class="toc-text">doGet请求的中文乱码解决</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#doPOST%E8%AF%B7%E6%B1%82%E7%9A%84%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81%E8%A7%A3%E5%86%B3"><span class="toc-number">1.4.</span> <span class="toc-text">doPOST请求的中文乱码解决</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%B7%E6%B1%82%E8%BD%AC%E5%8F%91"><span class="toc-number">1.5.</span> <span class="toc-text">请求转发</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#base%E6%A0%87%E7%AD%BE"><span class="toc-number">1.6.</span> <span class="toc-text">base标签</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Web%E4%B8%AD%E7%9A%84%E7%9B%B8%E5%AF%B9%E8%B7%AF%E5%BE%84%E5%92%8C%E7%BB%9D%E5%AF%B9%E8%B7%AF%E5%BE%84"><span class="toc-number">1.7.</span> <span class="toc-text">Web中的相对路径和绝对路径</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HttpServletResponse%E7%B1%BB"><span class="toc-number">2.</span> <span class="toc-text">HttpServletResponse类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%9C%E7%94%A8-1"><span class="toc-number">2.1.</span> <span class="toc-text">作用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%A4%E4%B8%AA%E8%BE%93%E5%87%BA%E6%B5%81"><span class="toc-number">2.2.</span> <span class="toc-text">两个输出流</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BE%80%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%9B%9E%E4%BC%A0%E6%95%B0%E6%8D%AE"><span class="toc-number">2.3.</span> <span class="toc-text">往客户端回传数据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%93%8D%E5%BA%94%E4%B9%B1%E7%A0%81%E8%A7%A3%E5%86%B3"><span class="toc-number">2.4.</span> <span class="toc-text">响应乱码解决</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%B7%E6%B1%82%E9%87%8D%E5%AE%9A%E5%90%91"><span class="toc-number">2.5.</span> <span class="toc-text">请求重定向</span></a></li></ol></li></ol>
            </div>
            <script type="text/javascript">
             function showToc(){
@@ -225,12 +227,43 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="HttpServletRequest类"><a href="#HttpServletRequest类" class="headerlink" title="HttpServletRequest类"></a>HttpServletRequest类</h2><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>每次只要有请求进入Tomcat服务器，Tomcat服务器就会把请求过来的HTTP协议信息解析好封装到Request对象中。然后传递到service方法（doGet和doPost）中给我们使用。我们可以通过HttpServletRequest对象，获取到所有请求的信息。</p>
-<h3 id="常用方法"><a href="#常用方法" class="headerlink" title="常用方法"></a>常用方法</h3><p>getRequestURI()           获取请求的资源路径<br>getRequestURL()           获取请求的统一资源定位符（绝对路径）<br>getRemoteHost()           获取客户端的 ip 地址<br>getHeader()               获取请求头<br>getParameter()            获取请求的参数<br>getParameterValues()      获取请求的参数（多个值的时候使用）<br>getMethod()               获取请求的方式 GET 或 POST<br>setAttribute(key, value)  设置域数据<br>getAttribute(key)         获取域数据<br>getRequestDispatcher()    获取请求转发对象</p>
-<h3 id="请求的转发"><a href="#请求的转发" class="headerlink" title="请求的转发"></a>请求的转发</h3><p>请求转发是指，服务器收到请求后，从一次资源跳转到另一个资源的操作叫请求转发。<br><strong>请求转发的特点：</strong><br>1、浏览器地址栏没有变化<br>2、它们是一次请求<br>3、它们共享Request域中的数据<br>4、可以转发到WEB-INF目录下<br>5、不可以访问工程以外的资源</p>
+<span id="more"></span>
+
+<h3 id="常用方法"><a href="#常用方法" class="headerlink" title="常用方法"></a>常用方法</h3><p>getRequestURI()&emsp; &emsp;获取请求的资源路径<br>getRequestURL()&emsp; &emsp;获取请求的统一资源定位符（绝对路径）<br>getRemoteHost()&emsp; &emsp;获取客户端的 ip 地址<br>getHeader()&emsp; &emsp; 获取请求头<br>getParameter()&emsp; &emsp;获取请求的参数<br>getParameterValues()&emsp; &emsp;获取请求的参数（多个值的时候使用）<br>getMethod()&emsp; &emsp;获取请求的方式 GET 或 POST<br>setAttribute(key, value)&emsp; &emsp;设置域数据<br>getAttribute(key)&emsp; &emsp;获取域数据<br>getRequestDispatcher()&emsp; &emsp;获取请求转发对象</p>
+<h3 id="doGet请求的中文乱码解决"><a href="#doGet请求的中文乱码解决" class="headerlink" title="doGet请求的中文乱码解决"></a>doGet请求的中文乱码解决</h3><pre><code>// 获取请求参数
+String username = req.getParameter(&quot;username&quot;);
+//1 先以 iso8859-1 进行编码
+//2 再以 utf-8 进行解码
+username = new String(username.getBytes(&quot;iso-8859-1&quot;), &quot;UTF-8&quot;);
+</code></pre>
+<h3 id="doPOST请求的中文乱码解决"><a href="#doPOST请求的中文乱码解决" class="headerlink" title="doPOST请求的中文乱码解决"></a>doPOST请求的中文乱码解决</h3><pre><code>// 设置请求体的字符集为 UTF-8，从而解决 post 请求的中文乱码问题
+req.setCharacterEncoding(&quot;UTF-8&quot;);
+</code></pre>
+<h3 id="请求转发"><a href="#请求转发" class="headerlink" title="请求转发"></a>请求转发</h3><p>请求转发是指，服务器收到请求后，从一次资源跳转到另一个资源的操作叫请求转发。<br>请求转发必须要以斜杠打头，/ 斜杠表示地址为：<a href="http://ip:port/工程名/">http://ip:port/工程名/</a> , 映射到 IDEA 代码的 web 目录<br><img src="/2021/03/06/HttpServletRequest%E7%B1%BB%E5%92%8CHttpServletResponse%E7%B1%BB/1.jpg" alt="请求转发"></p>
 <h3 id="base标签"><a href="#base标签" class="headerlink" title="base标签"></a>base标签</h3><p>base标签可以设置当前页面中所有相对路径工作时，参照哪个路径来进行跳转</p>
-<h3 id="Web中的相对路径和绝对路径"><a href="#Web中的相对路径和绝对路径" class="headerlink" title="Web中的相对路径和绝对路径"></a>Web中的相对路径和绝对路径</h3><p>相对路径：<br>    .        当前目录<br>    ..       表示上一级目录<br>    资源名    表示当前目录/资源名<br>绝对路径：<br>    <a href="http://ip:port/工程路径、资源路径">http://ip:port/工程路径、资源路径</a></p>
-<p>在Web中 /斜杠 是一种绝对路径<br>/斜杠 被浏览器解析，得到的地址是：<a href="http://ip:port/">http://ip:port/</a><br>/斜杠 被服务器解析，得到的地址是：<a href="http://ip:port/工程路径">http://ip:port/工程路径</a></p>
+<h3 id="Web中的相对路径和绝对路径"><a href="#Web中的相对路径和绝对路径" class="headerlink" title="Web中的相对路径和绝对路径"></a>Web中的相对路径和绝对路径</h3><p>相对路径：<br>&emsp;.&emsp; &emsp; 当前目录<br>&emsp;..&emsp; &emsp; 表示上一级目录<br>&emsp;资源名&emsp; &emsp; 表示当前目录/资源名<br>绝对路径：<br>&emsp;<a href="http://ip:port/工程路径、资源路径">http://ip:port/工程路径、资源路径</a></p>
+<p>在Web中 /斜杠 是一种绝对路径<br>/斜杠 被浏览器解析，得到的地址是：<a href="http://ip:port/">http://ip:port/</a><br>/斜杠 被服务器解析，得到的地址是：<a href="http://ip:port/工程路径">http://ip:port/工程路径</a><br><strong>特殊情况：</strong> <code>response.sendRediect(“/”);</code> 把斜杠发送给浏览器解析，得到 <a href="http://ip:port/">http://ip:port/</a></p>
 <p>实际开发使用绝对路径或者base+相对路径</p>
+<h2 id="HttpServletResponse类"><a href="#HttpServletResponse类" class="headerlink" title="HttpServletResponse类"></a>HttpServletResponse类</h2><h3 id="作用-1"><a href="#作用-1" class="headerlink" title="作用"></a>作用</h3><p>HttpServletResponse 类和 HttpServletRequest 类一样。每次请求进来，Tomcat 服务器都会创建一个 Response 对象传递给 Servlet 程序去使用。HttpServletRequest 表示请求过来的信息，HttpServletResponse 表示所有响应的信息。<br>我们如果需要设置返回给客户端的信息，都可以通过 HttpServletResponse 对象来进行设置。</p>
+<h3 id="两个输出流"><a href="#两个输出流" class="headerlink" title="两个输出流"></a>两个输出流</h3><p>字节流&emsp;&emsp;getOutputStream();&emsp;&emsp;常用于下载（传递二进制数据）<br>字符流&emsp;&emsp;getWriter();&emsp;&emsp;常用于回传字符串<br>两个流只能同时使用一个</p>
+<h3 id="往客户端回传数据"><a href="#往客户端回传数据" class="headerlink" title="往客户端回传数据"></a>往客户端回传数据</h3><pre><code>//先获取字符流，然后回传字符串数据
+PrintWriter writer = resp.getWriter();
+writer.write(&quot;response&#39;s content!!!&quot;);
+</code></pre>
+<h3 id="响应乱码解决"><a href="#响应乱码解决" class="headerlink" title="响应乱码解决"></a>响应乱码解决</h3><pre><code>// 它会同时设置服务器和客户端都使用 UTF-8 字符集，还设置了响应头
+// 此方法一定要在获取流对象之前调用才有效
+resp.setContentType(&quot;text/html; charset=UTF-8&quot;);
+</code></pre>
+<h3 id="请求重定向"><a href="#请求重定向" class="headerlink" title="请求重定向"></a>请求重定向</h3><p>请求重定向，是指客户端给服务器发请求，然后服务器告诉客户端说。我给你一些地址。你去新地址访问。叫请求<br>重定向（因为之前的地址可能已经被废弃）。<br>![请求重定向][2.jpg]</p>
+<p>请求重定向的第一种方案：</p>
+<pre><code>// 设置响应状态码 302 ，表示重定向，（已搬迁）
+resp.setStatus(302);
+// 设置响应头，说明 新的地址在哪里
+resp.setHeader(&quot;Location&quot;, &quot;http://localhost:8080&quot;);
+</code></pre>
+<p>请求重定向的第一种方案（推荐）：</p>
+<pre><code>resp.sendRedirect(&quot;http://localhost:8080&quot;);
+</code></pre>
 
       
 
