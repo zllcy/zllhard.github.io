@@ -190,15 +190,9 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="HTTP协议简介"><a href="#HTTP协议简介" class="headerlink" title="HTTP协议简介"></a>HTTP协议简介</h2><p>超文本传输协议（Hypertext Transfer Protocol，HTTP）是一个简单的请求-响应协议，它通常运行在TCP之上。它指定了客户端可能发送给服务器什么样的消息以及得到什么样的响应。请求和响应消息的头以ASCII形式给出；而消息内容则具有一个类似MIME的格式。</p>
-<h2 id="请求的-HTTP-协议格式"><a href="#请求的-HTTP-协议格式" class="headerlink" title="请求的 HTTP 协议格式"></a>请求的 HTTP 协议格式</h2><p>客户端给服务器发送数据叫请求。<br>服务器给客户端回传数据叫响应。<br>请求又分为 GET 请求，和 POST 请求两种</p>
-<h3 id="GET-请求"><a href="#GET-请求" class="headerlink" title="GET 请求"></a>GET 请求</h3><p>1、请求行<br>&emsp;(1) 请求的方式 GET<br>&emsp;(2) 请求的资源路径[+?+请求参数]<br>&emsp;(3) 请求的协议的版本号 HTTP/1.1<br>2、请求头<br>&emsp;key : value 组成 不同的键值对，表示不同的含义。<br><img src="/2021/03/07/HTTP%E5%8D%8F%E8%AE%AE/1.jpg"></p>
-<h3 id="POST-请求"><a href="#POST-请求" class="headerlink" title="POST 请求"></a>POST 请求</h3><p>1、请求行<br>&emsp;(1) 请求的方式 POST<br>&emsp;(2) 请求的资源路径[+?+请求参数]<br>&emsp;(3) 请求的协议的版本号 HTTP/1.1<br>2、请求头<br>&emsp;（1）key : value 不同的请求头，有不同的含义<br>空行<br>3、请求体 ===&gt;&gt;&gt; 就是发送给服务器的数据<br><img src="/2021/03/07/HTTP%E5%8D%8F%E8%AE%AE/2.jpg"></p>
-<h3 id="常用请求头的说明"><a href="#常用请求头的说明" class="headerlink" title="常用请求头的说明"></a>常用请求头的说明</h3><p>Accept: 表示客户端可以接收的数据类型<br>Accpet-Languege: 表示客户端可以接收的语言类型<br>User-Agent: 表示客户端浏览器的信息<br>Host： 表示请求时的服务器 ip 和端口号</p>
-<h3 id="哪些是-GET-请求，哪些是-POST-请求"><a href="#哪些是-GET-请求，哪些是-POST-请求" class="headerlink" title="哪些是 GET 请求，哪些是 POST 请求"></a>哪些是 GET 请求，哪些是 POST 请求</h3><p>GET 请求有哪些：<br>&emsp;1、form 标签 method=get<br>&emsp;2、a 标签<br>&emsp;3、link 标签引入 css<br>&emsp;4、Script 标签引入 js 文件<br>&emsp;5、img 标签引入图片<br>&emsp;6、iframe 引入 html 页面<br>&emsp;7、在浏览器地址栏中输入地址后敲回车<br>POST 请求有哪些：<br>&emsp;1、form 标签 method=post</p>
-<h2 id="响应的-HTTP-协议格式"><a href="#响应的-HTTP-协议格式" class="headerlink" title="响应的 HTTP 协议格式"></a>响应的 HTTP 协议格式</h2><p>1、响应行<br>&emsp;(1) 响应的协议和版本号<br>&emsp;(2) 响应状态码<br>&emsp;(3) 响应状态描述符<br>2、响应头<br>&emsp;(1) key : value 不同的响应头，有其不同含义<br>空行<br>3、响应体 —-&gt;&gt;&gt; 就是回传给客户端的数据<br><img src="/2021/03/07/HTTP%E5%8D%8F%E8%AE%AE/3.jpg"></p>
-<h2 id="常用的响应码说明"><a href="#常用的响应码说明" class="headerlink" title="常用的响应码说明"></a>常用的响应码说明</h2><p>200&emsp;&emsp; 表示请求成功<br>302&emsp;&emsp;  表示请求重定向（明天讲）<br>404&emsp;&emsp;  表示请求服务器已经收到了，但是你要的数据不存在（请求地址错误）<br>500&emsp;&emsp;  表示服务器已经收到请求，但是服务器内部错误（代码错误）</p>
-<h2 id="MIME-类型说明"><a href="#MIME-类型说明" class="headerlink" title="MIME 类型说明"></a>MIME 类型说明</h2><p>MIME 是 HTTP 协议中数据类型。<br>MIME 的英文全称是”Multipurpose Internet Mail Extensions” 多功能 Internet 邮件扩充服务。MIME 类型的格式是“大类型/小类型”，并与某一种文件的扩展名相对应。<br><strong>常见的 MIME 类型：</strong><br><img src="/2021/03/07/HTTP%E5%8D%8F%E8%AE%AE/4.jpg"><br><img src="/2021/03/07/HTTP%E5%8D%8F%E8%AE%AE/5.jpg"></p>
-
+        
+          <a class=".article-more-a" style="display: none;" href="/2021/03/07/HTTP%E5%8D%8F%E8%AE%AE/#more">more >></a>
+        
       
 
       
