@@ -359,69 +359,9 @@
 <li>Servlet 就 JavaWeb 三大组件之一。三大组件分别是：Servlet 程序、Filter 过滤器、Listener 监听器。</li>
 <li>Servlet 是运行在服务器上的一个 java 小程序，它可以接收客户端发送过来的请求，并响应数据给客户端。</li>
 </ol>
-<h3 id="手动实现Servlet程序"><a href="#手动实现Servlet程序" class="headerlink" title="手动实现Servlet程序"></a>手动实现Servlet程序</h3><ol>
-<li>编写一个类去实现 Servlet 接口</li>
-<li>实现 service 方法，处理请求，并响应数据</li>
-<li>到 web.xml 中去配置 servlet 程序的访问</li>
-</ol>
-<p>Web.xml的配置：<br><img src="/2021/03/07/Servlet/0.jpg" alt="Web.xml的配置"></p>
-<p><strong>常见错误：</strong></p>
-<ol>
-<li>url-pattern 中配置的路径没有以斜杠打头。</li>
-<li>servlet-name 配置的值不存在。</li>
-<li>servlet-class 标签的全类名配置错误。</li>
-</ol>
-<h3 id="url-地址到-Servlet-程序的访问"><a href="#url-地址到-Servlet-程序的访问" class="headerlink" title="url 地址到 Servlet 程序的访问"></a>url 地址到 Servlet 程序的访问</h3><p><img src="/2021/03/07/Servlet/1.jpg" alt="url 地址到 Servlet 程序的访问"></p>
-<h3 id="Servlet-的生命周期"><a href="#Servlet-的生命周期" class="headerlink" title="Servlet 的生命周期"></a>Servlet 的生命周期</h3><p>1、执行 Servlet 构造器方法<br>2、执行 init 初始化方法<br>第一、二步，是在第一次访问，的时候创建 Servlet 程序会调用。<br>3、执行 service 方法<br>第三步，每次访问都会调用。<br>4、执行 destroy 销毁方法<br>第四步，在 web 工程停止的时候调用。</p>
-<h3 id="GET-和-POST-请求的分发处理"><a href="#GET-和-POST-请求的分发处理" class="headerlink" title="GET 和 POST 请求的分发处理"></a>GET 和 POST 请求的分发处理</h3><pre><code>public class HelloServlet implements Servlet &#123;
-    /**
-     * service 方法是专门用来处理请求和响应的
-     *
-     * @param servletRequest
-     * @param servletResponse
-     * @throws ServletException
-     * @throws IOException
-     */
-    @Override
-    public void service(ServletRequest servletRequest, ServletResponse servletResponse) throws
-            ServletException, IOException &#123;
-        System.out.println(&quot;3 service === Hello Servlet 被访问了&quot;);
-// 类型转换（因为它有 getMethod()方法）
-        HttpServletRequest httpServletRequest = (HttpServletRequest) servletRequest;
-// 获取请求的方式
-        String method = httpServletRequest.getMethod();
-        if (&quot;GET&quot;.equals(method)) &#123;
-            doGet();
-        &#125; else if (&quot;POST&quot;.equals(method)) &#123;
-            doPost();
-        &#125;
-    &#125;
-
-    /**
-     * 做 get 请求的操作
-     */
-    public void doGet() &#123;
-        System.out.println(&quot;get 请求&quot;);
-        System.out.println(&quot;get 请求&quot;);
-    &#125;
-
-    /**
-     * 做 post 请求的操作
-     */
-    public void doPost() &#123;
-        System.out.println(&quot;post 请求&quot;);
-        System.out.println(&quot;post 请求&quot;);
-    &#125;
-&#125;
-</code></pre>
-<h3 id="通过继承-HttpServlet-实现-Servlet-程序"><a href="#通过继承-HttpServlet-实现-Servlet-程序" class="headerlink" title="通过继承 HttpServlet 实现 Servlet 程序"></a>通过继承 HttpServlet 实现 Servlet 程序</h3><p>一般在实际项目开发中，都是使用继承 HttpServlet 类的方式去实现 Servlet 程序。</p>
-<ol>
-<li>编写一个类去继承 HttpServlet 类</li>
-<li>根据业务需要重写 doGet 或 doPost 方法</li>
-<li>到 web.xml 中的配置 Servlet 程序的访问地址</li>
-</ol>
-<h3 id="Servlet-类的继承体系"><a href="#Servlet-类的继承体系" class="headerlink" title="Servlet 类的继承体系"></a>Servlet 类的继承体系</h3><p><img src="/2021/03/07/Servlet/2.jpg" alt="Servlet 类的继承体系"></p>
-
+        
+          <a class=".article-more-a" style="display: none;" href="/2021/03/07/Servlet/#more">more >></a>
+        
       
 
       
