@@ -6,15 +6,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Archives | Welcome To Study</title>
+  <title>树结构的基础2 | Welcome To Study</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Welcome To Study">
-<meta property="og:url" content="http://example.com/archives/index.html">
+  <meta name="description" content="顺序存储二叉树概念从数据存储来看，数组存储方式和树的存储方式可以相互转换，即数组可以转换成树，树也可以转换成数组。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="树结构的基础2">
+<meta property="og:url" content="http://example.com/2021/03/08/%E6%95%B0%E7%BB%93%E6%9E%84%E7%9A%84%E5%9F%BA%E7%A1%802/index.html">
 <meta property="og:site_name" content="Welcome To Study">
+<meta property="og:description" content="顺序存储二叉树概念从数据存储来看，数组存储方式和树的存储方式可以相互转换，即数组可以转换成树，树也可以转换成数组。">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/2021/03/08/%E6%95%B0%E7%BB%93%E6%9E%84%E7%9A%84%E5%9F%BA%E7%A1%802/1.png">
+<meta property="og:image" content="http://example.com/2021/03/08/%E6%95%B0%E7%BB%93%E6%9E%84%E7%9A%84%E5%9F%BA%E7%A1%802/2.jpg">
+<meta property="article:published_time" content="2021-03-08T09:00:52.898Z">
+<meta property="article:modified_time" content="2021-03-08T15:30:34.516Z">
 <meta property="article:author" content="zllhard">
+<meta property="article:tag" content="数据结构">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2021/03/08/%E6%95%B0%E7%BB%93%E6%9E%84%E7%9A%84%E5%9F%BA%E7%A1%802/1.png">
   
     <link rel="alternative" href="/atom.xml" title="Welcome To Study" type="application/atom+xml">
   
@@ -156,36 +164,328 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-数结构的基础2" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      树结构的基础2
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2021" class="archive-year">2021</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/03/08/%E6%95%B0%E7%BB%93%E6%9E%84%E7%9A%84%E5%9F%BA%E7%A1%802/" class="archive-article-date">
+
+		<!--显示阅读次数-->
+		
+		  <br/>
+		  <a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;">
+		  <span class="icon-sort"></span>
+		  <span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
+					阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
+		  </span>
+		  </a>
+		
+        
+        <a href="/2021/03/08/%E6%95%B0%E7%BB%93%E6%9E%84%E7%9A%84%E5%9F%BA%E7%A1%802/" class="archive-article-date">
   	<time datetime="2021-03-08T09:00:52.898Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-08</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/03/08/%E6%95%B0%E7%BB%93%E6%9E%84%E7%9A%84%E5%9F%BA%E7%A1%802/">树结构的基础2</a>
-    </h1>
-  
+        
+      </header>
+    
+	<!-- 目录内容 -->
+        
+            <p class="show-toc-btn" id="show-toc-btn" onclick="showToc();" style="display:none">
+            <span class="btn-bg"></span>
+            <span class="btn-text">文章导航</span>
+            </p>
+            <div id="toc-article" class="toc-article">
+                <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
+                <strong class="toc-title">文章目录</strong>
+                <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A1%BA%E5%BA%8F%E5%AD%98%E5%82%A8%E4%BA%8C%E5%8F%89%E6%A0%91"><span class="toc-number">1.</span> <span class="toc-text">顺序存储二叉树</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A6%82%E5%BF%B5"><span class="toc-number">1.1.</span> <span class="toc-text">概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A6%81%E6%B1%82"><span class="toc-number">1.2.</span> <span class="toc-text">要求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%89%B9%E7%82%B9"><span class="toc-number">1.3.</span> <span class="toc-text">特点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0"><span class="toc-number">1.4.</span> <span class="toc-text">代码实现</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BA%BF%E7%B4%A2%E5%8C%96%E4%BA%8C%E5%8F%89%E6%A0%91"><span class="toc-number">2.</span> <span class="toc-text">线索化二叉树</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E4%BB%8B%E7%BB%8D"><span class="toc-number">2.1.</span> <span class="toc-text">基本介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BA%BF%E7%B4%A2%E5%8C%96%E6%A1%88%E4%BE%8B"><span class="toc-number">2.2.</span> <span class="toc-text">线索化案例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0-1"><span class="toc-number">2.3.</span> <span class="toc-text">代码实现</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%81%8D%E5%8E%86%E7%BA%BF%E7%B4%A2%E5%8C%96%E4%BA%8C%E5%8F%89%E6%A0%91"><span class="toc-number">3.</span> <span class="toc-text">遍历线索化二叉树</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0-2"><span class="toc-number">3.1.</span> <span class="toc-text">代码实现</span></a></li></ol></li></ol>
+           </div>
+           <script type="text/javascript">
+            function showToc(){
+                var toc_article = document.getElementById("toc-article");
+                var show_toc_btn = document.getElementById("show-toc-btn");
+                toc_article.setAttribute("style","display:block");
+                show_toc_btn.setAttribute("style","display:none");
+                };
+            function showBtn(){
+                var toc_article = document.getElementById("toc-article");
+                var show_toc_btn = document.getElementById("show-toc-btn");
+                toc_article.setAttribute("style","display:none");
+                show_toc_btn.setAttribute("style","display:block");
+                };
+           </script>
+             
+        <!-- 目录内容结束 -->
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="顺序存储二叉树"><a href="#顺序存储二叉树" class="headerlink" title="顺序存储二叉树"></a>顺序存储二叉树</h2><h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><p>从数据存储来看，数组存储方式和树的存储方式可以相互转换，即数组可以转换成树，树也可以转换成数组。</p>
+<span id="more"></span>
 
-        <div class="article-info info-on-right">
-          
+<h3 id="要求"><a href="#要求" class="headerlink" title="要求"></a>要求</h3><p>图中的二叉树的结点，要求以数组的方式来存放 arr : [1, 2, 3, 4, 5, 6, 6]<br>要求在遍历数组 arr时，仍然可以以前序遍历，中序遍历和后序遍历的方式完成结点的遍历<br><img src="/2021/03/08/%E6%95%B0%E7%BB%93%E6%9E%84%E7%9A%84%E5%9F%BA%E7%A1%802/1.png"></p>
+<h3 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h3><ol>
+<li>顺序二叉树通常只考虑完全二叉树</li>
+<li>第n个元素的左子节点为  2 * n + 1 </li>
+<li>第n个元素的右子节点为  2 * n + 2</li>
+<li>第n个元素的父节点为  (n-1) / 2</li>
+<li>n : 表示二叉树中的第几个元素(按0开始编号）</li>
+</ol>
+<h3 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h3><pre><code>public class ArrBinaryTreeDemo &#123;
+    public static void main(String[] args) &#123;
+        int[] arr = &#123;1, 2, 3, 4, 5, 6, 7&#125;;
+        ArrBinaryTree arrBinaryTree = new ArrBinaryTree(arr);
+        arrBinaryTree.preOrder(0);
+    &#125;
+
+&#125;
+
+class ArrBinaryTree &#123;
+    private int[] arr;
+
+    public ArrBinaryTree(int[] arr) &#123;
+        this.arr = arr;
+    &#125;
+
+    //前序遍历顺序存储二叉树
+    public void preOrder(int index) &#123;
+        if (arr == null || arr.length == 0) &#123;
+            System.out.println(&quot;数组为空&quot;);
+            return;
+        &#125;
+        System.out.println(arr[index]);
+        //左递归遍历
+        if (index * 2 + 1 &lt; arr.length) &#123;
+            preOrder(index * 2 + 1);
+        &#125;
+        //右递归遍历
+        if (index * 2 + 2 &lt; arr.length) &#123;
+            preOrder(index * 2 + 2);
+        &#125;
+
+    &#125;
+&#125;
+</code></pre>
+<h2 id="线索化二叉树"><a href="#线索化二叉树" class="headerlink" title="线索化二叉树"></a>线索化二叉树</h2><h3 id="基本介绍"><a href="#基本介绍" class="headerlink" title="基本介绍"></a>基本介绍</h3><p>1、n个结点的二叉链表中含有n+1  【公式 2n-(n-1)=n+1】 个空指针域。利用二叉链表中的空指针域，存放指向该结点在某种遍历次序下的前驱和后继结点的指针（这种附加的指针称为”线索”）<br>2、这种加上了线索的二叉链表称为线索链表，相应的二叉树称为线索二叉树(Threaded BinaryTree)。根据线索性质的不同，线索二叉树可分为前序线索二叉树、中序线索二叉树和后序线索二叉树三种<br>3、一个结点的前一个结点，称为前驱结点<br>4、一个结点的后一个结点，称为后继结点</p>
+<h3 id="线索化案例"><a href="#线索化案例" class="headerlink" title="线索化案例"></a>线索化案例</h3><p>将下面的二叉树，变成中序线索二叉树。中序遍历的数列为{8, 3, 10, 1, 14, 6}<br><img src="/2021/03/08/%E6%95%B0%E7%BB%93%E6%9E%84%E7%9A%84%E5%9F%BA%E7%A1%802/2.jpg"><br>说明: 当线索化二叉树后，Node节点的 属性 left 和 right ，有如下情况:<br>left 指向的是左子树，也可能是指向的前驱节点. 比如 ① 节点 left 指向的左子树, 而 ⑩ 节点的 left 指向的就是前驱节点.<br>right指向的是右子树，也可能是指向后继节点，比如 ① 节点right 指向的是右子树，而⑩ 节点的right 指向的是后继节点.</p>
+<h3 id="代码实现-1"><a href="#代码实现-1" class="headerlink" title="代码实现"></a>代码实现</h3><p>注意理解线索化当前节点，处理前驱节点和处理后继节点的那部分代码</p>
+<pre><code>public class ThreadedBinaryTreeDemo &#123;
+    public static void main(String[] args) &#123;
+        GirlNode2 girlNode1 = new GirlNode2(1,&quot;陈瑶&quot;);
+        GirlNode2 girlNode2 = new GirlNode2(3,&quot;张予曦&quot;);
+        GirlNode2 girlNode3 = new GirlNode2(6,&quot;文咏珊&quot;);
+        GirlNode2 girlNode4 = new GirlNode2(8,&quot;宋轶&quot;);
+        GirlNode2 girlNode5 = new GirlNode2(10,&quot;哈妮克孜&quot;);
+        GirlNode2 girlNode6 = new GirlNode2(14,&quot;黄梦莹&quot;);
+
+        girlNode1.setLeft(girlNode2);
+        girlNode1.setRight(girlNode3);
+        girlNode2.setLeft(girlNode4);
+        girlNode2.setRight(girlNode5);
+        girlNode3.setLeft(girlNode6);
+
+        ThreadedBinaryTree threadedBinaryTree = new ThreadedBinaryTree();
+        threadedBinaryTree.setRoot(girlNode1);
+        threadedBinaryTree.threadedNodes();
+
+        //测试no为10的点的前驱和后继是否为3和1
+        GirlNode2 girlNode5Left = girlNode5.getLeft();
+        GirlNode2 girlNode5Right = girlNode5.getRight();
+        System.out.println(girlNode5Left);
+        System.out.println(girlNode5Right);
+
+    &#125;
+
+&#125;
+
+class ThreadedBinaryTree &#123;
+    private GirlNode2 root;
+
+    //为了实现线索化，需要创建指向当前节点的前驱节点的指针
+    //在线索化过程中，pre总是保留前一个节点
+    private GirlNode2 pre;
+
+    public void setRoot(GirlNode2 root) &#123;
+        this.root = root;
+    &#125;
+
+    //重载
+    public void threadedNodes() &#123;
+        this.threadedNodes(root);
+    &#125;
+
+    //线索化
+    public void threadedNodes(GirlNode2 node) &#123;
+        if (node == null) &#123;
+            return;
+        &#125;
+        //线索化左子树
+        threadedNodes(node.getLeft());
+
+        //线索化当前节点
+        //处理当前节点的前驱节点
+        if (node.getLeft() == null) &#123;
+            //将当前节点的左指针指向前驱节点
+            node.setLeft(pre);
+            //修改当前节点左指针的类型为1（前驱节点）
+            node.setLeftType(1);
+        &#125;
+        //处理后继节点
+        if (pre != null &amp;&amp; pre.getRight() == null) &#123;
+            pre.setRight(node);
+            pre.setRightType(1);
+        &#125;
+
+        //!!!每处理一个节点后，让当前节点是下一个节点的前驱节点
+        pre = node;
+
+        //线索化右子树
+        threadedNodes(node.getRight());
+    &#125;
+
+
+&#125;
+
+class GirlNode2 &#123;
+    private int no;
+    private String name;
+    private GirlNode2 left;
+    private GirlNode2 right;
+
+    //leftType == 0表示指向的是左子树，如果 == 1则表示指向前驱节点
+    //rightType == 0表示指向的是右子树，如果 == 1则表示指向后继节点
+    private int leftType;
+    private int rightType;
+
+    public int getLeftType() &#123;
+        return leftType;
+    &#125;
+
+    public void setLeftType(int leftType) &#123;
+        this.leftType = leftType;
+    &#125;
+
+    public int getRightType() &#123;
+        return rightType;
+    &#125;
+
+    public void setRightType(int rightType) &#123;
+        this.rightType = rightType;
+    &#125;
+
+    public GirlNode2(int no, String name) &#123;
+        this.no = no;
+        this.name = name;
+    &#125;
+
+    public int getNo() &#123;
+        return no;
+    &#125;
+
+    public void setNo(int no) &#123;
+        this.no = no;
+    &#125;
+
+    public String getName() &#123;
+        return name;
+    &#125;
+
+    public void setName(String name) &#123;
+        this.name = name;
+    &#125;
+
+    public GirlNode2 getLeft() &#123;
+        return left;
+    &#125;
+
+    public void setLeft(GirlNode2 left) &#123;
+        this.left = left;
+    &#125;
+
+    public GirlNode2 getRight() &#123;
+        return right;
+    &#125;
+
+    public void setRight(GirlNode2 right) &#123;
+        this.right = right;
+    &#125;
+
+    @Override
+    public String toString() &#123;
+        return &quot;HeroNode&#123;&quot; +
+                &quot;no=&quot; + no +
+                &quot;, name=&#39;&quot; + name + &#39;\&#39;&#39; +
+                &#39;&#125;&#39;;
+    &#125;
+
+    //删除节点
+    public void defNode(int no) &#123;
+        //如果当前节点的左子节点不为空，并且左子节点就是要删除的节点，则将this.left=null;并且返回（结束递归）
+        if (this.left != null &amp;&amp; this.left.no == no) &#123;
+            this.left = null;
+            return;
+        &#125;
+
+        //如果当前节点的右子节点不为空，并且右子节点就是要删除的节点，则将this.right=null;并且返回（结束递归
+        if (this.right != null &amp;&amp; this.right.no == no) &#123;
+            this.right = null;
+            return;
+        &#125;
+
+        //如果2、3布都没有删除节点，则需要向左子树递归删除
+        if (this.left != null) &#123;
+            this.left.defNode(no);
+        &#125;
+
+        //如果第4步也没有删除节点，需要向右子树递归删除
+        if (this.right != null) &#123;
+            this.right.defNode(no);
+        &#125;
+
+    &#125;
+
+    public void preOrder() &#123;
+        System.out.println(this);
+        if (this.left != null) &#123;
+            this.left.preOrder();
+        &#125;
+        if (this.right != null) &#123;
+            this.right.preOrder();
+        &#125;
+    &#125;
+&#125;
+</code></pre>
+<h2 id="遍历线索化二叉树"><a href="#遍历线索化二叉树" class="headerlink" title="遍历线索化二叉树"></a>遍历线索化二叉树</h2><p>因为线索化后，各个结点指向有变化，因此原来的遍历方式不能使用，这时需要使用新的方式遍历线索化二叉树，各个节点可以通过线型方式遍历，因此无需使用递归方式，这样也提高了遍历的效率。 遍历的次序应当和中序遍历保持一致。</p>
+<h3 id="代码实现-2"><a href="#代码实现-2" class="headerlink" title="代码实现"></a>代码实现</h3><pre><code>//遍历线索化二叉树
+public void threadedList() &#123;
+    GirlNode2 node = root;
+    while (node != null) &#123;
+        //先循环找到leftType为1的节点，为开始节点
+        while (node.getLeftType() != 1) &#123;
+            node = node.getLeft();
+        &#125;
+
+        System.out.println(node);
+        //当前节点的右指针指向的是后继节点就一直输出
+        while (node.getRightType() == 1) &#123;
+            node = node.getRight();
+            System.out.println(node);
+        &#125;
+
+        //替换这个遍历的节点
+        node = node.getRight();
+    &#125;
+&#125;
+</code></pre>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -197,312 +497,107 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2021/03/08/%E6%95%B0%E7%BB%93%E6%9E%84%E7%9A%84%E5%9F%BA%E7%A1%802/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/03/08/%E6%A0%91%E7%BB%93%E6%9E%84%E7%9A%84%E5%9F%BA%E7%A1%801/" class="archive-article-date">
-  	<time datetime="2021-03-08T04:48:31.092Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-08</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2021/03/08/%E6%A0%91%E7%BB%93%E6%9E%84%E7%9A%84%E5%9F%BA%E7%A1%801/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">树结构的基础1</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/03/08/%E6%A0%91%E7%BB%93%E6%9E%84%E7%9A%84%E5%9F%BA%E7%A1%801/">树结构的基础1</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/03/07/HTTP%E5%8D%8F%E8%AE%AE/" class="archive-article-date">
-  	<time datetime="2021-03-07T09:59:56.612Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-07</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/03/07/HTTP%E5%8D%8F%E8%AE%AE/">HTTP协议</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">JavaWeb</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/03/07/ServletConfig%E7%B1%BB%E5%92%8CServletContext%E7%B1%BB/" class="archive-article-date">
-  	<time datetime="2021-03-07T09:57:28.108Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-07</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/03/07/ServletConfig%E7%B1%BB%E5%92%8CServletContext%E7%B1%BB/">ServletConfig类和ServletContext类</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">JavaWeb</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/03/07/Servlet/" class="archive-article-date">
-  	<time datetime="2021-03-07T09:20:25.524Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-07</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/03/07/Servlet/">Servlet</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">JavaWeb</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/03/07/%E5%93%88%E5%B8%8C%E8%A1%A8/" class="archive-article-date">
-  	<time datetime="2021-03-07T06:48:59.386Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-07</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/03/07/%E5%93%88%E5%B8%8C%E8%A1%A8/">哈希表</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/03/06/HttpServletRequest%E7%B1%BB%E5%92%8CHttpServletResponse%E7%B1%BB/" class="archive-article-date">
-  	<time datetime="2021-03-06T15:12:33.911Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-06</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/03/06/HttpServletRequest%E7%B1%BB%E5%92%8CHttpServletResponse%E7%B1%BB/">HttpServletRequest类和HttpServletResponse类</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">JavaWeb</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/03/03/%E4%B8%83%E5%A4%A7%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/" class="archive-article-date">
-  	<time datetime="2021-03-03T10:36:26.683Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-03</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/03/03/%E4%B8%83%E5%A4%A7%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/">七大排序算法</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/03/03/hello-world/" class="archive-article-date">
-  	<time datetime="2021-03-03T08:39:31.743Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-03</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/03/03/hello-world/">Hello World</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -525,8 +620,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

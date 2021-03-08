@@ -16,7 +16,7 @@
 <meta property="og:description" content="二叉树为什么需要树结构数组存储方式的分析优点：通过下标方式访问元素，速度快。对于有序数组，还可使用二分查找提高检索速度。缺点：如果要检索具体某个值，或者插入值(按一定顺序)会整体移动，效率较低。 链式存储方式的分析优点：在一定程度上对数组存储方式有优化(比如：插入一个数值节点，只需要将插入节点，链接到链表中即可， 删除效率也很好)。缺点：在进行检索时，效率仍然较低，比如(检索某个值，需要从头节点开">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-03-08T04:48:31.092Z">
-<meta property="article:modified_time" content="2021-03-08T07:31:42.826Z">
+<meta property="article:modified_time" content="2021-03-08T09:51:17.461Z">
 <meta property="article:author" content="zllhard">
 <meta property="article:tag" content="数据结构">
 <meta name="twitter:card" content="summary">
@@ -198,7 +198,7 @@
             <div id="toc-article" class="toc-article">
                 <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
                 <strong class="toc-title">文章目录</strong>
-                <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E5%8F%89%E6%A0%91"><span class="toc-number">1.</span> <span class="toc-text">二叉树</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E9%9C%80%E8%A6%81%E6%A0%91%E7%BB%93%E6%9E%84"><span class="toc-number">1.1.</span> <span class="toc-text">为什么需要树结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%A6%82%E5%BF%B5"><span class="toc-number">1.2.</span> <span class="toc-text">二叉树的概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%89%8D%E5%BA%8F%E9%81%8D%E5%8E%86"><span class="toc-number">1.3.</span> <span class="toc-text">前序遍历</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%AD%E5%BA%8F%E9%81%8D%E5%8E%86"><span class="toc-number">1.4.</span> <span class="toc-text">中序遍历</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%8E%E5%BA%8F%E9%81%8D%E5%8E%86"><span class="toc-number">1.5.</span> <span class="toc-text">后序遍历</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%89%E7%A7%8D%E9%81%8D%E5%8E%86%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0"><span class="toc-number">1.6.</span> <span class="toc-text">三种遍历代码实现</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%89%8D%E5%BA%8F%E6%9F%A5%E6%89%BE"><span class="toc-number">1.7.</span> <span class="toc-text">前序查找</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%AD%E5%BA%8F%E6%9F%A5%E6%89%BE"><span class="toc-number">1.8.</span> <span class="toc-text">中序查找</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%8E%E5%BA%8F%E6%9F%A5%E6%89%BE"><span class="toc-number">1.9.</span> <span class="toc-text">后序查找</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%89%E7%A7%8D%E6%9F%A5%E6%89%BE%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0"><span class="toc-number">1.10.</span> <span class="toc-text">三种查找代码实现</span></a></li></ol></li></ol>
+                <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E5%8F%89%E6%A0%91"><span class="toc-number">1.</span> <span class="toc-text">二叉树</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E9%9C%80%E8%A6%81%E6%A0%91%E7%BB%93%E6%9E%84"><span class="toc-number">1.1.</span> <span class="toc-text">为什么需要树结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%A6%82%E5%BF%B5"><span class="toc-number">1.2.</span> <span class="toc-text">二叉树的概念</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E7%A7%8D%E9%81%8D%E5%8E%86"><span class="toc-number">2.</span> <span class="toc-text">三种遍历</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%89%8D%E5%BA%8F%E9%81%8D%E5%8E%86"><span class="toc-number">2.1.</span> <span class="toc-text">前序遍历</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%AD%E5%BA%8F%E9%81%8D%E5%8E%86"><span class="toc-number">2.2.</span> <span class="toc-text">中序遍历</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%8E%E5%BA%8F%E9%81%8D%E5%8E%86"><span class="toc-number">2.3.</span> <span class="toc-text">后序遍历</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0"><span class="toc-number">2.4.</span> <span class="toc-text">代码实现</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E7%A7%8D%E6%9F%A5%E6%89%BE"><span class="toc-number">3.</span> <span class="toc-text">三种查找</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%89%8D%E5%BA%8F%E6%9F%A5%E6%89%BE"><span class="toc-number">3.1.</span> <span class="toc-text">前序查找</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%AD%E5%BA%8F%E6%9F%A5%E6%89%BE"><span class="toc-number">3.2.</span> <span class="toc-text">中序查找</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%8E%E5%BA%8F%E6%9F%A5%E6%89%BE"><span class="toc-number">3.3.</span> <span class="toc-text">后序查找</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0-1"><span class="toc-number">3.4.</span> <span class="toc-text">代码实现</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E5%8F%89%E6%A0%91%E5%88%A0%E9%99%A4%E8%8A%82%E7%82%B9"><span class="toc-number">4.</span> <span class="toc-text">二叉树删除节点</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF%E5%88%86%E6%9E%90"><span class="toc-number">4.1.</span> <span class="toc-text">思路分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0-2"><span class="toc-number">4.2.</span> <span class="toc-text">代码实现</span></a></li></ol></li></ol>
            </div>
            <script type="text/javascript">
             function showToc(){
@@ -225,13 +225,13 @@
 
 
 <h3 id="二叉树的概念"><a href="#二叉树的概念" class="headerlink" title="二叉树的概念"></a>二叉树的概念</h3><p>1、树有很多种，每个节点最多只能有两个子节点的一种形式称为二叉树。<br>2、二叉树的子节点分为左节点和右节点。<br>3、如果该二叉树的所有叶子节点都在最后一层，并且结点总数= 2^n -1 , n 为层数，则我们称为满二叉树。<br>4、如果该二叉树的所有叶子节点都在最后一层或者倒数第二层，而且最后一层的叶子节点在左边连续，倒数第二层的叶子节点在右边连续，我们称为完全二叉树。</p>
-<h3 id="前序遍历"><a href="#前序遍历" class="headerlink" title="前序遍历"></a>前序遍历</h3><p>先输出父节点，再遍历左子树和右子树</p>
+<h2 id="三种遍历"><a href="#三种遍历" class="headerlink" title="三种遍历"></a>三种遍历</h2><h3 id="前序遍历"><a href="#前序遍历" class="headerlink" title="前序遍历"></a>前序遍历</h3><p>先输出父节点，再遍历左子树和右子树</p>
 <p>先输出当前节点（初始的时候是root节点）<br>如果左子节点不为空，则递归前序遍历<br>如果右子节点不为空，则递归前序遍历</p>
 <h3 id="中序遍历"><a href="#中序遍历" class="headerlink" title="中序遍历"></a>中序遍历</h3><p>先遍历左子树，再输出父节点，再遍历右子树</p>
 <p>如果当前节点的左子节点不为空，则递归中序遍历<br>输出当前节点<br>如果当前节点的右子节点不为空，则递归中序遍历</p>
 <h3 id="后序遍历"><a href="#后序遍历" class="headerlink" title="后序遍历"></a>后序遍历</h3><p>先遍历左子树，再遍历右子树，最后输出父节点</p>
 <p>如果当前节点的左子节点不为空，则递归后序遍历<br>如果当前节点的右子节点不为空，则递归后序遍历<br>输出当前节点</p>
-<h3 id="三种遍历代码实现"><a href="#三种遍历代码实现" class="headerlink" title="三种遍历代码实现"></a>三种遍历代码实现</h3><pre><code>public class BinaryTreeDemo &#123;
+<h3 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h3><pre><code>public class BinaryTreeDemo &#123;
     public static void main(String[] args) &#123;
         BinaryTree binaryTree = new BinaryTree();
         GirlNode girlNode1 = new GirlNode(1,&quot;陈瑶&quot;);
@@ -379,10 +379,10 @@ class GirlNode &#123;
 
 &#125;
 </code></pre>
-<h3 id="前序查找"><a href="#前序查找" class="headerlink" title="前序查找"></a>前序查找</h3><p>1、先判断当前节点的no是否等于要查找的，如果相等，则返回当前节点<br>2、如果不等，则判断当前节点的左子节点是否为空，如果不为空，则递归前序查找<br>3、如果左递归前序查找找到节点，则返回，反之继续判断当前节点的右子节点是否为空，如果不为空，则继续向右递归查找</p>
+<h2 id="三种查找"><a href="#三种查找" class="headerlink" title="三种查找"></a>三种查找</h2><h3 id="前序查找"><a href="#前序查找" class="headerlink" title="前序查找"></a>前序查找</h3><p>1、先判断当前节点的no是否等于要查找的，如果相等，则返回当前节点<br>2、如果不等，则判断当前节点的左子节点是否为空，如果不为空，则递归前序查找<br>3、如果左递归前序查找找到节点，则返回，反之继续判断当前节点的右子节点是否为空，如果不为空，则继续向右递归查找</p>
 <h3 id="中序查找"><a href="#中序查找" class="headerlink" title="中序查找"></a>中序查找</h3><p>1、判断当前节点的左子节点是否为空，如果不为空，则递归中序查找，如果找到，则返回<br>2、如果没有找到，就和当前节点比较，如果找到则返回当前节点<br>3、没有找到继续向右递归中序查找，如果找到就返回，没有找到返回null</p>
 <h3 id="后序查找"><a href="#后序查找" class="headerlink" title="后序查找"></a>后序查找</h3><p>1、判断当前节点的左子节点是否为空，如果不为空，则递归后序查找<br>2、如果找到就返回，没有找到就判断当前节点的右子节点是否为空，如果不为空，则右递归后序查找，如果找到就返回<br>3、和当前节点比较，如果是则返回，不是返回null</p>
-<h3 id="三种查找代码实现"><a href="#三种查找代码实现" class="headerlink" title="三种查找代码实现"></a>三种查找代码实现</h3><pre><code>public class BinaryTreeDemo &#123;
+<h3 id="代码实现-1"><a href="#代码实现-1" class="headerlink" title="代码实现"></a>代码实现</h3><pre><code>public class BinaryTreeDemo &#123;
     public static void main(String[] args) &#123;
         BinaryTree binaryTree = new BinaryTree();
         GirlNode girlNode1 = new GirlNode(1,&quot;陈瑶&quot;);
@@ -566,6 +566,157 @@ class GirlNode &#123;
     &#125;
 &#125;
 </code></pre>
+<h2 id="二叉树删除节点"><a href="#二叉树删除节点" class="headerlink" title="二叉树删除节点"></a>二叉树删除节点</h2><p><strong>规定</strong></p>
+<ol>
+<li>如果删除的是叶子节点，则删除该节点</li>
+<li>如果删除的是非叶子节点，则删除该子树</li>
+</ol>
+<h3 id="思路分析"><a href="#思路分析" class="headerlink" title="思路分析"></a>思路分析</h3><p>首先要考虑树是空树即root为null和只有一个root节点，则等价将二叉树置空。</p>
+<p>然后考虑接下来这几步<br>1、因为我们的二叉树是单向的，所以我们判断当前节点的子节点是否是需要删除的节点，而不是判断当前节点是否是需要删除的节点。<br>2、如果当前节点的左子节点不为空，并且左子节点就是要删除的节点，则将this.left=null;并且返回（结束递归）<br>3、如果当前节点的右子节点不为空，并且右子节点就是要删除的节点，则将this.right=null;并且返回（结束递归）<br>4、如果2、3布都没有删除节点，则需要向左子树递归删除<br>5、如果第4步也没有删除节点，需要向右子树递归删除</p>
+<h3 id="代码实现-2"><a href="#代码实现-2" class="headerlink" title="代码实现"></a>代码实现</h3><pre><code>public class BinaryTreeDemo &#123;
+    public static void main(String[] args) &#123;
+        BinaryTree binaryTree = new BinaryTree();
+        GirlNode girlNode1 = new GirlNode(1,&quot;陈瑶&quot;);
+        GirlNode girlNode2 = new GirlNode(2,&quot;张予曦&quot;);
+        GirlNode girlNode3 = new GirlNode(3,&quot;文咏珊&quot;);
+        GirlNode girlNode4 = new GirlNode(4,&quot;宋轶&quot;);
+
+        //手动创建二叉树
+        binaryTree.setRoot(girlNode1);
+        girlNode1.setLeft(girlNode2);
+        girlNode1.setRight(girlNode3);
+        girlNode3.setRight(girlNode4);
+
+        //测试
+        binaryTree.preOrder();
+        binaryTree.defNode(4);
+        System.out.println(&quot;删除后~&quot;);
+        binaryTree.preOrder();
+
+
+    &#125;
+&#125;
+
+//定义一棵二叉树
+class BinaryTree &#123;
+    private GirlNode root;
+
+    public void setRoot(GirlNode root) &#123;
+        this.root = root;
+    &#125;
+
+    public void preOrder() &#123;
+        if (root != null) &#123;
+            root.preOrder();
+        &#125; else &#123;
+            System.out.println(&quot;二叉树为空，无法遍历&quot;);
+        &#125;
+    &#125;
+
+    public void defNode(int no) &#123;
+        //首先要考虑树是空树即root为null和只有一个root节点，则等价将二叉树置空。
+        if (root != null) &#123;
+            if (root.getNo() == no) &#123;
+                root = null;
+                return;
+            &#125;
+            root.defNode(no);
+        &#125; else &#123;
+            System.out.println(&quot;空树，无法删除&quot;);
+        &#125;
+
+    &#125;
+
+&#125;
+
+class GirlNode &#123;
+    private int no;
+    private String name;
+    private GirlNode left;
+    private GirlNode right;
+
+    public GirlNode(int no, String name) &#123;
+        this.no = no;
+        this.name = name;
+    &#125;
+
+    public int getNo() &#123;
+        return no;
+    &#125;
+
+    public void setNo(int no) &#123;
+        this.no = no;
+    &#125;
+
+    public String getName() &#123;
+        return name;
+    &#125;
+
+    public void setName(String name) &#123;
+        this.name = name;
+    &#125;
+
+    public GirlNode getLeft() &#123;
+        return left;
+    &#125;
+
+    public void setLeft(GirlNode left) &#123;
+        this.left = left;
+    &#125;
+
+    public GirlNode getRight() &#123;
+        return right;
+    &#125;
+
+    public void setRight(GirlNode right) &#123;
+        this.right = right;
+    &#125;
+
+    @Override
+    public String toString() &#123;
+        return &quot;HeroNode&#123;&quot; +
+                &quot;no=&quot; + no +
+                &quot;, name=&#39;&quot; + name + &#39;\&#39;&#39; +
+                &#39;&#125;&#39;;
+    &#125;
+
+    //删除节点
+    public void defNode(int no) &#123;
+        //如果当前节点的左子节点不为空，并且左子节点就是要删除的节点，则将this.left=null;并且返回（结束递归）
+        if (this.left != null &amp;&amp; this.left.no == no) &#123;
+            this.left = null;
+            return;
+        &#125;
+
+        //如果当前节点的右子节点不为空，并且右子节点就是要删除的节点，则将this.right=null;并且返回（结束递归
+        if (this.right != null &amp;&amp; this.right.no == no) &#123;
+            this.right = null;
+            return;
+        &#125;
+
+        //如果2、3布都没有删除节点，则需要向左子树递归删除
+        if (this.left != null) &#123;
+            this.left.defNode(no);
+        &#125;
+
+        //如果第4步也没有删除节点，需要向右子树递归删除
+        if (this.right != null) &#123;
+            this.right.defNode(no);
+        &#125;
+
+    &#125;
+
+    public void preOrder() &#123;
+        System.out.println(this);
+        if (this.left != null) &#123;
+            this.left.preOrder();
+        &#125;
+        if (this.right != null) &#123;
+            this.right.preOrder();
+        &#125;
+    &#125;
+&#125;
+</code></pre>
 
       
 
@@ -648,6 +799,15 @@ class GirlNode &#123;
 
   
 <nav id="article-nav">
+  
+    <a href="/2021/03/08/%E6%95%B0%E7%BB%93%E6%9E%84%E7%9A%84%E5%9F%BA%E7%A1%802/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          树结构的基础2
+        
+      </div>
+    </a>
   
   
     <a href="/2021/03/07/HTTP%E5%8D%8F%E8%AE%AE/" id="article-nav-older" class="article-nav-link-wrap">
