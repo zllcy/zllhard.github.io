@@ -6,15 +6,24 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Archives | Welcome To Study</title>
+  <title>jsp | Welcome To Study</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Welcome To Study">
-<meta property="og:url" content="http://example.com/archives/index.html">
+  <meta name="description" content="jsp简介jsp 的全称是 java server pages。Java 的服务器页面。jsp 的主要作用是代替 Servlet 程序回传 html 页面的数据。因为 Servlet 程序回传 html 页面数据是一件非常繁锁的事情。开发成本和维护成本都极高。 jsp 的本质jsp 页面本质上是一个 Servlet 程序。HttpJspBase 类。它直接地继承了 HttpServlet 类，js">
+<meta property="og:type" content="article">
+<meta property="og:title" content="jsp">
+<meta property="og:url" content="http://example.com/2021/03/11/jsp/index.html">
 <meta property="og:site_name" content="Welcome To Study">
+<meta property="og:description" content="jsp简介jsp 的全称是 java server pages。Java 的服务器页面。jsp 的主要作用是代替 Servlet 程序回传 html 页面的数据。因为 Servlet 程序回传 html 页面数据是一件非常繁锁的事情。开发成本和维护成本都极高。 jsp 的本质jsp 页面本质上是一个 Servlet 程序。HttpJspBase 类。它直接地继承了 HttpServlet 类，js">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/2021/03/11/jsp/1.jpg">
+<meta property="og:image" content="http://example.com/2021/03/11/jsp/2.jpg">
+<meta property="og:image" content="http://example.com/2021/03/11/jsp/3.jpg">
+<meta property="article:published_time" content="2021-03-11T08:10:32.371Z">
+<meta property="article:modified_time" content="2021-03-11T14:48:58.754Z">
 <meta property="article:author" content="zllhard">
+<meta property="article:tag" content="JavaWeb">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2021/03/11/jsp/1.jpg">
   
     <link rel="alternative" href="/atom.xml" title="Welcome To Study" type="application/atom+xml">
   
@@ -156,36 +165,102 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-jsp" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      jsp
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2021" class="archive-year">2021</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/03/11/jsp/" class="archive-article-date">
+
+		<!--显示阅读次数-->
+		
+		  <br/>
+		  <a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;">
+		  <span class="icon-sort"></span>
+		  <span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
+					阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
+		  </span>
+		  </a>
+		
+        
+        <a href="/2021/03/11/jsp/" class="archive-article-date">
   	<time datetime="2021-03-11T08:10:32.371Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-11</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/03/11/jsp/">jsp</a>
-    </h1>
-  
+        
+      </header>
+    
+	<!-- 目录内容 -->
+        
+            <p class="show-toc-btn" id="show-toc-btn" onclick="showToc();" style="display:none">
+            <span class="btn-bg"></span>
+            <span class="btn-text">文章导航</span>
+            </p>
+            <div id="toc-article" class="toc-article">
+                <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
+                <strong class="toc-title">文章目录</strong>
+                <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#jsp%E7%AE%80%E4%BB%8B"><span class="toc-number">1.</span> <span class="toc-text">jsp简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#jsp-%E7%9A%84%E6%9C%AC%E8%B4%A8"><span class="toc-number">2.</span> <span class="toc-text">jsp 的本质</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#jsp-%E7%9A%84%E4%B8%89%E7%A7%8D%E8%AF%AD%E6%B3%95"><span class="toc-number">3.</span> <span class="toc-text">jsp 的三种语法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#jsp-%E5%A4%B4%E9%83%A8%E7%9A%84-page-%E6%8C%87%E4%BB%A4"><span class="toc-number">3.1.</span> <span class="toc-text">jsp 头部的 page 指令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#jsp-%E4%B8%AD%E7%9A%84%E5%B8%B8%E7%94%A8%E8%84%9A%E6%9C%AC"><span class="toc-number">3.2.</span> <span class="toc-text">jsp 中的常用脚本</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A3%B0%E6%98%8E%E8%84%9A%E6%9C%AC"><span class="toc-number">3.2.1.</span> <span class="toc-text">声明脚本</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%A1%A8%E8%BE%BE%E5%BC%8F%E8%84%9A%E6%9C%AC"><span class="toc-number">3.2.2.</span> <span class="toc-text">表达式脚本</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E8%84%9A%E6%9C%AC"><span class="toc-number">3.2.3.</span> <span class="toc-text">代码脚本</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#jsp-%E4%B8%AD%E7%9A%84%E4%B8%89%E7%A7%8D%E6%B3%A8%E9%87%8A"><span class="toc-number">4.</span> <span class="toc-text">jsp 中的三种注释</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#html-%E6%B3%A8%E9%87%8A"><span class="toc-number">4.1.</span> <span class="toc-text">html 注释</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#java-%E6%B3%A8%E9%87%8A"><span class="toc-number">4.2.</span> <span class="toc-text">java 注释</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#jsp-%E6%B3%A8%E9%87%8A"><span class="toc-number">4.3.</span> <span class="toc-text">jsp 注释</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#jsp-%E4%B9%9D%E5%A4%A7%E5%86%85%E7%BD%AE%E5%AF%B9%E8%B1%A1"><span class="toc-number">5.</span> <span class="toc-text">jsp 九大内置对象</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#jsp-%E5%9B%9B%E5%A4%A7%E5%9F%9F%E5%AF%B9%E8%B1%A1"><span class="toc-number">6.</span> <span class="toc-text">jsp 四大域对象</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#jsp-%E4%B8%AD%E7%9A%84-out-%E8%BE%93%E5%87%BA%E5%92%8C-response-getWriter-%E8%BE%93%E5%87%BA%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-number">7.</span> <span class="toc-text">jsp 中的 out 输出和 response.getWriter 输出的区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#jsp-%E7%9A%84%E5%B8%B8%E7%94%A8%E6%A0%87%E7%AD%BE"><span class="toc-number">8.</span> <span class="toc-text">jsp 的常用标签</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#jsp-%E9%9D%99%E6%80%81%E5%8C%85%E5%90%AB"><span class="toc-number">8.1.</span> <span class="toc-text">jsp 静态包含</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#jsp-%E5%8A%A8%E6%80%81%E5%8C%85%E5%90%AB"><span class="toc-number">8.2.</span> <span class="toc-text">jsp 动态包含</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#jsp-%E8%AF%B7%E6%B1%82%E8%BD%AC%E5%8F%91"><span class="toc-number">8.3.</span> <span class="toc-text">jsp 请求转发</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Listener-%E7%9B%91%E5%90%AC%E5%99%A8"><span class="toc-number">9.</span> <span class="toc-text">Listener 监听器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ServletContextListener-%E7%9B%91%E5%90%AC%E5%99%A8"><span class="toc-number">9.1.</span> <span class="toc-text">ServletContextListener 监听器</span></a></li></ol></li></ol>
+           </div>
+           <script type="text/javascript">
+            function showToc(){
+                var toc_article = document.getElementById("toc-article");
+                var show_toc_btn = document.getElementById("show-toc-btn");
+                toc_article.setAttribute("style","display:block");
+                show_toc_btn.setAttribute("style","display:none");
+                };
+            function showBtn(){
+                var toc_article = document.getElementById("toc-article");
+                var show_toc_btn = document.getElementById("show-toc-btn");
+                toc_article.setAttribute("style","display:none");
+                show_toc_btn.setAttribute("style","display:block");
+                };
+           </script>
+             
+        <!-- 目录内容结束 -->
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="jsp简介"><a href="#jsp简介" class="headerlink" title="jsp简介"></a>jsp简介</h2><p>jsp 的全称是 java server pages。Java 的服务器页面。<br>jsp 的主要作用是代替 Servlet 程序回传 html 页面的数据。<br>因为 Servlet 程序回传 html 页面数据是一件非常繁锁的事情。开发成本和维护成本都极高。</p>
+<h2 id="jsp-的本质"><a href="#jsp-的本质" class="headerlink" title="jsp 的本质"></a>jsp 的本质</h2><p>jsp 页面本质上是一个 Servlet 程序。<br>HttpJspBase 类。它直接地继承了 HttpServlet 类，jsp 翻译出来的 java 类，它间接了继<br>承了 HttpServlet 类。<br>其底层实现，也是通过输出流。把 html 页面数据回传给客户端。</p>
+<h2 id="jsp-的三种语法"><a href="#jsp-的三种语法" class="headerlink" title="jsp 的三种语法"></a>jsp 的三种语法</h2><h3 id="jsp-头部的-page-指令"><a href="#jsp-头部的-page-指令" class="headerlink" title="jsp 头部的 page 指令"></a>jsp 头部的 page 指令</h3><p>jsp 的 page 指令可以修改 jsp 页面中一些重要的属性，或者行为。<br>language 属性 &emsp;&emsp;表示 jsp 翻译后是什么语言文件。暂时只支持 java。<br>contentType 属性 &emsp;&emsp;表示 jsp 返回的数据类型是什么。也是源码中 response.setContentType()参数值<br>pageEncoding 属性 &emsp;&emsp;表示当前 jsp 页面文件本身的字符集。<br>import 属性 &emsp;&emsp;跟 java 源代码中一样。用于导包，导类。<br>autoFlush 属性 &emsp;&emsp;设置当 out 输出流缓冲区满了之后，是否自动刷新冲级区。默认值是 true。<br>buffer 属性 &emsp;&emsp;设置 out 缓冲区的大小。默认是8kb。<br>errorPage 属性 &emsp;&emsp;设置当 jsp 页面运行时出错，自动跳转去的错误页面路径。<br>isErrorPage 属性  &emsp;&emsp;设置当前 jsp 页面是否是错误信息页面。默认是 false。如果是 true 可以<br>获取异常信息。<br>session 属性  &emsp;&emsp;设置访问当前 jsp 页面，是否会创建 HttpSession 对象。默认是 true。<br>extends 属性  &emsp;&emsp;设置 jsp 翻译出来的 java 类默认继承谁。</p>
+<h3 id="jsp-中的常用脚本"><a href="#jsp-中的常用脚本" class="headerlink" title="jsp 中的常用脚本"></a>jsp 中的常用脚本</h3><h4 id="声明脚本"><a href="#声明脚本" class="headerlink" title="声明脚本"></a>声明脚本</h4><p>声明脚本的格式是： &lt;%! 声明 java 代码 %&gt;<br>作用：可以给 jsp 翻译出来的 java 类定义属性和方法甚至是静态代码块。内部类等。</p>
+<h4 id="表达式脚本"><a href="#表达式脚本" class="headerlink" title="表达式脚本"></a>表达式脚本</h4><p>表达式脚本的格式是：&lt;%=表达式%&gt;<br>表达式脚本的作用是：的 jsp 页面上输出数据。<br>表达式脚本的特点：<br>1、所有的表达式脚本都会被翻译到_jspService() 方法中。<br>2、表达式脚本都会被翻译成为 out.print()输出到页面上。<br>3、由于表达式脚本翻译的内容都在_jspService() 方法中,所以_jspService()方法中的对象都可以直接使用。<br>4、表达式脚本中的表达式不能以分号结束。</p>
+<h4 id="代码脚本"><a href="#代码脚本" class="headerlink" title="代码脚本"></a>代码脚本</h4><p>代码脚本的格式是：<br>&lt;%<br>java 语句<br>%&gt;<br>代码脚本的作用是：可以在 jsp 页面中，编写我们自己需要的功能（写的是 java 语句）。<br>代码脚本的特点是：<br>1、代码脚本翻译之后都在_jspService 方法中。<br>2、代码脚本由于翻译到_jspService()方法中，所以在_jspService()方法中的现有对象都可以直接使用。<br>3、还可以由多个代码脚本块组合完成一个完整的 java 语句。<br>4、代码脚本还可以和表达式脚本一起组合使用，在 jsp 页面上输出数据。</p>
+<h2 id="jsp-中的三种注释"><a href="#jsp-中的三种注释" class="headerlink" title="jsp 中的三种注释"></a>jsp 中的三种注释</h2><h3 id="html-注释"><a href="#html-注释" class="headerlink" title="html 注释"></a>html 注释</h3><pre><code>&lt;!-- 这是 html 注释 --&gt;
+</code></pre>
+<p>html 注释会被翻译到 java 源代码中。在_jspService 方法里，以 out.writer 输出到客户端。</p>
+<h3 id="java-注释"><a href="#java-注释" class="headerlink" title="java 注释"></a>java 注释</h3><pre><code>&lt;%
+// 单行 java 注释
+/* 多行 java 注释 */
+%&gt;
+</code></pre>
+<p>java 注释会被翻译到 java 源代码中。</p>
+<h3 id="jsp-注释"><a href="#jsp-注释" class="headerlink" title="jsp 注释"></a>jsp 注释</h3><pre><code>&lt;%-- 这是 jsp 注释 --%&gt;
+</code></pre>
+<p>jsp 注释可以注掉，jsp 页面中所有代码</p>
+<h2 id="jsp-九大内置对象"><a href="#jsp-九大内置对象" class="headerlink" title="jsp 九大内置对象"></a>jsp 九大内置对象</h2><p>jsp 中的内置对象，是指 Tomcat 在翻译 jsp 页面成为 Servlet 源代码后，内部提供的九大对象，叫内置对象。<br><img src="/2021/03/11/jsp/1.jpg"></p>
+<h2 id="jsp-四大域对象"><a href="#jsp-四大域对象" class="headerlink" title="jsp 四大域对象"></a>jsp 四大域对象</h2><p><img src="/2021/03/11/jsp/2.jpg"><br>域对象是可以像 Map 一样存取数据的对象。四个域对象功能一样。不同的是它们对数据的存取范围。<br>虽然四个域对象都可以存取数据。在使用上它们是有优先顺序的。<br>四个域在使用的时候，优先顺序分别是，他们从小到大的范围的顺序。<br>pageContext ====&gt;&gt;&gt; request ====&gt;&gt;&gt; session ====&gt;&gt;&gt; application</p>
+<h2 id="jsp-中的-out-输出和-response-getWriter-输出的区别"><a href="#jsp-中的-out-输出和-response-getWriter-输出的区别" class="headerlink" title="jsp 中的 out 输出和 response.getWriter 输出的区别"></a>jsp 中的 out 输出和 response.getWriter 输出的区别</h2><p>response 中表示响应，我们经常用于设置返回给客户端的内容（输出）<br>out 也是给用户做输出使用的。</p>
+<p>当jsp页面中的所有代码执行完毕后，会做以下两个操作：<br>1、执行out.flush()操作，会把out缓冲区中的数据，追加写到response缓冲区末尾。<br>2、会执行response刷新操作，把全部数据写给客户端。</p>
+<p>由于 jsp 翻译之后，底层源代码都是使用 out 来进行输出，所以一般情况下。我们在 jsp 页面中统一使用 out 来进行输出。避免打乱页面输出内容的顺序。<br>out.write() 输出字符串没有问题<br>out.print() 输出任意数据都没有问题（都转换成为字符串后调用的 write 输出）<br>在 jsp 页面中，可以统一使用 out.print()来进行输出。</p>
+<h2 id="jsp-的常用标签"><a href="#jsp-的常用标签" class="headerlink" title="jsp 的常用标签"></a>jsp 的常用标签</h2><h3 id="jsp-静态包含"><a href="#jsp-静态包含" class="headerlink" title="jsp 静态包含"></a>jsp 静态包含</h3><p>&lt;%@ include file=””%&gt; 就是静态包含<br>file 属性指定你要包含的 jsp 页面的路径<br>地址中第一个斜杠 / 表示为 <a href="http://ip:port/工程路径/">http://ip:port/工程路径/</a> 映射到代码的 web 目录<br>静态包含的特点：<br>1、静态包含不会翻译被包含的 jsp 页面。<br>2、静态包含其实是把被包含的 jsp 页面的代码拷贝到包含的位置执行输出。</p>
+<h3 id="jsp-动态包含"><a href="#jsp-动态包含" class="headerlink" title="jsp 动态包含"></a>jsp 动态包含</h3><p>&lt;jsp:include page=””&gt; 这是动态包含<br>page 属性是指定你要包含的 jsp 页面的路径<br>动态包含也可以像静态包含一样。把被包含的内容执行输出到包含位置<br>动态包含的特点：<br>1、动态包含会把包含的 jsp 页面也翻译成为 java 代码<br>2、动态包含底层代码使用如下代码去调用被包含的 jsp 页面执行输出。<br>JspRuntimeLibrary.include(request, response, “/include/footer.jsp”, out, false);<br>3、动态包含，还可以传递参数</p>
+<p>动态包含底层实现原理：<br><img src="/2021/03/11/jsp/3.jpg"></p>
+<h3 id="jsp-请求转发"><a href="#jsp-请求转发" class="headerlink" title="jsp 请求转发"></a>jsp 请求转发</h3><p>&lt;jsp:forward page=””&gt; 是请求转发标签，它的功能就是请求转发。<br>page 属性设置请求转发的路径</p>
+<h2 id="Listener-监听器"><a href="#Listener-监听器" class="headerlink" title="Listener 监听器"></a>Listener 监听器</h2><p>1、Listener 监听器它是 JavaWeb 的三大组件之一。JavaWeb 的三大组件分别是：Servlet 程序、Filter 过滤器、Listener 监听器。<br>2、Listener 它是 JavaEE 的规范，就是接口<br>3、监听器的作用是，监听某种事物的变化。然后通过回调函数，反馈给客户（程序）去做一些相应的处理。</p>
+<h3 id="ServletContextListener-监听器"><a href="#ServletContextListener-监听器" class="headerlink" title="ServletContextListener 监听器"></a>ServletContextListener 监听器</h3><p>ServletContextListener 它可以监听 ServletContext 对象的创建和销毁。<br>ServletContext 对象在 web 工程启动的时候创建，在 web 工程停止的时候销毁。<br>监听到创建和销毁之后都会分别调用 ServletContextListener 监听器的方法反馈。</p>
+<p><strong>两个方法：</strong><br>public void contextInitialized(ServletContextEvent sce);在 ServletContext 对象创建之后马上调用，做初始化。<br>public void contextDestroyed(ServletContextEvent sce);在 ServletContext 对象销毁之后调用。</p>
+<p><strong>如何使用 ServletContextListener 监听器监听 ServletContext 对象？</strong><br>1、编写一个类去实现 ServletContextListener<br>2、实现其两个回调方法<br>3、到 web.xml 中去配置监听器</p>
 
-        <div class="article-info info-on-right">
-          
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -197,365 +272,107 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2021/03/11/jsp/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/03/10/CSS/" class="archive-article-date">
-  	<time datetime="2021-03-10T14:47:44.174Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-10</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2021/03/10/CSS/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">CSS</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/03/10/CSS/">CSS</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">JavaWeb</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/03/10/HTML/" class="archive-article-date">
-  	<time datetime="2021-03-10T09:01:02.063Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-10</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/03/10/HTML/">HTML</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">JavaWeb</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/03/09/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E8%A1%A5%E5%85%85/" class="archive-article-date">
-  	<time datetime="2021-03-09T01:57:21.185Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-09</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/03/09/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E8%A1%A5%E5%85%85/">排序算法补充</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/03/08/%E6%95%B0%E7%BB%93%E6%9E%84%E7%9A%84%E5%9F%BA%E7%A1%802/" class="archive-article-date">
-  	<time datetime="2021-03-08T09:00:52.898Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-08</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/03/08/%E6%95%B0%E7%BB%93%E6%9E%84%E7%9A%84%E5%9F%BA%E7%A1%802/">树结构的基础2</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/03/08/%E6%A0%91%E7%BB%93%E6%9E%84%E7%9A%84%E5%9F%BA%E7%A1%801/" class="archive-article-date">
-  	<time datetime="2021-03-08T04:48:31.092Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-08</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/03/08/%E6%A0%91%E7%BB%93%E6%9E%84%E7%9A%84%E5%9F%BA%E7%A1%801/">树结构的基础1</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/03/07/HTTP%E5%8D%8F%E8%AE%AE/" class="archive-article-date">
-  	<time datetime="2021-03-07T09:59:56.612Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-07</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/03/07/HTTP%E5%8D%8F%E8%AE%AE/">HTTP协议</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">JavaWeb</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/03/07/ServletConfig%E7%B1%BB%E5%92%8CServletContext%E7%B1%BB/" class="archive-article-date">
-  	<time datetime="2021-03-07T09:57:28.108Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-07</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/03/07/ServletConfig%E7%B1%BB%E5%92%8CServletContext%E7%B1%BB/">ServletConfig类和ServletContext类</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">JavaWeb</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/03/07/Servlet/" class="archive-article-date">
-  	<time datetime="2021-03-07T09:20:25.524Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-07</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/03/07/Servlet/">Servlet</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">JavaWeb</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/03/07/%E5%93%88%E5%B8%8C%E8%A1%A8/" class="archive-article-date">
-  	<time datetime="2021-03-07T06:48:59.386Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-07</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/03/07/%E5%93%88%E5%B8%8C%E8%A1%A8/">哈希表</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="extend next" rel="next" href="/archives/page/2/">Next &amp;raquo;</a>
-    </nav>
-  
 
 
           </div>
@@ -578,8 +395,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

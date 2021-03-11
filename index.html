@@ -158,6 +158,116 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-jsp" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/03/11/jsp/">jsp</a>
+    </h1>
+  
+
+		<!--显示阅读次数-->
+		
+        
+        <a href="/2021/03/11/jsp/" class="archive-article-date">
+  	<time datetime="2021-03-11T08:10:32.371Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-11</time>
+</a>
+        
+      </header>
+    
+	<!-- 目录内容 -->
+             
+        <!-- 目录内容结束 -->
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="jsp简介"><a href="#jsp简介" class="headerlink" title="jsp简介"></a>jsp简介</h2><p>jsp 的全称是 java server pages。Java 的服务器页面。<br>jsp 的主要作用是代替 Servlet 程序回传 html 页面的数据。<br>因为 Servlet 程序回传 html 页面数据是一件非常繁锁的事情。开发成本和维护成本都极高。</p>
+<h2 id="jsp-的本质"><a href="#jsp-的本质" class="headerlink" title="jsp 的本质"></a>jsp 的本质</h2><p>jsp 页面本质上是一个 Servlet 程序。<br>HttpJspBase 类。它直接地继承了 HttpServlet 类，jsp 翻译出来的 java 类，它间接了继<br>承了 HttpServlet 类。<br>其底层实现，也是通过输出流。把 html 页面数据回传给客户端。</p>
+<h2 id="jsp-的三种语法"><a href="#jsp-的三种语法" class="headerlink" title="jsp 的三种语法"></a>jsp 的三种语法</h2><h3 id="jsp-头部的-page-指令"><a href="#jsp-头部的-page-指令" class="headerlink" title="jsp 头部的 page 指令"></a>jsp 头部的 page 指令</h3><p>jsp 的 page 指令可以修改 jsp 页面中一些重要的属性，或者行为。<br>language 属性 &emsp;&emsp;表示 jsp 翻译后是什么语言文件。暂时只支持 java。<br>contentType 属性 &emsp;&emsp;表示 jsp 返回的数据类型是什么。也是源码中 response.setContentType()参数值<br>pageEncoding 属性 &emsp;&emsp;表示当前 jsp 页面文件本身的字符集。<br>import 属性 &emsp;&emsp;跟 java 源代码中一样。用于导包，导类。<br>autoFlush 属性 &emsp;&emsp;设置当 out 输出流缓冲区满了之后，是否自动刷新冲级区。默认值是 true。<br>buffer 属性 &emsp;&emsp;设置 out 缓冲区的大小。默认是8kb。<br>errorPage 属性 &emsp;&emsp;设置当 jsp 页面运行时出错，自动跳转去的错误页面路径。<br>isErrorPage 属性  &emsp;&emsp;设置当前 jsp 页面是否是错误信息页面。默认是 false。如果是 true 可以<br>获取异常信息。<br>session 属性  &emsp;&emsp;设置访问当前 jsp 页面，是否会创建 HttpSession 对象。默认是 true。<br>extends 属性  &emsp;&emsp;设置 jsp 翻译出来的 java 类默认继承谁。</p>
+<h3 id="jsp-中的常用脚本"><a href="#jsp-中的常用脚本" class="headerlink" title="jsp 中的常用脚本"></a>jsp 中的常用脚本</h3><h4 id="声明脚本"><a href="#声明脚本" class="headerlink" title="声明脚本"></a>声明脚本</h4><p>声明脚本的格式是： &lt;%! 声明 java 代码 %&gt;<br>作用：可以给 jsp 翻译出来的 java 类定义属性和方法甚至是静态代码块。内部类等。</p>
+<h4 id="表达式脚本"><a href="#表达式脚本" class="headerlink" title="表达式脚本"></a>表达式脚本</h4><p>表达式脚本的格式是：&lt;%=表达式%&gt;<br>表达式脚本的作用是：的 jsp 页面上输出数据。<br>表达式脚本的特点：<br>1、所有的表达式脚本都会被翻译到_jspService() 方法中。<br>2、表达式脚本都会被翻译成为 out.print()输出到页面上。<br>3、由于表达式脚本翻译的内容都在_jspService() 方法中,所以_jspService()方法中的对象都可以直接使用。<br>4、表达式脚本中的表达式不能以分号结束。</p>
+<h4 id="代码脚本"><a href="#代码脚本" class="headerlink" title="代码脚本"></a>代码脚本</h4><p>代码脚本的格式是：<br>&lt;%<br>java 语句<br>%&gt;<br>代码脚本的作用是：可以在 jsp 页面中，编写我们自己需要的功能（写的是 java 语句）。<br>代码脚本的特点是：<br>1、代码脚本翻译之后都在_jspService 方法中。<br>2、代码脚本由于翻译到_jspService()方法中，所以在_jspService()方法中的现有对象都可以直接使用。<br>3、还可以由多个代码脚本块组合完成一个完整的 java 语句。<br>4、代码脚本还可以和表达式脚本一起组合使用，在 jsp 页面上输出数据。</p>
+<h2 id="jsp-中的三种注释"><a href="#jsp-中的三种注释" class="headerlink" title="jsp 中的三种注释"></a>jsp 中的三种注释</h2><h3 id="html-注释"><a href="#html-注释" class="headerlink" title="html 注释"></a>html 注释</h3><pre><code>&lt;!-- 这是 html 注释 --&gt;
+</code></pre>
+<p>html 注释会被翻译到 java 源代码中。在_jspService 方法里，以 out.writer 输出到客户端。</p>
+<h3 id="java-注释"><a href="#java-注释" class="headerlink" title="java 注释"></a>java 注释</h3><pre><code>&lt;%
+// 单行 java 注释
+/* 多行 java 注释 */
+%&gt;
+</code></pre>
+<p>java 注释会被翻译到 java 源代码中。</p>
+<h3 id="jsp-注释"><a href="#jsp-注释" class="headerlink" title="jsp 注释"></a>jsp 注释</h3><pre><code>&lt;%-- 这是 jsp 注释 --%&gt;
+</code></pre>
+<p>jsp 注释可以注掉，jsp 页面中所有代码</p>
+<h2 id="jsp-九大内置对象"><a href="#jsp-九大内置对象" class="headerlink" title="jsp 九大内置对象"></a>jsp 九大内置对象</h2><p>jsp 中的内置对象，是指 Tomcat 在翻译 jsp 页面成为 Servlet 源代码后，内部提供的九大对象，叫内置对象。<br><img src="/2021/03/11/jsp/1.jpg"></p>
+<h2 id="jsp-四大域对象"><a href="#jsp-四大域对象" class="headerlink" title="jsp 四大域对象"></a>jsp 四大域对象</h2><p><img src="/2021/03/11/jsp/2.jpg"><br>域对象是可以像 Map 一样存取数据的对象。四个域对象功能一样。不同的是它们对数据的存取范围。<br>虽然四个域对象都可以存取数据。在使用上它们是有优先顺序的。<br>四个域在使用的时候，优先顺序分别是，他们从小到大的范围的顺序。<br>pageContext ====&gt;&gt;&gt; request ====&gt;&gt;&gt; session ====&gt;&gt;&gt; application</p>
+<h2 id="jsp-中的-out-输出和-response-getWriter-输出的区别"><a href="#jsp-中的-out-输出和-response-getWriter-输出的区别" class="headerlink" title="jsp 中的 out 输出和 response.getWriter 输出的区别"></a>jsp 中的 out 输出和 response.getWriter 输出的区别</h2><p>response 中表示响应，我们经常用于设置返回给客户端的内容（输出）<br>out 也是给用户做输出使用的。</p>
+<p>当jsp页面中的所有代码执行完毕后，会做以下两个操作：<br>1、执行out.flush()操作，会把out缓冲区中的数据，追加写到response缓冲区末尾。<br>2、会执行response刷新操作，把全部数据写给客户端。</p>
+<p>由于 jsp 翻译之后，底层源代码都是使用 out 来进行输出，所以一般情况下。我们在 jsp 页面中统一使用 out 来进行输出。避免打乱页面输出内容的顺序。<br>out.write() 输出字符串没有问题<br>out.print() 输出任意数据都没有问题（都转换成为字符串后调用的 write 输出）<br>在 jsp 页面中，可以统一使用 out.print()来进行输出。</p>
+<h2 id="jsp-的常用标签"><a href="#jsp-的常用标签" class="headerlink" title="jsp 的常用标签"></a>jsp 的常用标签</h2><h3 id="jsp-静态包含"><a href="#jsp-静态包含" class="headerlink" title="jsp 静态包含"></a>jsp 静态包含</h3><p>&lt;%@ include file=””%&gt; 就是静态包含<br>file 属性指定你要包含的 jsp 页面的路径<br>地址中第一个斜杠 / 表示为 <a href="http://ip:port/工程路径/">http://ip:port/工程路径/</a> 映射到代码的 web 目录<br>静态包含的特点：<br>1、静态包含不会翻译被包含的 jsp 页面。<br>2、静态包含其实是把被包含的 jsp 页面的代码拷贝到包含的位置执行输出。</p>
+<h3 id="jsp-动态包含"><a href="#jsp-动态包含" class="headerlink" title="jsp 动态包含"></a>jsp 动态包含</h3><p>&lt;jsp:include page=””&gt; 这是动态包含<br>page 属性是指定你要包含的 jsp 页面的路径<br>动态包含也可以像静态包含一样。把被包含的内容执行输出到包含位置<br>动态包含的特点：<br>1、动态包含会把包含的 jsp 页面也翻译成为 java 代码<br>2、动态包含底层代码使用如下代码去调用被包含的 jsp 页面执行输出。<br>JspRuntimeLibrary.include(request, response, “/include/footer.jsp”, out, false);<br>3、动态包含，还可以传递参数</p>
+<p>动态包含底层实现原理：<br><img src="/2021/03/11/jsp/3.jpg"></p>
+<h3 id="jsp-请求转发"><a href="#jsp-请求转发" class="headerlink" title="jsp 请求转发"></a>jsp 请求转发</h3><p>&lt;jsp:forward page=””&gt; 是请求转发标签，它的功能就是请求转发。<br>page 属性设置请求转发的路径</p>
+<h2 id="Listener-监听器"><a href="#Listener-监听器" class="headerlink" title="Listener 监听器"></a>Listener 监听器</h2><p>1、Listener 监听器它是 JavaWeb 的三大组件之一。JavaWeb 的三大组件分别是：Servlet 程序、Filter 过滤器、Listener 监听器。<br>2、Listener 它是 JavaEE 的规范，就是接口<br>3、监听器的作用是，监听某种事物的变化。然后通过回调函数，反馈给客户（程序）去做一些相应的处理。</p>
+<h3 id="ServletContextListener-监听器"><a href="#ServletContextListener-监听器" class="headerlink" title="ServletContextListener 监听器"></a>ServletContextListener 监听器</h3><p>ServletContextListener 它可以监听 ServletContext 对象的创建和销毁。<br>ServletContext 对象在 web 工程启动的时候创建，在 web 工程停止的时候销毁。<br>监听到创建和销毁之后都会分别调用 ServletContextListener 监听器的方法反馈。</p>
+<p><strong>两个方法：</strong><br>public void contextInitialized(ServletContextEvent sce);在 ServletContext 对象创建之后马上调用，做初始化。<br>public void contextDestroyed(ServletContextEvent sce);在 ServletContext 对象销毁之后调用。</p>
+<p><strong>如何使用 ServletContextListener 监听器监听 ServletContext 对象？</strong><br>1、编写一个类去实现 ServletContextListener<br>2、实现其两个回调方法<br>3、到 web.xml 中去配置监听器</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">JavaWeb</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/03/11/jsp/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+  
     <article id="post-CSS" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -873,88 +983,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2021/03/07/%E5%93%88%E5%B8%8C%E8%A1%A8/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-  
-    <article id="post-HttpServletRequest类和HttpServletResponse类" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/03/06/HttpServletRequest%E7%B1%BB%E5%92%8CHttpServletResponse%E7%B1%BB/">HttpServletRequest类和HttpServletResponse类</a>
-    </h1>
-  
-
-		<!--显示阅读次数-->
-		
-        
-        <a href="/2021/03/06/HttpServletRequest%E7%B1%BB%E5%92%8CHttpServletResponse%E7%B1%BB/" class="archive-article-date">
-  	<time datetime="2021-03-06T15:12:33.911Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-06</time>
-</a>
-        
-      </header>
-    
-	<!-- 目录内容 -->
-             
-        <!-- 目录内容结束 -->
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="HttpServletRequest类"><a href="#HttpServletRequest类" class="headerlink" title="HttpServletRequest类"></a>HttpServletRequest类</h2><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>每次只要有请求进入Tomcat服务器，Tomcat服务器就会把请求过来的HTTP协议信息解析好封装到Request对象中。然后传递到service方法（doGet和doPost）中给我们使用。我们可以通过HttpServletRequest对象，获取到所有请求的信息。</p>
-        
-          <a class=".article-more-a" style="display: none;" href="/2021/03/06/HttpServletRequest%E7%B1%BB%E5%92%8CHttpServletResponse%E7%B1%BB/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">JavaWeb</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/03/06/HttpServletRequest%E7%B1%BB%E5%92%8CHttpServletResponse%E7%B1%BB/">展开全文 >></a>
         </p>
       
 
