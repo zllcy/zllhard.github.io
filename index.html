@@ -158,6 +158,175 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-哈夫曼树" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/03/12/%E5%93%88%E5%A4%AB%E6%9B%BC%E6%A0%91/">赫夫曼树和赫夫曼编码</a>
+    </h1>
+  
+
+		<!--显示阅读次数-->
+		
+        
+        <a href="/2021/03/12/%E5%93%88%E5%A4%AB%E6%9B%BC%E6%A0%91/" class="archive-article-date">
+  	<time datetime="2021-03-12T05:16:26.814Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-12</time>
+</a>
+        
+      </header>
+    
+	<!-- 目录内容 -->
+             
+        <!-- 目录内容结束 -->
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="赫夫曼树的基本介绍"><a href="#赫夫曼树的基本介绍" class="headerlink" title="赫夫曼树的基本介绍"></a>赫夫曼树的基本介绍</h2><p>给定n个权值作为n个叶子结点，构造一棵二叉树，若该树的带权路径长度(wpl)达到最小，称这样的二叉树为最优二叉树，也称为哈夫曼树(Huffman Tree)。<br>赫夫曼树是带权路径长度最短的树，权值较大的结点离根较近。</p>
+<h2 id="赫夫曼树几个重要概念"><a href="#赫夫曼树几个重要概念" class="headerlink" title="赫夫曼树几个重要概念"></a>赫夫曼树几个重要概念</h2><p>1、路径和路径长度：在一棵树中，从一个结点往下可以达到的孩子或孙子结点之间的通路，称为路径。通路中分支的数目称为路径长度。若规定根结点的层数为1，则从根结点到第L层结点的路径长度为L-1。<br>2、结点的权及带权路径长度：若将树中结点赋给一个有着某种含义的数值，则这个数值称为该结点的权。结点的带权路径长度为：从根结点到该结点之间的路径长度与该结点的权的乘积。<br>3、树的带权路径长度：树的带权路径长度规定为所有叶子结点的带权路径长度之和，记为WPL(weighted path length) ,权值越大的结点离根结点越近的二叉树才是最优二叉树。<br>4、WPL最小的二叉树就是赫夫曼树。<br>下图中第二棵树为哈夫曼树<br><img src="/2021/03/12/%E5%93%88%E5%A4%AB%E6%9B%BC%E6%A0%91/1.jpg"></p>
+<h2 id="创建赫夫曼树"><a href="#创建赫夫曼树" class="headerlink" title="创建赫夫曼树"></a>创建赫夫曼树</h2><h3 id="思路图解"><a href="#思路图解" class="headerlink" title="思路图解"></a>思路图解</h3><p>构成赫夫曼树的步骤：<br>1、从小到大进行排序, 将每一个数据，每个数据都是一个节点 ， 每个节点可以看成是一颗最简单的二叉树。<br>2、取出根节点权值最小的两颗二叉树。<br>3、组成一颗新的二叉树, 该新的二叉树的根节点的权值是前面两颗二叉树根节点权值的和。<br>再将这颗新的二叉树，以根节点的权值大小 再次排序， 不断重复  1-2-3-4 的步骤，直到数列中，所有的数据都4、被处理，就得到一颗赫夫曼树。<br><img src="/2021/03/12/%E5%93%88%E5%A4%AB%E6%9B%BC%E6%A0%91/2.jpg"></p>
+<h3 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h3><pre><code>import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+public class HuffmanTreeDemo &#123;
+    public static void main(String[] args) &#123;
+        int[] arr = &#123;13, 7, 8, 3, 29, 6, 1&#125;;
+        Node root = createHuffmanTree(arr);
+        preOrder(root);
+
+    &#125;
+
+    public static Node createHuffmanTree(int[] arr) &#123;
+        //将数组中的每个元素构建成Node对象
+        List&lt;Node&gt; nodes = new ArrayList&lt;&gt;();
+        for (int val : arr) &#123;
+            nodes.add(new Node(val));
+        &#125;
+
+        //循环处理
+        while (nodes.size() &gt; 1) &#123;
+            //排序
+            Collections.sort(nodes);
+
+            //取出根节点权值最小的两颗二叉树
+            Node left = nodes.get(0);
+            Node right = nodes.get(1);
+
+            //组成一颗新的二叉树, 该新的二叉树的根节点的权值是前面两颗二叉树根节点权值的和
+            Node parent = new Node(left.val + right.val);
+            parent.left = left;
+            parent.right = right;
+
+            //ArrayList中删除处理过的二叉树，添加新的二叉树
+            nodes.remove(left);
+            nodes.remove(right);
+            nodes.add(parent);
+        &#125;
+
+        return nodes.get(0);
+    &#125;
+
+    public static void preOrder(Node root) &#123;
+        if (root != null) &#123;
+            root.preOrder();
+        &#125; else &#123;
+            System.out.println(&quot;哈夫曼树为空&quot;);
+        &#125;
+    &#125;
+&#125;
+
+//为了让Node对象支持Collections集合排序，需要实现Comparable接口
+class Node implements Comparable&lt;Node&gt;&#123;
+    int val;
+    Node left;
+    Node right;
+
+    public Node(int val) &#123;
+        this.val = val;
+    &#125;
+
+    @Override
+    public String toString() &#123;
+        return &quot;Node&#123;&quot; +
+                &quot;val=&quot; + val +
+                &#39;&#125;&#39;;
+    &#125;
+
+    @Override
+    public int compareTo(Node o) &#123;
+        return this.val - o.val;
+    &#125;
+
+    public void preOrder() &#123;
+        System.out.println(this);
+        if (this.left != null) &#123;
+            this.left.preOrder();
+        &#125;
+        if (this.right != null) &#123;
+            this.right.preOrder();
+        &#125;
+    &#125;
+&#125;
+</code></pre>
+<h2 id="赫夫曼编码基本介绍"><a href="#赫夫曼编码基本介绍" class="headerlink" title="赫夫曼编码基本介绍"></a>赫夫曼编码基本介绍</h2><p>1、赫夫曼编码也翻译为    哈夫曼编码(Huffman Coding)，又称霍夫曼编码，是一种编码方式, 属于一种程序算法。<br>2、赫夫曼编码是赫哈夫曼树在电讯通信中的经典的应用之一。<br>3、赫夫曼编码广泛地用于数据文件压缩。其压缩率通常在20%～90%之间。<br>4、赫夫曼码是可变字长编码(VLC)的一种。Huffman于1952年提出一种编码方法，称之为最佳编码。</p>
+<h2 id="生成赫夫曼编码"><a href="#生成赫夫曼编码" class="headerlink" title="生成赫夫曼编码"></a>生成赫夫曼编码</h2><p>1、需要处理的内容：i like like like java do you like a java<br>2、统计各个字符出现的次数：d:1 y:1 u:1 j:2  v:2  o:2  l:4  k:4  e:4 i:5  a:5  空格:9<br>3、按照上面字符出现的次数构建一颗赫夫曼树, 次数作为权值。<br><img src="/2021/03/12/%E5%93%88%E5%A4%AB%E6%9B%BC%E6%A0%91/3.png"><br>4、根据赫夫曼树，给各个字符编码，向左的路径为0，向右的路径为1，编码如下:<br><img src="/2021/03/12/%E5%93%88%E5%A4%AB%E6%9B%BC%E6%A0%91/4.jpg"><br>5、按照上面的赫夫曼编码，我们的”i like like like java do you like a java”   字符串对应的编码为 (注意这里我们使用的无损压缩)<br>1010100110111101111010011011110111101001101111011110100001100001110011001111000011001111000100100100110111101111011100100001100001110</p>
+<p>长度为133，原来长度是359 , 压缩了 (359-133) / 359 = 62.9%<br>此编码满足前缀编码, 即字符的编码都不能是其他字符编码的前缀。不会造成匹配的多义性。<br>赫夫曼编码是无损处理方案。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/03/12/%E5%93%88%E5%A4%AB%E6%9B%BC%E6%A0%91/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+  
     <article id="post-jsp" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -873,88 +1042,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2021/03/07/Servlet/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-  
-    <article id="post-哈希表" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/03/07/%E5%93%88%E5%B8%8C%E8%A1%A8/">哈希表</a>
-    </h1>
-  
-
-		<!--显示阅读次数-->
-		
-        
-        <a href="/2021/03/07/%E5%93%88%E5%B8%8C%E8%A1%A8/" class="archive-article-date">
-  	<time datetime="2021-03-07T06:48:59.386Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-07</time>
-</a>
-        
-      </header>
-    
-	<!-- 目录内容 -->
-             
-        <!-- 目录内容结束 -->
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="哈希表的基本介绍"><a href="#哈希表的基本介绍" class="headerlink" title="哈希表的基本介绍"></a>哈希表的基本介绍</h2><p>散列表（Hash table，也叫哈希表），是根据关键码值(Key value)而直接进行访问的数据结构。也就是说，它通过把关键码值映射到表中一个位置来访问记录，以加快查找的速度。这个映射函数叫做散列函数，存放记录的数组叫做散列表。</p>
-        
-          <a class=".article-more-a" style="display: none;" href="/2021/03/07/%E5%93%88%E5%B8%8C%E8%A1%A8/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/03/07/%E5%93%88%E5%B8%8C%E8%A1%A8/">展开全文 >></a>
         </p>
       
 
