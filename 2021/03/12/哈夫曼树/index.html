@@ -8,19 +8,19 @@
   <link rel="dns-prefetch" href="http://example.com">
   <title>赫夫曼树和赫夫曼编码 | Welcome To Study</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="赫夫曼树的基本介绍给定n个权值作为n个叶子结点，构造一棵二叉树，若该树的带权路径长度(wpl)达到最小，称这样的二叉树为最优二叉树，也称为哈夫曼树(Huffman Tree)。赫夫曼树是带权路径长度最短的树，权值较大的结点离根较近。 赫夫曼树几个重要概念1、路径和路径长度：在一棵树中，从一个结点往下可以达到的孩子或孙子结点之间的通路，称为路径。通路中分支的数目称为路径长度。若规定根结点的层数为1，">
+  <meta name="description" content="赫夫曼树的基本介绍给定n个权值作为n个叶子结点，构造一棵二叉树，若该树的带权路径长度(wpl)达到最小，称这样的二叉树为最优二叉树，也称为哈夫曼树(Huffman Tree)。赫夫曼树是带权路径长度最短的树，权值较大的结点离根较近。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="赫夫曼树和赫夫曼编码">
 <meta property="og:url" content="http://example.com/2021/03/12/%E5%93%88%E5%A4%AB%E6%9B%BC%E6%A0%91/index.html">
 <meta property="og:site_name" content="Welcome To Study">
-<meta property="og:description" content="赫夫曼树的基本介绍给定n个权值作为n个叶子结点，构造一棵二叉树，若该树的带权路径长度(wpl)达到最小，称这样的二叉树为最优二叉树，也称为哈夫曼树(Huffman Tree)。赫夫曼树是带权路径长度最短的树，权值较大的结点离根较近。 赫夫曼树几个重要概念1、路径和路径长度：在一棵树中，从一个结点往下可以达到的孩子或孙子结点之间的通路，称为路径。通路中分支的数目称为路径长度。若规定根结点的层数为1，">
+<meta property="og:description" content="赫夫曼树的基本介绍给定n个权值作为n个叶子结点，构造一棵二叉树，若该树的带权路径长度(wpl)达到最小，称这样的二叉树为最优二叉树，也称为哈夫曼树(Huffman Tree)。赫夫曼树是带权路径长度最短的树，权值较大的结点离根较近。">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://example.com/2021/03/12/%E5%93%88%E5%A4%AB%E6%9B%BC%E6%A0%91/1.jpg">
 <meta property="og:image" content="http://example.com/2021/03/12/%E5%93%88%E5%A4%AB%E6%9B%BC%E6%A0%91/2.jpg">
 <meta property="og:image" content="http://example.com/2021/03/12/%E5%93%88%E5%A4%AB%E6%9B%BC%E6%A0%91/3.png">
 <meta property="og:image" content="http://example.com/2021/03/12/%E5%93%88%E5%A4%AB%E6%9B%BC%E6%A0%91/4.jpg">
 <meta property="article:published_time" content="2021-03-12T05:16:26.814Z">
-<meta property="article:modified_time" content="2021-03-12T06:24:01.863Z">
+<meta property="article:modified_time" content="2021-03-12T06:26:05.729Z">
 <meta property="article:author" content="zllhard">
 <meta property="article:tag" content="数据结构">
 <meta name="twitter:card" content="summary">
@@ -224,6 +224,8 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="赫夫曼树的基本介绍"><a href="#赫夫曼树的基本介绍" class="headerlink" title="赫夫曼树的基本介绍"></a>赫夫曼树的基本介绍</h2><p>给定n个权值作为n个叶子结点，构造一棵二叉树，若该树的带权路径长度(wpl)达到最小，称这样的二叉树为最优二叉树，也称为哈夫曼树(Huffman Tree)。<br>赫夫曼树是带权路径长度最短的树，权值较大的结点离根较近。</p>
+<span id="more"></span>
+
 <h2 id="赫夫曼树几个重要概念"><a href="#赫夫曼树几个重要概念" class="headerlink" title="赫夫曼树几个重要概念"></a>赫夫曼树几个重要概念</h2><p>1、路径和路径长度：在一棵树中，从一个结点往下可以达到的孩子或孙子结点之间的通路，称为路径。通路中分支的数目称为路径长度。若规定根结点的层数为1，则从根结点到第L层结点的路径长度为L-1。<br>2、结点的权及带权路径长度：若将树中结点赋给一个有着某种含义的数值，则这个数值称为该结点的权。结点的带权路径长度为：从根结点到该结点之间的路径长度与该结点的权的乘积。<br>3、树的带权路径长度：树的带权路径长度规定为所有叶子结点的带权路径长度之和，记为WPL(weighted path length) ,权值越大的结点离根结点越近的二叉树才是最优二叉树。<br>4、WPL最小的二叉树就是赫夫曼树。<br>下图中第二棵树为哈夫曼树<br><img src="/2021/03/12/%E5%93%88%E5%A4%AB%E6%9B%BC%E6%A0%91/1.jpg"></p>
 <h2 id="创建赫夫曼树"><a href="#创建赫夫曼树" class="headerlink" title="创建赫夫曼树"></a>创建赫夫曼树</h2><h3 id="思路图解"><a href="#思路图解" class="headerlink" title="思路图解"></a>思路图解</h3><p>构成赫夫曼树的步骤：<br>1、从小到大进行排序, 将每一个数据，每个数据都是一个节点 ， 每个节点可以看成是一颗最简单的二叉树。<br>2、取出根节点权值最小的两颗二叉树。<br>3、组成一颗新的二叉树, 该新的二叉树的根节点的权值是前面两颗二叉树根节点权值的和。<br>再将这颗新的二叉树，以根节点的权值大小 再次排序， 不断重复  1-2-3-4 的步骤，直到数列中，所有的数据都4、被处理，就得到一颗赫夫曼树。<br><img src="/2021/03/12/%E5%93%88%E5%A4%AB%E6%9B%BC%E6%A0%91/2.jpg"></p>
 <h3 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h3><pre><code>import java.util.ArrayList;
@@ -395,6 +397,15 @@ class Node implements Comparable&lt;Node&gt;&#123;
 
   
 <nav id="article-nav">
+  
+    <a href="/2021/03/12/%E4%BA%8C%E5%8F%89%E6%8E%92%E5%BA%8F%E6%A0%91/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          二叉排序树
+        
+      </div>
+    </a>
   
   
     <a href="/2021/03/11/jsp/" id="article-nav-older" class="article-nav-link-wrap">
