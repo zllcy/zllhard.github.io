@@ -23,7 +23,7 @@
 <meta property="og:image" content="http://example.com/2021/03/15/EL%E8%A1%A8%E8%BE%BE%E5%BC%8F/6.jpg">
 <meta property="og:image" content="http://example.com/2021/03/15/EL%E8%A1%A8%E8%BE%BE%E5%BC%8F/7.jpg">
 <meta property="article:published_time" content="2021-03-15T02:11:17.661Z">
-<meta property="article:modified_time" content="2021-03-15T03:22:36.531Z">
+<meta property="article:modified_time" content="2021-03-15T04:05:07.280Z">
 <meta property="article:author" content="zllhard">
 <meta property="article:tag" content="JavaWeb">
 <meta name="twitter:card" content="summary">
@@ -233,7 +233,7 @@
 <p><strong>举例：</strong><br>&lt;%<br>request.setAttribute(“key”,”值”);<br>%&gt;<br>表达式脚本输出 key 的值是：<br>&lt;%=request.getAttribute(“key1”)==null?””:request.getAttribute(“key1”)%&gt;<br>EL 表达式输出 key 的值是：${key}</p>
 <h2 id="EL-表达式搜索域数据的顺序"><a href="#EL-表达式搜索域数据的顺序" class="headerlink" title="EL 表达式搜索域数据的顺序"></a>EL 表达式搜索域数据的顺序</h2><p>EL 表达式主要是在 jsp 页面中输出数据。<br>主要是输出域对象中的数据。<br>当四个域中都有相同的 key 的数据的时候，EL 表达式会按照四个域的从小到大的顺序去进行搜索，找到就输出。</p>
 <p>四个域的介绍点击下面的链接<br><a target="_blank" rel="noopener" href="http://zllhard.cn/2021/03/11/jsp/#jsp-%E5%9B%9B%E5%A4%A7%E5%9F%9F%E5%AF%B9%E8%B1%A1" title="四大域对象">http://zllhard.cn/2021/03/11/jsp/#jsp-%E5%9B%9B%E5%A4%A7%E5%9F%9F%E5%AF%B9%E8%B1%A1</a></p>
-<h2 id="EL表达式输出复杂的Bean对象"><a href="#EL表达式输出复杂的Bean对象" class="headerlink" title="EL表达式输出复杂的Bean对象"></a>EL表达式输出复杂的Bean对象</h2><p>EL表达式输出Bean对象的属性，找的不是Bean对象的属性，而是属性的get方法。</p>
+<h2 id="EL表达式输出复杂的Bean对象"><a href="#EL表达式输出复杂的Bean对象" class="headerlink" title="EL表达式输出复杂的Bean对象"></a>EL表达式输出复杂的Bean对象</h2><p>EL表达式输出Bean对象的属性，找的不是Bean对象的属性，而是属性的get方法、is方法这些读方法。</p>
 <h2 id="EL-表达式的运算"><a href="#EL-表达式的运算" class="headerlink" title="EL 表达式的运算"></a>EL 表达式的运算</h2><p>语法：${ 运算表达式 }</p>
 <h3 id="关系运算"><a href="#关系运算" class="headerlink" title="关系运算"></a>关系运算</h3><p><img src="/2021/03/15/EL%E8%A1%A8%E8%BE%BE%E5%BC%8F/1.jpg"></p>
 <h3 id="逻辑运算"><a href="#逻辑运算" class="headerlink" title="逻辑运算"></a>逻辑运算</h3><p><img src="/2021/03/15/EL%E8%A1%A8%E8%BE%BE%E5%BC%8F/2.jpg"></p>
@@ -328,6 +328,15 @@
 
   
 <nav id="article-nav">
+  
+    <a href="/2021/03/15/JSTL%E6%A0%87%E7%AD%BE%E5%BA%93/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          JSTL标签库
+        
+      </div>
+    </a>
   
   
     <a href="/2021/03/14/%E5%A4%9A%E8%B7%AF%E6%9F%A5%E6%89%BE%E6%A0%91/" id="article-nav-older" class="article-nav-link-wrap">
@@ -464,11 +473,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
+                <a href="javascript:void(0)" class="js-tag color3">算法</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">算法</a>
+                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
               </li>
             
             <div class="clearfix"></div>

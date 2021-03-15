@@ -6,32 +6,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>排序算法补充 | Welcome To Study</title>
+  <title>JSTL标签库 | Welcome To Study</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="堆排序基本介绍1、堆排序是利用堆这种数据结构而设计的一种排序算法，堆排序是一种选择排序，它的最坏，最好，平均时间复杂度均为O(nlogn)，它也是不稳定排序。2、堆是具有以下性质的完全二叉树：每个结点的值都大于或等于其左右孩子结点的值，称为大顶堆, 注意 : 没有要求结点的左孩子的值和右孩子的值的大小关系。3、每个结点的值都小于或等于其左右孩子结点的值，称为小顶堆。">
+  <meta name="description" content="JSTL标签库简介JSTL 标签库 全称是指 JSP Standard Tag Library JSP 标准标签库。是一个不断完善的开放源代码的 JSP 标签库。EL 表达式主要是为了替换 jsp 中的表达式脚本，而标签库则是为了替换代码脚本。这样使得整个 jsp 页面变得更佳简洁。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="排序算法补充">
-<meta property="og:url" content="http://example.com/2021/03/09/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E8%A1%A5%E5%85%85/index.html">
+<meta property="og:title" content="JSTL标签库">
+<meta property="og:url" content="http://example.com/2021/03/15/JSTL%E6%A0%87%E7%AD%BE%E5%BA%93/index.html">
 <meta property="og:site_name" content="Welcome To Study">
-<meta property="og:description" content="堆排序基本介绍1、堆排序是利用堆这种数据结构而设计的一种排序算法，堆排序是一种选择排序，它的最坏，最好，平均时间复杂度均为O(nlogn)，它也是不稳定排序。2、堆是具有以下性质的完全二叉树：每个结点的值都大于或等于其左右孩子结点的值，称为大顶堆, 注意 : 没有要求结点的左孩子的值和右孩子的值的大小关系。3、每个结点的值都小于或等于其左右孩子结点的值，称为小顶堆。">
+<meta property="og:description" content="JSTL标签库简介JSTL 标签库 全称是指 JSP Standard Tag Library JSP 标准标签库。是一个不断完善的开放源代码的 JSP 标签库。EL 表达式主要是为了替换 jsp 中的表达式脚本，而标签库则是为了替换代码脚本。这样使得整个 jsp 页面变得更佳简洁。">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://example.com/2021/03/09/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E8%A1%A5%E5%85%85/1.png">
-<meta property="og:image" content="http://example.com/2021/03/09/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E8%A1%A5%E5%85%85/2.png">
-<meta property="og:image" content="http://example.com/2021/03/09/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E8%A1%A5%E5%85%85/3.jpg">
-<meta property="og:image" content="http://example.com/2021/03/09/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E8%A1%A5%E5%85%85/4.jpg">
-<meta property="og:image" content="http://example.com/2021/03/09/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E8%A1%A5%E5%85%85/5.jpg">
-<meta property="og:image" content="http://example.com/2021/03/09/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E8%A1%A5%E5%85%85/6.jpg">
-<meta property="og:image" content="http://example.com/2021/03/09/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E8%A1%A5%E5%85%85/7.jpg">
-<meta property="og:image" content="http://example.com/2021/03/09/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E8%A1%A5%E5%85%85/8.jpg">
-<meta property="og:image" content="http://example.com/2021/03/09/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E8%A1%A5%E5%85%85/9.jpg">
-<meta property="og:image" content="http://example.com/2021/03/09/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E8%A1%A5%E5%85%85/10.jpg">
-<meta property="og:image" content="http://example.com/2021/03/09/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E8%A1%A5%E5%85%85/11.png">
-<meta property="article:published_time" content="2021-03-09T01:57:21.185Z">
-<meta property="article:modified_time" content="2021-03-09T12:20:06.459Z">
+<meta property="og:image" content="http://example.com/2021/03/15/JSTL%E6%A0%87%E7%AD%BE%E5%BA%93/1.jpg">
+<meta property="og:image" content="http://example.com/2021/03/15/JSTL%E6%A0%87%E7%AD%BE%E5%BA%93/2.jpg">
+<meta property="article:published_time" content="2021-03-15T03:23:37.768Z">
+<meta property="article:modified_time" content="2021-03-15T04:05:08.904Z">
 <meta property="article:author" content="zllhard">
-<meta property="article:tag" content="算法">
+<meta property="article:tag" content="JavaWeb">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/2021/03/09/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E8%A1%A5%E5%85%85/1.png">
+<meta name="twitter:image" content="http://example.com/2021/03/15/JSTL%E6%A0%87%E7%AD%BE%E5%BA%93/1.jpg">
   
     <link rel="alternative" href="/atom.xml" title="Welcome To Study" type="application/atom+xml">
   
@@ -173,14 +164,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-排序算法补充" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-JSTL标签库" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      排序算法补充
+      JSTL标签库
     </h1>
   
 
@@ -195,8 +186,8 @@
 		  </a>
 		
         
-        <a href="/2021/03/09/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E8%A1%A5%E5%85%85/" class="archive-article-date">
-  	<time datetime="2021-03-09T01:57:21.185Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-09</time>
+        <a href="/2021/03/15/JSTL%E6%A0%87%E7%AD%BE%E5%BA%93/" class="archive-article-date">
+  	<time datetime="2021-03-15T03:23:37.768Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-15</time>
 </a>
         
       </header>
@@ -210,7 +201,7 @@
             <div id="toc-article" class="toc-article">
                 <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
                 <strong class="toc-title">文章目录</strong>
-                <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A0%86%E6%8E%92%E5%BA%8F"><span class="toc-number">1.</span> <span class="toc-text">堆排序</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E4%BB%8B%E7%BB%8D"><span class="toc-number">1.1.</span> <span class="toc-text">基本介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E6%80%9D%E6%83%B3"><span class="toc-number">1.2.</span> <span class="toc-text">基本思想</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF%E5%9B%BE%E8%A7%A3"><span class="toc-number">1.3.</span> <span class="toc-text">思路图解</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0"><span class="toc-number">2.</span> <span class="toc-text">代码实现</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93"><span class="toc-number">3.</span> <span class="toc-text">排序算法总结</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E6%AF%94%E8%BE%83%E5%9B%BE"><span class="toc-number">3.1.</span> <span class="toc-text">排序算法比较图</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%BE%E4%B8%AD%E7%9B%B8%E5%85%B3%E6%9C%AF%E8%AF%AD%E3%80%81%E5%8F%82%E6%95%B0%E8%A7%A3%E9%87%8A"><span class="toc-number">3.2.</span> <span class="toc-text">图中相关术语、参数解释</span></a></li></ol></li></ol>
+                <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#JSTL%E6%A0%87%E7%AD%BE%E5%BA%93%E7%AE%80%E4%BB%8B"><span class="toc-number">1.</span> <span class="toc-text">JSTL标签库简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JSTL-%E6%A0%87%E7%AD%BE%E5%BA%93%E7%9A%84%E4%BD%BF%E7%94%A8%E6%AD%A5%E9%AA%A4"><span class="toc-number">2.</span> <span class="toc-text">JSTL 标签库的使用步骤</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#core-%E6%A0%B8%E5%BF%83%E5%BA%93%E4%BD%BF%E7%94%A8"><span class="toc-number">3.</span> <span class="toc-text">core 核心库使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#lt-c-set-gt"><span class="toc-number">3.1.</span> <span class="toc-text">&lt;c:set &#x2F;&gt;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#lt-c-if-gt"><span class="toc-number">3.2.</span> <span class="toc-text">&lt;c:if &#x2F;&gt;</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number"></span> <span class="toc-text">12 等于 12</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#lt-c-choose-gt-lt-c-when-gt-lt-c-otherwise-gt-%E6%A0%87%E7%AD%BE"><span class="toc-number">0.1.</span> <span class="toc-text">&lt;c:choose&gt; &lt;c:when&gt; &lt;c:otherwise&gt;标签</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#lt-c-forEach-gt"><span class="toc-number">0.2.</span> <span class="toc-text">&lt;c:forEach &#x2F;&gt;</span></a></li></ol></li></ol>
            </div>
            <script type="text/javascript">
             function showToc(){
@@ -230,73 +221,25 @@
         <!-- 目录内容结束 -->
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="堆排序"><a href="#堆排序" class="headerlink" title="堆排序"></a>堆排序</h2><h3 id="基本介绍"><a href="#基本介绍" class="headerlink" title="基本介绍"></a>基本介绍</h3><p>1、堆排序是利用堆这种数据结构而设计的一种排序算法，堆排序是一种选择排序，它的最坏，最好，平均时间复杂度均为O(nlogn)，它也是不稳定排序。<br>2、堆是具有以下性质的完全二叉树：每个结点的值都大于或等于其左右孩子结点的值，称为大顶堆, 注意 : 没有要求结点的左孩子的值和右孩子的值的大小关系。<br>3、每个结点的值都小于或等于其左右孩子结点的值，称为小顶堆。</p>
+        <h2 id="JSTL标签库简介"><a href="#JSTL标签库简介" class="headerlink" title="JSTL标签库简介"></a>JSTL标签库简介</h2><p>JSTL 标签库 全称是指 JSP Standard Tag Library JSP 标准标签库。是一个不断完善的开放源代码的 JSP 标<br>签库。<br>EL 表达式主要是为了替换 jsp 中的表达式脚本，而标签库则是为了替换代码脚本。这样使得整个 jsp 页面<br>变得更佳简洁。</p>
 <span id="more"></span>
-<p><img src="/2021/03/09/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E8%A1%A5%E5%85%85/1.png"><img src="/2021/03/09/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E8%A1%A5%E5%85%85/2.png"><br>4、一般升序采用大顶堆，降序采用小顶堆。</p>
-<h3 id="基本思想"><a href="#基本思想" class="headerlink" title="基本思想"></a>基本思想</h3><p>1、将待排序序列构造成一个大顶堆。<br>2、此时，整个序列的最大值就是堆顶的根节点。<br>3、将其与末尾元素进行交换，此时末尾就为最大值。<br>4、然后将剩余n-1个元素重新构造成一个堆，这样会得到n个元素的次小值。如此反复执行，便能得到一个有序序列了。</p>
-<p>可以看到在构建大顶堆的过程中，元素的个数逐渐减少，最后就得到一个有序序列了。</p>
-<h3 id="思路图解"><a href="#思路图解" class="headerlink" title="思路图解"></a>思路图解</h3><p><strong>步骤一：构造初始堆，将给定的无序序列构造成一个大顶堆</strong><br>1）假定给定无序序列如下<br><img src="/2021/03/09/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E8%A1%A5%E5%85%85/3.jpg"><br>2）此时我们从最后一个人非叶子节点开始（叶子节点自然不用调整，第一个非叶子节点arr.length/2-1=1，也就是下面的6节点），从左至右，从下至上进行调整。<br><img src="/2021/03/09/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E8%A1%A5%E5%85%85/4.jpg"><br>3）找到第二个非叶子节点，由于4和9交换<br><img src="/2021/03/09/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E8%A1%A5%E5%85%85/5.jpg"><br>4）上述交换导致子根[4,5,6]结构混乱，继续调整，交换4和6<br><img src="/2021/03/09/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E8%A1%A5%E5%85%85/6.jpg"><br>此时我们获得了一个大顶堆。</p>
-<p><strong>步骤二：将堆顶元素和末尾元素进行交换，使末尾元素最大。然后继续调整堆，再将堆顶元素与末尾元素交换，得到第二大元素。如此反复交换、重建、再交换</strong><br>1）将堆顶元素9和末尾元素4进行交换<br><img src="/2021/03/09/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E8%A1%A5%E5%85%85/7.jpg"><br>2）重新调整结构，使其继续满足堆定义<br><img src="/2021/03/09/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E8%A1%A5%E5%85%85/8.jpg"><br>3）在将堆顶元素8和末尾元素5进行交换，得到第二大元素<br><img src="/2021/03/09/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E8%A1%A5%E5%85%85/9.jpg"><br>4）如此反复交换、重建、再交换，最终使得整个序列有序<br><img src="/2021/03/09/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E8%A1%A5%E5%85%85/10.jpg"></p>
-<h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2><pre><code>import java.util.Arrays;
 
-public class HeapSort &#123;
-    public static void main(String[] args) &#123;
-        int[] arr = &#123;4, 6, 8, 5, 9&#125;;
-        headSort(arr);
-        System.out.println(Arrays.toString(arr));
-    &#125;
+<p><strong>JSTL 由五个不同功能的标签库组成:</strong><br><img src="/2021/03/15/JSTL%E6%A0%87%E7%AD%BE%E5%BA%93/1.jpg"></p>
+<p><strong>在 jsp 标签库中使用 taglib 指令引入标签库</strong><br>CORE 标签库<br>&lt;%@ taglib prefix=”c” uri=”<a target="_blank" rel="noopener" href="http://java.sun.com/jsp/jstl/core&quot;">http://java.sun.com/jsp/jstl/core&quot;</a> %&gt;</p>
+<h2 id="JSTL-标签库的使用步骤"><a href="#JSTL-标签库的使用步骤" class="headerlink" title="JSTL 标签库的使用步骤"></a>JSTL 标签库的使用步骤</h2><p>1、先导入 jstl 标签库的 jar 包。<br>2、第二步，使用 taglib 指令引入标签库。</p>
+<h2 id="core-核心库使用"><a href="#core-核心库使用" class="headerlink" title="core 核心库使用"></a>core 核心库使用</h2><h3 id="lt-c-set-gt"><a href="#lt-c-set-gt" class="headerlink" title="&lt;c:set /&gt;"></a>&lt;c:set /&gt;</h3><p>作用：set 标签可以往域中保存数据<br>域对象.setAttribute(key,value);<br>scope 属性设置保存到哪个域<br>&emsp;&emsp;page 表示 PageContext 域（默认值）<br>&emsp;&emsp;request 表示 Request 域<br>&emsp;&emsp;session 表示 Session 域<br>&emsp;&emsp;application 表示 ServletContext 域<br>var 属性设置 key 是多少<br>value 属性设置值</p>
+<p><strong>举例：</strong><br>&lt;c:set scope=”session” var=”abc” value=”abcValue”/&gt;</p>
+<h3 id="lt-c-if-gt"><a href="#lt-c-if-gt" class="headerlink" title="&lt;c:if /&gt;"></a>&lt;c:if /&gt;</h3><p>if 标签用来做 if 判断。<br>test 属性表示判断的条件（使用 EL 表达式输出）</p>
+<p><strong>举例：</strong><br>&lt;c:if test=”${ 12 == 12 }”&gt;</p>
+<h1>12 等于 12</h1>
 
-    //堆排序
-    public static void headSort(int[] arr) &#123;
-        int temp = 0;
-        //生成大顶堆
-        for (int i = arr.length / 2 - 1; i &gt;= 0; i--) &#123;
-            adjustHeap(arr, i, arr.length);
-        &#125;
-        //堆顶和末尾元素交换
-        //重新调整结构
-        for (int j = arr.length - 1; j &gt; 0; j--) &#123;
-            temp = arr[j];
-            arr[j] = arr[0];
-            arr[0] = temp;
-            adjustHeap(arr, 0, j);
-        &#125;
-    &#125;
 
-    /**
-     * 将一个数组（二叉树），调整为一个大顶堆
-     * @param arr  待调整数组
-     * @param i  非叶子节点在数组中的索引
-     * @param length  表示多少个元素需要调整，length逐渐减少
-     */
-    public static void adjustHeap(int[] arr, int i, int length) &#123;
-        //先将当前元素的值保存，用来调整
-        int temp = arr[i];
-        //k是i的左子节点
-        for (int k = 2 * i + 1; k &lt; length; k = k * 2 + 1) &#123;
-            //左子节点比右子节点小的话，k指向右子节点
-            if (k + 1 &lt; length &amp;&amp; arr[k] &lt; arr[k+1]) &#123;
-                k++;
-            &#125;
-            //如果子节点大于父节点，将子节点的值赋值给父节点
-            if (arr[k] &gt; arr[i]) &#123;
-                arr[i] = arr[k];
-                //i指向k，继续循环比较
-                i = k;
-            &#125; else &#123;
-                break;
-            &#125;
-        &#125;
 
-        //循环结束，我们已经将以i为父节点的数的最大值放在了顶部
-        //将之前保存的temp放到调整后的位置
-        arr[i] = temp;
-    &#125;
-&#125;
-</code></pre>
-<h2 id="排序算法总结"><a href="#排序算法总结" class="headerlink" title="排序算法总结"></a>排序算法总结</h2><h3 id="排序算法比较图"><a href="#排序算法比较图" class="headerlink" title="排序算法比较图"></a>排序算法比较图</h3><p><img src="/2021/03/09/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E8%A1%A5%E5%85%85/11.png"></p>
-<h3 id="图中相关术语、参数解释"><a href="#图中相关术语、参数解释" class="headerlink" title="图中相关术语、参数解释"></a>图中相关术语、参数解释</h3><p>稳定：如果a原本在b前面，而a=b，排序之后a仍然在b的前面；<br>不稳定：如果a原本在b的前面，而a=b，排序之后a可能会出现在b的后面；<br>内排序：所有排序操作都在内存中完成；<br>外排序：由于数据太大，因此把数据放在磁盘中，而排序通过磁盘和内存的数据传输才能进行；<br>时间复杂度： 一个算法执行所耗费的时间。<br>空间复杂度：运行完一个程序所需内存的大小。<br>n: 数据规模<br>k: “桶”的个数<br>In-place:    不占用额外内存<br>Out-place: 占用额外内存</p>
-<p>七大排序算法链接<br><a target="_blank" rel="noopener" href="http://zllhard.cn/2021/03/03/%E4%B8%83%E5%A4%A7%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/" title="七大排序算法">http://zllhard.cn/2021/03/03/%E4%B8%83%E5%A4%A7%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/</a></p>
+<h3 id="lt-c-choose-gt-lt-c-when-gt-lt-c-otherwise-gt-标签"><a href="#lt-c-choose-gt-lt-c-when-gt-lt-c-otherwise-gt-标签" class="headerlink" title="&lt;c:choose&gt; &lt;c:when&gt; &lt;c:otherwise&gt;标签"></a>&lt;c:choose&gt; &lt;c:when&gt; &lt;c:otherwise&gt;标签</h3><p>作用：多路判断。跟 switch … case …. default 非常接近<br>不需要手动break，执行到一种情况就会退出。</p>
+<p>choose 标签开始选择判断<br>when 标签表示每一种判断情况<br>&emsp;&emsp;test 属性表示当前这种判断情况的值<br>otherwise 标签表示剩下的情况</p>
+<p>&lt;c:choose&gt; &lt;c:when&gt; &lt;c:otherwise&gt;标签使用时需要注意的点：<br>1、标签里不能使用 html 注释，要使用 jsp 注释<br>2、when 标签的父标签一定要是 choose 标签</p>
+<h3 id="lt-c-forEach-gt"><a href="#lt-c-forEach-gt" class="headerlink" title="&lt;c:forEach /&gt;"></a>&lt;c:forEach /&gt;</h3><p>作用：遍历输出使用。<br>items 表示遍历的集合<br>var 表示遍历到的数据<br>begin 表示遍历的开始索引值<br>end 表示结束的索引值<br>step 属性表示遍历的步长值<br>varStatus 属性表示当前遍历到的数据的状态</p>
+<p><strong>举例遍历存储student对象的集合：</strong><br><img src="/2021/03/15/JSTL%E6%A0%87%E7%AD%BE%E5%BA%93/2.jpg"></p>
 
       
 
@@ -310,7 +253,7 @@ public class HeapSort &#123;
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">JavaWeb</a>
         		</li>
       		
 		</ul>
@@ -366,7 +309,7 @@ public class HeapSort &#123;
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2021/03/09/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E8%A1%A5%E5%85%85/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2021/03/15/JSTL%E6%A0%87%E7%AD%BE%E5%BA%93/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -380,18 +323,9 @@ public class HeapSort &#123;
   
 <nav id="article-nav">
   
-    <a href="/2021/03/10/HTML/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          HTML
-        
-      </div>
-    </a>
   
-  
-    <a href="/2021/03/08/%E6%95%B0%E7%BB%93%E6%9E%84%E7%9A%84%E5%9F%BA%E7%A1%802/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">树结构的基础2</div>
+    <a href="/2021/03/15/EL%E8%A1%A8%E8%BE%BE%E5%BC%8F/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">EL表达式</div>
       <i class="icon-circle-right"></i>
     </a>
   
