@@ -16,9 +16,10 @@
 <meta property="og:description" content="JSTL标签库简介JSTL 标签库 全称是指 JSP Standard Tag Library JSP 标准标签库。是一个不断完善的开放源代码的 JSP 标签库。EL 表达式主要是为了替换 jsp 中的表达式脚本，而标签库则是为了替换代码脚本。这样使得整个 jsp 页面变得更佳简洁。">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://example.com/2021/03/15/JSTL%E6%A0%87%E7%AD%BE%E5%BA%93/1.jpg">
+<meta property="og:image" content="http://example.com/2021/03/15/JSTL%E6%A0%87%E7%AD%BE%E5%BA%93/3.jpg">
 <meta property="og:image" content="http://example.com/2021/03/15/JSTL%E6%A0%87%E7%AD%BE%E5%BA%93/2.jpg">
 <meta property="article:published_time" content="2021-03-15T03:23:37.768Z">
-<meta property="article:modified_time" content="2021-03-15T04:08:25.400Z">
+<meta property="article:modified_time" content="2021-03-15T04:12:13.146Z">
 <meta property="article:author" content="zllhard">
 <meta property="article:tag" content="JavaWeb">
 <meta name="twitter:card" content="summary">
@@ -230,7 +231,7 @@
 <h2 id="core-核心库使用"><a href="#core-核心库使用" class="headerlink" title="core 核心库使用"></a>core 核心库使用</h2><h3 id="lt-c-set-gt"><a href="#lt-c-set-gt" class="headerlink" title="&lt;c:set /&gt;"></a>&lt;c:set /&gt;</h3><p>作用：set 标签可以往域中保存数据<br>域对象.setAttribute(key,value);<br>scope 属性设置保存到哪个域<br>&emsp;&emsp;page 表示 PageContext 域（默认值）<br>&emsp;&emsp;request 表示 Request 域<br>&emsp;&emsp;session 表示 Session 域<br>&emsp;&emsp;application 表示 ServletContext 域<br>var 属性设置 key 是多少<br>value 属性设置值</p>
 <p><strong>举例：</strong><br>&lt;c:set scope=”session” var=”abc” value=”abcValue”/&gt;</p>
 <h3 id="lt-c-if-gt"><a href="#lt-c-if-gt" class="headerlink" title="&lt;c:if /&gt;"></a>&lt;c:if /&gt;</h3><p>if 标签用来做 if 判断。<br>test 属性表示判断的条件（使用 EL 表达式输出）</p>
-<p><strong>举例：</strong><br>&lt;c:if test=”${ 12 == 12 }”&gt;<br>if成立的情况<br></p>
+<p><strong>举例：</strong><br><img src="/2021/03/15/JSTL%E6%A0%87%E7%AD%BE%E5%BA%93/3.jpg"></p>
 <h3 id="lt-c-choose-gt-lt-c-when-gt-lt-c-otherwise-gt-标签"><a href="#lt-c-choose-gt-lt-c-when-gt-lt-c-otherwise-gt-标签" class="headerlink" title="&lt;c:choose&gt; &lt;c:when&gt; &lt;c:otherwise&gt;标签"></a>&lt;c:choose&gt; &lt;c:when&gt; &lt;c:otherwise&gt;标签</h3><p>作用：多路判断。跟 switch … case …. default 非常接近<br>不需要手动break，执行到一种情况就会退出。</p>
 <p>choose 标签开始选择判断<br>when 标签表示每一种判断情况<br>&emsp;&emsp;test 属性表示当前这种判断情况的值<br>otherwise 标签表示剩下的情况</p>
 <p>&lt;c:choose&gt; &lt;c:when&gt; &lt;c:otherwise&gt;标签使用时需要注意的点：<br>1、标签里不能使用 html 注释，要使用 jsp 注释<br>2、when 标签的父标签一定要是 choose 标签</p>
@@ -454,11 +455,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">算法</a>
+                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
+                <a href="javascript:void(0)" class="js-tag color3">算法</a>
               </li>
             
             <div class="clearfix"></div>
