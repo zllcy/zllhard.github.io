@@ -18,7 +18,7 @@
 <meta property="og:image" content="http://example.com/2021/03/15/JSTL%E6%A0%87%E7%AD%BE%E5%BA%93/1.jpg">
 <meta property="og:image" content="http://example.com/2021/03/15/JSTL%E6%A0%87%E7%AD%BE%E5%BA%93/2.jpg">
 <meta property="article:published_time" content="2021-03-15T03:23:37.768Z">
-<meta property="article:modified_time" content="2021-03-15T04:05:08.904Z">
+<meta property="article:modified_time" content="2021-03-15T04:08:25.400Z">
 <meta property="article:author" content="zllhard">
 <meta property="article:tag" content="JavaWeb">
 <meta name="twitter:card" content="summary">
@@ -201,7 +201,7 @@
             <div id="toc-article" class="toc-article">
                 <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
                 <strong class="toc-title">文章目录</strong>
-                <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#JSTL%E6%A0%87%E7%AD%BE%E5%BA%93%E7%AE%80%E4%BB%8B"><span class="toc-number">1.</span> <span class="toc-text">JSTL标签库简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JSTL-%E6%A0%87%E7%AD%BE%E5%BA%93%E7%9A%84%E4%BD%BF%E7%94%A8%E6%AD%A5%E9%AA%A4"><span class="toc-number">2.</span> <span class="toc-text">JSTL 标签库的使用步骤</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#core-%E6%A0%B8%E5%BF%83%E5%BA%93%E4%BD%BF%E7%94%A8"><span class="toc-number">3.</span> <span class="toc-text">core 核心库使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#lt-c-set-gt"><span class="toc-number">3.1.</span> <span class="toc-text">&lt;c:set &#x2F;&gt;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#lt-c-if-gt"><span class="toc-number">3.2.</span> <span class="toc-text">&lt;c:if &#x2F;&gt;</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number"></span> <span class="toc-text">12 等于 12</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#lt-c-choose-gt-lt-c-when-gt-lt-c-otherwise-gt-%E6%A0%87%E7%AD%BE"><span class="toc-number">0.1.</span> <span class="toc-text">&lt;c:choose&gt; &lt;c:when&gt; &lt;c:otherwise&gt;标签</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#lt-c-forEach-gt"><span class="toc-number">0.2.</span> <span class="toc-text">&lt;c:forEach &#x2F;&gt;</span></a></li></ol></li></ol>
+                <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#JSTL%E6%A0%87%E7%AD%BE%E5%BA%93%E7%AE%80%E4%BB%8B"><span class="toc-number">1.</span> <span class="toc-text">JSTL标签库简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JSTL-%E6%A0%87%E7%AD%BE%E5%BA%93%E7%9A%84%E4%BD%BF%E7%94%A8%E6%AD%A5%E9%AA%A4"><span class="toc-number">2.</span> <span class="toc-text">JSTL 标签库的使用步骤</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#core-%E6%A0%B8%E5%BF%83%E5%BA%93%E4%BD%BF%E7%94%A8"><span class="toc-number">3.</span> <span class="toc-text">core 核心库使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#lt-c-set-gt"><span class="toc-number">3.1.</span> <span class="toc-text">&lt;c:set &#x2F;&gt;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#lt-c-if-gt"><span class="toc-number">3.2.</span> <span class="toc-text">&lt;c:if &#x2F;&gt;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#lt-c-choose-gt-lt-c-when-gt-lt-c-otherwise-gt-%E6%A0%87%E7%AD%BE"><span class="toc-number">3.3.</span> <span class="toc-text">&lt;c:choose&gt; &lt;c:when&gt; &lt;c:otherwise&gt;标签</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#lt-c-forEach-gt"><span class="toc-number">3.4.</span> <span class="toc-text">&lt;c:forEach &#x2F;&gt;</span></a></li></ol></li></ol>
            </div>
            <script type="text/javascript">
             function showToc(){
@@ -230,11 +230,7 @@
 <h2 id="core-核心库使用"><a href="#core-核心库使用" class="headerlink" title="core 核心库使用"></a>core 核心库使用</h2><h3 id="lt-c-set-gt"><a href="#lt-c-set-gt" class="headerlink" title="&lt;c:set /&gt;"></a>&lt;c:set /&gt;</h3><p>作用：set 标签可以往域中保存数据<br>域对象.setAttribute(key,value);<br>scope 属性设置保存到哪个域<br>&emsp;&emsp;page 表示 PageContext 域（默认值）<br>&emsp;&emsp;request 表示 Request 域<br>&emsp;&emsp;session 表示 Session 域<br>&emsp;&emsp;application 表示 ServletContext 域<br>var 属性设置 key 是多少<br>value 属性设置值</p>
 <p><strong>举例：</strong><br>&lt;c:set scope=”session” var=”abc” value=”abcValue”/&gt;</p>
 <h3 id="lt-c-if-gt"><a href="#lt-c-if-gt" class="headerlink" title="&lt;c:if /&gt;"></a>&lt;c:if /&gt;</h3><p>if 标签用来做 if 判断。<br>test 属性表示判断的条件（使用 EL 表达式输出）</p>
-<p><strong>举例：</strong><br>&lt;c:if test=”${ 12 == 12 }”&gt;</p>
-<h1>12 等于 12</h1>
-
-
-
+<p><strong>举例：</strong><br>&lt;c:if test=”${ 12 == 12 }”&gt;<br>if成立的情况<br></p>
 <h3 id="lt-c-choose-gt-lt-c-when-gt-lt-c-otherwise-gt-标签"><a href="#lt-c-choose-gt-lt-c-when-gt-lt-c-otherwise-gt-标签" class="headerlink" title="&lt;c:choose&gt; &lt;c:when&gt; &lt;c:otherwise&gt;标签"></a>&lt;c:choose&gt; &lt;c:when&gt; &lt;c:otherwise&gt;标签</h3><p>作用：多路判断。跟 switch … case …. default 非常接近<br>不需要手动break，执行到一种情况就会退出。</p>
 <p>choose 标签开始选择判断<br>when 标签表示每一种判断情况<br>&emsp;&emsp;test 属性表示当前这种判断情况的值<br>otherwise 标签表示剩下的情况</p>
 <p>&lt;c:choose&gt; &lt;c:when&gt; &lt;c:otherwise&gt;标签使用时需要注意的点：<br>1、标签里不能使用 html 注释，要使用 jsp 注释<br>2、when 标签的父标签一定要是 choose 标签</p>
