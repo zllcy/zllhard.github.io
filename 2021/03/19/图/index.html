@@ -6,15 +6,26 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Archives: 2021 | Welcome To Study</title>
+  <title>图 | Welcome To Study</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Welcome To Study">
-<meta property="og:url" content="http://example.com/archives/2021/index.html">
+  <meta name="description" content="图的基本介绍图是一种数据结构，其中结点可以具有零个或多个相邻元素。两个结点之间的连接称为边。结点也可以称为顶点。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="图">
+<meta property="og:url" content="http://example.com/2021/03/19/%E5%9B%BE/index.html">
 <meta property="og:site_name" content="Welcome To Study">
+<meta property="og:description" content="图的基本介绍图是一种数据结构，其中结点可以具有零个或多个相邻元素。两个结点之间的连接称为边。结点也可以称为顶点。">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/2021/03/19/%E5%9B%BE/1.jpg">
+<meta property="og:image" content="http://example.com/2021/03/19/%E5%9B%BE/2.jpg">
+<meta property="og:image" content="http://example.com/2021/03/19/%E5%9B%BE/3.png">
+<meta property="og:image" content="http://example.com/2021/03/19/%E5%9B%BE/4.jpg">
+<meta property="og:image" content="http://example.com/2021/03/19/%E5%9B%BE/5.jpg">
+<meta property="article:published_time" content="2021-03-19T03:30:14.912Z">
+<meta property="article:modified_time" content="2021-03-19T06:14:07.352Z">
 <meta property="article:author" content="zllhard">
+<meta property="article:tag" content="数据结构">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2021/03/19/%E5%9B%BE/1.jpg">
   
     <link rel="alternative" href="/atom.xml" title="Welcome To Study" type="application/atom+xml">
   
@@ -156,36 +167,256 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-图" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      图
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2021" class="archive-year">2021</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/03/19/%E5%9B%BE/" class="archive-article-date">
+
+		<!--显示阅读次数-->
+		
+		  <br/>
+		  <a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;">
+		  <span class="icon-sort"></span>
+		  <span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
+					阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
+		  </span>
+		  </a>
+		
+        
+        <a href="/2021/03/19/%E5%9B%BE/" class="archive-article-date">
   	<time datetime="2021-03-19T03:30:14.912Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-19</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/03/19/%E5%9B%BE/">图</a>
-    </h1>
-  
+        
+      </header>
+    
+	<!-- 目录内容 -->
+        
+            <p class="show-toc-btn" id="show-toc-btn" onclick="showToc();" style="display:none">
+            <span class="btn-bg"></span>
+            <span class="btn-text">文章导航</span>
+            </p>
+            <div id="toc-article" class="toc-article">
+                <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
+                <strong class="toc-title">文章目录</strong>
+                <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%BE%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BB%8B%E7%BB%8D"><span class="toc-number">1.</span> <span class="toc-text">图的基本介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%BE%E7%9A%84%E5%B8%B8%E7%94%A8%E6%A6%82%E5%BF%B5"><span class="toc-number">2.</span> <span class="toc-text">图的常用概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%BE%E7%9A%84%E8%A1%A8%E7%A4%BA%E6%96%B9%E5%BC%8F"><span class="toc-number">3.</span> <span class="toc-text">图的表示方式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%82%BB%E6%8E%A5%E7%9F%A9%E9%98%B5"><span class="toc-number">3.1.</span> <span class="toc-text">邻接矩阵</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%82%BB%E6%8E%A5%E8%A1%A8"><span class="toc-number">3.2.</span> <span class="toc-text">邻接表</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%BE%E7%9A%84%E5%88%9B%E5%BB%BA"><span class="toc-number">4.</span> <span class="toc-text">图的创建</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2%EF%BC%88DFS%EF%BC%89"><span class="toc-number">5.</span> <span class="toc-text">深度优先搜索（DFS）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF%E5%88%86%E6%9E%90"><span class="toc-number">5.1.</span> <span class="toc-text">思路分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0"><span class="toc-number">5.2.</span> <span class="toc-text">代码实现</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2%EF%BC%88BFS%EF%BC%89"><span class="toc-number">6.</span> <span class="toc-text">广度优先搜索（BFS）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF%E5%88%86%E6%9E%90-1"><span class="toc-number">6.1.</span> <span class="toc-text">思路分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0-1"><span class="toc-number">6.2.</span> <span class="toc-text">代码实现</span></a></li></ol></li></ol>
+           </div>
+           <script type="text/javascript">
+            function showToc(){
+                var toc_article = document.getElementById("toc-article");
+                var show_toc_btn = document.getElementById("show-toc-btn");
+                toc_article.setAttribute("style","display:block");
+                show_toc_btn.setAttribute("style","display:none");
+                };
+            function showBtn(){
+                var toc_article = document.getElementById("toc-article");
+                var show_toc_btn = document.getElementById("show-toc-btn");
+                toc_article.setAttribute("style","display:none");
+                show_toc_btn.setAttribute("style","display:block");
+                };
+           </script>
+             
+        <!-- 目录内容结束 -->
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="图的基本介绍"><a href="#图的基本介绍" class="headerlink" title="图的基本介绍"></a>图的基本介绍</h2><p>图是一种数据结构，其中结点可以具有零个或多个相邻元素。两个结点之间的连接称为边。结点也可以称为顶点。</p>
+<span id="more"></span>
 
-        <div class="article-info info-on-right">
-          
+<h2 id="图的常用概念"><a href="#图的常用概念" class="headerlink" title="图的常用概念"></a>图的常用概念</h2><p>顶点(vertex)<br>边(edge)<br><img src="/2021/03/19/%E5%9B%BE/1.jpg"><br>无向图： 顶点之间的连接没有方向，比如A-B，即可以是 A-&gt; B 也可以 B-&gt;A 。<br>路径:  比如从 D -&gt; C 的路径有</p>
+<ol>
+<li>D-&gt;B-&gt;C</li>
+<li>D-&gt;A-&gt;B-&gt;C<br>有向图： 顶点之间的连接有方向，比如A-B，只能是 A-&gt; B 不能是 B-&gt;A 。<br><img src="/2021/03/19/%E5%9B%BE/2.jpg"><br>带权图：这种边带权值的图也叫网。<br><img src="/2021/03/19/%E5%9B%BE/3.png"></li>
+</ol>
+<h2 id="图的表示方式"><a href="#图的表示方式" class="headerlink" title="图的表示方式"></a>图的表示方式</h2><p>图的表示方式有两种：二维数组表示（邻接矩阵）；链表表示（邻接表）。</p>
+<h3 id="邻接矩阵"><a href="#邻接矩阵" class="headerlink" title="邻接矩阵"></a>邻接矩阵</h3><p>邻接矩阵是表示图形中顶点之间相邻关系的矩阵，对于n个顶点的图而言，矩阵是的row和col表示的是1….n个点。<br><img src="/2021/03/19/%E5%9B%BE/4.jpg"></p>
+<h3 id="邻接表"><a href="#邻接表" class="headerlink" title="邻接表"></a>邻接表</h3><p>1、邻接矩阵需要为每个顶点都分配n个边的空间，其实有很多边都是不存在，会造成空间的一定损失。<br>2、邻接表的实现只关心存在的边，不关心不存在的边。因此没有空间浪费，邻接表由数组+链表组成。<br><img src="/2021/03/19/%E5%9B%BE/5.jpg"><br><strong>说明:</strong><br>标号为0的结点的相关联的结点为 1、2、3、4<br>标号为1的结点的相关联结点为0、4<br>标号为2的结点相关联的结点为0、4、5<br>…</p>
+<h2 id="图的创建"><a href="#图的创建" class="headerlink" title="图的创建"></a>图的创建</h2><p>使用二维数组表示图</p>
+<pre><code>import java.util.ArrayList;
+import java.util.Arrays;
+
+public class Graph &#123;
+
+    private ArrayList&lt;String&gt; vertexList;  //存储顶点集合
+    private int[][] edges;  //存储图对应的邻接矩阵
+    private int numOfEdges;  //表示边的数目
+
+    //构造器，传入顶点个数
+    public Graph(int n) &#123;
+        vertexList = new ArrayList&lt;&gt;();
+        edges = new int[n][n];
+        numOfEdges = 0;
+    &#125;
+
+    //插入结点
+    public void insertVertex(String vertex) &#123;
+        vertexList.add(vertex);
+    &#125;
+
+    //添加边
+    public void insertEdges(int v1, int v2, int weight) &#123;
+        edges[v1][v2] = weight;
+        edges[v2][v1] = weight;
+        numOfEdges++;
+    &#125;
+
+    //获取顶点个数
+    public int getNumOfVertex() &#123;
+        return vertexList.size();
+    &#125;
+
+    //获取边的条数
+    public int getNumOfEdges() &#123;
+        return numOfEdges;
+    &#125;
+
+    //获取边的权值
+    public int getWeight(int v1, int v2) &#123;
+        return edges[v1][v2];
+    &#125;
+
+    //根据索引获取顶点的值
+    public String getValueOfIndex(int i) &#123;
+        return vertexList.get(i);
+    &#125;
+
+    //打印图对应的数组
+    public void show() &#123;
+        for (int[] link : edges) &#123;
+            System.out.println(Arrays.toString(link));
+        &#125;
+    &#125;
+
+    public static void main(String[] args) &#123;
+        int n = 5;
+        String[] vertexs = &#123;&quot;A&quot;, &quot;B&quot;, &quot;C&quot;, &quot;D&quot;, &quot;E&quot;&#125;;
+
+        Graph graph = new Graph(n);
+
+        for (String vertex : vertexs) &#123;
+            graph.insertVertex(vertex);
+        &#125;
+        graph.insertEdges(0,1,1);
+        graph.insertEdges(0,2,1);
+        graph.insertEdges(1,2,1);
+        graph.insertEdges(1,3,1);
+        graph.insertEdges(1,4,1);
+
+        graph.show();
+    &#125;
+
+&#125;
+</code></pre>
+<h2 id="深度优先搜索（DFS）"><a href="#深度优先搜索（DFS）" class="headerlink" title="深度优先搜索（DFS）"></a>深度优先搜索（DFS）</h2><p>1、深度优先遍历，从初始访问结点出发，初始访问结点可能有多个邻接结点，深度优先遍历的策略就是首先访问第一个邻接结点，然后再以这个被访问的邻接结点作为初始结点，访问它的第一个邻接结点， 可以这样理解：每次都在访问完当前结点后首先访问当前结点的第一个邻接结点。<br>2、我们可以看到，这样的访问策略是优先往纵向挖掘深入，而不是对一个结点的所有邻接结点进行横向访问。<br>3、显然，深度优先搜索是一个递归的过程。</p>
+<h3 id="思路分析"><a href="#思路分析" class="headerlink" title="思路分析"></a>思路分析</h3><p>1）访问初始结点v，并标记结点v为已访问。<br>2）查找结点v的第一个邻接结点w。<br>3）若w存在，则继续执行4，如果w不存在，则回到第1步，将从v的下一个结点继续。<br>4）若w未被访问，对w进行深度优先遍历递归（即把w当做另一个v，然后进行步骤123）。<br>5）查找结点v的w邻接结点的下一个邻接结点，转到步骤3。</p>
+<h3 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h3><pre><code> /**
+ * 得到第一个邻接节点的下标
+ * @param i
+ * @return
+ */
+private int getFirstNeighbor(int i) &#123;
+    for (int j = 0; j &lt; vertexList.size(); j++) &#123;
+        if (edges[i][j] &gt; 0) &#123;
+            return j;
+        &#125;
+    &#125;
+    return -1;
+&#125;
+
+/**
+ * 根据前一个邻接节点的下标来获取下一个邻接节点，寻找v1的下一个邻接节点
+ * @param v1
+ * @param v2
+ * @return
+ */
+private int getNextNeighbor(int v1, int v2) &#123;
+    for (int j = v2 + 1; j &lt; vertexList.size(); j++) &#123;
+        if (edges[v1][j] &gt; 0) &#123;
+            return j;
+        &#125;
+    &#125;
+    return -1;
+&#125;
+
+//dfs
+public void dfs(boolean[] isVisited, int i) &#123;
+    //访问该节点
+    System.out.print(getValueOfIndex(i) + &quot;-&gt;&quot;);
+    //将该节点置为已访问
+    isVisited[i] = true;
+
+    //查找节点i的第一个邻接节点
+    int w = getFirstNeighbor(i);
+    while (w != -1) &#123;
+        if (!isVisited[w]) &#123;  //没有访问过，则将w当做第一个节点，递归dfs
+            dfs(isVisited, w);
+        &#125; else &#123;  //访问过了，则寻找i的下一个节点
+            w = getNextNeighbor(i, w);
+        &#125;
+
+    &#125;
+&#125;
+
+//重载dfs
+public void dfs() &#123;
+    //遍历所有节点，进行dfs回溯
+    for (int i = 0; i &lt; getNumOfVertex(); i++) &#123;
+        if (!isVisited[i]) &#123;
+            dfs(isVisited, i);
+        &#125;
+    &#125;
+&#125;
+</code></pre>
+<h2 id="广度优先搜索（BFS）"><a href="#广度优先搜索（BFS）" class="headerlink" title="广度优先搜索（BFS）"></a>广度优先搜索（BFS）</h2><p>类似于一个分层搜索的过程，广度优先遍历需要使用一个队列以保持访问过的结点的顺序，以便按这个顺序来访问这些结点的邻接结点。</p>
+<h3 id="思路分析-1"><a href="#思路分析-1" class="headerlink" title="思路分析"></a>思路分析</h3><p>1）访问初始结点v并标记结点v为已访问。<br>2）结点v入队列。<br>3）当队列非空时，继续执行，否则算法结束。<br>4）出队列，取得队头结点u。<br>5）查找结点u的第一个邻接结点w。<br>6）若结点u的邻接结点w不存在，则转到步骤3；否则循环执行以下三个步骤：<br>6.1 若结点w尚未被访问，则访问结点w并标记为已访问。<br>6.2 结点w入队列 。<br>6.3 查找结点u的继w邻接结点后的下一个邻接结点w，转到步骤6。</p>
+<h3 id="代码实现-1"><a href="#代码实现-1" class="headerlink" title="代码实现"></a>代码实现</h3><pre><code>//bfs
+public void bfs(boolean[] isVisited, int i) &#123;
+    int u;  //表示队列的头结点对应的下标
+    int w;  //邻接节点w
+    //队列，用于记录节点的访问顺序
+    Queue queue = new LinkedList();
+    //访问节点
+    System.out.print(getValueOfIndex(i) + &quot;-&gt;&quot;);
+    isVisited[i] = true;
+    queue.add(i);
+
+    while (!queue.isEmpty()) &#123;
+        //取出队列的头结点下标
+        u = (int) queue.poll();
+        //得到第一个邻接节点的下标w
+        w = getFirstNeighbor(u);
+        while (w != -1) &#123;  //找到
+            if (!isVisited[w]) &#123;
+                System.out.print(getValueOfIndex(w) + &quot;-&gt;&quot;);
+                isVisited[w] = true;
+                queue.add(w);
+            &#125;
+            w = getNextNeighbor(u, w);
+        &#125;
+    &#125;
+&#125;
+
+//重载bfs
+public void bfs() &#123;
+    for (int i = 0; i &lt; getNumOfVertex(); i++) &#123;
+        if (!isVisited[i]) &#123;
+            bfs(isVisited, i);
+        &#125;
+    &#125;
+&#125;
+</code></pre>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -197,365 +428,107 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2021/03/19/%E5%9B%BE/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/03/17/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E7%AE%97%E6%B3%95/" class="archive-article-date">
-  	<time datetime="2021-03-17T10:35:13.940Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-17</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2021/03/17/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E7%AE%97%E6%B3%95/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">动态规划算法</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/03/17/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E7%AE%97%E6%B3%95/">动态规划算法</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/03/17/%E5%88%86%E6%B2%BB%E7%AE%97%E6%B3%95/" class="archive-article-date">
-  	<time datetime="2021-03-17T08:08:43.104Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-17</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/03/17/%E5%88%86%E6%B2%BB%E7%AE%97%E6%B3%95/">分治算法</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/03/16/%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95/" class="archive-article-date">
-  	<time datetime="2021-03-16T06:52:10.490Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-16</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/03/16/%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95/">查找算法</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/03/16/%E9%87%8D%E5%BB%BA%E4%BA%8C%E5%8F%89%E6%A0%91/" class="archive-article-date">
-  	<time datetime="2021-03-16T03:09:02.736Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-16</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/03/16/%E9%87%8D%E5%BB%BA%E4%BA%8C%E5%8F%89%E6%A0%91/">重建二叉树</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">LeetCode</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/03/15/%E6%A0%88%E5%92%8C%E9%98%9F%E5%88%97%E7%9A%84%E4%BA%92%E8%BD%AC/" class="archive-article-date">
-  	<time datetime="2021-03-15T09:47:56.684Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-15</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/03/15/%E6%A0%88%E5%92%8C%E9%98%9F%E5%88%97%E7%9A%84%E4%BA%92%E8%BD%AC/">栈和队列的互转</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">LeetCode</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/03/15/%E6%96%87%E4%BB%B6%E7%9A%84%E4%B8%8A%E4%BC%A0%E5%92%8C%E4%B8%8B%E8%BD%BD/" class="archive-article-date">
-  	<time datetime="2021-03-15T06:19:06.804Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-15</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/03/15/%E6%96%87%E4%BB%B6%E7%9A%84%E4%B8%8A%E4%BC%A0%E5%92%8C%E4%B8%8B%E8%BD%BD/">文件的上传和下载</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">JavaWeb</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/03/15/JSTL%E6%A0%87%E7%AD%BE%E5%BA%93/" class="archive-article-date">
-  	<time datetime="2021-03-15T03:23:37.768Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-15</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/03/15/JSTL%E6%A0%87%E7%AD%BE%E5%BA%93/">JSTL标签库</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">JavaWeb</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/03/15/EL%E8%A1%A8%E8%BE%BE%E5%BC%8F/" class="archive-article-date">
-  	<time datetime="2021-03-15T02:11:17.661Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-15</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/03/15/EL%E8%A1%A8%E8%BE%BE%E5%BC%8F/">EL表达式</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">JavaWeb</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/03/14/%E5%A4%9A%E8%B7%AF%E6%9F%A5%E6%89%BE%E6%A0%91/" class="archive-article-date">
-  	<time datetime="2021-03-14T07:02:37.840Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-14</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/03/14/%E5%A4%9A%E8%B7%AF%E6%9F%A5%E6%89%BE%E6%A0%91/">多路查找树</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/2021/page/2/">2</a><a class="page-number" href="/archives/2021/page/3/">3</a><a class="extend next" rel="next" href="/archives/2021/page/2/">Next &amp;raquo;</a>
-    </nav>
-  
 
 
           </div>
@@ -578,8 +551,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
