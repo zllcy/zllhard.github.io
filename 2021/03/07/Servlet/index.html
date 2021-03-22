@@ -19,7 +19,7 @@
 <meta property="og:image" content="http://example.com/2021/03/07/Servlet/1.jpg">
 <meta property="og:image" content="http://example.com/2021/03/07/Servlet/2.jpg">
 <meta property="article:published_time" content="2021-03-07T09:20:25.524Z">
-<meta property="article:modified_time" content="2021-03-08T05:32:55.782Z">
+<meta property="article:modified_time" content="2021-03-22T03:41:31.947Z">
 <meta property="article:author" content="zllhard">
 <meta property="article:tag" content="JavaWeb">
 <meta name="twitter:card" content="summary">
@@ -244,47 +244,8 @@
 </ol>
 <h3 id="url-地址到-Servlet-程序的访问"><a href="#url-地址到-Servlet-程序的访问" class="headerlink" title="url 地址到 Servlet 程序的访问"></a>url 地址到 Servlet 程序的访问</h3><p><img src="/2021/03/07/Servlet/1.jpg" alt="url 地址到 Servlet 程序的访问"></p>
 <h3 id="Servlet-的生命周期"><a href="#Servlet-的生命周期" class="headerlink" title="Servlet 的生命周期"></a>Servlet 的生命周期</h3><p>1、执行 Servlet 构造器方法<br>2、执行 init 初始化方法<br>第一、二步，是在第一次访问，的时候创建 Servlet 程序会调用。<br>3、执行 service 方法<br>第三步，每次访问都会调用。<br>4、执行 destroy 销毁方法<br>第四步，在 web 工程停止的时候调用。</p>
-<h3 id="GET-和-POST-请求的分发处理"><a href="#GET-和-POST-请求的分发处理" class="headerlink" title="GET 和 POST 请求的分发处理"></a>GET 和 POST 请求的分发处理</h3><pre><code>public class HelloServlet implements Servlet &#123;
-    /**
-     * service 方法是专门用来处理请求和响应的
-     *
-     * @param servletRequest
-     * @param servletResponse
-     * @throws ServletException
-     * @throws IOException
-     */
-    @Override
-    public void service(ServletRequest servletRequest, ServletResponse servletResponse) throws
-            ServletException, IOException &#123;
-        System.out.println(&quot;3 service === Hello Servlet 被访问了&quot;);
-// 类型转换（因为它有 getMethod()方法）
-        HttpServletRequest httpServletRequest = (HttpServletRequest) servletRequest;
-// 获取请求的方式
-        String method = httpServletRequest.getMethod();
-        if (&quot;GET&quot;.equals(method)) &#123;
-            doGet();
-        &#125; else if (&quot;POST&quot;.equals(method)) &#123;
-            doPost();
-        &#125;
-    &#125;
+<h3 id="GET-和-POST-请求的分发处理"><a href="#GET-和-POST-请求的分发处理" class="headerlink" title="GET 和 POST 请求的分发处理"></a>GET 和 POST 请求的分发处理</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloServlet</span> <span class="keyword">implements</span> <span class="title">Servlet</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * service 方法是专门用来处理请求和响应的</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> servletRequest</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> servletResponse</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@throws</span> ServletException</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@throws</span> IOException</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">service</span><span class="params">(ServletRequest servletRequest, ServletResponse servletResponse)</span> <span class="keyword">throws</span></span></span><br><span class="line"><span class="function">            ServletException, IOException </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;3 service === Hello Servlet 被访问了&quot;</span>);</span><br><span class="line"><span class="comment">// 类型转换（因为它有 getMethod()方法）</span></span><br><span class="line">        HttpServletRequest httpServletRequest = (HttpServletRequest) servletRequest;</span><br><span class="line"><span class="comment">// 获取请求的方式</span></span><br><span class="line">        String method = httpServletRequest.getMethod();</span><br><span class="line">        <span class="keyword">if</span> (<span class="string">&quot;GET&quot;</span>.equals(method)) &#123;</span><br><span class="line">            doGet();</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="string">&quot;POST&quot;</span>.equals(method)) &#123;</span><br><span class="line">            doPost();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 做 get 请求的操作</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">doGet</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;get 请求&quot;</span>);</span><br><span class="line">        System.out.println(<span class="string">&quot;get 请求&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 做 post 请求的操作</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">doPost</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;post 请求&quot;</span>);</span><br><span class="line">        System.out.println(<span class="string">&quot;post 请求&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-    /**
-     * 做 get 请求的操作
-     */
-    public void doGet() &#123;
-        System.out.println(&quot;get 请求&quot;);
-        System.out.println(&quot;get 请求&quot;);
-    &#125;
-
-    /**
-     * 做 post 请求的操作
-     */
-    public void doPost() &#123;
-        System.out.println(&quot;post 请求&quot;);
-        System.out.println(&quot;post 请求&quot;);
-    &#125;
-&#125;
-</code></pre>
 <h3 id="通过继承-HttpServlet-实现-Servlet-程序"><a href="#通过继承-HttpServlet-实现-Servlet-程序" class="headerlink" title="通过继承 HttpServlet 实现 Servlet 程序"></a>通过继承 HttpServlet 实现 Servlet 程序</h3><p>一般在实际项目开发中，都是使用继承 HttpServlet 类的方式去实现 Servlet 程序。</p>
 <ol>
 <li>编写一个类去继承 HttpServlet 类</li>
@@ -527,11 +488,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">LeetCode</a>
+                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
+                <a href="javascript:void(0)" class="js-tag color4">LeetCode</a>
               </li>
             
             <div class="clearfix"></div>

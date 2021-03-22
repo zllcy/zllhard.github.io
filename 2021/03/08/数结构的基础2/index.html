@@ -18,7 +18,7 @@
 <meta property="og:image" content="http://example.com/2021/03/08/%E6%95%B0%E7%BB%93%E6%9E%84%E7%9A%84%E5%9F%BA%E7%A1%802/1.png">
 <meta property="og:image" content="http://example.com/2021/03/08/%E6%95%B0%E7%BB%93%E6%9E%84%E7%9A%84%E5%9F%BA%E7%A1%802/2.jpg">
 <meta property="article:published_time" content="2021-03-08T09:00:52.898Z">
-<meta property="article:modified_time" content="2021-03-09T02:08:45.314Z">
+<meta property="article:modified_time" content="2021-03-22T03:37:35.723Z">
 <meta property="article:author" content="zllhard">
 <meta property="article:tag" content="数据结构">
 <meta name="twitter:card" content="summary">
@@ -232,252 +232,15 @@
 <li>第n个元素的父节点为  (n-1) / 2</li>
 <li>n : 表示二叉树中的第几个元素(按0开始编号）</li>
 </ol>
-<h3 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h3><pre><code>public class ArrBinaryTreeDemo &#123;
-    public static void main(String[] args) &#123;
-        int[] arr = &#123;1, 2, 3, 4, 5, 6, 7&#125;;
-        ArrBinaryTree arrBinaryTree = new ArrBinaryTree(arr);
-        arrBinaryTree.preOrder(0);
-    &#125;
+<h3 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ArrBinaryTreeDemo</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span>[] arr = &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>&#125;;</span><br><span class="line">        ArrBinaryTree arrBinaryTree = <span class="keyword">new</span> ArrBinaryTree(arr);</span><br><span class="line">        arrBinaryTree.preOrder(<span class="number">0</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ArrBinaryTree</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span>[] arr;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">ArrBinaryTree</span><span class="params">(<span class="keyword">int</span>[] arr)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.arr = arr;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//前序遍历顺序存储二叉树</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">preOrder</span><span class="params">(<span class="keyword">int</span> index)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (arr == <span class="keyword">null</span> || arr.length == <span class="number">0</span>) &#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;数组为空&quot;</span>);</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(arr[index]);</span><br><span class="line">        <span class="comment">//左递归遍历</span></span><br><span class="line">        <span class="keyword">if</span> (index * <span class="number">2</span> + <span class="number">1</span> &lt; arr.length) &#123;</span><br><span class="line">            preOrder(index * <span class="number">2</span> + <span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//右递归遍历</span></span><br><span class="line">        <span class="keyword">if</span> (index * <span class="number">2</span> + <span class="number">2</span> &lt; arr.length) &#123;</span><br><span class="line">            preOrder(index * <span class="number">2</span> + <span class="number">2</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-&#125;
-
-class ArrBinaryTree &#123;
-    private int[] arr;
-
-    public ArrBinaryTree(int[] arr) &#123;
-        this.arr = arr;
-    &#125;
-
-    //前序遍历顺序存储二叉树
-    public void preOrder(int index) &#123;
-        if (arr == null || arr.length == 0) &#123;
-            System.out.println(&quot;数组为空&quot;);
-            return;
-        &#125;
-        System.out.println(arr[index]);
-        //左递归遍历
-        if (index * 2 + 1 &lt; arr.length) &#123;
-            preOrder(index * 2 + 1);
-        &#125;
-        //右递归遍历
-        if (index * 2 + 2 &lt; arr.length) &#123;
-            preOrder(index * 2 + 2);
-        &#125;
-
-    &#125;
-&#125;
-</code></pre>
 <h2 id="线索化二叉树"><a href="#线索化二叉树" class="headerlink" title="线索化二叉树"></a>线索化二叉树</h2><h3 id="基本介绍"><a href="#基本介绍" class="headerlink" title="基本介绍"></a>基本介绍</h3><p>1、n个结点的二叉链表中含有n+1  【公式 2n-(n-1)=n+1】 个空指针域。利用二叉链表中的空指针域，存放指向该结点在某种遍历次序下的前驱和后继结点的指针（这种附加的指针称为”线索”）<br>2、这种加上了线索的二叉链表称为线索链表，相应的二叉树称为线索二叉树(Threaded BinaryTree)。根据线索性质的不同，线索二叉树可分为前序线索二叉树、中序线索二叉树和后序线索二叉树三种<br>3、一个结点的前一个结点，称为前驱结点<br>4、一个结点的后一个结点，称为后继结点</p>
 <h3 id="线索化案例"><a href="#线索化案例" class="headerlink" title="线索化案例"></a>线索化案例</h3><p>将下面的二叉树，变成中序线索二叉树。中序遍历的数列为{8, 3, 10, 1, 14, 6}<br><img src="/2021/03/08/%E6%95%B0%E7%BB%93%E6%9E%84%E7%9A%84%E5%9F%BA%E7%A1%802/2.jpg"><br>说明: 当线索化二叉树后，Node节点的 属性 left 和 right ，有如下情况:<br>left 指向的是左子树，也可能是指向的前驱节点. 比如 ① 节点 left 指向的左子树, 而 ⑩ 节点的 left 指向的就是前驱节点.<br>right指向的是右子树，也可能是指向后继节点，比如 ① 节点right 指向的是右子树，而⑩ 节点的right 指向的是后继节点.</p>
 <h3 id="代码实现-1"><a href="#代码实现-1" class="headerlink" title="代码实现"></a>代码实现</h3><p>注意理解线索化当前节点，处理前驱节点和处理后继节点的那部分代码</p>
-<pre><code>public class ThreadedBinaryTreeDemo &#123;
-    public static void main(String[] args) &#123;
-        GirlNode2 girlNode1 = new GirlNode2(1,&quot;陈瑶&quot;);
-        GirlNode2 girlNode2 = new GirlNode2(3,&quot;张予曦&quot;);
-        GirlNode2 girlNode3 = new GirlNode2(6,&quot;文咏珊&quot;);
-        GirlNode2 girlNode4 = new GirlNode2(8,&quot;宋轶&quot;);
-        GirlNode2 girlNode5 = new GirlNode2(10,&quot;哈妮克孜&quot;);
-        GirlNode2 girlNode6 = new GirlNode2(14,&quot;黄梦莹&quot;);
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ThreadedBinaryTreeDemo</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        GirlNode2 girlNode1 = <span class="keyword">new</span> GirlNode2(<span class="number">1</span>,<span class="string">&quot;陈瑶&quot;</span>);</span><br><span class="line">        GirlNode2 girlNode2 = <span class="keyword">new</span> GirlNode2(<span class="number">3</span>,<span class="string">&quot;张予曦&quot;</span>);</span><br><span class="line">        GirlNode2 girlNode3 = <span class="keyword">new</span> GirlNode2(<span class="number">6</span>,<span class="string">&quot;文咏珊&quot;</span>);</span><br><span class="line">        GirlNode2 girlNode4 = <span class="keyword">new</span> GirlNode2(<span class="number">8</span>,<span class="string">&quot;宋轶&quot;</span>);</span><br><span class="line">        GirlNode2 girlNode5 = <span class="keyword">new</span> GirlNode2(<span class="number">10</span>,<span class="string">&quot;哈妮克孜&quot;</span>);</span><br><span class="line">        GirlNode2 girlNode6 = <span class="keyword">new</span> GirlNode2(<span class="number">14</span>,<span class="string">&quot;黄梦莹&quot;</span>);</span><br><span class="line"></span><br><span class="line">        girlNode1.setLeft(girlNode2);</span><br><span class="line">        girlNode1.setRight(girlNode3);</span><br><span class="line">        girlNode2.setLeft(girlNode4);</span><br><span class="line">        girlNode2.setRight(girlNode5);</span><br><span class="line">        girlNode3.setLeft(girlNode6);</span><br><span class="line"></span><br><span class="line">        ThreadedBinaryTree threadedBinaryTree = <span class="keyword">new</span> ThreadedBinaryTree();</span><br><span class="line">        threadedBinaryTree.setRoot(girlNode1);</span><br><span class="line">        threadedBinaryTree.threadedNodes();</span><br><span class="line"></span><br><span class="line">        <span class="comment">//测试no为10的点的前驱和后继是否为3和1</span></span><br><span class="line">        GirlNode2 girlNode5Left = girlNode5.getLeft();</span><br><span class="line">        GirlNode2 girlNode5Right = girlNode5.getRight();</span><br><span class="line">        System.out.println(girlNode5Left);</span><br><span class="line">        System.out.println(girlNode5Right);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ThreadedBinaryTree</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> GirlNode2 root;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//为了实现线索化，需要创建指向当前节点的前驱节点的指针</span></span><br><span class="line">    <span class="comment">//在线索化过程中，pre总是保留前一个节点</span></span><br><span class="line">    <span class="keyword">private</span> GirlNode2 pre;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setRoot</span><span class="params">(GirlNode2 root)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.root = root;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//重载</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">threadedNodes</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.threadedNodes(root);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//线索化</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">threadedNodes</span><span class="params">(GirlNode2 node)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (node == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//线索化左子树</span></span><br><span class="line">        threadedNodes(node.getLeft());</span><br><span class="line"></span><br><span class="line">        <span class="comment">//线索化当前节点</span></span><br><span class="line">        <span class="comment">//处理当前节点的前驱节点</span></span><br><span class="line">        <span class="keyword">if</span> (node.getLeft() == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="comment">//将当前节点的左指针指向前驱节点</span></span><br><span class="line">            node.setLeft(pre);</span><br><span class="line">            <span class="comment">//修改当前节点左指针的类型为1（前驱节点）</span></span><br><span class="line">            node.setLeftType(<span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//处理后继节点</span></span><br><span class="line">        <span class="keyword">if</span> (pre != <span class="keyword">null</span> &amp;&amp; pre.getRight() == <span class="keyword">null</span>) &#123;</span><br><span class="line">            pre.setRight(node);</span><br><span class="line">            pre.setRightType(<span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//!!!每处理一个节点后，让当前节点是下一个节点的前驱节点</span></span><br><span class="line">        pre = node;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//线索化右子树</span></span><br><span class="line">        threadedNodes(node.getRight());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">GirlNode2</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> no;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="keyword">private</span> GirlNode2 left;</span><br><span class="line">    <span class="keyword">private</span> GirlNode2 right;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//leftType == 0表示指向的是左子树，如果 == 1则表示指向前驱节点</span></span><br><span class="line">    <span class="comment">//rightType == 0表示指向的是右子树，如果 == 1则表示指向后继节点</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> leftType;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> rightType;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getLeftType</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> leftType;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setLeftType</span><span class="params">(<span class="keyword">int</span> leftType)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.leftType = leftType;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getRightType</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> rightType;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setRightType</span><span class="params">(<span class="keyword">int</span> rightType)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.rightType = rightType;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">GirlNode2</span><span class="params">(<span class="keyword">int</span> no, String name)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.no = no;</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getNo</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> no;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setNo</span><span class="params">(<span class="keyword">int</span> no)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.no = no;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> GirlNode2 <span class="title">getLeft</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> left;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setLeft</span><span class="params">(GirlNode2 left)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.left = left;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> GirlNode2 <span class="title">getRight</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> right;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setRight</span><span class="params">(GirlNode2 right)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.right = right;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;HeroNode&#123;&quot;</span> +</span><br><span class="line">                <span class="string">&quot;no=&quot;</span> + no +</span><br><span class="line">                <span class="string">&quot;, name=&#x27;&quot;</span> + name + <span class="string">&#x27;\&#x27;&#x27;</span> +</span><br><span class="line">                <span class="string">&#x27;&#125;&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//删除节点</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">defNode</span><span class="params">(<span class="keyword">int</span> no)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//如果当前节点的左子节点不为空，并且左子节点就是要删除的节点，则将this.left=null;并且返回（结束递归）</span></span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">this</span>.left != <span class="keyword">null</span> &amp;&amp; <span class="keyword">this</span>.left.no == no) &#123;</span><br><span class="line">            <span class="keyword">this</span>.left = <span class="keyword">null</span>;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//如果当前节点的右子节点不为空，并且右子节点就是要删除的节点，则将this.right=null;并且返回（结束递归</span></span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">this</span>.right != <span class="keyword">null</span> &amp;&amp; <span class="keyword">this</span>.right.no == no) &#123;</span><br><span class="line">            <span class="keyword">this</span>.right = <span class="keyword">null</span>;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//如果2、3布都没有删除节点，则需要向左子树递归删除</span></span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">this</span>.left != <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">this</span>.left.defNode(no);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//如果第4步也没有删除节点，需要向右子树递归删除</span></span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">this</span>.right != <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">this</span>.right.defNode(no);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">preOrder</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="keyword">this</span>);</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">this</span>.left != <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">this</span>.left.preOrder();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">this</span>.right != <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">this</span>.right.preOrder();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-        girlNode1.setLeft(girlNode2);
-        girlNode1.setRight(girlNode3);
-        girlNode2.setLeft(girlNode4);
-        girlNode2.setRight(girlNode5);
-        girlNode3.setLeft(girlNode6);
-
-        ThreadedBinaryTree threadedBinaryTree = new ThreadedBinaryTree();
-        threadedBinaryTree.setRoot(girlNode1);
-        threadedBinaryTree.threadedNodes();
-
-        //测试no为10的点的前驱和后继是否为3和1
-        GirlNode2 girlNode5Left = girlNode5.getLeft();
-        GirlNode2 girlNode5Right = girlNode5.getRight();
-        System.out.println(girlNode5Left);
-        System.out.println(girlNode5Right);
-
-    &#125;
-
-&#125;
-
-class ThreadedBinaryTree &#123;
-    private GirlNode2 root;
-
-    //为了实现线索化，需要创建指向当前节点的前驱节点的指针
-    //在线索化过程中，pre总是保留前一个节点
-    private GirlNode2 pre;
-
-    public void setRoot(GirlNode2 root) &#123;
-        this.root = root;
-    &#125;
-
-    //重载
-    public void threadedNodes() &#123;
-        this.threadedNodes(root);
-    &#125;
-
-    //线索化
-    public void threadedNodes(GirlNode2 node) &#123;
-        if (node == null) &#123;
-            return;
-        &#125;
-        //线索化左子树
-        threadedNodes(node.getLeft());
-
-        //线索化当前节点
-        //处理当前节点的前驱节点
-        if (node.getLeft() == null) &#123;
-            //将当前节点的左指针指向前驱节点
-            node.setLeft(pre);
-            //修改当前节点左指针的类型为1（前驱节点）
-            node.setLeftType(1);
-        &#125;
-        //处理后继节点
-        if (pre != null &amp;&amp; pre.getRight() == null) &#123;
-            pre.setRight(node);
-            pre.setRightType(1);
-        &#125;
-
-        //!!!每处理一个节点后，让当前节点是下一个节点的前驱节点
-        pre = node;
-
-        //线索化右子树
-        threadedNodes(node.getRight());
-    &#125;
-
-
-&#125;
-
-class GirlNode2 &#123;
-    private int no;
-    private String name;
-    private GirlNode2 left;
-    private GirlNode2 right;
-
-    //leftType == 0表示指向的是左子树，如果 == 1则表示指向前驱节点
-    //rightType == 0表示指向的是右子树，如果 == 1则表示指向后继节点
-    private int leftType;
-    private int rightType;
-
-    public int getLeftType() &#123;
-        return leftType;
-    &#125;
-
-    public void setLeftType(int leftType) &#123;
-        this.leftType = leftType;
-    &#125;
-
-    public int getRightType() &#123;
-        return rightType;
-    &#125;
-
-    public void setRightType(int rightType) &#123;
-        this.rightType = rightType;
-    &#125;
-
-    public GirlNode2(int no, String name) &#123;
-        this.no = no;
-        this.name = name;
-    &#125;
-
-    public int getNo() &#123;
-        return no;
-    &#125;
-
-    public void setNo(int no) &#123;
-        this.no = no;
-    &#125;
-
-    public String getName() &#123;
-        return name;
-    &#125;
-
-    public void setName(String name) &#123;
-        this.name = name;
-    &#125;
-
-    public GirlNode2 getLeft() &#123;
-        return left;
-    &#125;
-
-    public void setLeft(GirlNode2 left) &#123;
-        this.left = left;
-    &#125;
-
-    public GirlNode2 getRight() &#123;
-        return right;
-    &#125;
-
-    public void setRight(GirlNode2 right) &#123;
-        this.right = right;
-    &#125;
-
-    @Override
-    public String toString() &#123;
-        return &quot;HeroNode&#123;&quot; +
-                &quot;no=&quot; + no +
-                &quot;, name=&#39;&quot; + name + &#39;\&#39;&#39; +
-                &#39;&#125;&#39;;
-    &#125;
-
-    //删除节点
-    public void defNode(int no) &#123;
-        //如果当前节点的左子节点不为空，并且左子节点就是要删除的节点，则将this.left=null;并且返回（结束递归）
-        if (this.left != null &amp;&amp; this.left.no == no) &#123;
-            this.left = null;
-            return;
-        &#125;
-
-        //如果当前节点的右子节点不为空，并且右子节点就是要删除的节点，则将this.right=null;并且返回（结束递归
-        if (this.right != null &amp;&amp; this.right.no == no) &#123;
-            this.right = null;
-            return;
-        &#125;
-
-        //如果2、3布都没有删除节点，则需要向左子树递归删除
-        if (this.left != null) &#123;
-            this.left.defNode(no);
-        &#125;
-
-        //如果第4步也没有删除节点，需要向右子树递归删除
-        if (this.right != null) &#123;
-            this.right.defNode(no);
-        &#125;
-
-    &#125;
-
-    public void preOrder() &#123;
-        System.out.println(this);
-        if (this.left != null) &#123;
-            this.left.preOrder();
-        &#125;
-        if (this.right != null) &#123;
-            this.right.preOrder();
-        &#125;
-    &#125;
-&#125;
-</code></pre>
 <h2 id="遍历线索化二叉树"><a href="#遍历线索化二叉树" class="headerlink" title="遍历线索化二叉树"></a>遍历线索化二叉树</h2><p>因为线索化后，各个结点指向有变化，因此原来的遍历方式不能使用，这时需要使用新的方式遍历线索化二叉树，各个节点可以通过线型方式遍历，因此无需使用递归方式，这样也提高了遍历的效率。 遍历的次序应当和中序遍历保持一致。</p>
-<h3 id="代码实现-2"><a href="#代码实现-2" class="headerlink" title="代码实现"></a>代码实现</h3><pre><code>//遍历线索化二叉树
-public void threadedList() &#123;
-    GirlNode2 node = root;
-    while (node != null) &#123;
-        //先循环找到leftType为1的节点，为开始节点
-        while (node.getLeftType() != 1) &#123;
-            node = node.getLeft();
-        &#125;
-
-        System.out.println(node);
-        //当前节点的右指针指向的是后继节点就一直输出
-        while (node.getRightType() == 1) &#123;
-            node = node.getRight();
-            System.out.println(node);
-        &#125;
-
-        //替换这个遍历的节点
-        node = node.getRight();
-    &#125;
-&#125;
-</code></pre>
+<h3 id="代码实现-2"><a href="#代码实现-2" class="headerlink" title="代码实现"></a>代码实现</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//遍历线索化二叉树</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">threadedList</span><span class="params">()</span> </span>&#123;</span><br><span class="line">       GirlNode2 node = root;</span><br><span class="line">       <span class="keyword">while</span> (node != <span class="keyword">null</span>) &#123;</span><br><span class="line">           <span class="comment">//先循环找到leftType为1的节点，为开始节点</span></span><br><span class="line">           <span class="keyword">while</span> (node.getLeftType() != <span class="number">1</span>) &#123;</span><br><span class="line">               node = node.getLeft();</span><br><span class="line">           &#125;</span><br><span class="line"></span><br><span class="line">           System.out.println(node);</span><br><span class="line">           <span class="comment">//当前节点的右指针指向的是后继节点就一直输出</span></span><br><span class="line">           <span class="keyword">while</span> (node.getRightType() == <span class="number">1</span>) &#123;</span><br><span class="line">               node = node.getRight();</span><br><span class="line">               System.out.println(node);</span><br><span class="line">           &#125;</span><br><span class="line"></span><br><span class="line">           <span class="comment">//替换这个遍历的节点</span></span><br><span class="line">           node = node.getRight();</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
 
       
 
@@ -713,11 +476,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">LeetCode</a>
+                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
+                <a href="javascript:void(0)" class="js-tag color4">LeetCode</a>
               </li>
             
             <div class="clearfix"></div>

@@ -18,9 +18,9 @@
 <meta property="og:image" content="http://example.com/2021/03/21/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E7%9A%84%E4%B8%83%E5%A4%A7%E5%8E%9F%E5%88%99/1.jpg">
 <meta property="og:image" content="http://example.com/2021/03/21/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E7%9A%84%E4%B8%83%E5%A4%A7%E5%8E%9F%E5%88%99/2.jpg">
 <meta property="og:image" content="http://example.com/2021/03/21/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E7%9A%84%E4%B8%83%E5%A4%A7%E5%8E%9F%E5%88%99/3.jpg">
-<meta property="og:image" content="http://example.com/2021/03/21/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E7%9A%84%E4%B8%83%E5%A4%A7%E5%8E%9F%E5%88%99/3.jpg">
+<meta property="og:image" content="http://example.com/2021/03/21/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E7%9A%84%E4%B8%83%E5%A4%A7%E5%8E%9F%E5%88%99/4.jpg">
 <meta property="article:published_time" content="2021-03-21T07:15:09.878Z">
-<meta property="article:modified_time" content="2021-03-21T12:53:07.672Z">
+<meta property="article:modified_time" content="2021-03-22T03:29:20.214Z">
 <meta property="article:author" content="zllhard">
 <meta property="article:tag" content="设计模式">
 <meta name="twitter:card" content="summary">
@@ -237,59 +237,12 @@
 
 <h2 id="单一职责原则"><a href="#单一职责原则" class="headerlink" title="单一职责原则"></a>单一职责原则</h2><p>对类来说的，即一个类应该只负责一项职责。如类A负责两个不同职责：职责1，职责2。当职责1需求变更而改变A时，可能造成职责2执行错误，所以需要将类A的粒度分解为A1，A2。</p>
 <h3 id="交通工具类案例"><a href="#交通工具类案例" class="headerlink" title="交通工具类案例"></a>交通工具类案例</h3><p><strong>方案一：</strong></p>
-<pre><code>// 交通工具类
-// 方式1
-// 1. 在方式1 的run方法中，违反了单一职责原则
-// 2. 解决的方案非常的简单，根据交通工具运行方法不同，分解成不同类即可
-class Vehicle &#123;
-    public void run(String vehicle) &#123;
-        System.out.println(vehicle + &quot; 在公路上运行....&quot;);
-    &#125;
-&#125;
-</code></pre>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 交通工具类</span></span><br><span class="line"><span class="comment">// 方式1</span></span><br><span class="line"><span class="comment">// 1. 在方式1 的run方法中，违反了单一职责原则</span></span><br><span class="line"><span class="comment">// 2. 解决的方案非常的简单，根据交通工具运行方法不同，分解成不同类即可</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Vehicle</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">(String vehicle)</span> </span>&#123;</span><br><span class="line">		System.out.println(vehicle + <span class="string">&quot; 在公路上运行....&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><strong>方案二：</strong></p>
-<pre><code>//方案2的分析
-//1. 遵守单一职责原则
-//2. 但是这样做的改动很大，即将类分解，同时修改客户端
-//3. 改进：直接修改Vehicle 类，改动的代码会比较少=&gt;方案3
-
-class RoadVehicle &#123;
-    public void run(String vehicle) &#123;
-        System.out.println(vehicle + &quot;公路运行&quot;);
-    &#125;
-&#125;
-
-class AirVehicle &#123;
-    public void run(String vehicle) &#123;
-        System.out.println(vehicle + &quot;天空运行&quot;);
-    &#125;
-&#125;
-
-class WaterVehicle &#123;
-    public void run(String vehicle) &#123;
-        System.out.println(vehicle + &quot;水中运行&quot;);
-    &#125;
-&#125;
-</code></pre>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//方案2的分析</span></span><br><span class="line"><span class="comment">//1. 遵守单一职责原则</span></span><br><span class="line"><span class="comment">//2. 但是这样做的改动很大，即将类分解，同时修改客户端</span></span><br><span class="line"><span class="comment">//3. 改进：直接修改Vehicle 类，改动的代码会比较少=&gt;方案3</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">RoadVehicle</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">(String vehicle)</span> </span>&#123;</span><br><span class="line">		System.out.println(vehicle + <span class="string">&quot;公路运行&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">AirVehicle</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">(String vehicle)</span> </span>&#123;</span><br><span class="line">		System.out.println(vehicle + <span class="string">&quot;天空运行&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">WaterVehicle</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">(String vehicle)</span> </span>&#123;</span><br><span class="line">		System.out.println(vehicle + <span class="string">&quot;水中运行&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><strong>方案三：</strong></p>
-<pre><code>//方式3的分析
-//1. 这种修改方法没有对原来的类做大的修改，只是增加方法
-//2. 这里虽然没有在类这个级别上遵守单一职责原则，但是在方法级别上，仍然是遵守单一职责
-class Vehicle2 &#123;
-    public void run(String vehicle) &#123;
-        System.out.println(vehicle + &quot; 在公路上运行....&quot;);
-        
-    &#125;
-    
-    public void runAir(String vehicle) &#123;
-        System.out.println(vehicle + &quot; 在天空上运行....&quot;);
-    &#125;
-    
-    public void runWater(String vehicle) &#123;
-        System.out.println(vehicle + &quot; 在水中行....&quot;);
-    &#125;
-&#125;
-</code></pre>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//方式3的分析</span></span><br><span class="line"><span class="comment">//1. 这种修改方法没有对原来的类做大的修改，只是增加方法</span></span><br><span class="line"><span class="comment">//2. 这里虽然没有在类这个级别上遵守单一职责原则，但是在方法级别上，仍然是遵守单一职责</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Vehicle2</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">(String vehicle)</span> </span>&#123;</span><br><span class="line">		System.out.println(vehicle + <span class="string">&quot; 在公路上运行....&quot;</span>);</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">runAir</span><span class="params">(String vehicle)</span> </span>&#123;</span><br><span class="line">		System.out.println(vehicle + <span class="string">&quot; 在天空上运行....&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">runWater</span><span class="params">(String vehicle)</span> </span>&#123;</span><br><span class="line">		System.out.println(vehicle + <span class="string">&quot; 在水中行....&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <h3 id="单一职责原则注意事项和细节"><a href="#单一职责原则注意事项和细节" class="headerlink" title="单一职责原则注意事项和细节"></a>单一职责原则注意事项和细节</h3><ol>
 <li>降低类的复杂度，一个类只负责一项职责。</li>
 <li>提高类的可读性，可维护性。</li>
@@ -298,155 +251,10 @@ class Vehicle2 &#123;
 </ol>
 <h2 id="接口隔离原则-Interface-Segregation-Principle"><a href="#接口隔离原则-Interface-Segregation-Principle" class="headerlink" title="接口隔离原则(Interface Segregation Principle)"></a>接口隔离原则(Interface Segregation Principle)</h2><p>客户端不应该依赖它不需要的接口，即一个类对另一个类的依赖应该建立在最小的接口上。</p>
 <h3 id="案例分析"><a href="#案例分析" class="headerlink" title="案例分析"></a>案例分析</h3><p><img src="/2021/03/21/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E7%9A%84%E4%B8%83%E5%A4%A7%E5%8E%9F%E5%88%99/1.jpg"><br>类A通过接口Interface1依赖类B，类C通过接口Interface1依赖类D，如果接口Interface1对于类A和类C来说不是最小接口，那么类B和类D必须去实现他们不需要的方法。</p>
-<pre><code>//接口
-interface Interface1 &#123;
-    void operation1();
-    void operation2();
-    void operation3();
-    void operation4();
-    void operation5();
-&#125;
-
-class B implements Interface1 &#123;
-    public void operation1() &#123;
-        System.out.println(&quot;B 实现了 operation1&quot;);
-    &#125;
-    
-    public void operation2() &#123;
-        System.out.println(&quot;B 实现了 operation2&quot;);
-    &#125;
-    public void operation3() &#123;
-        System.out.println(&quot;B 实现了 operation3&quot;);
-    &#125;
-    public void operation4() &#123;
-        System.out.println(&quot;B 实现了 operation4&quot;);
-    &#125;
-    public void operation5() &#123;
-        System.out.println(&quot;B 实现了 operation5&quot;);
-    &#125;
-&#125;
-
-class D implements Interface1 &#123;
-    public void operation1() &#123;
-        System.out.println(&quot;D 实现了 operation1&quot;);
-    &#125;
-    
-    public void operation2() &#123;
-        System.out.println(&quot;D 实现了 operation2&quot;);
-    &#125;
-    public void operation3() &#123;
-        System.out.println(&quot;D 实现了 operation3&quot;);
-    &#125;
-    public void operation4() &#123;
-        System.out.println(&quot;D 实现了 operation4&quot;);
-    &#125;
-    public void operation5() &#123;
-        System.out.println(&quot;D 实现了 operation5&quot;);
-    &#125;
-&#125;
-
-class A &#123; //A 类通过接口Interface1 依赖(使用) B类，但是只会用到1,2,3方法
-    public void depend1(Interface1 i) &#123;
-        i.operation1();
-    &#125;
-    public void depend2(Interface1 i) &#123;
-        i.operation2();
-    &#125;
-    public void depend3(Interface1 i) &#123;
-        i.operation3();
-    &#125;
-&#125;
-  
-class C &#123; //C 类通过接口Interface1 依赖(使用) D类，但是只会用到1,4,5方法
-    public void depend1(Interface1 i) &#123;
-        i.operation1();
-    &#125;
-    public void depend4(Interface1 i) &#123;
-        i.operation4();
-    &#125;
-    public void depend5(Interface1 i) &#123;
-        i.operation5();
-    &#125;
-&#125;
-</code></pre>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//接口</span></span><br><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">Interface1</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">operation1</span><span class="params">()</span></span>;</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">operation2</span><span class="params">()</span></span>;</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">operation3</span><span class="params">()</span></span>;</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">operation4</span><span class="params">()</span></span>;</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">operation5</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span> <span class="keyword">implements</span> <span class="title">Interface1</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">operation1</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">&quot;B 实现了 operation1&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">operation2</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">&quot;B 实现了 operation2&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">operation3</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">&quot;B 实现了 operation3&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">operation4</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">&quot;B 实现了 operation4&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">operation5</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">&quot;B 实现了 operation5&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">D</span> <span class="keyword">implements</span> <span class="title">Interface1</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">operation1</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">&quot;D 实现了 operation1&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">operation2</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">&quot;D 实现了 operation2&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">operation3</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">&quot;D 实现了 operation3&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">operation4</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">&quot;D 实现了 operation4&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">operation5</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">&quot;D 实现了 operation5&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span> </span>&#123; <span class="comment">//A 类通过接口Interface1 依赖(使用) B类，但是只会用到1,2,3方法</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">depend1</span><span class="params">(Interface1 i)</span> </span>&#123;</span><br><span class="line">		i.operation1();</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">depend2</span><span class="params">(Interface1 i)</span> </span>&#123;</span><br><span class="line">		i.operation2();</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">depend3</span><span class="params">(Interface1 i)</span> </span>&#123;</span><br><span class="line">		i.operation3();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">  </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">C</span> </span>&#123; <span class="comment">//C 类通过接口Interface1 依赖(使用) D类，但是只会用到1,4,5方法</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">depend1</span><span class="params">(Interface1 i)</span> </span>&#123;</span><br><span class="line">		i.operation1();</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">depend4</span><span class="params">(Interface1 i)</span> </span>&#123;</span><br><span class="line">		i.operation4();</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">depend5</span><span class="params">(Interface1 i)</span> </span>&#123;</span><br><span class="line">		i.operation5();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>按隔离原则应当这样处理：将接口Interface1拆分为独立的几个接口，类A和类C分别与他们需要的接口建立依赖<br>关系。<br>接口Interface1中出现的方法，根据实际情况拆分为三个接口。<br><img src="/2021/03/21/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E7%9A%84%E4%B8%83%E5%A4%A7%E5%8E%9F%E5%88%99/2.jpg"><br><strong>优化方案：</strong></p>
-<pre><code>// 接口1
-interface Interface1 &#123;
-    void operation1();
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 接口1</span></span><br><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">Interface1</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">operation1</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 接口2</span></span><br><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">Interface2</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">operation2</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">operation3</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 接口3</span></span><br><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">Interface3</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">operation4</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">operation5</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span> <span class="keyword">implements</span> <span class="title">Interface1</span>, <span class="title">Interface2</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">operation1</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">&quot;B 实现了 operation1&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">operation2</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">&quot;B 实现了 operation2&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">operation3</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">&quot;B 实现了 operation3&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">D</span> <span class="keyword">implements</span> <span class="title">Interface1</span>, <span class="title">Interface3</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">operation1</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">&quot;D 实现了 operation1&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">operation4</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">&quot;D 实现了 operation4&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">operation5</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">&quot;D 实现了 operation5&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span> </span>&#123; <span class="comment">// A 类通过接口Interface1,Interface2 依赖(使用) B类，但是只会用到1,2,3方法</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">depend1</span><span class="params">(Interface1 i)</span> </span>&#123;</span><br><span class="line">		i.operation1();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">depend2</span><span class="params">(Interface2 i)</span> </span>&#123;</span><br><span class="line">		i.operation2();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">depend3</span><span class="params">(Interface2 i)</span> </span>&#123;</span><br><span class="line">		i.operation3();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">C</span> </span>&#123; <span class="comment">// C 类通过接口Interface1,Interface3 依赖(使用) D类，但是只会用到1,4,5方法</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">depend1</span><span class="params">(Interface1 i)</span> </span>&#123;</span><br><span class="line">		i.operation1();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">depend4</span><span class="params">(Interface3 i)</span> </span>&#123;</span><br><span class="line">		i.operation4();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">depend5</span><span class="params">(Interface3 i)</span> </span>&#123;</span><br><span class="line">		i.operation5();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-&#125;
-
-// 接口2
-interface Interface2 &#123;
-    void operation2();
-
-    void operation3();
-&#125;
-
-// 接口3
-interface Interface3 &#123;
-    void operation4();
-
-    void operation5();
-&#125;
-
-class B implements Interface1, Interface2 &#123;
-    public void operation1() &#123;
-        System.out.println(&quot;B 实现了 operation1&quot;);
-    &#125;
-
-    public void operation2() &#123;
-        System.out.println(&quot;B 实现了 operation2&quot;);
-    &#125;
-
-    public void operation3() &#123;
-        System.out.println(&quot;B 实现了 operation3&quot;);
-    &#125;
-
-&#125;
-
-class D implements Interface1, Interface3 &#123;
-    public void operation1() &#123;
-        System.out.println(&quot;D 实现了 operation1&quot;);
-    &#125;
-
-    public void operation4() &#123;
-        System.out.println(&quot;D 实现了 operation4&quot;);
-    &#125;
-
-    public void operation5() &#123;
-        System.out.println(&quot;D 实现了 operation5&quot;);
-    &#125;
-&#125;
-
-class A &#123; // A 类通过接口Interface1,Interface2 依赖(使用) B类，但是只会用到1,2,3方法
-    public void depend1(Interface1 i) &#123;
-        i.operation1();
-    &#125;
-
-    public void depend2(Interface2 i) &#123;
-        i.operation2();
-    &#125;
-
-    public void depend3(Interface2 i) &#123;
-        i.operation3();
-    &#125;
-&#125;
-
-class C &#123; // C 类通过接口Interface1,Interface3 依赖(使用) D类，但是只会用到1,4,5方法
-    public void depend1(Interface1 i) &#123;
-        i.operation1();
-    &#125;
-
-    public void depend4(Interface3 i) &#123;
-        i.operation4();
-    &#125;
-
-    public void depend5(Interface3 i) &#123;
-        i.operation5();
-    &#125;
-&#125;
-</code></pre>
 <h2 id="依赖倒转原则-Dependence-Inversion-Principle"><a href="#依赖倒转原则-Dependence-Inversion-Principle" class="headerlink" title="依赖倒转原则(Dependence Inversion Principle)"></a>依赖倒转原则(Dependence Inversion Principle)</h2><ol>
 <li>高层模块不应该依赖低层模块，二者都应该依赖其抽象。</li>
 <li>抽象不应该依赖细节，细节应该依赖抽象。</li>
@@ -455,112 +263,16 @@ class C &#123; // C 类通过接口Interface1,Interface3 依赖(使用) D类，�
 <li>使用接口或抽象类的目的是制定好规范，而不涉及任何具体的操作，把展现细节的任务交给他们的实现类去完成。</li>
 </ol>
 <h3 id="Person接收信息案例分析"><a href="#Person接收信息案例分析" class="headerlink" title="Person接收信息案例分析"></a>Person接收信息案例分析</h3><p><strong>方案一：</strong></p>
-<pre><code>class Email &#123;
-    public String getInfo() &#123;
-        return &quot;电子邮件信息: hello,world&quot;;
-    &#125;
-&#125;
-
-//完成Person接收消息的功能
-//方式1分析
-//1. 简单，比较容易想到
-//2. 如果我们获取的对象是 微信，短信等等，则新增类，同时Perons也要增加相应的接收方法
-//3. 解决思路：引入一个抽象的接口IReceiver, 表示接收者, 这样Person类与接口IReceiver发生依赖
-//   因为Email, WeiXin 等等属于接收的范围，他们各自实现IReceiver 接口就ok, 这样我们就符号依赖倒转原则
-class Person &#123;
-    public void receive(Email email ) &#123;
-        System.out.println(email.getInfo());
-    &#125;
-&#125;
-</code></pre>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Email</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getInfo</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="string">&quot;电子邮件信息: hello,world&quot;</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//完成Person接收消息的功能</span></span><br><span class="line"><span class="comment">//方式1分析</span></span><br><span class="line"><span class="comment">//1. 简单，比较容易想到</span></span><br><span class="line"><span class="comment">//2. 如果我们获取的对象是 微信，短信等等，则新增类，同时Perons也要增加相应的接收方法</span></span><br><span class="line"><span class="comment">//3. 解决思路：引入一个抽象的接口IReceiver, 表示接收者, 这样Person类与接口IReceiver发生依赖</span></span><br><span class="line"><span class="comment">//   因为Email, WeiXin 等等属于接收的范围，他们各自实现IReceiver 接口就ok, 这样我们就符号依赖倒转原则</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">receive</span><span class="params">(Email email )</span> </span>&#123;</span><br><span class="line">		System.out.println(email.getInfo());</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><strong>优化方案：</strong></p>
-<pre><code>//定义接口
-interface IReceiver &#123;
-    public String getInfo();
-&#125;
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//定义接口</span></span><br><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">IReceiver</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getInfo</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Email</span> <span class="keyword">implements</span> <span class="title">IReceiver</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getInfo</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="string">&quot;电子邮件信息: hello,world&quot;</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//增加微信</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">WeiXin</span> <span class="keyword">implements</span> <span class="title">IReceiver</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getInfo</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="string">&quot;微信信息: hello,ok&quot;</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//方式2</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">	<span class="comment">//这里我们是对接口的依赖</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">receive</span><span class="params">(IReceiver receiver )</span> </span>&#123;</span><br><span class="line">		System.out.println(receiver.getInfo());</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-class Email implements IReceiver &#123;
-    public String getInfo() &#123;
-        return &quot;电子邮件信息: hello,world&quot;;
-    &#125;
-&#125;
+<h3 id="依赖关系传递的三种方式和应用案例"><a href="#依赖关系传递的三种方式和应用案例" class="headerlink" title="依赖关系传递的三种方式和应用案例"></a>依赖关系传递的三种方式和应用案例</h3><h4 id="接口传递"><a href="#接口传递" class="headerlink" title="接口传递"></a>接口传递</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 方式1： 通过接口传递实现依赖</span></span><br><span class="line"><span class="comment">// 开关的接口</span></span><br><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">IOpenAndClose</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">open</span><span class="params">(ITV tv)</span></span>; <span class="comment">//抽象方法,接收接口</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">ITV</span> </span>&#123; <span class="comment">//ITV接口</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">play</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 实现接口</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">OpenAndClose</span> <span class="keyword">implements</span> <span class="title">IOpenAndClose</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">open</span><span class="params">(ITV tv)</span> </span>&#123;</span><br><span class="line">        tv.play();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-//增加微信
-class WeiXin implements IReceiver &#123;
-    public String getInfo() &#123;
-        return &quot;微信信息: hello,ok&quot;;
-    &#125;
-&#125;
+<h4 id="构造方法传递"><a href="#构造方法传递" class="headerlink" title="构造方法传递"></a>构造方法传递</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//方式2:通过构造方法依赖传递</span></span><br><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">IOpenAndClose</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">open</span><span class="params">()</span></span>; <span class="comment">//抽象方法</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">ITV</span> </span>&#123; <span class="comment">//ITV接口</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">play</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">OpenAndClose</span> <span class="keyword">implements</span> <span class="title">IOpenAndClose</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> ITV tv; <span class="comment">//成员</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">OpenAndClose</span><span class="params">(ITV tv)</span> </span>&#123; <span class="comment">//构造器</span></span><br><span class="line">        <span class="keyword">this</span>.tv = tv;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">open</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.tv.play();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-//方式2
-class Person &#123;
-    //这里我们是对接口的依赖
-    public void receive(IReceiver receiver ) &#123;
-        System.out.println(receiver.getInfo());
-    &#125;
-&#125;
-</code></pre>
-<h3 id="依赖关系传递的三种方式和应用案例"><a href="#依赖关系传递的三种方式和应用案例" class="headerlink" title="依赖关系传递的三种方式和应用案例"></a>依赖关系传递的三种方式和应用案例</h3><h4 id="接口传递"><a href="#接口传递" class="headerlink" title="接口传递"></a>接口传递</h4><pre><code>// 方式1： 通过接口传递实现依赖
-// 开关的接口
-interface IOpenAndClose &#123;
-    public void open(ITV tv); //抽象方法,接收接口
-&#125;
+<h4 id="setter方式传递"><a href="#setter方式传递" class="headerlink" title="setter方式传递"></a>setter方式传递</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 方式3 , 通过setter方法传递</span></span><br><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">IOpenAndClose</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">open</span><span class="params">()</span></span>; <span class="comment">// 抽象方法</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setTv</span><span class="params">(ITV tv)</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">ITV</span> </span>&#123; <span class="comment">// ITV接口</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">play</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">OpenAndClose</span> <span class="keyword">implements</span> <span class="title">IOpenAndClose</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> ITV tv;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setTv</span><span class="params">(ITV tv)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.tv = tv;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">open</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.tv.play();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-interface ITV &#123; //ITV接口
-    public void play();
-&#125;
-
-// 实现接口
-class OpenAndClose implements IOpenAndClose &#123;
-    public void open(ITV tv) &#123;
-        tv.play();
-    &#125;
-&#125;
-</code></pre>
-<h4 id="构造方法传递"><a href="#构造方法传递" class="headerlink" title="构造方法传递"></a>构造方法传递</h4><pre><code>//方式2:通过构造方法依赖传递
-interface IOpenAndClose &#123;
-    public void open(); //抽象方法
-&#125;
-
-interface ITV &#123; //ITV接口
-    public void play();
-&#125;
-
-class OpenAndClose implements IOpenAndClose &#123;
-    public ITV tv; //成员
-
-    public OpenAndClose(ITV tv) &#123; //构造器
-        this.tv = tv;
-    &#125;
-
-    public void open() &#123;
-        this.tv.play();
-    &#125;
-&#125;
-</code></pre>
-<h4 id="setter方式传递"><a href="#setter方式传递" class="headerlink" title="setter方式传递"></a>setter方式传递</h4><pre><code>// 方式3 , 通过setter方法传递
-interface IOpenAndClose &#123;
-    public void open(); // 抽象方法
-
-    public void setTv(ITV tv);
-&#125;
-
-interface ITV &#123; // ITV接口
-    public void play();
-&#125;
-
-class OpenAndClose implements IOpenAndClose &#123;
-    private ITV tv;
-
-    public void setTv(ITV tv) &#123;
-        this.tv = tv;
-    &#125;
-
-    public void open() &#123;
-        this.tv.play();
-    &#125;
-&#125;
-</code></pre>
 <h3 id="依赖倒转原则的注意事项和细节"><a href="#依赖倒转原则的注意事项和细节" class="headerlink" title="依赖倒转原则的注意事项和细节"></a>依赖倒转原则的注意事项和细节</h3><ol>
 <li>低层模块尽量都要有抽象类或接口，或者两者都有，程序稳定性更好. </li>
 <li>变量的声明类型尽量是抽象类或接口, 这样我们的变量引用和实际对象间，就存在<br>一个缓冲层，利于程序扩展和优化</li>
@@ -572,64 +284,13 @@ class OpenAndClose implements IOpenAndClose &#123;
 </ol>
 <p>**如何正确的使用继承? **<br>里氏替换原则。</p>
 <h3 id="里氏替换原则的介绍"><a href="#里氏替换原则的介绍" class="headerlink" title="里氏替换原则的介绍"></a>里氏替换原则的介绍</h3><p>1）如果对每个类型为T1的对象o1，都有类型为T2的对象o2，使得以T1定义的所有程序P在所有的对象o1都代换成o2时，程序P的行为没有发生变化，那么类型T2是类型T1的子类型。换句话说，所有引用基类的地方必须能透明地使用其子类的对象。<br>2）在使用继承时，遵循里氏替换原则，在子类中尽量不要重写父类的方法。<br>3）里氏替换原则告诉我们，继承实际上让两个类耦合性增强了，在适当的情况下，可以通过聚合、组合、依赖来解决问题。</p>
-<h3 id="案例分析-1"><a href="#案例分析-1" class="headerlink" title="案例分析"></a>案例分析</h3><pre><code>// A类
-class A &#123;
-    // 返回两个数的差
-    public int func1(int num1, int num2) &#123;
-        return num1 - num2;
-    &#125;
-&#125;
+<h3 id="案例分析-1"><a href="#案例分析-1" class="headerlink" title="案例分析"></a>案例分析</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// A类</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span> </span>&#123;</span><br><span class="line">	<span class="comment">// 返回两个数的差</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">func1</span><span class="params">(<span class="keyword">int</span> num1, <span class="keyword">int</span> num2)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> num1 - num2;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// B类继承了A</span></span><br><span class="line"><span class="comment">// 增加了一个新功能：完成两个数相加,然后和9求和</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span> <span class="keyword">extends</span> <span class="title">A</span> </span>&#123;</span><br><span class="line">	<span class="comment">//这里，重写了A类的方法, 可能是无意识</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">func1</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> a + b;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">func2</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> func1(a, b) + <span class="number">9</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-// B类继承了A
-// 增加了一个新功能：完成两个数相加,然后和9求和
-class B extends A &#123;
-    //这里，重写了A类的方法, 可能是无意识
-    public int func1(int a, int b) &#123;
-        return a + b;
-    &#125;
-
-    public int func2(int a, int b) &#123;
-        return func1(a, b) + 9;
-    &#125;
-&#125;
-</code></pre>
 <p>我们发现原来运行正常的相减功能发生了错误。原因就是类B无意中重写了父类的方法，造成原有功能出现错误。在实际编程中，我们常常会通过重写父类的方法完成新的功能，这样写起来虽然简单，但整个继承体系的复用性会比较差。特别是运行多态比较频繁的时候。</p>
 <p>通用的做法是：原来的父类和子类都继承一个更通俗的基类，原有的继承关系去掉，采用依赖，聚合，组合等关系代替。</p>
 <p><strong>优化方案：</strong></p>
-<pre><code>//创建一个更加基础的基类
-class Base &#123;
-    //把更加基础的方法和成员写到Base类
-&#125;
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//创建一个更加基础的基类</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Base</span> </span>&#123;</span><br><span class="line">	<span class="comment">//把更加基础的方法和成员写到Base类</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// A类</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span> <span class="keyword">extends</span> <span class="title">Base</span> </span>&#123;</span><br><span class="line">	<span class="comment">// 返回两个数的差</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">func1</span><span class="params">(<span class="keyword">int</span> num1, <span class="keyword">int</span> num2)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> num1 - num2;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// B类继承了A</span></span><br><span class="line"><span class="comment">// 增加了一个新功能：完成两个数相加,然后和9求和</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span> <span class="keyword">extends</span> <span class="title">Base</span> </span>&#123;</span><br><span class="line">	<span class="comment">//如果B需要使用A类的方法,使用组合关系</span></span><br><span class="line">	<span class="keyword">private</span> A a = <span class="keyword">new</span> A();</span><br><span class="line">	</span><br><span class="line">	<span class="comment">//这里，重写了A类的方法, 可能是无意识</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">func1</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> a + b;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">func2</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> func1(a, b) + <span class="number">9</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">//我们仍然想使用A的方法</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">func3</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">this</span>.a.func1(a, b);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-// A类
-class A extends Base &#123;
-    // 返回两个数的差
-    public int func1(int num1, int num2) &#123;
-        return num1 - num2;
-    &#125;
-&#125;
-
-// B类继承了A
-// 增加了一个新功能：完成两个数相加,然后和9求和
-class B extends Base &#123;
-    //如果B需要使用A类的方法,使用组合关系
-    private A a = new A();
-    
-    //这里，重写了A类的方法, 可能是无意识
-    public int func1(int a, int b) &#123;
-        return a + b;
-    &#125;
-
-    public int func2(int a, int b) &#123;
-        return func1(a, b) + 9;
-    &#125;
-    
-    //我们仍然想使用A的方法
-    public int func3(int a, int b) &#123;
-        return this.a.func1(a, b);
-    &#125;
-&#125;
-</code></pre>
 <h2 id="开闭原则（Open-Closed-Principle）"><a href="#开闭原则（Open-Closed-Principle）" class="headerlink" title="开闭原则（Open Closed Principle）"></a>开闭原则（Open Closed Principle）</h2><ol>
 <li>开闭原则是编程中最基础、最重要的设计原则。</li>
 <li>一个软件实体如类，模块和函数应该对扩展开放(对提供方)，对修改关闭(对使用方)。用抽象构建框架，用实现扩展细节。</li>
@@ -637,125 +298,12 @@ class B extends Base &#123;
 <li>编程中遵循其它原则，以及使用设计模式的目的就是遵循开闭原则。</li>
 </ol>
 <h3 id="案例分析-2"><a href="#案例分析-2" class="headerlink" title="案例分析"></a>案例分析</h3><p><img src="/2021/03/21/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E7%9A%84%E4%B8%83%E5%A4%A7%E5%8E%9F%E5%88%99/3.jpg"></p>
-<pre><code>//这是一个用于绘图的类 [使用方]
-class GraphicEditor &#123;
-    //接收Shape对象，然后根据type，来绘制不同的图形
-    public void drawShape(Shape s) &#123;
-        if (s.m_type == 1)
-            drawRectangle(s);
-        else if (s.m_type == 2)
-            drawCircle(s);
-        else if (s.m_type == 3)
-            drawTriangle(s);
-    &#125;
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//这是一个用于绘图的类 [使用方]</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">GraphicEditor</span> </span>&#123;</span><br><span class="line">	<span class="comment">//接收Shape对象，然后根据type，来绘制不同的图形</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">drawShape</span><span class="params">(Shape s)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">if</span> (s.m_type == <span class="number">1</span>)</span><br><span class="line">			drawRectangle(s);</span><br><span class="line">		<span class="keyword">else</span> <span class="keyword">if</span> (s.m_type == <span class="number">2</span>)</span><br><span class="line">			drawCircle(s);</span><br><span class="line">		<span class="keyword">else</span> <span class="keyword">if</span> (s.m_type == <span class="number">3</span>)</span><br><span class="line">			drawTriangle(s);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//绘制矩形</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">drawRectangle</span><span class="params">(Shape r)</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">&quot; 绘制矩形 &quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//绘制圆形</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">drawCircle</span><span class="params">(Shape r)</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">&quot; 绘制圆形 &quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">//绘制三角形</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">drawTriangle</span><span class="params">(Shape r)</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">&quot; 绘制三角形 &quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//Shape类，基类</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Shape</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> m_type;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Rectangle</span> <span class="keyword">extends</span> <span class="title">Shape</span> </span>&#123;</span><br><span class="line">	Rectangle() &#123;</span><br><span class="line">		<span class="keyword">super</span>.m_type = <span class="number">1</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Circle</span> <span class="keyword">extends</span> <span class="title">Shape</span> </span>&#123;</span><br><span class="line">	Circle() &#123;</span><br><span class="line">		<span class="keyword">super</span>.m_type = <span class="number">2</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//新增画三角形</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Triangle</span> <span class="keyword">extends</span> <span class="title">Shape</span> </span>&#123;</span><br><span class="line">	Triangle() &#123;</span><br><span class="line">		<span class="keyword">super</span>.m_type = <span class="number">3</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-    //绘制矩形
-    public void drawRectangle(Shape r) &#123;
-        System.out.println(&quot; 绘制矩形 &quot;);
-    &#125;
-
-    //绘制圆形
-    public void drawCircle(Shape r) &#123;
-        System.out.println(&quot; 绘制圆形 &quot;);
-    &#125;
-    
-    //绘制三角形
-    public void drawTriangle(Shape r) &#123;
-        System.out.println(&quot; 绘制三角形 &quot;);
-    &#125;
-&#125;
-
-//Shape类，基类
-class Shape &#123;
-    int m_type;
-&#125;
-
-class Rectangle extends Shape &#123;
-    Rectangle() &#123;
-        super.m_type = 1;
-    &#125;
-&#125;
-
-class Circle extends Shape &#123;
-    Circle() &#123;
-        super.m_type = 2;
-    &#125;
-&#125;
-
-//新增画三角形
-class Triangle extends Shape &#123;
-    Triangle() &#123;
-        super.m_type = 3;
-    &#125;
-&#125;
-</code></pre>
 <p>违反了设计模式的ocp原则，即对扩展开放(提供方)，对修改关闭(使用方)。即当我们给类增加新功能的时候，尽量不修改代码，或者尽可能少修改代码。<br>增加一个图形种类 三角形，修改的地方较多。</p>
 <p><strong>优化方案：</strong><br>把创建Shape类做成抽象类，并提供一个抽象的draw方法，让子类去实现即可，这样我们有新的图形种类时，只需要让新的图形类继承Shape，并实现draw方法即可，使用方的代码就不需要修 -&gt; 满足了开闭原则。</p>
-<pre><code>//这是一个用于绘图的类 [使用方]
-class GraphicEditor &#123;
-    //接收Shape对象，调用draw方法
-    public void drawShape(Shape s) &#123;
-        s.draw();
-    &#125;
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//这是一个用于绘图的类 [使用方]</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">GraphicEditor</span> </span>&#123;</span><br><span class="line">	<span class="comment">//接收Shape对象，调用draw方法</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">drawShape</span><span class="params">(Shape s)</span> </span>&#123;</span><br><span class="line">		s.draw();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//Shape类，基类</span></span><br><span class="line"><span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">Shape</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> m_type;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">draw</span><span class="params">()</span></span>;<span class="comment">//抽象方法</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Rectangle</span> <span class="keyword">extends</span> <span class="title">Shape</span> </span>&#123;</span><br><span class="line">	Rectangle() &#123;</span><br><span class="line">		<span class="keyword">super</span>.m_type = <span class="number">1</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">draw</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line">		System.out.println(<span class="string">&quot; 绘制矩形 &quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Circle</span> <span class="keyword">extends</span> <span class="title">Shape</span> </span>&#123;</span><br><span class="line">	Circle() &#123;</span><br><span class="line">		<span class="keyword">super</span>.m_type = <span class="number">2</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">draw</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line">		System.out.println(<span class="string">&quot; 绘制圆形 &quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//新增画三角形</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Triangle</span> <span class="keyword">extends</span> <span class="title">Shape</span> </span>&#123;</span><br><span class="line">	Triangle() &#123;</span><br><span class="line">		<span class="keyword">super</span>.m_type = <span class="number">3</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">draw</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line">		System.out.println(<span class="string">&quot; 绘制三角形 &quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//新增一个图形</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">OtherGraphic</span> <span class="keyword">extends</span> <span class="title">Shape</span> </span>&#123;</span><br><span class="line">	OtherGraphic() &#123;</span><br><span class="line">		<span class="keyword">super</span>.m_type = <span class="number">4</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">draw</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line">		System.out.println(<span class="string">&quot; 绘制其它图形 &quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-    
-&#125;
-
-//Shape类，基类
-abstract class Shape &#123;
-    int m_type;
-    
-    public abstract void draw();//抽象方法
-&#125;
-
-class Rectangle extends Shape &#123;
-    Rectangle() &#123;
-        super.m_type = 1;
-    &#125;
-
-    @Override
-    public void draw() &#123;
-        // TODO Auto-generated method stub
-        System.out.println(&quot; 绘制矩形 &quot;);
-    &#125;
-&#125;
-
-class Circle extends Shape &#123;
-    Circle() &#123;
-        super.m_type = 2;
-    &#125;
-    @Override
-    public void draw() &#123;
-        // TODO Auto-generated method stub
-        System.out.println(&quot; 绘制圆形 &quot;);
-    &#125;
-&#125;
-
-//新增画三角形
-class Triangle extends Shape &#123;
-    Triangle() &#123;
-        super.m_type = 3;
-    &#125;
-    @Override
-    public void draw() &#123;
-        // TODO Auto-generated method stub
-        System.out.println(&quot; 绘制三角形 &quot;);
-    &#125;
-&#125;
-
-//新增一个图形
-class OtherGraphic extends Shape &#123;
-    OtherGraphic() &#123;
-        super.m_type = 4;
-    &#125;
-
-    @Override
-    public void draw() &#123;
-        // TODO Auto-generated method stub
-        System.out.println(&quot; 绘制其它图形 &quot;);
-    &#125;
-&#125;
-</code></pre>
 <h2 id="迪米特法则-Demeter-Principle"><a href="#迪米特法则-Demeter-Principle" class="headerlink" title="迪米特法则(Demeter Principle)"></a>迪米特法则(Demeter Principle)</h2><ol>
 <li>一个对象应该对其他对象保持最少的了解。</li>
 <li>类与类关系越密切，耦合度越大。</li>
@@ -763,174 +311,17 @@ class OtherGraphic extends Shape &#123;
 <li>迪米特法则还有个更简单的定义：只与直接的朋友通信。</li>
 <li><strong>直接的朋友：</strong>每个对象都会与其他对象有耦合关系，只要两个对象之间有耦合关系，我们就说这两个对象之间是朋友关系。耦合的方式很多，依赖，关联，组合，聚合等。其中，我们称出现成员变量，方法参数，方法返回值中的类为直接的朋友，而出现在局部变量中的类不是直接的朋友。也就是说，陌生的类最好不要以局部变量的形式出现在类的内部。</li>
 </ol>
-<h3 id="案例分析-3"><a href="#案例分析-3" class="headerlink" title="案例分析"></a>案例分析</h3><pre><code>//学校总部员工类
-class Employee &#123;
-    private String id;
+<h3 id="案例分析-3"><a href="#案例分析-3" class="headerlink" title="案例分析"></a>案例分析</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//学校总部员工类</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Employee</span> </span>&#123;</span><br><span class="line">	<span class="keyword">private</span> String id;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setId</span><span class="params">(String id)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.id = id;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getId</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> id;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//学院的员工类</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CollegeEmployee</span> </span>&#123;</span><br><span class="line">	<span class="keyword">private</span> String id;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setId</span><span class="params">(String id)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.id = id;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getId</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> id;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//管理学院员工的管理类</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CollegeManager</span> </span>&#123;</span><br><span class="line">	<span class="comment">//返回学院的所有员工</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> List&lt;CollegeEmployee&gt; <span class="title">getAllEmployee</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		List&lt;CollegeEmployee&gt; list = <span class="keyword">new</span> ArrayList&lt;CollegeEmployee&gt;();</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123; <span class="comment">//这里我们增加了10个员工到 list</span></span><br><span class="line">			CollegeEmployee emp = <span class="keyword">new</span> CollegeEmployee();</span><br><span class="line">			emp.setId(<span class="string">&quot;学院员工id= &quot;</span> + i);</span><br><span class="line">			list.add(emp);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> list;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//学校管理类</span></span><br><span class="line"><span class="comment">//分析 SchoolManager 类的直接朋友类有哪些 Employee、CollegeManager</span></span><br><span class="line"><span class="comment">//CollegeEmployee 不是 直接朋友 而是一个陌生类，这样违背了 迪米特法则 </span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SchoolManager</span> </span>&#123;</span><br><span class="line">	<span class="comment">//返回学校总部的员工</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> List&lt;Employee&gt; <span class="title">getAllEmployee</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		List&lt;Employee&gt; list = <span class="keyword">new</span> ArrayList&lt;Employee&gt;();</span><br><span class="line">		</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++) &#123; <span class="comment">//这里我们增加了5个员工到 list</span></span><br><span class="line">			Employee emp = <span class="keyword">new</span> Employee();</span><br><span class="line">			emp.setId(<span class="string">&quot;学校总部员工id= &quot;</span> + i);</span><br><span class="line">			list.add(emp);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> list;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//该方法完成输出学校总部和学院员工信息(id)</span></span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">printAllEmployee</span><span class="params">(CollegeManager sub)</span> </span>&#123;</span><br><span class="line">		</span><br><span class="line">		<span class="comment">//分析问题</span></span><br><span class="line">		<span class="comment">//1. 这里的 CollegeEmployee 不是  SchoolManager的直接朋友</span></span><br><span class="line">		<span class="comment">//2. CollegeEmployee 是以局部变量方式出现在 SchoolManager</span></span><br><span class="line">		<span class="comment">//3. 违反了 迪米特法则 </span></span><br><span class="line">		</span><br><span class="line">		<span class="comment">//获取到学院员工</span></span><br><span class="line">		List&lt;CollegeEmployee&gt; list1 = sub.getAllEmployee();</span><br><span class="line">		System.out.println(<span class="string">&quot;------------学院员工------------&quot;</span>);</span><br><span class="line">		<span class="keyword">for</span> (CollegeEmployee e : list1) &#123;</span><br><span class="line">			System.out.println(e.getId());</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="comment">//获取到学校总部员工</span></span><br><span class="line">		List&lt;Employee&gt; list2 = <span class="keyword">this</span>.getAllEmployee();</span><br><span class="line">		System.out.println(<span class="string">&quot;------------学校总部员工------------&quot;</span>);</span><br><span class="line">		<span class="keyword">for</span> (Employee e : list2) &#123;</span><br><span class="line">			System.out.println(e.getId());</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-    public void setId(String id) &#123;
-        this.id = id;
-    &#125;
-
-    public String getId() &#123;
-        return id;
-    &#125;
-&#125;
-
-//学院的员工类
-class CollegeEmployee &#123;
-    private String id;
-
-    public void setId(String id) &#123;
-        this.id = id;
-    &#125;
-
-    public String getId() &#123;
-        return id;
-    &#125;
-&#125;
-
-//管理学院员工的管理类
-class CollegeManager &#123;
-    //返回学院的所有员工
-    public List&lt;CollegeEmployee&gt; getAllEmployee() &#123;
-        List&lt;CollegeEmployee&gt; list = new ArrayList&lt;CollegeEmployee&gt;();
-        for (int i = 0; i &lt; 10; i++) &#123; //这里我们增加了10个员工到 list
-            CollegeEmployee emp = new CollegeEmployee();
-            emp.setId(&quot;学院员工id= &quot; + i);
-            list.add(emp);
-        &#125;
-        return list;
-    &#125;
-&#125;
-
-//学校管理类
-//分析 SchoolManager 类的直接朋友类有哪些 Employee、CollegeManager
-//CollegeEmployee 不是 直接朋友 而是一个陌生类，这样违背了 迪米特法则 
-class SchoolManager &#123;
-    //返回学校总部的员工
-    public List&lt;Employee&gt; getAllEmployee() &#123;
-        List&lt;Employee&gt; list = new ArrayList&lt;Employee&gt;();
-        
-        for (int i = 0; i &lt; 5; i++) &#123; //这里我们增加了5个员工到 list
-            Employee emp = new Employee();
-            emp.setId(&quot;学校总部员工id= &quot; + i);
-            list.add(emp);
-        &#125;
-        return list;
-    &#125;
-
-    //该方法完成输出学校总部和学院员工信息(id)
-    void printAllEmployee(CollegeManager sub) &#123;
-        
-        //分析问题
-        //1. 这里的 CollegeEmployee 不是  SchoolManager的直接朋友
-        //2. CollegeEmployee 是以局部变量方式出现在 SchoolManager
-        //3. 违反了 迪米特法则 
-        
-        //获取到学院员工
-        List&lt;CollegeEmployee&gt; list1 = sub.getAllEmployee();
-        System.out.println(&quot;------------学院员工------------&quot;);
-        for (CollegeEmployee e : list1) &#123;
-            System.out.println(e.getId());
-        &#125;
-        //获取到学校总部员工
-        List&lt;Employee&gt; list2 = this.getAllEmployee();
-        System.out.println(&quot;------------学校总部员工------------&quot;);
-        for (Employee e : list2) &#123;
-            System.out.println(e.getId());
-        &#125;
-    &#125;
-&#125;
-</code></pre>
 <p>前面设计的问题在于SchoolManager中，CollegeEmployee类并不是SchoolManager类的直接朋友，按照迪米特法则，应该避免类中出现这样非直接朋友关系的耦合。</p>
 <p><strong>优化方案：</strong></p>
-<pre><code>//学校总部员工类
-class Employee &#123;
-    private String id;
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//学校总部员工类</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Employee</span> </span>&#123;</span><br><span class="line">	<span class="keyword">private</span> String id;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setId</span><span class="params">(String id)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.id = id;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getId</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> id;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//学院的员工类</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CollegeEmployee</span> </span>&#123;</span><br><span class="line">	<span class="keyword">private</span> String id;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setId</span><span class="params">(String id)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.id = id;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getId</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> id;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//管理学院员工的管理类</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CollegeManager</span> </span>&#123;</span><br><span class="line">	<span class="comment">//返回学院的所有员工</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> List&lt;CollegeEmployee&gt; <span class="title">getAllEmployee</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		List&lt;CollegeEmployee&gt; list = <span class="keyword">new</span> ArrayList&lt;CollegeEmployee&gt;();</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123; <span class="comment">//这里我们增加了10个员工到 list</span></span><br><span class="line">			CollegeEmployee emp = <span class="keyword">new</span> CollegeEmployee();</span><br><span class="line">			emp.setId(<span class="string">&quot;学院员工id= &quot;</span> + i);</span><br><span class="line">			list.add(emp);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> list;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">//输出学院员工的信息</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">printEmployee</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="comment">//获取到学院员工</span></span><br><span class="line">		List&lt;CollegeEmployee&gt; list1 = getAllEmployee();</span><br><span class="line">		System.out.println(<span class="string">&quot;------------学院员工------------&quot;</span>);</span><br><span class="line">		<span class="keyword">for</span> (CollegeEmployee e : list1) &#123;</span><br><span class="line">			System.out.println(e.getId());</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//学校管理类</span></span><br><span class="line"><span class="comment">//分析 SchoolManager 类的直接朋友类有哪些 Employee、CollegeManager</span></span><br><span class="line"><span class="comment">//CollegeEmployee 不是 直接朋友 而是一个陌生类，这样违背了 迪米特法则 </span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SchoolManager</span> </span>&#123;</span><br><span class="line">	<span class="comment">//返回学校总部的员工</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> List&lt;Employee&gt; <span class="title">getAllEmployee</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		List&lt;Employee&gt; list = <span class="keyword">new</span> ArrayList&lt;Employee&gt;();</span><br><span class="line">		</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++) &#123; <span class="comment">//这里我们增加了5个员工到 list</span></span><br><span class="line">			Employee emp = <span class="keyword">new</span> Employee();</span><br><span class="line">			emp.setId(<span class="string">&quot;学校总部员工id= &quot;</span> + i);</span><br><span class="line">			list.add(emp);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> list;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//该方法完成输出学校总部和学院员工信息(id)</span></span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">printAllEmployee</span><span class="params">(CollegeManager sub)</span> </span>&#123;</span><br><span class="line">		</span><br><span class="line">		<span class="comment">//分析问题</span></span><br><span class="line">		<span class="comment">//1. 将输出学院的员工方法，封装到CollegeManager</span></span><br><span class="line">		sub.printEmployee();</span><br><span class="line">	</span><br><span class="line">		<span class="comment">//获取到学校总部员工</span></span><br><span class="line">		List&lt;Employee&gt; list2 = <span class="keyword">this</span>.getAllEmployee();</span><br><span class="line">		System.out.println(<span class="string">&quot;------------学校总部员工------------&quot;</span>);</span><br><span class="line">		<span class="keyword">for</span> (Employee e : list2) &#123;</span><br><span class="line">			System.out.println(e.getId());</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-    public void setId(String id) &#123;
-        this.id = id;
-    &#125;
-
-    public String getId() &#123;
-        return id;
-    &#125;
-&#125;
-
-//学院的员工类
-class CollegeEmployee &#123;
-    private String id;
-
-    public void setId(String id) &#123;
-        this.id = id;
-    &#125;
-
-    public String getId() &#123;
-        return id;
-    &#125;
-&#125;
-
-//管理学院员工的管理类
-class CollegeManager &#123;
-    //返回学院的所有员工
-    public List&lt;CollegeEmployee&gt; getAllEmployee() &#123;
-        List&lt;CollegeEmployee&gt; list = new ArrayList&lt;CollegeEmployee&gt;();
-        for (int i = 0; i &lt; 10; i++) &#123; //这里我们增加了10个员工到 list
-            CollegeEmployee emp = new CollegeEmployee();
-            emp.setId(&quot;学院员工id= &quot; + i);
-            list.add(emp);
-        &#125;
-        return list;
-    &#125;
-    
-    //输出学院员工的信息
-    public void printEmployee() &#123;
-        //获取到学院员工
-        List&lt;CollegeEmployee&gt; list1 = getAllEmployee();
-        System.out.println(&quot;------------学院员工------------&quot;);
-        for (CollegeEmployee e : list1) &#123;
-            System.out.println(e.getId());
-        &#125;
-    &#125;
-&#125;
-
-//学校管理类
-//分析 SchoolManager 类的直接朋友类有哪些 Employee、CollegeManager
-//CollegeEmployee 不是 直接朋友 而是一个陌生类，这样违背了 迪米特法则 
-class SchoolManager &#123;
-    //返回学校总部的员工
-    public List&lt;Employee&gt; getAllEmployee() &#123;
-        List&lt;Employee&gt; list = new ArrayList&lt;Employee&gt;();
-        
-        for (int i = 0; i &lt; 5; i++) &#123; //这里我们增加了5个员工到 list
-            Employee emp = new Employee();
-            emp.setId(&quot;学校总部员工id= &quot; + i);
-            list.add(emp);
-        &#125;
-        return list;
-    &#125;
-
-    //该方法完成输出学校总部和学院员工信息(id)
-    void printAllEmployee(CollegeManager sub) &#123;
-        
-        //分析问题
-        //1. 将输出学院的员工方法，封装到CollegeManager
-        sub.printEmployee();
-    
-        //获取到学校总部员工
-        List&lt;Employee&gt; list2 = this.getAllEmployee();
-        System.out.println(&quot;------------学校总部员工------------&quot;);
-        for (Employee e : list2) &#123;
-            System.out.println(e.getId());
-        &#125;
-    &#125;
-&#125;
-</code></pre>
 <h3 id="迪米特法则注意事项和细节"><a href="#迪米特法则注意事项和细节" class="headerlink" title="迪米特法则注意事项和细节"></a>迪米特法则注意事项和细节</h3><ol>
 <li>迪米特法则的核心是降低类之间的耦合。</li>
 <li>但是注意：由于每个类都减少了不必要的依赖，因此迪米特法则只是要求降低类间(对象间)耦合关系， 并不是要求完全没有依赖关系。</li>
 </ol>
-<h2 id="合成复用原则（Composite-Reuse-Principle）"><a href="#合成复用原则（Composite-Reuse-Principle）" class="headerlink" title="合成复用原则（Composite Reuse Principle）"></a>合成复用原则（Composite Reuse Principle）</h2><p>原则是尽量使用合成/聚合的方式，而不是使用继承。<br><img src="/2021/03/21/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E7%9A%84%E4%B8%83%E5%A4%A7%E5%8E%9F%E5%88%99/3.jpg"></p>
+<h2 id="合成复用原则（Composite-Reuse-Principle）"><a href="#合成复用原则（Composite-Reuse-Principle）" class="headerlink" title="合成复用原则（Composite Reuse Principle）"></a>合成复用原则（Composite Reuse Principle）</h2><p>原则是尽量使用合成/聚合的方式，而不是使用继承。<br><img src="/2021/03/21/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E7%9A%84%E4%B8%83%E5%A4%A7%E5%8E%9F%E5%88%99/4.jpg"></p>
 
       
 
@@ -1013,6 +404,15 @@ class SchoolManager &#123;
 
   
 <nav id="article-nav">
+  
+    <a href="/2021/03/22/%E5%88%9B%E5%BB%BA%E5%9E%8B%E6%A8%A1%E5%BC%8F/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          创建型模式
+        
+      </div>
+    </a>
   
   
     <a href="/2021/03/21/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/" id="article-nav-older" class="article-nav-link-wrap">
@@ -1157,11 +557,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">LeetCode</a>
+                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
+                <a href="javascript:void(0)" class="js-tag color4">LeetCode</a>
               </li>
             
             <div class="clearfix"></div>

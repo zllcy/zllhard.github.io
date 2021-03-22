@@ -16,7 +16,7 @@
 <meta property="og:description" content="重建二叉树剑指offer 07 题、Leetcode 105题 输入某二叉树的前序遍历和中序遍历的结果，请重建该二叉树。假设输入的前序遍历和中序遍历的结果中都不含重复的数字。">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-03-16T03:09:02.736Z">
-<meta property="article:modified_time" content="2021-03-16T03:22:00.630Z">
+<meta property="article:modified_time" content="2021-03-22T03:33:44.017Z">
 <meta property="article:author" content="zllhard">
 <meta property="article:tag" content="LeetCode">
 <meta name="twitter:card" content="summary">
@@ -226,47 +226,7 @@
 <p>而中序遍历的形式总是<br>[ [左子树的中序遍历结果], 根节点, [右子树的中序遍历结果] ]<br>定位到中序遍历的根节点，则可以知道左子树和右子树的节点个数。</p>
 <p>从而可以对左右子树进行递归的创建， 然后接到根节点上。</p>
 <p><strong>注意</strong><br>为了快速定位中序遍历中的根节点，我们可以对中序遍历数组进行哈希映射，让数组的元素值为key，映射索引值为value。</p>
-<h3 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h3><pre><code>class Solution &#123;
-
-    private HashMap&lt;Integer, Integer&gt; hashMap;
-
-    public TreeNode buildTree(int[] preorder, int[] inorder) &#123;
-        int n = preorder.length;
-        //构建HashMap来定位中序遍历结果中的根节点
-        hashMap = new HashMap&lt;&gt;();
-        for (int i = 0; i &lt; n; i++) &#123;
-           hashMap.put(inorder[i], i); 
-        &#125;
-        
-        return build(preorder, inorder, 0, n-1, 0, n-1);
-    &#125;
-
-    public TreeNode build(int[] preorder, int[] inorder, int preorder_left, int preorder_right, int inorder_left, int inorder_right) &#123;
-        //不是二叉树了，返回null
-        if (preorder_left &gt; preorder_right) &#123;
-            return null;
-        &#125;
-
-        //前序遍历的第一个节点为根节点
-        int preorder_root = preorder_left;
-        //定位中序遍历中的根节点
-        int inorder_root = hashMap.get(preorder[preorder_root]);
-
-        //创建根节点
-        TreeNode root = new TreeNode(preorder[preorder_root]);
-        //获取左子树的节点个数
-        int size_left = inorder_root - inorder_left;
-        
-        //递归创建左子树
-        root.left = build(preorder, inorder, preorder_left + 1, preorder_root + size_left, inorder_left, inorder_root - 1);
-        //递归创建右子树
-        root.right = build(preorder, inorder, preorder_root + size_left + 1, preorder_right, inorder_root + 1, inorder_right);
-        
-        return root;
-    &#125;
-&#125;
-</code></pre>
-
+<h3 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> HashMap&lt;Integer, Integer&gt; hashMap;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> TreeNode <span class="title">buildTree</span><span class="params">(<span class="keyword">int</span>[] preorder, <span class="keyword">int</span>[] inorder)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> n = preorder.length;</span><br><span class="line">        <span class="comment">//构建HashMap来定位中序遍历结果中的根节点</span></span><br><span class="line">        hashMap = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">           hashMap.put(inorder[i], i); </span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> build(preorder, inorder, <span class="number">0</span>, n-<span class="number">1</span>, <span class="number">0</span>, n-<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> TreeNode <span class="title">build</span><span class="params">(<span class="keyword">int</span>[] preorder, <span class="keyword">int</span>[] inorder, <span class="keyword">int</span> preorder_left, <span class="keyword">int</span> preorder_right, <span class="keyword">int</span> inorder_left, <span class="keyword">int</span> inorder_right)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//不是二叉树了，返回null</span></span><br><span class="line">        <span class="keyword">if</span> (preorder_left &gt; preorder_right) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//前序遍历的第一个节点为根节点</span></span><br><span class="line">        <span class="keyword">int</span> preorder_root = preorder_left;</span><br><span class="line">        <span class="comment">//定位中序遍历中的根节点</span></span><br><span class="line">        <span class="keyword">int</span> inorder_root = hashMap.get(preorder[preorder_root]);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//创建根节点</span></span><br><span class="line">        TreeNode root = <span class="keyword">new</span> TreeNode(preorder[preorder_root]);</span><br><span class="line">        <span class="comment">//获取左子树的节点个数</span></span><br><span class="line">        <span class="keyword">int</span> size_left = inorder_root - inorder_left;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//递归创建左子树</span></span><br><span class="line">        root.left = build(preorder, inorder, preorder_left + <span class="number">1</span>, preorder_root + size_left, inorder_left, inorder_root - <span class="number">1</span>);</span><br><span class="line">        <span class="comment">//递归创建右子树</span></span><br><span class="line">        root.right = build(preorder, inorder, preorder_root + size_left + <span class="number">1</span>, preorder_right, inorder_root + <span class="number">1</span>, inorder_right);</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> root;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
 
       
@@ -501,11 +461,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">LeetCode</a>
+                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
+                <a href="javascript:void(0)" class="js-tag color4">LeetCode</a>
               </li>
             
             <div class="clearfix"></div>

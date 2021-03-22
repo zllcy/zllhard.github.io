@@ -16,7 +16,7 @@
 <meta property="og:description" content="动态规划算法介绍1、动态规划(Dynamic Programming)算法的核心思想是：将大问题划分为小问题进行解决，从而一步步获取最优解的处理算法。2、动态规划算法与分治算法类似，其基本思想也是将待求解问题分解成若干个子问题，先求解子问题，然后从这些子问题的解得到原问题的解。3、与分治法不同的是，适合于用动态规划求解的问题，经分解得到子问题往往不是互相独立的。 ( 即下一个子阶段的求解是建立在上">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-03-17T10:35:13.940Z">
-<meta property="article:modified_time" content="2021-03-18T02:56:10.468Z">
+<meta property="article:modified_time" content="2021-03-22T03:31:41.456Z">
 <meta property="article:author" content="zllhard">
 <meta property="article:tag" content="算法">
 <meta name="twitter:card" content="summary">
@@ -225,66 +225,7 @@
 <h3 id="思路分析"><a href="#思路分析" class="headerlink" title="思路分析"></a>思路分析</h3><p>算法的主要思想，利用动态规划来解决。每次遍历到的第i个物品，根据w[i]和val[i]来确定是否需要将该物品放入背包中。即对于给定的n个物品，设val[i]、w[i]分别为第i个物品的价值和重量，C为背包的容量。再令v[i][j]表示在前i个物品中能够装入容量为j的背包中的最大价值。则我们有下面的结果：</p>
 <p>1）v[i][0]=v[0][j]=0;<br>表示 填入表 第一行和第一列是0<br>2）当w[i-1]&gt; j 时：v[i][j]=v[i-1][j]<br>当准备加入新增的商品的容量大于 当前背包的容量时，就直接使用上一个单元格的装入策略<br>3）当j&gt;=w[i-1]时： v[i][j]=max{v[i-1][j], v[i-1]+v[i-1][j-w[i-1]]}  <br>当准备加入的新增的商品的容量小于等于当前背包的容量，装入的方式:<br>v[i-1][j]： 就是上一个单元格的装入的最大值<br>val[i-1] : 表示当前商品的价值<br>v[i-1][j-w[i]] ： 装入i-1商品，到剩余空间j-w[i]的最大值<br>在上一次装入策略的价值和这次装入当前商品后再装入剩余容量的物品的价值和中取最大值</p>
 <p>因为第一行和第一列被初始化为0，所以动态规划处理时从i = 1和j = 1开始，所以在取当前物品的价值和重量时要-1，即w[i-1]和val[i-1]。</p>
-<h3 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h3><pre><code>public class KnapsackProblem &#123;
-    public static void main(String[] args) &#123;
-        int[] val = &#123;1500, 3000, 2000&#125;;
-        int[] w = &#123;1, 4, 3&#125;;
-        int m = 4;  //背包容量
-        int n = val.length;  //物品个数
-        int[][] v = new int[n+1][m+1];
-
-        //用于记录放入商品的情况
-        int[][] path = new int[n+1][m+1];
-
-        //初始化第一行和第一列为0
-        for (int i = 0; i &lt; v.length; i++) &#123;
-            v[i][0] = 0;
-        &#125;
-
-        for (int j = 0; j &lt; v[0].length; j++) &#123;
-            v[0][j] = 0;
-        &#125;
-
-        //从第一行和第一列开始动态规划，填表处理
-        for (int i = 1; i &lt; v.length; i++) &#123;
-            for (int j = 1; j &lt; v[0].length; j++) &#123;
-                if (w[i-1] &gt; j) &#123;
-                    v[i][j] = v[i-1][j];
-                &#125; else &#123;
-//                    v[i][j] = Math.max(v[i-1][j], val[i-1] + v[i-1][j-w[i-1]]);
-                    //因为要记录哪个商品被放入背包，所以需要用if else来判断
-                    if (v[i-1][j] &lt; val[i-1] + v[i-1][j-w[i-1]]) &#123;
-                        v[i][j] = val[i-1] + v[i-1][j-w[i-1]];
-                        path[i][j] = 1;
-                    &#125; else &#123;
-                        v[i][j] = v[i-1][j];
-                    &#125;
-                &#125;
-            &#125;
-        &#125;
-
-        //打印表格
-        for (int i = 0; i &lt; v.length; i++) &#123;
-            for (int j = 0; j &lt; v[0].length; j++) &#123;
-                System.out.printf(&quot;%d\t&quot;, v[i][j]);
-            &#125;
-            System.out.println();
-        &#125;
-
-        //输出如何向背包里放物品
-        //为了不重复输出所有放入操作，从path后面开始查找
-        int i = path.length - 1;
-        int j = path[0].length - 1;
-        while (i &gt; 0 &amp;&amp; j &gt; 0) &#123;
-            if (path[i][j] == 1) &#123;
-                System.out.println(&quot;第 &quot; + i + &quot; 个商品放入背包&quot;);
-                j -= w[i-1];  //减去放入的容量
-            &#125;
-            i--;
-        &#125;
-    &#125;
-&#125;
-</code></pre>
+<h3 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">KnapsackProblem</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span>[] val = &#123;<span class="number">1500</span>, <span class="number">3000</span>, <span class="number">2000</span>&#125;;</span><br><span class="line">        <span class="keyword">int</span>[] w = &#123;<span class="number">1</span>, <span class="number">4</span>, <span class="number">3</span>&#125;;</span><br><span class="line">        <span class="keyword">int</span> m = <span class="number">4</span>;  <span class="comment">//背包容量</span></span><br><span class="line">        <span class="keyword">int</span> n = val.length;  <span class="comment">//物品个数</span></span><br><span class="line">        <span class="keyword">int</span>[][] v = <span class="keyword">new</span> <span class="keyword">int</span>[n+<span class="number">1</span>][m+<span class="number">1</span>];</span><br><span class="line"></span><br><span class="line">        <span class="comment">//用于记录放入商品的情况</span></span><br><span class="line">        <span class="keyword">int</span>[][] path = <span class="keyword">new</span> <span class="keyword">int</span>[n+<span class="number">1</span>][m+<span class="number">1</span>];</span><br><span class="line"></span><br><span class="line">        <span class="comment">//初始化第一行和第一列为0</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; v.length; i++) &#123;</span><br><span class="line">            v[i][<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; v[<span class="number">0</span>].length; j++) &#123;</span><br><span class="line">            v[<span class="number">0</span>][j] = <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//从第一行和第一列开始动态规划，填表处理</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; v.length; i++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt; v[<span class="number">0</span>].length; j++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (w[i-<span class="number">1</span>] &gt; j) &#123;</span><br><span class="line">                    v[i][j] = v[i-<span class="number">1</span>][j];</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line"><span class="comment">//                    v[i][j] = Math.max(v[i-1][j], val[i-1] + v[i-1][j-w[i-1]]);</span></span><br><span class="line">                    <span class="comment">//因为要记录哪个商品被放入背包，所以需要用if else来判断</span></span><br><span class="line">                    <span class="keyword">if</span> (v[i-<span class="number">1</span>][j] &lt; val[i-<span class="number">1</span>] + v[i-<span class="number">1</span>][j-w[i-<span class="number">1</span>]]) &#123;</span><br><span class="line">                        v[i][j] = val[i-<span class="number">1</span>] + v[i-<span class="number">1</span>][j-w[i-<span class="number">1</span>]];</span><br><span class="line">                        path[i][j] = <span class="number">1</span>;</span><br><span class="line">                    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                        v[i][j] = v[i-<span class="number">1</span>][j];</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//打印表格</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; v.length; i++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; v[<span class="number">0</span>].length; j++) &#123;</span><br><span class="line">                System.out.printf(<span class="string">&quot;%d\t&quot;</span>, v[i][j]);</span><br><span class="line">            &#125;</span><br><span class="line">            System.out.println();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//输出如何向背包里放物品</span></span><br><span class="line">        <span class="comment">//为了不重复输出所有放入操作，从path后面开始查找</span></span><br><span class="line">        <span class="keyword">int</span> i = path.length - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> j = path[<span class="number">0</span>].length - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span> (i &gt; <span class="number">0</span> &amp;&amp; j &gt; <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (path[i][j] == <span class="number">1</span>) &#123;</span><br><span class="line">                System.out.println(<span class="string">&quot;第 &quot;</span> + i + <span class="string">&quot; 个商品放入背包&quot;</span>);</span><br><span class="line">                j -= w[i-<span class="number">1</span>];  <span class="comment">//减去放入的容量</span></span><br><span class="line">            &#125;</span><br><span class="line">            i--;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
 
@@ -520,11 +461,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">LeetCode</a>
+                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
+                <a href="javascript:void(0)" class="js-tag color4">LeetCode</a>
               </li>
             
             <div class="clearfix"></div>

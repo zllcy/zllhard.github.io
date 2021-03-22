@@ -19,7 +19,7 @@
 <meta property="og:image" content="http://example.com/2021/03/15/%E6%96%87%E4%BB%B6%E7%9A%84%E4%B8%8A%E4%BC%A0%E5%92%8C%E4%B8%8B%E8%BD%BD/2.jpg">
 <meta property="og:image" content="http://example.com/2021/03/15/%E6%96%87%E4%BB%B6%E7%9A%84%E4%B8%8A%E4%BC%A0%E5%92%8C%E4%B8%8B%E8%BD%BD/3.jpg">
 <meta property="article:published_time" content="2021-03-15T06:19:06.804Z">
-<meta property="article:modified_time" content="2021-03-15T07:37:43.030Z">
+<meta property="article:modified_time" content="2021-03-22T03:34:19.300Z">
 <meta property="article:author" content="zllhard">
 <meta property="article:tag" content="JavaWeb">
 <meta name="twitter:card" content="summary">
@@ -241,34 +241,17 @@
 <h2 id="文件下载"><a href="#文件下载" class="headerlink" title="文件下载"></a>文件下载</h2><p><img src="/2021/03/15/%E6%96%87%E4%BB%B6%E7%9A%84%E4%B8%8A%E4%BC%A0%E5%92%8C%E4%B8%8B%E8%BD%BD/2.jpg"></p>
 <p><strong>文件下载示例</strong>：<br><img src="/2021/03/15/%E6%96%87%E4%BB%B6%E7%9A%84%E4%B8%8A%E4%BC%A0%E5%92%8C%E4%B8%8B%E8%BD%BD/3.jpg"></p>
 <h3 id="文件中文名乱码解决方案"><a href="#文件中文名乱码解决方案" class="headerlink" title="文件中文名乱码解决方案"></a>文件中文名乱码解决方案</h3><p><strong>方案一：URLEncoder 解决 IE 和谷歌浏览器的 附件中文名问题。</strong><br>如果客户端浏览器是 IE 浏览器 或者 是谷歌浏览器。我们需要使用 URLEncoder 类先对中文名进行 UTF-8 的编码操作。<br>因为 IE 浏览器和谷歌浏览器收到含有编码后的字符串后会以 UTF-8 字符集进行解码显示。</p>
-<pre><code>// 把中文名进行 UTF-8 编码操作。
-String str = &quot;attachment; fileName=&quot; + URLEncoder.encode(&quot;中文.jpg&quot;, &quot;UTF-8&quot;);
-// 然后把编码后的字符串设置到响应头中
-response.setHeader(&quot;Content-Disposition&quot;, str);
-</code></pre>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 把中文名进行 UTF-8 编码操作。</span></span><br><span class="line">String str = <span class="string">&quot;attachment; fileName=&quot;</span> + URLEncoder.encode(<span class="string">&quot;中文.jpg&quot;</span>, <span class="string">&quot;UTF-8&quot;</span>);</span><br><span class="line"><span class="comment">// 然后把编码后的字符串设置到响应头中</span></span><br><span class="line">response.setHeader(<span class="string">&quot;Content-Disposition&quot;</span>, str);</span><br></pre></td></tr></table></figure>
+
 <p><strong>方案二：BASE64 编解码解决火狐浏览器的附件中文名问题。</strong><br>因为火狐使用的是 BASE64 的编解码方式还原响应中的汉字。所以需要使用 BASE64Encoder 类进行编码操作。</p>
-<pre><code>// 使用下面的格式进行 BASE64 编码后
-String str = &quot;attachment; fileName=&quot; + &quot;=?utf-8?B?&quot; 
-    + new BASE64Encoder().encode(&quot;中文.jpg&quot;.getBytes(&quot;utf-8&quot;)) + &quot;?=&quot;;
-// 设置到响应头中
-response.setHeader(&quot;Content-Disposition&quot;, str);
-</code></pre>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 使用下面的格式进行 BASE64 编码后</span></span><br><span class="line">String str = <span class="string">&quot;attachment; fileName=&quot;</span> + <span class="string">&quot;=?utf-8?B?&quot;</span> </span><br><span class="line">	+ <span class="keyword">new</span> BASE64Encoder().encode(<span class="string">&quot;中文.jpg&quot;</span>.getBytes(<span class="string">&quot;utf-8&quot;</span>)) + <span class="string">&quot;?=&quot;</span>;</span><br><span class="line"><span class="comment">// 设置到响应头中</span></span><br><span class="line">response.setHeader(<span class="string">&quot;Content-Disposition&quot;</span>, str);</span><br></pre></td></tr></table></figure>
+
 <p><strong>解决上面两种不同编解码方式</strong></p>
-<pre><code>String ua = request.getHeader(&quot;User-Agent&quot;);
-// 判断是否是火狐浏览器
-if (ua.contains(&quot;Firefox&quot;)) &#123;
-    // 使用下面的格式进行 BASE64 编码后
-    String str = &quot;attachment; fileName=&quot; + &quot;=?utf-8?B?&quot;
-        + new BASE64Encoder().encode(&quot;中文.jpg&quot;.getBytes(&quot;utf-8&quot;)) + &quot;?=&quot;;
-    // 设置到响应头中
-    response.setHeader(&quot;Content-Disposition&quot;, str);
-&#125; else &#123;
-    // 把中文名进行 UTF-8 编码操作。
-    String str = &quot;attachment; fileName=&quot; + URLEncoder.encode(&quot;中文.jpg&quot;, &quot;UTF-8&quot;);
-    // 然后把编码后的字符串设置到响应头中
-    response.setHeader(&quot;Content-Disposition&quot;, str);
-&#125;
-</code></pre>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">String ua = request.getHeader(<span class="string">&quot;User-Agent&quot;</span>);</span><br><span class="line"><span class="comment">// 判断是否是火狐浏览器</span></span><br><span class="line"><span class="keyword">if</span> (ua.contains(<span class="string">&quot;Firefox&quot;</span>)) &#123;</span><br><span class="line">	<span class="comment">// 使用下面的格式进行 BASE64 编码后</span></span><br><span class="line">	String str = <span class="string">&quot;attachment; fileName=&quot;</span> + <span class="string">&quot;=?utf-8?B?&quot;</span></span><br><span class="line">		+ <span class="keyword">new</span> BASE64Encoder().encode(<span class="string">&quot;中文.jpg&quot;</span>.getBytes(<span class="string">&quot;utf-8&quot;</span>)) + <span class="string">&quot;?=&quot;</span>;</span><br><span class="line">	<span class="comment">// 设置到响应头中</span></span><br><span class="line">	response.setHeader(<span class="string">&quot;Content-Disposition&quot;</span>, str);</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">	<span class="comment">// 把中文名进行 UTF-8 编码操作。</span></span><br><span class="line">	String str = <span class="string">&quot;attachment; fileName=&quot;</span> + URLEncoder.encode(<span class="string">&quot;中文.jpg&quot;</span>, <span class="string">&quot;UTF-8&quot;</span>);</span><br><span class="line">	<span class="comment">// 然后把编码后的字符串设置到响应头中</span></span><br><span class="line">	response.setHeader(<span class="string">&quot;Content-Disposition&quot;</span>, str);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
 
       
 
@@ -504,11 +487,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">LeetCode</a>
+                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
+                <a href="javascript:void(0)" class="js-tag color4">LeetCode</a>
               </li>
             
             <div class="clearfix"></div>

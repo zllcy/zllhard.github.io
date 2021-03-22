@@ -18,7 +18,7 @@
 <meta property="og:image" content="http://example.com/2021/03/16/%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95/1.jpg">
 <meta property="og:image" content="http://example.com/2021/03/16/%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95/2.png">
 <meta property="article:published_time" content="2021-03-16T06:52:10.490Z">
-<meta property="article:modified_time" content="2021-03-17T08:07:48.095Z">
+<meta property="article:modified_time" content="2021-03-22T03:32:43.780Z">
 <meta property="article:author" content="zllhard">
 <meta property="article:tag" content="算法">
 <meta name="twitter:card" content="summary">
@@ -233,114 +233,14 @@
 <li>找到就结束递归。</li>
 <li>递归完整个数组，仍然没有找到findVal ，也需要结束递归  当 left &gt; right 就需要退出。</li>
 </ol>
-<h4 id="递归实现"><a href="#递归实现" class="headerlink" title="递归实现"></a>递归实现</h4><pre><code>public class BinarySearch &#123;
-    public static void main(String[] args) &#123;
-        int[] arr = &#123;1, 3, 4, 7, 9&#125;;
-        int index = binarySearch(arr, 0, arr.length - 1, 9);
-        System.out.println(index);
-    &#125;
+<h4 id="递归实现"><a href="#递归实现" class="headerlink" title="递归实现"></a>递归实现</h4><figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">public <span class="keyword">class</span> BinarySearch &#123;</span><br><span class="line">    public static void main(String<span class="literal">[]</span> args) &#123;</span><br><span class="line">        <span class="built_in">int</span><span class="literal">[]</span> arr = &#123;<span class="number">1</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">7</span>, <span class="number">9</span>&#125;;</span><br><span class="line">        <span class="built_in">int</span> index = binary<span class="constructor">Search(<span class="params">arr</span>, 0, <span class="params">arr</span>.<span class="params">length</span> - 1, 9)</span>;</span><br><span class="line">        <span class="module-access"><span class="module"><span class="identifier">System</span>.</span></span>out.println(index);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public static <span class="built_in">int</span> binary<span class="constructor">Search(<span class="params">int</span>[] <span class="params">arr</span>, <span class="params">int</span> <span class="params">left</span>, <span class="params">int</span> <span class="params">right</span>, <span class="params">int</span> <span class="params">findVal</span>)</span> &#123;</span><br><span class="line">        <span class="comment">//没有找到退出递归</span></span><br><span class="line">        <span class="keyword">if</span> (left &gt; right) &#123;</span><br><span class="line">            return -<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="built_in">int</span> mid = (left + right)<span class="operator"> / </span><span class="number">2</span>;</span><br><span class="line">        <span class="keyword">if</span> (findVal &lt; arr<span class="literal">[<span class="identifier">mid</span>]</span>) &#123;</span><br><span class="line">            <span class="comment">//向左递归查找</span></span><br><span class="line">            return binary<span class="constructor">Search(<span class="params">arr</span>, <span class="params">left</span>, <span class="params">mid</span> - 1, <span class="params">findVal</span>)</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (findVal &gt; arr<span class="literal">[<span class="identifier">mid</span>]</span>)&#123;</span><br><span class="line">            <span class="comment">//向右递归查找</span></span><br><span class="line">            return binary<span class="constructor">Search(<span class="params">arr</span>, <span class="params">mid</span> + 1, <span class="params">right</span>, <span class="params">findVal</span>)</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        return mid;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-    public static int binarySearch(int[] arr, int left, int right, int findVal) &#123;
-        //没有找到退出递归
-        if (left &gt; right) &#123;
-            return -1;
-        &#125;
-
-        int mid = (left + right) / 2;
-        if (findVal &lt; arr[mid]) &#123;
-            //向左递归查找
-            return binarySearch(arr, left, mid - 1, findVal);
-        &#125; else if (findVal &gt; arr[mid])&#123;
-            //向右递归查找
-            return binarySearch(arr, mid + 1, right, findVal);
-        &#125;
-
-        return mid;
-    &#125;
-
-&#125;
-</code></pre>
 <h4 id="查找所有的相同元素"><a href="#查找所有的相同元素" class="headerlink" title="查找所有的相同元素"></a>查找所有的相同元素</h4><p>在上述代码的基础上，在mid找到后不要直接返回。<br>分别向mid的左右两边进行扫描，查找相同值的索引。</p>
-<pre><code>import java.util.ArrayList;
-import java.util.List;
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BinarySearch</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span>[] arr = &#123;<span class="number">1</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">7</span>, <span class="number">7</span>, <span class="number">9</span>&#125;;</span><br><span class="line">        List&lt;Integer&gt; indexList = binarySearch2(arr, <span class="number">0</span>, arr.length - <span class="number">1</span>, <span class="number">7</span>);</span><br><span class="line">        System.out.println(indexList);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> List&lt;Integer&gt; <span class="title">binarySearch2</span><span class="params">(<span class="keyword">int</span>[] arr, <span class="keyword">int</span> left, <span class="keyword">int</span> right, <span class="keyword">int</span> findVal)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//没有找到退出递归</span></span><br><span class="line">        <span class="keyword">if</span> (left &gt; right) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> mid = (left + right) / <span class="number">2</span>;</span><br><span class="line">        <span class="keyword">if</span> (findVal &lt; arr[mid]) &#123;</span><br><span class="line">            <span class="comment">//向左递归查找</span></span><br><span class="line">            <span class="keyword">return</span> binarySearch2(arr, left, mid - <span class="number">1</span>, findVal);</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (findVal &gt; arr[mid])&#123;</span><br><span class="line">            <span class="comment">//向右递归查找</span></span><br><span class="line">            <span class="keyword">return</span> binarySearch2(arr, mid + <span class="number">1</span>, right, findVal);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//找到后暂时不返回</span></span><br><span class="line">        List&lt;Integer&gt; indexList = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        <span class="comment">//向mid左边扫描</span></span><br><span class="line">        <span class="keyword">int</span> temp = mid - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span> (<span class="keyword">true</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (temp &lt; <span class="number">0</span> || arr[temp] != findVal) &#123;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            indexList.add(temp);</span><br><span class="line">            temp -= <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//将mid添加进集合</span></span><br><span class="line">        indexList.add(mid);</span><br><span class="line">        <span class="comment">//向mid右边扫描</span></span><br><span class="line">        temp = mid + <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span> (<span class="keyword">true</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (temp &gt; arr.length - <span class="number">1</span> || arr[temp] != findVal) &#123;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            indexList.add(temp);</span><br><span class="line">            temp += <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> indexList;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-public class BinarySearch &#123;
-    public static void main(String[] args) &#123;
-        int[] arr = &#123;1, 3, 4, 7, 7, 9&#125;;
-        List&lt;Integer&gt; indexList = binarySearch2(arr, 0, arr.length - 1, 7);
-        System.out.println(indexList);
-    &#125;
-
-    public static List&lt;Integer&gt; binarySearch2(int[] arr, int left, int right, int findVal) &#123;
-        //没有找到退出递归
-        if (left &gt; right) &#123;
-            return new ArrayList&lt;&gt;();
-        &#125;
-
-        int mid = (left + right) / 2;
-        if (findVal &lt; arr[mid]) &#123;
-            //向左递归查找
-            return binarySearch2(arr, left, mid - 1, findVal);
-        &#125; else if (findVal &gt; arr[mid])&#123;
-            //向右递归查找
-            return binarySearch2(arr, mid + 1, right, findVal);
-        &#125;
-
-        //找到后暂时不返回
-        List&lt;Integer&gt; indexList = new ArrayList&lt;&gt;();
-        //向mid左边扫描
-        int temp = mid - 1;
-        while (true) &#123;
-            if (temp &lt; 0 || arr[temp] != findVal) &#123;
-                break;
-            &#125;
-            indexList.add(temp);
-            temp -= 1;
-        &#125;
-        //将mid添加进集合
-        indexList.add(mid);
-        //向mid右边扫描
-        temp = mid + 1;
-        while (true) &#123;
-            if (temp &gt; arr.length - 1 || arr[temp] != findVal) &#123;
-                break;
-            &#125;
-            indexList.add(temp);
-            temp += 1;
-        &#125;
-
-        return indexList;
-    &#125;
-
-&#125;
-</code></pre>
 <h4 id="非递归实现"><a href="#非递归实现" class="headerlink" title="非递归实现"></a>非递归实现</h4><p>非常简单，循环二分。<br>找到直接返回mid。<br>mid处的值大于要找的值则right = mid - 1，即往mid左边二分。<br>mid处的值小于要找的值则left = mid + 1，即往mid右边二分。</p>
-<pre><code>public class BinarySearch &#123;
-    public static void main(String[] args) &#123;
-        int[] arr = &#123;1, 3, 4, 7, 8, 9&#125;;
-        int index = binarySearch3(arr, 7);
-        System.out.println(index);
-    &#125;
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BinarySearch</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span>[] arr = &#123;<span class="number">1</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>&#125;;</span><br><span class="line">        <span class="keyword">int</span> index = binarySearch3(arr, <span class="number">7</span>);</span><br><span class="line">        System.out.println(index);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">binarySearch3</span><span class="params">(<span class="keyword">int</span>[] arr, <span class="keyword">int</span> findVal)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> left = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> right = arr.length - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span> (left &lt;= right) &#123;</span><br><span class="line">            <span class="keyword">int</span> mid = (left + right) / <span class="number">2</span>;</span><br><span class="line">            <span class="keyword">if</span> (arr[mid] == findVal) &#123;</span><br><span class="line">                <span class="keyword">return</span> mid;</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (arr[mid] &gt; findVal) &#123;</span><br><span class="line">                right = mid - <span class="number">1</span>;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                left = mid + <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-    public static int binarySearch3(int[] arr, int findVal) &#123;
-        int left = 0;
-        int right = arr.length - 1;
-        while (left &lt;= right) &#123;
-            int mid = (left + right) / 2;
-            if (arr[mid] == findVal) &#123;
-                return mid;
-            &#125; else if (arr[mid] &gt; findVal) &#123;
-                right = mid - 1;
-            &#125; else &#123;
-                left = mid + 1;
-            &#125;
-        &#125;
-
-        return -1;
-    &#125;
-
-&#125;
-</code></pre>
 <h3 id="插值查找"><a href="#插值查找" class="headerlink" title="插值查找"></a>插值查找</h3><p>插值查找算法类似于二分查找，不同的是插值查找每次从自适应mid处开始查找。<br>将折半查找中的求mid 索引的公式 , low 表示左边索引left, high表示右边索引right, key 就是前面的 findVal。<br><img src="/2021/03/16/%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95/1.jpg"></p>
 <pre><code>int mid = left + (right – left) * (findVal – arr[left]) / (arr[right] – arr[left]);
 </code></pre>
@@ -352,77 +252,7 @@ public class BinarySearch &#123;
     k++;
 </code></pre>
 <h4 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h4><p>查找过程中三种情况的说明<br>（1）相等，则mid位置的元素即为所求；<br>（2）&gt;，则low=mid+1，k-=2；<br>说明：low=mid+1说明待查找的元素在[mid+1,high]范围内，k-=2 说明范围[mid+1,high]内的元素个数为n-(F(k-1))=Fk-1-F(k-1)=Fk-F(k-1)-1=F(k-2)-1个，所以可以递归的应用斐波那契查找。<br>（3）&lt;，则high=mid-1，k-=1。<br>说明：low=mid+1说明待查找的元素在[low,mid-1]范围内，k-=1 说明范围[low,mid-1]内的元素个数为F(k-1)-1个，所以可以递归的应用斐波那契查找。</p>
-<pre><code>import java.util.Arrays;
-
-public class FibonacciSearch &#123;
-    public static void main(String[] args) &#123;
-        int[] arr = &#123;1, 4, 67, 78, 100, 101&#125;;
-        int index = fibSearch(arr, 101);
-        System.out.println(index);
-    &#125;
-
-    //非递归获取一个斐波那契数列
-    public static int[] fib() &#123;
-        int[] f = new int[20];
-        f[0] = 0;
-        f[1] = 1;
-        for (int i = 2; i &lt; 20; i++) &#123;
-            f[i] = f[i-1] + f[i-2];
-        &#125;
-        return f;
-    &#125;
-
-    //使用非递归的方法编写斐波那契查找算法
-    public static int fibSearch(int[] a, int key) &#123;
-        int low = 0;
-        int high = a.length - 1;
-        int k = 0;  //表示斐波那契分割数值的下标
-
-        int mid = 0;
-        int[] f = fib();
-        //获取到斐波那契分割数值的下标
-        while (high &gt; f[k] - 1) &#123;
-            k++;
-        &#125;
-
-        //因为f[k]的值可能大于a的长度，因此我们需要使用Arrays类，构造一个新的数组，并指向temp[]
-        int[] temp = Arrays.copyOf(a, f[k] - 1);
-        //将扩充的部分用a数组最后的元素填充
-        for (int i = high + 1; i &lt; temp.length; i++) &#123;
-            temp[i] = a[high];
-        &#125;
-
-        while (low &lt;= high) &#123;
-            mid = low + f[k-1] - 1;
-            if (key &lt; temp[mid]) &#123;  //向数组的前面查找
-                high = mid - 1;
-                //全部元素 = 前面元素 + 后面元素
-                // f[k] = f[k-1] + f[k-2]
-                //因为前面有f[k-1]个元素，所以继续拆分f[k-1] = f[k-2] + f[k-3]
-                //所以需要k减1
-                k -= 1;
-            &#125; else if (key &gt; temp[mid]) &#123;  //向数组的前面查找
-                low = mid + 1;
-                //全部元素 = 前面元素 + 后面元素
-                // f[k] = f[k-1] + f[k-2]
-                //因为后面有f[k-2]个元素，所以继续拆分f[k-1] = f[k-3] + f[k-4]
-                //所以需要k减2
-                k -= 2;
-            &#125; else &#123;  //找到
-                if (mid &lt;= high) &#123;
-                    return mid;
-                &#125; else &#123;
-                    return high;
-                &#125;
-            &#125;
-        &#125;
-
-        return -1;
-    &#125;
-&#125;
-
-      
-</code></pre>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Arrays;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FibonacciSearch</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span>[] arr = &#123;<span class="number">1</span>, <span class="number">4</span>, <span class="number">67</span>, <span class="number">78</span>, <span class="number">100</span>, <span class="number">101</span>&#125;;</span><br><span class="line">        <span class="keyword">int</span> index = fibSearch(arr, <span class="number">101</span>);</span><br><span class="line">        System.out.println(index);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//非递归获取一个斐波那契数列</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span>[] fib() &#123;</span><br><span class="line">        <span class="keyword">int</span>[] f = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">20</span>];</span><br><span class="line">        f[<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line">        f[<span class="number">1</span>] = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">2</span>; i &lt; <span class="number">20</span>; i++) &#123;</span><br><span class="line">            f[i] = f[i-<span class="number">1</span>] + f[i-<span class="number">2</span>];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> f;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//使用非递归的方法编写斐波那契查找算法</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">fibSearch</span><span class="params">(<span class="keyword">int</span>[] a, <span class="keyword">int</span> key)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> low = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> high = a.length - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> k = <span class="number">0</span>;  <span class="comment">//表示斐波那契分割数值的下标</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> mid = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span>[] f = fib();</span><br><span class="line">        <span class="comment">//获取到斐波那契分割数值的下标</span></span><br><span class="line">        <span class="keyword">while</span> (high &gt; f[k] - <span class="number">1</span>) &#123;</span><br><span class="line">            k++;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//因为f[k]的值可能大于a的长度，因此我们需要使用Arrays类，构造一个新的数组，并指向temp[]</span></span><br><span class="line">        <span class="keyword">int</span>[] temp = Arrays.copyOf(a, f[k] - <span class="number">1</span>);</span><br><span class="line">        <span class="comment">//将扩充的部分用a数组最后的元素填充</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = high + <span class="number">1</span>; i &lt; temp.length; i++) &#123;</span><br><span class="line">            temp[i] = a[high];</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> (low &lt;= high) &#123;</span><br><span class="line">            mid = low + f[k-<span class="number">1</span>] - <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">if</span> (key &lt; temp[mid]) &#123;  <span class="comment">//向数组的前面查找</span></span><br><span class="line">                high = mid - <span class="number">1</span>;</span><br><span class="line">                <span class="comment">//全部元素 = 前面元素 + 后面元素</span></span><br><span class="line">                <span class="comment">// f[k] = f[k-1] + f[k-2]</span></span><br><span class="line">                <span class="comment">//因为前面有f[k-1]个元素，所以继续拆分f[k-1] = f[k-2] + f[k-3]</span></span><br><span class="line">                <span class="comment">//所以需要k减1</span></span><br><span class="line">                k -= <span class="number">1</span>;</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (key &gt; temp[mid]) &#123;  <span class="comment">//向数组的前面查找</span></span><br><span class="line">                low = mid + <span class="number">1</span>;</span><br><span class="line">                <span class="comment">//全部元素 = 前面元素 + 后面元素</span></span><br><span class="line">                <span class="comment">// f[k] = f[k-1] + f[k-2]</span></span><br><span class="line">                <span class="comment">//因为后面有f[k-2]个元素，所以继续拆分f[k-1] = f[k-3] + f[k-4]</span></span><br><span class="line">                <span class="comment">//所以需要k减2</span></span><br><span class="line">                k -= <span class="number">2</span>;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;  <span class="comment">//找到</span></span><br><span class="line">                <span class="keyword">if</span> (mid &lt;= high) &#123;</span><br><span class="line">                    <span class="keyword">return</span> mid;</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    <span class="keyword">return</span> high;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
 
@@ -658,11 +488,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">LeetCode</a>
+                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
+                <a href="javascript:void(0)" class="js-tag color4">LeetCode</a>
               </li>
             
             <div class="clearfix"></div>
