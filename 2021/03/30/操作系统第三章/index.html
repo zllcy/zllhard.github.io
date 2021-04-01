@@ -75,8 +75,9 @@
 <meta property="og:image" content="http://example.com/2021/03/30/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%AC%E4%B8%89%E7%AB%A0/59.jpg">
 <meta property="og:image" content="http://example.com/2021/03/30/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%AC%E4%B8%89%E7%AB%A0/60.jpg">
 <meta property="og:image" content="http://example.com/2021/03/30/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%AC%E4%B8%89%E7%AB%A0/61.jpg">
+<meta property="og:image" content="http://example.com/2021/03/30/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%AC%E4%B8%89%E7%AB%A0/62.jpg">
 <meta property="article:published_time" content="2021-03-30T08:43:21.107Z">
-<meta property="article:modified_time" content="2021-04-01T01:24:47.899Z">
+<meta property="article:modified_time" content="2021-04-01T01:26:41.992Z">
 <meta property="article:author" content="zllhard">
 <meta property="article:tag" content="操作系统">
 <meta name="twitter:card" content="summary">
@@ -433,7 +434,8 @@
 <h3 id="工作集"><a href="#工作集" class="headerlink" title="工作集"></a>工作集</h3><p>驻留集：指请求分页存储管理中给进程分配的内存块的集合。<br>工作集：指在某段时间间隔里，进程实际访问页面的集合。</p>
 <p>操作系统会根据“窗口尺寸”来算出工作集。例：<br>某进程的页面访问序列如下，窗口尺寸为 4，各时刻的工作集为？<br><img src="/2021/03/30/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%AC%E4%B8%89%E7%AB%A0/61.jpg"><br>工作集大小可能小于窗口尺寸，实际应用中，操作系统可以统计进程的工作集大小，根据工作集大小给进程分配若干内存块。<br>一般来说，驻留集大小不能小于工作集大小，否则进程运行过程中将频繁缺页。</p>
 <p>拓展：基于局部性原理可知，进程在一段时间内访问的页面与不久之后会访问的页面是有相关性的。<br>因此，可以根据进程近期访问的页面集合（工作集）来设计一种页面置换算法——选择一个不在工作集中的页面进行淘汰。</p>
-<h3 id="小结-14"><a href="#小结-14" class="headerlink" title="小结"></a>小结</h3>
+<h3 id="小结-14"><a href="#小结-14" class="headerlink" title="小结"></a>小结</h3><p><img src="/2021/03/30/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%AC%E4%B8%89%E7%AB%A0/62.jpg"></p>
+
       
 
       
@@ -515,6 +517,15 @@
 
   
 <nav id="article-nav">
+  
+    <a href="/2021/04/01/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%AC%E5%9B%9B%E7%AB%A0/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          操作系统第四章
+        
+      </div>
+    </a>
   
   
     <a href="/2021/03/27/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%AC%E4%BA%8C%E7%AB%A0/" id="article-nav-older" class="article-nav-link-wrap">
