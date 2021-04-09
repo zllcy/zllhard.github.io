@@ -25,7 +25,7 @@
 <meta property="og:image" content="http://example.com/2021/04/06/IO%E6%B5%81/8.jpg">
 <meta property="og:image" content="http://example.com/2021/04/06/IO%E6%B5%81/9.jpg">
 <meta property="article:published_time" content="2021-04-06T09:14:00.045Z">
-<meta property="article:modified_time" content="2021-04-06T13:19:56.151Z">
+<meta property="article:modified_time" content="2021-04-07T05:29:20.463Z">
 <meta property="article:author" content="zllhard">
 <meta property="article:tag" content="Java基础">
 <meta name="twitter:card" content="summary">
@@ -420,7 +420,7 @@ void readFully(byte[] b)
 <li>序列化是 RMI（Remote Method Invoke – 远程方法调用）过程的参数和返回值都必须实现的机制，而 RMI 是 JavaEE 的基础。因此序列化机制是JavaEE 平台的基础。</li>
 <li>如果需要让某个对象支持序列化机制，则必须让对象所属的类及其属性是可序列化的，为了让某个类是可序列化的，该类必须实现如下两个接口之一。否则，会抛出NotSerializableException异常。<br>Serializable和Externalizable</li>
 <li>凡是实现Serializable接口的类都有一个表示序列化版本标识符的静态变量：<br>private static final long serialVersionUID;<br>serialVersionUID用来表明类的不同版本间的兼容性。简言之，其目的是以序列化对象进行版本控制，有关各版本反序列化时是否兼容。<br>如果类没有显示定义这个静态常量，它的值是Java运行时环境根据类的内部细节自动生成的。若类的实例变量做了修改，serialVersionUID 可能发生变化。故建议，显式声明。</li>
-<li>简单来说，Java的序列化机制是通过在运行时判断类的serialVersionUID来验证版本一致性的。在进行反序列化时，JVM会把传来的字节流中的serialVersionUID与本地相应实体类的serialVersionUID进行比较，如果相同<br>就认为是一致的，可以进行反序列化，否则就会出现序列化版本不一致的异常。(InvalidCastException)</li>
+<li>简单来说，Java的序列化机制是通过在运行时判断类的serialVersionUID来验证版本一致性的。在进行反序列化时，JVM会把传来的字节流中的serialVersionUID与本地相应实体类的serialVersionUID进行比较，如果相同就认为是一致的，可以进行反序列化，否则就会出现序列化版本不一致的异常。(InvalidCastException)</li>
 </ul>
 <h3 id="使用对象流序列化对象"><a href="#使用对象流序列化对象" class="headerlink" title="使用对象流序列化对象"></a>使用对象流序列化对象</h3><ul>
 <li>若某个类实现了 Serializable 接口，该类的对象就是可序列化的。<br>1）创建一个 ObjectOutputStream。<br>2）调用 ObjectOutputStream 对象的 writeObject(对象) 方法输出可序列化对象。<br>3）注意写出一次，操作flush()一次。</li>
@@ -501,7 +501,11 @@ boolean isWritable(Path path) : 判断文件是否可写
 boolean notExists(Path path, LinkOption … opts) : 判断文件是否不存在
 </code></pre>
 <p><strong>用于操作内容的方法：</strong></p>
-<p>SeekableByteChannel newByteChannel(Path path, OpenOption…how) : 获取与指定文件的连接，how 指定打开方式。<br>DirectoryStream<Path> newDirectoryStream(Path path) : 打开 path 指定的目录<br>InputStream newInputStream(Path path, OpenOption…how):获取 InputStream 对象<br>OutputStream newOutputStream(Path path, OpenOption…how) : 获取 OutputStream 对象</Path></p>
+<pre><code>SeekableByteChannel newByteChannel(Path path, OpenOption…how) : 获取与指定文件的连接，how 指定打开方式
+DirectoryStream&lt;Path&gt; newDirectoryStream(Path path) : 打开 path 指定的目录
+InputStream newInputStream(Path path, OpenOption…how):获取 InputStream 对象
+OutputStream newOutputStream(Path path, OpenOption…how) : 获取 OutputStream 对象
+</code></pre>
 
       
 
@@ -584,6 +588,15 @@ boolean notExists(Path path, LinkOption … opts) : 判断文件是否不存在
 
   
 <nav id="article-nav">
+  
+    <a href="/2021/04/07/%E5%8F%8D%E5%B0%84/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          反射
+        
+      </div>
+    </a>
   
   
     <a href="/2021/04/05/Java-%E9%94%81/" id="article-nav-older" class="article-nav-link-wrap">
@@ -716,11 +729,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Java基础</a>
+                <a href="javascript:void(0)" class="js-tag color3">JavaWeb</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">JavaWeb</a>
+                <a href="javascript:void(0)" class="js-tag color2">Java基础</a>
               </li>
              
               <li class="article-tag-list-item">
