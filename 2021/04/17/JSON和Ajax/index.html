@@ -15,9 +15,10 @@
 <meta property="og:site_name" content="Welcome To Study">
 <meta property="og:description" content="JSON狂神说SpringMVC06：Json交互处理 Ajax狂神说SpringMVC07：Ajax研究 尚硅谷课件JSON、AJAX、i18n">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2021-04-17T09:00:26.000Z">
-<meta property="article:modified_time" content="2021-04-17T09:06:48.299Z">
+<meta property="article:published_time" content="2021-04-17T09:00:26.810Z">
+<meta property="article:modified_time" content="2021-04-19T13:08:34.000Z">
 <meta property="article:author" content="zllhard">
+<meta property="article:tag" content="JavaWeb">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Welcome To Study" type="application/atom+xml">
@@ -183,12 +184,36 @@
 		
         
         <a href="/2021/04/17/JSON%E5%92%8CAjax/" class="archive-article-date">
-  	<time datetime="2021-04-17T09:00:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-04-17</time>
+  	<time datetime="2021-04-17T09:00:26.810Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-04-17</time>
 </a>
         
       </header>
     
 	<!-- 目录内容 -->
+        
+            <p class="show-toc-btn" id="show-toc-btn" onclick="showToc();" style="display:none">
+            <span class="btn-bg"></span>
+            <span class="btn-text">文章导航</span>
+            </p>
+            <div id="toc-article" class="toc-article">
+                <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
+                <strong class="toc-title">文章目录</strong>
+                <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#JSON"><span class="toc-number">1.</span> <span class="toc-text">JSON</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Ajax"><span class="toc-number">2.</span> <span class="toc-text">Ajax</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B0%9A%E7%A1%85%E8%B0%B7%E8%AF%BE%E4%BB%B6"><span class="toc-number">3.</span> <span class="toc-text">尚硅谷课件</span></a></li></ol>
+           </div>
+           <script type="text/javascript">
+            function showToc(){
+                var toc_article = document.getElementById("toc-article");
+                var show_toc_btn = document.getElementById("show-toc-btn");
+                toc_article.setAttribute("style","display:block");
+                show_toc_btn.setAttribute("style","display:none");
+                };
+            function showBtn(){
+                var toc_article = document.getElementById("toc-article");
+                var show_toc_btn = document.getElementById("show-toc-btn");
+                toc_article.setAttribute("style","display:none");
+                show_toc_btn.setAttribute("style","display:block");
+                };
+           </script>
              
         <!-- 目录内容结束 -->
     <div class="article-entry" itemprop="articleBody">
@@ -204,6 +229,17 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">JavaWeb</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -267,6 +303,15 @@
 
   
 <nav id="article-nav">
+  
+    <a href="/2021/04/17/MyBatis/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          MyBatis
+        
+      </div>
+    </a>
   
   
     <a href="/2021/04/17/Filter/" id="article-nav-older" class="article-nav-link-wrap">
@@ -399,11 +444,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Java基础</a>
+                <a href="javascript:void(0)" class="js-tag color1">Spring5 框架</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Spring5 框架</a>
+                <a href="javascript:void(0)" class="js-tag color2">Java基础</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -412,6 +457,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">算法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">MyBatis</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -522,7 +571,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
     
     	<section class="tools-section tools-section-me" q-show="aboutme">
   	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">我是武理的一名学生&lt;br&gt;&lt;br&gt;用个人博客记录一下自己学习的经验&lt;br&gt;&lt;br&gt;欢迎大家一起来学习&lt;br&gt;&lt;br&gt;QQ联系方式:2745459573</div>
+  	  		<div class="aboutme-wrap" id="js-aboutme">我是武理的一名学生&lt;br&gt;&lt;br&gt;用个人博客记录一下自己的学习过程&lt;br&gt;&lt;br&gt;欢迎大家一起来学习&lt;br&gt;&lt;br&gt;QQ联系方式:2745459573</div>
   	  	
     	</section>
     
