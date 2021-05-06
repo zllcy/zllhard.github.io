@@ -6,24 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>JSTL标签库 | Welcome To Study</title>
+  <title>数组中的逆序对 | Welcome To Study</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="JSTL标签库简介JSTL 标签库 全称是指 JSP Standard Tag Library JSP 标准标签库。是一个不断完善的开放源代码的 JSP 标签库。EL 表达式主要是为了替换 jsp 中的表达式脚本，而标签库则是为了替换代码脚本。这样使得整个 jsp 页面变得更佳简洁。">
+  <meta name="description" content="剑指 Offer 51. 数组中的逆序对">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JSTL标签库">
-<meta property="og:url" content="http://example.com/2021/03/15/JSTL%E6%A0%87%E7%AD%BE%E5%BA%93/index.html">
+<meta property="og:title" content="数组中的逆序对">
+<meta property="og:url" content="http://example.com/2021/05/06/%E6%95%B0%E7%BB%84%E4%B8%AD%E7%9A%84%E9%80%86%E5%BA%8F%E5%AF%B9/index.html">
 <meta property="og:site_name" content="Welcome To Study">
-<meta property="og:description" content="JSTL标签库简介JSTL 标签库 全称是指 JSP Standard Tag Library JSP 标准标签库。是一个不断完善的开放源代码的 JSP 标签库。EL 表达式主要是为了替换 jsp 中的表达式脚本，而标签库则是为了替换代码脚本。这样使得整个 jsp 页面变得更佳简洁。">
+<meta property="og:description" content="剑指 Offer 51. 数组中的逆序对">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://example.com/2021/03/15/JSTL%E6%A0%87%E7%AD%BE%E5%BA%93/1.jpg">
-<meta property="og:image" content="http://example.com/2021/03/15/JSTL%E6%A0%87%E7%AD%BE%E5%BA%93/3.jpg">
-<meta property="og:image" content="http://example.com/2021/03/15/JSTL%E6%A0%87%E7%AD%BE%E5%BA%93/2.jpg">
-<meta property="article:published_time" content="2021-03-15T03:23:37.768Z">
-<meta property="article:modified_time" content="2021-03-15T04:12:13.146Z">
+<meta property="article:published_time" content="2021-05-06T13:21:48.541Z">
+<meta property="article:modified_time" content="2021-05-06T13:28:04.673Z">
 <meta property="article:author" content="zllhard">
-<meta property="article:tag" content="JavaWeb">
+<meta property="article:tag" content="LeetCode">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/2021/03/15/JSTL%E6%A0%87%E7%AD%BE%E5%BA%93/1.jpg">
   
     <link rel="alternative" href="/atom.xml" title="Welcome To Study" type="application/atom+xml">
   
@@ -165,14 +161,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-JSTL标签库" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-数组中的逆序对" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      JSTL标签库
+      数组中的逆序对
     </h1>
   
 
@@ -187,8 +183,8 @@
 		  </a>
 		
         
-        <a href="/2021/03/15/JSTL%E6%A0%87%E7%AD%BE%E5%BA%93/" class="archive-article-date">
-  	<time datetime="2021-03-15T03:23:37.768Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-15</time>
+        <a href="/2021/05/06/%E6%95%B0%E7%BB%84%E4%B8%AD%E7%9A%84%E9%80%86%E5%BA%8F%E5%AF%B9/" class="archive-article-date">
+  	<time datetime="2021-05-06T13:21:48.541Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-05-06</time>
 </a>
         
       </header>
@@ -202,7 +198,7 @@
             <div id="toc-article" class="toc-article">
                 <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
                 <strong class="toc-title">文章目录</strong>
-                <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#JSTL%E6%A0%87%E7%AD%BE%E5%BA%93%E7%AE%80%E4%BB%8B"><span class="toc-number">1.</span> <span class="toc-text">JSTL标签库简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JSTL-%E6%A0%87%E7%AD%BE%E5%BA%93%E7%9A%84%E4%BD%BF%E7%94%A8%E6%AD%A5%E9%AA%A4"><span class="toc-number">2.</span> <span class="toc-text">JSTL 标签库的使用步骤</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#core-%E6%A0%B8%E5%BF%83%E5%BA%93%E4%BD%BF%E7%94%A8"><span class="toc-number">3.</span> <span class="toc-text">core 核心库使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#lt-c-set-gt"><span class="toc-number">3.1.</span> <span class="toc-text">&lt;c:set &#x2F;&gt;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#lt-c-if-gt"><span class="toc-number">3.2.</span> <span class="toc-text">&lt;c:if &#x2F;&gt;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#lt-c-choose-gt-lt-c-when-gt-lt-c-otherwise-gt-%E6%A0%87%E7%AD%BE"><span class="toc-number">3.3.</span> <span class="toc-text">&lt;c:choose&gt; &lt;c:when&gt; &lt;c:otherwise&gt;标签</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#lt-c-forEach-gt"><span class="toc-number">3.4.</span> <span class="toc-text">&lt;c:forEach &#x2F;&gt;</span></a></li></ol></li></ol>
+                <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE%E6%8F%8F%E8%BF%B0"><span class="toc-number">1.</span> <span class="toc-text">题目描述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF%E5%88%86%E6%9E%90"><span class="toc-number">2.</span> <span class="toc-text">思路分析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0"><span class="toc-number">3.</span> <span class="toc-text">代码实现</span></a></li></ol>
            </div>
            <script type="text/javascript">
             function showToc(){
@@ -222,22 +218,11 @@
         <!-- 目录内容结束 -->
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="JSTL标签库简介"><a href="#JSTL标签库简介" class="headerlink" title="JSTL标签库简介"></a>JSTL标签库简介</h2><p>JSTL 标签库 全称是指 JSP Standard Tag Library JSP 标准标签库。是一个不断完善的开放源代码的 JSP 标<br>签库。<br>EL 表达式主要是为了替换 jsp 中的表达式脚本，而标签库则是为了替换代码脚本。这样使得整个 jsp 页面<br>变得更佳简洁。</p>
+        <p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/shu-zu-zhong-de-ni-xu-dui-lcof/">剑指 Offer 51. 数组中的逆序对</a></p>
 <span id="more"></span>
-
-<p><strong>JSTL 由五个不同功能的标签库组成:</strong><br><img src="/2021/03/15/JSTL%E6%A0%87%E7%AD%BE%E5%BA%93/1.jpg"></p>
-<p><strong>在 jsp 标签库中使用 taglib 指令引入标签库</strong><br>CORE 标签库<br>&lt;%@ taglib prefix=”c” uri=”<a target="_blank" rel="noopener" href="http://java.sun.com/jsp/jstl/core&quot;">http://java.sun.com/jsp/jstl/core&quot;</a> %&gt;</p>
-<h2 id="JSTL-标签库的使用步骤"><a href="#JSTL-标签库的使用步骤" class="headerlink" title="JSTL 标签库的使用步骤"></a>JSTL 标签库的使用步骤</h2><p>1、先导入 jstl 标签库的 jar 包。<br>2、第二步，使用 taglib 指令引入标签库。</p>
-<h2 id="core-核心库使用"><a href="#core-核心库使用" class="headerlink" title="core 核心库使用"></a>core 核心库使用</h2><h3 id="lt-c-set-gt"><a href="#lt-c-set-gt" class="headerlink" title="&lt;c:set /&gt;"></a>&lt;c:set /&gt;</h3><p>作用：set 标签可以往域中保存数据<br>域对象.setAttribute(key,value);<br>scope 属性设置保存到哪个域<br>&emsp;&emsp;page 表示 PageContext 域（默认值）<br>&emsp;&emsp;request 表示 Request 域<br>&emsp;&emsp;session 表示 Session 域<br>&emsp;&emsp;application 表示 ServletContext 域<br>var 属性设置 key 是多少<br>value 属性设置值</p>
-<p><strong>举例：</strong><br>&lt;c:set scope=”session” var=”abc” value=”abcValue”/&gt;</p>
-<h3 id="lt-c-if-gt"><a href="#lt-c-if-gt" class="headerlink" title="&lt;c:if /&gt;"></a>&lt;c:if /&gt;</h3><p>if 标签用来做 if 判断。<br>test 属性表示判断的条件（使用 EL 表达式输出）</p>
-<p><strong>举例：</strong><br><img src="/2021/03/15/JSTL%E6%A0%87%E7%AD%BE%E5%BA%93/3.jpg"></p>
-<h3 id="lt-c-choose-gt-lt-c-when-gt-lt-c-otherwise-gt-标签"><a href="#lt-c-choose-gt-lt-c-when-gt-lt-c-otherwise-gt-标签" class="headerlink" title="&lt;c:choose&gt; &lt;c:when&gt; &lt;c:otherwise&gt;标签"></a>&lt;c:choose&gt; &lt;c:when&gt; &lt;c:otherwise&gt;标签</h3><p>作用：多路判断。跟 switch … case …. default 非常接近<br>不需要手动break，执行到一种情况就会退出。</p>
-<p>choose 标签开始选择判断<br>when 标签表示每一种判断情况<br>&emsp;&emsp;test 属性表示当前这种判断情况的值<br>otherwise 标签表示剩下的情况</p>
-<p>&lt;c:choose&gt; &lt;c:when&gt; &lt;c:otherwise&gt;标签使用时需要注意的点：<br>1、标签里不能使用 html 注释，要使用 jsp 注释<br>2、when 标签的父标签一定要是 choose 标签</p>
-<h3 id="lt-c-forEach-gt"><a href="#lt-c-forEach-gt" class="headerlink" title="&lt;c:forEach /&gt;"></a>&lt;c:forEach /&gt;</h3><p>作用：遍历输出使用。<br>items 表示遍历的集合<br>var 表示遍历到的数据<br>begin 表示遍历的开始索引值<br>end 表示结束的索引值<br>step 属性表示遍历的步长值<br>varStatus 属性表示当前遍历到的数据的状态</p>
-<p><strong>举例遍历存储student对象的集合：</strong><br><img src="/2021/03/15/JSTL%E6%A0%87%E7%AD%BE%E5%BA%93/2.jpg"></p>
-
+<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>在数组中的两个数字，如果前面一个数字大于后面的数字，则这两个数字组成一个逆序对。输入一个数组，求出这个数组中的逆序对的总数。</p>
+<h2 id="思路分析"><a href="#思路分析" class="headerlink" title="思路分析"></a>思路分析</h2><p>使用归并排序解决。<br>因为在归并排序和合并过程中，如果左右指针指向的元素大小对比后，发现右边的元素先归并，那么就可以知道左边剩下的未合并的元素都可以和现在右边要归并的元素组成一个逆序对（即可以在统计逆序对数量上+左边未合并元素的数量）<br>统计过程就是上述思路，其他都和归并排序没什么区别。</p>
+<h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">reversePairs</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (nums.length &lt; <span class="number">2</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span>[] temp = <span class="keyword">new</span> <span class="keyword">int</span>[nums.length];</span><br><span class="line">        <span class="keyword">return</span> reversePairs(nums, <span class="number">0</span>, nums.length-<span class="number">1</span>, temp);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">reversePairs</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> left, <span class="keyword">int</span> right, <span class="keyword">int</span>[] temp)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (left == right) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// (left + right) / 2 可能会超出int最大值</span></span><br><span class="line">        <span class="keyword">int</span> mid = left + (right - left) / <span class="number">2</span>;</span><br><span class="line">        <span class="keyword">int</span> leftPairs = reversePairs(nums, left, mid, temp);</span><br><span class="line">        <span class="keyword">int</span> rightPairs = reversePairs(nums, mid+<span class="number">1</span>, right, temp);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 如果检测到左右两个待合并的已经有序了，那就不需要合并了</span></span><br><span class="line">        <span class="keyword">if</span> (nums[mid] &lt;= nums[mid+<span class="number">1</span>]) &#123;</span><br><span class="line">            <span class="keyword">return</span> leftPairs + rightPairs;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> crossParis = mergeAndCount(nums, left, mid, right, temp);</span><br><span class="line">        <span class="keyword">return</span> leftPairs + rightPairs + crossParis;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">mergeAndCount</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> left, <span class="keyword">int</span> mid, <span class="keyword">int</span> right, <span class="keyword">int</span>[] temp)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> count = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = left; i &lt;= right; i++) &#123;</span><br><span class="line">            temp[i] = nums[i];</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> i = left;</span><br><span class="line">        <span class="keyword">int</span> j = mid+<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> k = left; k &lt;= right; k++) &#123;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (i == mid+<span class="number">1</span>) &#123;  <span class="comment">//如果左边超过边界了，直接把右边的值合并上去就行了</span></span><br><span class="line">                nums[k] = temp[j];</span><br><span class="line">                j++;</span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span> (j == right + <span class="number">1</span>) &#123;  <span class="comment">//如果右边超过边界了，直接把左边的值合并上去就行了</span></span><br><span class="line">                nums[k] = temp[i];</span><br><span class="line">                i++;</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (temp[i] &lt;= temp[j]) &#123;  <span class="comment">//注意这边一定要加=，否则归并排序不是稳定的</span></span><br><span class="line">                nums[k] = temp[i];</span><br><span class="line">                i++;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                nums[k] = temp[j];</span><br><span class="line">                j++;</span><br><span class="line">                <span class="comment">// 统计逆序对，为左边还未合并的数量</span></span><br><span class="line">                count += (mid - i + <span class="number">1</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> count;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
 
       
@@ -250,7 +235,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">JavaWeb</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">LeetCode</a>
         		</li>
       		
 		</ul>
@@ -306,7 +291,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2021/03/15/JSTL%E6%A0%87%E7%AD%BE%E5%BA%93/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2021/05/06/%E6%95%B0%E7%BB%84%E4%B8%AD%E7%9A%84%E9%80%86%E5%BA%8F%E5%AF%B9/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -320,18 +305,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2021/03/15/%E6%96%87%E4%BB%B6%E7%9A%84%E4%B8%8A%E4%BC%A0%E5%92%8C%E4%B8%8B%E8%BD%BD/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          文件的上传和下载
-        
-      </div>
-    </a>
   
-  
-    <a href="/2021/03/15/EL%E8%A1%A8%E8%BE%BE%E5%BC%8F/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">EL表达式</div>
+    <a href="/2021/05/04/Spring-Boot/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">SpringBoot</div>
       <i class="icon-circle-right"></i>
     </a>
   
