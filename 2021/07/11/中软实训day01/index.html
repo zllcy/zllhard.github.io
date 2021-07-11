@@ -31,7 +31,7 @@
 <meta property="og:image" content="http://example.com/2021/07/11/%E4%B8%AD%E8%BD%AF%E5%AE%9E%E8%AE%ADday01/12.jpg">
 <meta property="og:image" content="http://example.com/2021/07/11/%E4%B8%AD%E8%BD%AF%E5%AE%9E%E8%AE%ADday01/11.jpg">
 <meta property="article:published_time" content="2021-07-11T07:09:49.707Z">
-<meta property="article:modified_time" content="2021-07-11T09:13:55.673Z">
+<meta property="article:modified_time" content="2021-07-11T11:28:45.900Z">
 <meta property="article:author" content="zllhard">
 <meta property="article:tag" content="中软实训">
 <meta name="twitter:card" content="summary">
@@ -243,8 +243,7 @@
 <p><img src="/2021/07/11/%E4%B8%AD%E8%BD%AF%E5%AE%9E%E8%AE%ADday01/3.jpg"><br>用来处理AJP请求<br>AJP(Apache JServ Protocol)是定向包协议。因为性能原因，使用二进制格式来传输可读性文本。WEB服务器通过TCP连接和SERVLET容器连接。<br>WEB服务器一般维持和Web容器的多个TCP Connecions，即TCP连接池，多个request/respons循环重用同一个Connection。<br>但是当Connection被分配（Assigned）到某个请求时，该请求完成之前，其他请求不得使用该连接。</p>
 <p><strong>Engine</strong><br>Engine：处理连接器接收到请求<br><img src="/2021/07/11/%E4%B8%AD%E8%BD%AF%E5%AE%9E%E8%AE%ADday01/7.jpg"><br>Engine组件在Service组件中有且只有一个<br>Engine组件从一个或多个Connector中接收请求并处理，并将完成的响应返回给Connector，最终传递给客户端。</p>
 <p><strong>Host</strong><br>Host：虚拟主机<br>所有的wep应用的都放在webappps下<br><img src="/2021/07/11/%E4%B8%AD%E8%BD%AF%E5%AE%9E%E8%AE%ADday01/5.jpg"><br>运行多个Web应用（一个Context代表一个Web应用），并负责安装、展开、启动和结束每个Web应用。<br>Host组件代表的虚拟主机，对应了服务器中一个网络名实体(如”<a target="_blank" rel="noopener" href="http://www.test.com”,或ip地址”),一个主机可以有多个虚拟主机来对应,通过不同的主机名访问同一台电脑服务器的不同应用/">www.test.com”，或IP地址”),一个主机可以有多个虚拟主机来对应，通过不同的主机名访问同一台电脑服务器的不同应用</a></p>
-<p><strong>Context</strong><br>一个Context就表示一个应用</p>
-<p>Engine、Host和Context都是容器，它们不是平行的关系，而是父子关系：Engine包含Host，Host包含Context</p>
+<p><strong>Context</strong><br>一个Context就表示一个应用<br>Engine、Host和Context都是容器，它们不是平行的关系，而是父子关系：Engine包含Host，Host包含Context</p>
 <h3 id="Tomcat的默认启动过程"><a href="#Tomcat的默认启动过程" class="headerlink" title="Tomcat的默认启动过程"></a>Tomcat的默认启动过程</h3><p>开启Tomcat后<br>浏览器地址栏输入<a target="_blank" rel="noopener" href="http://localhost:8080/">http://localhost:8080</a><br>默认进入webapps的ROOT目录下找index.jsp<br><img src="/2021/07/11/%E4%B8%AD%E8%BD%AF%E5%AE%9E%E8%AE%ADday01/6.jpg"></p>
 <h3 id="发布Web项目"><a href="#发布Web项目" class="headerlink" title="发布Web项目"></a>发布Web项目</h3><p>将Web项目放到webapps下</p>
 <h3 id="Tomcat启动失败的解决方案"><a href="#Tomcat启动失败的解决方案" class="headerlink" title="Tomcat启动失败的解决方案"></a>Tomcat启动失败的解决方案</h3><p>打开logs目录下的日志文件，查看异常信息</p>
@@ -466,15 +465,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Java基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Spring5 框架</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">JavaWeb</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Java基础</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -514,11 +513,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">SpringSecurity</a>
+                <a href="javascript:void(0)" class="js-tag color5">SpringMVC</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">SpringMVC</a>
+                <a href="javascript:void(0)" class="js-tag color5">SpringSecurity</a>
               </li>
              
               <li class="article-tag-list-item">

@@ -266,28 +266,9 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="运行时数据区域"><a href="#运行时数据区域" class="headerlink" title="运行时数据区域"></a>运行时数据区域</h2><p>线程私有的：程序计数器、虚拟机栈、本地方法栈<br>线程共享的：堆、方法区、直接内存 (非运行时数据区的一部分)<br><strong>注意：</strong>1.8之后将方法区变为了元空间</p>
-<h3 id="程序计数器"><a href="#程序计数器" class="headerlink" title="程序计数器"></a>程序计数器</h3><p>程序计数器是一块较小的内存空间，记录正在执行的虚拟机字节码指令的地址。字节码解释器通过改变程序计数器来依次读取指令，从而实现代码的流程控制，如：顺序执行、选择、循环、异常处理<br>每个线程都需要一个独立的程序计数器，各线程之间计数器互不影响，切换线程时序计数器记录了当前线程执行的位置，从而线程切换回来时可以恢复到正确位置。<br><strong>注意：</strong>程序计数器是唯一一个不会出现 <code>OutOfMemoryError</code> 的内存区域，它的生命周期随着线程的创建而创建，随着线程的结束而死亡。</p>
-<h3 id="虚拟机栈"><a href="#虚拟机栈" class="headerlink" title="虚拟机栈"></a>虚拟机栈</h3><p>Java 虚拟机栈是由一个个栈帧组成，而每个栈帧中都拥有：局部变量表、操作数栈、动态链接、方法出口信息。<br>局部变量表主要存放了编译期可知的各种基本数据类型（boolean、byte、char、short、int、float、long、double）、对象引用（reference 类型，它不同于对象本身，可能是一个指向对象起始地址的引用指针，也可能是指向一个代表对象的句柄或其他与此对象相关的位置）。</p>
-<p><strong>虚拟机栈会出现两种错误：</strong></p>
-<ul>
-<li><code>StackOverFlowError</code>： 若 Java 虚拟机栈的内存大小不允许动态扩展，那么当线程请求栈的深度超过当前 Java 虚拟机栈的最大深度的时候，就抛出 StackOverFlowError 错误。</li>
-<li><code>OutOfMemoryError</code>： Java 虚拟机栈的内存大小可以动态扩展， 如果虚拟机在动态扩展栈时无法申请到足够的内存空间，则抛出OutOfMemoryError异常。</li>
-</ul>
-<p>可以通过 -Xss 这个虚拟机参数来指定每个线程的 Java 虚拟机栈内存大小，在 JDK 1.4 中默认为 256K，而在 JDK 1.5+ 默认为 1M：<br><code>java -Xss2M HackTheJava</code></p>
-<p>Java 虚拟机栈也是线程私有的，每个线程都有各自的 Java 虚拟机栈，而且随着线程的创建而创建，随着线程的死亡而死亡。</p>
-<p><strong>方法/函数调用</strong><br>Java 栈中保存的主要内容是栈帧，每一次函数调用都会有一个对应的栈帧被压入 Java 栈，每一个函数调用结束后，都会有一个栈帧被弹出。<br>return语句和抛出异常都会导致栈帧被弹出。</p>
-<h3 id="本地方法栈"><a href="#本地方法栈" class="headerlink" title="本地方法栈"></a>本地方法栈</h3><p>虚拟机栈为虚拟机执行 Java 方法 （也就是字节码）服务，而本地方法栈则为虚拟机使用到的 Native 方法服务。<br>在 HotSpot 虚拟机中和 Java 虚拟机栈合二为一。<br>本地方法被执行的时候，在本地方法栈也会创建一个栈帧，用于存放该本地方法的局部变量表、操作数栈、动态链接、出口信息。方法执行完毕后相应的栈帧也会出栈并释放内存空间，也会出现 StackOverFlowError 和 OutOfMemoryError 两种错误。</p>
-<h3 id="堆"><a href="#堆" class="headerlink" title="堆"></a>堆</h3><p>此内存区域的唯一目的就是存放对象实例，几乎所有的对象实例以及数组都在这里分配内存。<br>Java 堆是垃圾收集器管理的主要区域，因此也被称作GC 堆。<br>现在收集器基本都采用分代垃圾收集算法，Java 堆还可以细分为：新生代和老年代，再细致一点有：Eden 空间、From Survivor、To Survivor 空间等。</p>
-<p>堆这里最容易出现的就是 OutOfMemoryError 错误。<br>可以通过 -Xms 和 -Xmx 这两个虚拟机参数来指定一个程序的堆内存大小，第一个参数设置初始值，第二个参数设置最大值。<br><code>java -Xms1M -Xmx2M HackTheJava</code></p>
-<h3 id="方法区"><a href="#方法区" class="headerlink" title="方法区"></a>方法区</h3><p>方法区存储已被虚拟机加载的类信息、常量、静态变量、即时编译器编译后的代码等数据。</p>
-<p>方法区也被称为永久代。<br>永久代是 HotSpot 的概念，方法区是 Java 虚拟机规范中的定义，是一种规范，而永久代是一种实现，一个是标准一个是实现，其他的虚拟机实现并没有永久代这一说法。</p>
-<p>JDK 1.8 之前永久代还没被彻底移除的时候通常通过下面这些参数来调节方法区大小</p>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">-XX:PermSize=N <span class="regexp">//</span>方法区 (永久代) 初始大小</span><br><span class="line">-XX:MaxPermSize=N <span class="regexp">//</span>方法区 (永久代) 最大大小,超过这个值将会抛出 OutOfMemoryError 异常:java.lang.OutOfMemoryError: PermGen</span><br></pre></td></tr></table></figure>
-<p>1.8之后将方法区被元空间所替代，元空间使用的是直接内存。<br>元空间的设置参数如下：</p>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">-XX:MetaspaceSize=N <span class="regexp">//</span>设置 Metaspace 的初始（和最小大小）</span><br><span class="line">-XX:MaxMetaspaceSize=N <span class="regexp">//</span>设置 Metaspace 的最大大小</span><br></pre></td></tr></table></figure>
-
-<p><strong>为什么要用元空间替代方法区？</strong><br>整个永久代有一个 JVM 本身设置的固定大小上限，无法进行调整，而元空间使用的是直接内存，受本机可用内存的限制，虽然元空间仍旧可能溢出，但是比原来出现的几率会更小。<br>元空间。</p>
-
+        
+          <a class=".article-more-a" style="display: none;" href="/2021/07/11/Java%E5%86%85%E5%AD%98%E5%8C%BA%E5%9F%9F/#more">more >></a>
+        
       
 
       
@@ -1080,15 +1061,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Java基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Spring5 框架</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">JavaWeb</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Java基础</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1128,11 +1109,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">SpringSecurity</a>
+                <a href="javascript:void(0)" class="js-tag color5">SpringMVC</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">SpringMVC</a>
+                <a href="javascript:void(0)" class="js-tag color5">SpringSecurity</a>
               </li>
              
               <li class="article-tag-list-item">
