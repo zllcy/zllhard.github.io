@@ -22,11 +22,11 @@
 <meta property="og:image" content="http://example.com/2021/04/05/Java-%E9%94%81/4.jpg">
 <meta property="og:image" content="http://example.com/2021/04/05/Java-%E9%94%81/5.jpg">
 <meta property="og:image" content="http://example.com/2021/04/05/Java-%E9%94%81/6.jpg">
-<meta property="og:image" content="http://example.com/2021/04/05/Java-%E9%94%81/7jpg">
+<meta property="og:image" content="http://example.com/2021/04/05/Java-%E9%94%81/7.jpg">
 <meta property="og:image" content="http://example.com/2021/04/05/Java-%E9%94%81/9.jpg">
 <meta property="og:image" content="http://example.com/2021/04/05/Java-%E9%94%81/10.jpg">
 <meta property="article:published_time" content="2021-04-05T12:27:15.992Z">
-<meta property="article:modified_time" content="2021-04-06T14:41:55.685Z">
+<meta property="article:modified_time" content="2021-07-14T07:29:28.934Z">
 <meta property="article:author" content="zllhard">
 <meta property="article:tag" content="Java基础">
 <meta name="twitter:card" content="summary">
@@ -291,7 +291,7 @@
 <p>ObjectMonitor中有两个队列，_WaitSet 和 _EntryList，用来保存ObjectWaiter对象列表( 每个等待锁的线程都会被封装成ObjectWaiter对象)，_owner指向持有ObjectMonitor对象的线程，当多个线程同时访问一段同步代码时，首先会进入 _EntryList 集合，当线程获取到对象的monitor 后进入 _Owner 区域并把monitor中的owner变量设置为当前线程同时monitor中的计数器count加1，若线程调用 wait() 方法，将释放当前持有的monitor，owner变量恢复为null，count自减1，同时该线程进入 WaitSet集合中等待被唤醒。若当前线程执行完毕也将释放monitor(锁)并复位变量的值，以便其他线程进入获取monitor(锁)。</p>
 <h3 id="synchronized锁的实现"><a href="#synchronized锁的实现" class="headerlink" title="synchronized锁的实现"></a>synchronized锁的实现</h3><p>synchronized有两种形式上锁，一个是对方法上锁，一个是构造同步代码块。他们的底层实现其实都一样，在进入同步代码之前先获取锁，获取到锁之后锁的计数器+1，同步代码执行完锁的计数器-1，如果获取失败就阻塞式等待锁的释放。只是他们在同步块识别方式上有所不一样，从class字节码文件可以表现出来，一个是通过方法flags标志，一个是monitorenter和monitorexit指令操作。</p>
 <h4 id="同步方法"><a href="#同步方法" class="headerlink" title="同步方法"></a>同步方法</h4><p>首先来看在方法上上锁，我们就新定义一个同步方法然后进行反编译，查看其字节码：<br><img src="/2021/04/05/Java-%E9%94%81/4.jpg"><br><img src="/2021/04/05/Java-%E9%94%81/5.jpg"><br>可以看到在add方法的flags里面多了一个ACC_SYNCHRONIZED标志，这标志用来告诉JVM这是一个同步方法，在进入该方法之前先获取相应的锁，锁的计数器加1，方法结束后计数器-1，如果获取失败就阻塞住，知道该锁被释放。</p>
-<h4 id="同步代码块"><a href="#同步代码块" class="headerlink" title="同步代码块"></a>同步代码块</h4><p>定义一个同步代码块，编译出class字节码，然后找到method方法所在的指令块，可以清楚的看到其实现上锁和释放锁的过程；<br><img src="/2021/04/05/Java-%E9%94%81/6.jpg"><br><img src="/2021/04/05/Java-%E9%94%81/7jpg"><br>从反编译的同步代码块可以看到同步块是由monitorenter指令进入，然后monitorexit释放锁，在执行monitorenter之前需要尝试获取锁，如果这个对象没有被锁定，或者当前线程已经拥有了这个对象的锁，那么就把锁的计数器加1。当执行monitorexit指令时，锁的计数器也会减1。当获取锁失败时会被阻塞，一直等待锁被释放。<br>但是为什么会有两个monitorexit呢？其实第二个monitorexit是来处理异常的，仔细看反编译的字节码，正常情况下第一个monitorexit之后会执行goto指令，而该指令转向的就是23行的return，也就是说正常情况下只会执行第一个monitorexit释放锁，然后返回。而如果在执行中发生了异常，第二个monitorexit就起作用了，它是由编译器自动生成的，在发生异常时处理异常然后释放掉锁。</p>
+<h4 id="同步代码块"><a href="#同步代码块" class="headerlink" title="同步代码块"></a>同步代码块</h4><p>定义一个同步代码块，编译出class字节码，然后找到method方法所在的指令块，可以清楚的看到其实现上锁和释放锁的过程；<br><img src="/2021/04/05/Java-%E9%94%81/6.jpg"><br><img src="/2021/04/05/Java-%E9%94%81/7.jpg"><br>从反编译的同步代码块可以看到同步块是由monitorenter指令进入，然后monitorexit释放锁，在执行monitorenter之前需要尝试获取锁，如果这个对象没有被锁定，或者当前线程已经拥有了这个对象的锁，那么就把锁的计数器加1。当执行monitorexit指令时，锁的计数器也会减1。当获取锁失败时会被阻塞，一直等待锁被释放。<br>但是为什么会有两个monitorexit呢？其实第二个monitorexit是来处理异常的，仔细看反编译的字节码，正常情况下第一个monitorexit之后会执行goto指令，而该指令转向的就是23行的return，也就是说正常情况下只会执行第一个monitorexit释放锁，然后返回。而如果在执行中发生了异常，第二个monitorexit就起作用了，它是由编译器自动生成的，在发生异常时处理异常然后释放掉锁。</p>
 <h3 id="Synchronized-核心组件"><a href="#Synchronized-核心组件" class="headerlink" title="Synchronized 核心组件"></a>Synchronized 核心组件</h3><ol>
 <li>Wait Set：哪些调用 wait 方法被阻塞的线程被放置在这里。</li>
 <li>Contention List：竞争队列，所有请求锁的线程首先被放在这个竞争队列中。</li>
@@ -613,11 +613,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">LeetCode</a>
+                <a href="javascript:void(0)" class="js-tag color3">算法</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">算法</a>
+                <a href="javascript:void(0)" class="js-tag color4">LeetCode</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -629,10 +629,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Shiro</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">SSM</a>
               </li>
              
@@ -641,7 +637,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">SpringMVC</a>
+                <a href="javascript:void(0)" class="js-tag color1">Shiro</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -650,6 +646,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Vue</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">SpringMVC</a>
               </li>
              
               <li class="article-tag-list-item">
