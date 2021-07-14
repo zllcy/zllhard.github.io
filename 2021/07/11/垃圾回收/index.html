@@ -15,14 +15,13 @@
 <meta property="og:site_name" content="Welcome To Study">
 <meta property="og:description" content="垃圾收集主要是针对堆和方法区进行。程序计数器、虚拟机栈和本地方法栈这三个区域属于线程私有的，只存在于线程的生命周期内，线程结束之后就会消失，因此不需要对这三个区域进行垃圾回收。">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://example.com/2021/07/11/%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/1.png">
 <meta property="og:image" content="http://example.com/2021/07/11/%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/2.png">
 <meta property="article:published_time" content="2021-07-11T14:56:59.284Z">
-<meta property="article:modified_time" content="2021-07-13T07:52:33.762Z">
+<meta property="article:modified_time" content="2021-07-13T13:24:14.913Z">
 <meta property="article:author" content="zllhard">
 <meta property="article:tag" content="JVM">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/2021/07/11/%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/1.png">
+<meta name="twitter:image" content="http://example.com/2021/07/11/%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/2.png">
   
     <link rel="alternative" href="/atom.xml" title="Welcome To Study" type="application/atom+xml">
   
@@ -201,7 +200,7 @@
             <div id="toc-article" class="toc-article">
                 <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
                 <strong class="toc-title">文章目录</strong>
-                <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D%E5%92%8C%E5%9B%9E%E6%94%B6"><span class="toc-number">1.</span> <span class="toc-text">内存分配和回收</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%A4%E6%96%AD%E5%AF%B9%E8%B1%A1%E6%98%AF%E5%90%A6%E5%8F%AF%E4%BB%A5%E8%A2%AB%E5%9B%9E%E6%94%B6"><span class="toc-number">2.</span> <span class="toc-text">判断对象是否可以被回收</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%95%E7%94%A8%E8%AE%A1%E6%95%B0%E6%B3%95"><span class="toc-number">2.1.</span> <span class="toc-text">引用计数法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%AF%E8%BE%BE%E6%80%A7%E5%88%86%E6%9E%90"><span class="toc-number">2.2.</span> <span class="toc-text">可达性分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#finalize"><span class="toc-number">2.3.</span> <span class="toc-text">finalize()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%B9%E6%B3%95%E5%8C%BA%E5%9B%9E%E6%94%B6"><span class="toc-number">2.4.</span> <span class="toc-text">方法区回收</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%95%E7%94%A8%E7%B1%BB%E5%9E%8B"><span class="toc-number">3.</span> <span class="toc-text">引用类型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%BA%E5%BC%95%E7%94%A8"><span class="toc-number">3.1.</span> <span class="toc-text">强引用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BD%AF%E5%BC%95%E7%94%A8"><span class="toc-number">3.2.</span> <span class="toc-text">软引用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%B1%E5%BC%95%E7%94%A8"><span class="toc-number">3.3.</span> <span class="toc-text">弱引用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%99%9A%E5%BC%95%E7%94%A8"><span class="toc-number">3.4.</span> <span class="toc-text">虚引用</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E7%AE%97%E6%B3%95"><span class="toc-number">4.</span> <span class="toc-text">垃圾收集算法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%87%E8%AE%B0-%E6%B8%85%E9%99%A4%E7%AE%97%E6%B3%95"><span class="toc-number">4.1.</span> <span class="toc-text">标记-清除算法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%87%E8%AE%B0-%E5%A4%8D%E5%88%B6%E7%AE%97%E6%B3%95"><span class="toc-number">4.2.</span> <span class="toc-text">标记-复制算法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%87%E8%AE%B0-%E6%95%B4%E7%90%86%E7%AE%97%E6%B3%95"><span class="toc-number">4.3.</span> <span class="toc-text">标记-整理算法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%86%E4%BB%A3%E6%94%B6%E9%9B%86%E7%AE%97%E6%B3%95"><span class="toc-number">4.4.</span> <span class="toc-text">分代收集算法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8"><span class="toc-number">5.</span> <span class="toc-text">垃圾收集器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Seria%E6%94%B6%E9%9B%86%E5%99%A8"><span class="toc-number">5.1.</span> <span class="toc-text">Seria收集器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ParNew-%E6%94%B6%E9%9B%86%E5%99%A8"><span class="toc-number">5.2.</span> <span class="toc-text">ParNew 收集器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Parallel-Scavenge-%E6%94%B6%E9%9B%86%E5%99%A8"><span class="toc-number">5.3.</span> <span class="toc-text">Parallel Scavenge 收集器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Serial-Old-%E6%94%B6%E9%9B%86%E5%99%A8"><span class="toc-number">5.4.</span> <span class="toc-text">Serial Old 收集器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Parallel-Old-%E6%94%B6%E9%9B%86%E5%99%A8"><span class="toc-number">5.5.</span> <span class="toc-text">Parallel Old 收集器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CMS-%E6%94%B6%E9%9B%86%E5%99%A8"><span class="toc-number">5.6.</span> <span class="toc-text">CMS 收集器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#G1-%E6%94%B6%E9%9B%86%E5%99%A8"><span class="toc-number">5.7.</span> <span class="toc-text">G1 收集器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ZGC-%E6%94%B6%E9%9B%86%E5%99%A8"><span class="toc-number">5.8.</span> <span class="toc-text">ZGC 收集器</span></a></li></ol></li></ol>
+                <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D%E5%92%8C%E5%9B%9E%E6%94%B6"><span class="toc-number">1.</span> <span class="toc-text">内存分配和回收</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Minor-GC-%E5%92%8C-Full-GC"><span class="toc-number">1.1.</span> <span class="toc-text">Minor GC 和 Full GC</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D%E7%AD%96%E7%95%A5"><span class="toc-number">1.2.</span> <span class="toc-text">内存分配策略</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Full-GC-%E7%9A%84%E8%A7%A6%E5%8F%91%E6%9D%A1%E4%BB%B6"><span class="toc-number">1.3.</span> <span class="toc-text">Full GC 的触发条件</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%A4%E6%96%AD%E5%AF%B9%E8%B1%A1%E6%98%AF%E5%90%A6%E5%8F%AF%E4%BB%A5%E8%A2%AB%E5%9B%9E%E6%94%B6"><span class="toc-number">2.</span> <span class="toc-text">判断对象是否可以被回收</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%95%E7%94%A8%E8%AE%A1%E6%95%B0%E6%B3%95"><span class="toc-number">2.1.</span> <span class="toc-text">引用计数法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%AF%E8%BE%BE%E6%80%A7%E5%88%86%E6%9E%90"><span class="toc-number">2.2.</span> <span class="toc-text">可达性分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#finalize"><span class="toc-number">2.3.</span> <span class="toc-text">finalize()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%B9%E6%B3%95%E5%8C%BA%E5%9B%9E%E6%94%B6"><span class="toc-number">2.4.</span> <span class="toc-text">方法区回收</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%95%E7%94%A8%E7%B1%BB%E5%9E%8B"><span class="toc-number">3.</span> <span class="toc-text">引用类型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%BA%E5%BC%95%E7%94%A8"><span class="toc-number">3.1.</span> <span class="toc-text">强引用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BD%AF%E5%BC%95%E7%94%A8"><span class="toc-number">3.2.</span> <span class="toc-text">软引用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%B1%E5%BC%95%E7%94%A8"><span class="toc-number">3.3.</span> <span class="toc-text">弱引用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%99%9A%E5%BC%95%E7%94%A8"><span class="toc-number">3.4.</span> <span class="toc-text">虚引用</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E7%AE%97%E6%B3%95"><span class="toc-number">4.</span> <span class="toc-text">垃圾收集算法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%87%E8%AE%B0-%E6%B8%85%E9%99%A4%E7%AE%97%E6%B3%95"><span class="toc-number">4.1.</span> <span class="toc-text">标记-清除算法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%87%E8%AE%B0-%E5%A4%8D%E5%88%B6%E7%AE%97%E6%B3%95"><span class="toc-number">4.2.</span> <span class="toc-text">标记-复制算法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%87%E8%AE%B0-%E6%95%B4%E7%90%86%E7%AE%97%E6%B3%95"><span class="toc-number">4.3.</span> <span class="toc-text">标记-整理算法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%86%E4%BB%A3%E6%94%B6%E9%9B%86%E7%AE%97%E6%B3%95"><span class="toc-number">4.4.</span> <span class="toc-text">分代收集算法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8"><span class="toc-number">5.</span> <span class="toc-text">垃圾收集器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Seria%E6%94%B6%E9%9B%86%E5%99%A8"><span class="toc-number">5.1.</span> <span class="toc-text">Seria收集器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ParNew-%E6%94%B6%E9%9B%86%E5%99%A8"><span class="toc-number">5.2.</span> <span class="toc-text">ParNew 收集器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Parallel-Scavenge-%E6%94%B6%E9%9B%86%E5%99%A8"><span class="toc-number">5.3.</span> <span class="toc-text">Parallel Scavenge 收集器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Serial-Old-%E6%94%B6%E9%9B%86%E5%99%A8"><span class="toc-number">5.4.</span> <span class="toc-text">Serial Old 收集器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Parallel-Old-%E6%94%B6%E9%9B%86%E5%99%A8"><span class="toc-number">5.5.</span> <span class="toc-text">Parallel Old 收集器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CMS-%E6%94%B6%E9%9B%86%E5%99%A8"><span class="toc-number">5.6.</span> <span class="toc-text">CMS 收集器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#G1-%E6%94%B6%E9%9B%86%E5%99%A8"><span class="toc-number">5.7.</span> <span class="toc-text">G1 收集器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ZGC-%E6%94%B6%E9%9B%86%E5%99%A8"><span class="toc-number">5.8.</span> <span class="toc-text">ZGC 收集器</span></a></li></ol></li></ol>
            </div>
            <script type="text/javascript">
             function showToc(){
@@ -224,7 +223,40 @@
         <p>垃圾收集主要是针对堆和方法区进行。程序计数器、虚拟机栈和本地方法栈这三个区域属于线程私有的，只存在于线程的生命周期内，线程结束之后就会消失，因此不需要对这三个区域进行垃圾回收。</p>
 <span id="more"></span>
 
-<h2 id="内存分配和回收"><a href="#内存分配和回收" class="headerlink" title="内存分配和回收"></a>内存分配和回收</h2><p>Java 自动内存管理最核心的功能是 堆 内存中对象的分配与回收。<br>Java 堆是垃圾收集器管理的主要区域，因此也被称作GC 堆（Garbage Collected Heap）.从垃圾回收的角度，由于现在收集器基本都采用分代垃圾收集算法，所以 Java 堆还可以细分为：新生代和老年代：再细致一点有：Eden 空间、From Survivor、To Survivor 空间等。进一步划分的目的是更好地回收内存，或者更快地分配内存。<br><img src="/2021/07/11/%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/1.png"><br>上图所示的 Eden 区、From Survivor0(“From”) 区、To Survivor1(“To”) 区都属于新生代，Old Memory 区属于老年代。</p>
+<h2 id="内存分配和回收"><a href="#内存分配和回收" class="headerlink" title="内存分配和回收"></a>内存分配和回收</h2><h3 id="Minor-GC-和-Full-GC"><a href="#Minor-GC-和-Full-GC" class="headerlink" title="Minor GC 和 Full GC"></a>Minor GC 和 Full GC</h3><ul>
+<li>Minor GC：回收新生代，因为新生代对象存活时间很短，因此 Minor GC 会频繁执行，执行的速度一般也会比较快。</li>
+<li>Full GC：回收老年代和新生代，老年代对象其存活时间长，因此 Full GC 很少执行，执行速度会比 Minor GC 慢很多。</li>
+</ul>
+<h3 id="内存分配策略"><a href="#内存分配策略" class="headerlink" title="内存分配策略"></a>内存分配策略</h3><ol>
+<li><p>对象优先在 Eden 分配<br>大多数情况下，对象在新生代 Eden 上分配，当 Eden 空间不够时，发起 Minor GC。</p>
+</li>
+<li><p>大对象直接进入老年代<br>大对象是指需要连续内存空间的对象，最典型的大对象是那种很长的字符串以及数组。<br>经常出现大对象会提前触发垃圾收集以获取足够的连续空间分配给大对象。</p>
+</li>
+</ol>
+<p>-XX:PretenureSizeThreshold，大于此值的对象直接在老年代分配，避免在 Eden 和 Survivor 之间的大量内存复制。</p>
+<ol start="3">
+<li>长期存活的对象进入老年代<br>为对象定义年龄计数器，对象在 Eden 出生并经过 Minor GC 依然存活，将移动到 Survivor 中，年龄就增加 1 岁，增加到一定年龄则移动到老年代中。</li>
+</ol>
+<p>-XX:MaxTenuringThreshold 用来定义年龄的阈值。</p>
+<ol start="4">
+<li><p>动态对象年龄判定<br>虚拟机并不是永远要求对象的年龄必须达到 MaxTenuringThreshold 才能晋升老年代，如果在 Survivor 中相同年龄所有对象大小的总和大于 Survivor 空间的一半，则年龄大于或等于该年龄的对象可以直接进入老年代，无需等到 MaxTenuringThreshold 中要求的年龄。</p>
+</li>
+<li><p>空间分配担保<br>在发生 Minor GC 之前，虚拟机先检查老年代最大可用的连续空间是否大于新生代所有对象总空间，如果条件成立的话，那么 Minor GC 可以确认是安全的。<br>如果不成立的话虚拟机会查看 HandlePromotionFailure 的值是否允许担保失败，如果允许那么就会继续检查老年代最大可用的连续空间是否大于历次晋升到老年代对象的平均大小，如果大于，将尝试着进行一次 Minor GC；如果小于，或者 HandlePromotionFailure 的值不允许冒险，那么就要进行一次 Full GC。</p>
+</li>
+</ol>
+<h3 id="Full-GC-的触发条件"><a href="#Full-GC-的触发条件" class="headerlink" title="Full GC 的触发条件"></a>Full GC 的触发条件</h3><p>对于 Minor GC，其触发条件非常简单，当 Eden 空间满时，就将触发一次 Minor GC。而 Full GC 则相对复杂，有以下条件：</p>
+<ol>
+<li><p>调用 System.gc()<br>只是建议虚拟机执行 Full GC，但是虚拟机不一定真正去执行。不建议使用这种方式，而是让虚拟机管理内存。</p>
+</li>
+<li><p>老年代空间不足<br>老年代空间不足的常见场景为大对象直接进入老年代、长期存活的对象进入老年代等。<br>为了避免以上原因引起的 Full GC，应当尽量不要创建过大的对象以及数组。除此之外，可以通过 -Xmn 虚拟机参数调大新生代的大小，让对象尽量在新生代被回收掉，不进入老年代。还可以通过 -XX:MaxTenuringThreshold 调大对象进入老年代的年龄，让对象在新生代多存活一段时间。</p>
+</li>
+<li><p>空间分配担保失败<br>使用复制算法的 Minor GC 需要老年代的内存空间作担保，如果担保失败会执行一次 Full GC。</p>
+</li>
+<li><p>JDK 1.7 及以前的永久代空间不足<br>在 JDK 1.7 及以前，HotSpot 虚拟机中的方法区是用永久代实现的，永久代中存放的为一些 Class 的信息、常量、静态变量等数据。<br>当系统中要加载的类、反射的类和调用的方法较多时，永久代可能会被占满，在未配置为采用 CMS GC 的情况下也会执行 Full GC。如果经过 Full GC 仍然回收不了，那么虚拟机会抛出 java.lang.OutOfMemoryError。<br>为避免以上原因引起的 Full GC，可采用的方法为增大永久代空间或转为使用 CMS GC。</p>
+</li>
+<li><p>Concurrent Mode Failure<br>执行 CMS GC 的过程中同时有对象要放入老年代，而此时老年代空间不足（可能是 GC 过程中浮动垃圾过多导致暂时性的空间不足），便会报 Concurrent Mode Failure 错误，并触发 Full GC。</p>
+</li>
+</ol>
 <h2 id="判断对象是否可以被回收"><a href="#判断对象是否可以被回收" class="headerlink" title="判断对象是否可以被回收"></a>判断对象是否可以被回收</h2><h3 id="引用计数法"><a href="#引用计数法" class="headerlink" title="引用计数法"></a>引用计数法</h3><p>为对象添加一个引用计数器，当对象增加一个引用时计数器加 1，引用失效时计数器减 1。引用计数为 0 的对象可被回收。<br>这个方法实现简单，效率高，但是目前主流的虚拟机中并没有选择这个算法来管理内存，其最主要的原因是它很难解决对象之间相互循环引用的问题。<br>两个对象出现循环引用的情况：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> Object instance = <span class="keyword">null</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Test a = <span class="keyword">new</span> Test();</span><br><span class="line">        Test b = <span class="keyword">new</span> Test();</span><br><span class="line">        a.instance = b;</span><br><span class="line">        b.instance = a;</span><br><span class="line">        a = <span class="keyword">null</span>;</span><br><span class="line">        b = <span class="keyword">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>在上述代码中，a 与 b 引用的对象实例互相持有了对象的引用，因此当我们把对 a 对象与 b 对象的引用去除之后，由于两个对象还存在互相之间的引用，导致两个 Test 对象无法被回收。</p>
@@ -531,7 +563,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Java基础</a>
+                <a href="javascript:void(0)" class="js-tag color1">Spring5 框架</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -539,7 +571,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Spring5 框架</a>
+                <a href="javascript:void(0)" class="js-tag color2">Java基础</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -567,19 +599,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">SSM</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Shiro</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">SpringMVC</a>
+                <a href="javascript:void(0)" class="js-tag color4">SSM</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">SpringBoot</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">SpringMVC</a>
               </li>
              
               <li class="article-tag-list-item">

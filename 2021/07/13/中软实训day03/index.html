@@ -16,8 +16,9 @@
 <meta property="og:description" content="注解Since JDK5在源码和JDK文档之间的一个桥梁，能够描述和解释Java的数据。它跟功能无关，只起到描述或者解释的作用。国内把Annotation叫做“注解”，海外把Annotation叫做“元数据”  Data  About  Data。 如何理解元数据？描述数据的数据。 注解分为元注解和自定义注解。">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://example.com/2021/07/13/%E4%B8%AD%E8%BD%AF%E5%AE%9E%E8%AE%ADday03/1.png">
+<meta property="og:image" content="http://example.com/2021/07/13/%E4%B8%AD%E8%BD%AF%E5%AE%9E%E8%AE%ADday03/1.jpg">
 <meta property="article:published_time" content="2021-07-13T00:49:06.696Z">
-<meta property="article:modified_time" content="2021-07-13T09:15:10.265Z">
+<meta property="article:modified_time" content="2021-07-13T12:55:23.488Z">
 <meta property="article:author" content="zllhard">
 <meta property="article:tag" content="中软实训">
 <meta name="twitter:card" content="summary">
@@ -251,8 +252,14 @@
 <h3 id="Socket"><a href="#Socket" class="headerlink" title="Socket"></a>Socket</h3><p>它是Java网络编程的核心，它是在主机和主机之间也可以在主机内部进行通信的一个套接字。</p>
 <h4 id="SocketUtils"><a href="#SocketUtils" class="headerlink" title="SocketUtils"></a>SocketUtils</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.net.Socket;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SocketUtils</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * ping方法</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> address</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> port</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">ping</span><span class="params">(String address, <span class="keyword">int</span> port)</span>  </span>&#123;</span><br><span class="line">        Socket socket = <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            socket = <span class="keyword">new</span> Socket(address, port);</span><br><span class="line">            <span class="comment">// 设置超时时间</span></span><br><span class="line">            socket.setSoTimeout(<span class="number">1000</span>);</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h4 id="ServerSocket"><a href="#ServerSocket" class="headerlink" title="ServerSocket"></a>ServerSocket</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+<h4 id="ServerSocket"><a href="#ServerSocket" class="headerlink" title="ServerSocket"></a>ServerSocket</h4><p>编写客户端和服务器的全双工通信</p>
+<p>Client:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.io.*;</span><br><span class="line"><span class="keyword">import</span> java.net.Socket;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Client</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">try</span> (</span><br><span class="line">                <span class="comment">// 客户端找不到服务器端口会抛出ConnectException异常</span></span><br><span class="line">                Socket socket = <span class="keyword">new</span> Socket(<span class="string">&quot;localhost&quot;</span>, <span class="number">61671</span>);</span><br><span class="line">                <span class="comment">// 获取客户端套接字的输入和输出管道</span></span><br><span class="line">                InputStream ips = socket.getInputStream();</span><br><span class="line">                OutputStream ops = socket.getOutputStream();</span><br><span class="line"></span><br><span class="line">                <span class="comment">// 创建字符流来装饰套接字的字节流</span></span><br><span class="line">                BufferedWriter bw = <span class="keyword">new</span> BufferedWriter(<span class="keyword">new</span> OutputStreamWriter(ops));</span><br><span class="line">                BufferedReader br = <span class="keyword">new</span> BufferedReader(<span class="keyword">new</span> InputStreamReader(ips));</span><br><span class="line">        ) &#123;</span><br><span class="line">            <span class="comment">// 向服务器发送请求</span></span><br><span class="line">            bw.write(<span class="string">&quot;陈瑶&quot;</span>);</span><br><span class="line">            bw.newLine();</span><br><span class="line">            bw.flush();</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 获取响应</span></span><br><span class="line">            String responseInfo = br.readLine();</span><br><span class="line">            System.out.println(responseInfo);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            System.err.println(<span class="string">&quot;客户端套接字连接失败&quot;</span>);</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+<p>Server:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.io.*;</span><br><span class="line"><span class="keyword">import</span> java.net.ServerSocket;</span><br><span class="line"><span class="keyword">import</span> java.net.Socket;</span><br><span class="line"><span class="keyword">import</span> java.time.LocalDateTime;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Server</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">try</span> (</span><br><span class="line">                ServerSocket server = <span class="keyword">new</span> ServerSocket(<span class="number">61671</span>);</span><br><span class="line">                <span class="comment">// 监听客户端</span></span><br><span class="line">                <span class="comment">// 一旦客户端成功个服务器建立连接，那么服务器会返回一个当前客户端套接字</span></span><br><span class="line">                Socket socket = server.accept();</span><br><span class="line"></span><br><span class="line">                <span class="comment">// 获取客户端套接字的输入和输出管道</span></span><br><span class="line">                InputStream ips = socket.getInputStream();</span><br><span class="line">                OutputStream ops = socket.getOutputStream();</span><br><span class="line"></span><br><span class="line">                <span class="comment">// 创建字符流来装饰套接字的字节流</span></span><br><span class="line">                BufferedWriter bw = <span class="keyword">new</span> BufferedWriter(<span class="keyword">new</span> OutputStreamWriter(ops));</span><br><span class="line">                BufferedReader br = <span class="keyword">new</span> BufferedReader(<span class="keyword">new</span> InputStreamReader(ips));</span><br><span class="line">        )&#123;</span><br><span class="line">            <span class="comment">// 接收客户端的请求</span></span><br><span class="line">            String requestInfo = br.readLine();</span><br><span class="line">            String responseInfo = <span class="keyword">null</span>;</span><br><span class="line">            <span class="keyword">if</span> (<span class="string">&quot;陈瑶&quot;</span>.equals(requestInfo)) &#123;</span><br><span class="line">                responseInfo = <span class="string">&quot;是瑶妹哦&quot;</span>;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                responseInfo = <span class="string">&quot;无法识别请求&quot;</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            bw.write(responseInfo);</span><br><span class="line">            bw.newLine();</span><br><span class="line">            bw.flush();</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;服务器套接字连接失败&quot;</span>);</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>先启动服务器，再启动客户端：<br><img src="/2021/07/13/%E4%B8%AD%E8%BD%AF%E5%AE%9E%E8%AE%ADday03/1.jpg"></p>
 <h2 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h2><p>try(){} catch(Expection e) 叫做：try with resource 自动关闭资源，不用定义finally，jdk1.7 之后出现。<br>写在try后面的()中的所有需要关闭的资源都实现了 AutoCloseable 的接口。</p>
 
       
@@ -336,6 +343,15 @@
 
   
 <nav id="article-nav">
+  
+    <a href="/2021/07/13/%E7%B1%BB%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          类文件结构
+        
+      </div>
+    </a>
   
   
     <a href="/2021/07/12/%E4%B8%AD%E8%BD%AF%E5%AE%9E%E8%AE%ADday02/" id="article-nav-older" class="article-nav-link-wrap">
@@ -468,7 +484,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Java基础</a>
+                <a href="javascript:void(0)" class="js-tag color1">Spring5 框架</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -476,7 +492,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Spring5 框架</a>
+                <a href="javascript:void(0)" class="js-tag color2">Java基础</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -504,19 +520,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">SSM</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Shiro</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">SpringMVC</a>
+                <a href="javascript:void(0)" class="js-tag color4">SSM</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">SpringBoot</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">SpringMVC</a>
               </li>
              
               <li class="article-tag-list-item">
