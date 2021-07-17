@@ -16,7 +16,7 @@
 <meta property="og:description" content="解决二叉搜索树和二叉树的最近公共祖先问题。">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-05-31T02:45:40.103Z">
-<meta property="article:modified_time" content="2021-05-31T03:20:38.708Z">
+<meta property="article:modified_time" content="2021-07-16T15:22:15.314Z">
 <meta property="article:author" content="zllhard">
 <meta property="article:tag" content="LeetCode">
 <meta name="twitter:card" content="summary">
@@ -233,7 +233,7 @@
 <ol>
 <li>当 left 和 right 同时为空 ：说明 root 的左 / 右子树中都不包含 p,q ，返回 null；</li>
 <li>当 left 和 right 同时不为空 ：说明 p, q,分列在 root 的 异侧 （分别在 左 / 右子树），因此 root 为最近公共祖先，返回 root；</li>
-<li>当 left 为空 ，right 不为空 ：p,qp,q 都不在 root 的左子树中，直接返回 right。</li>
+<li>当 left 为空 ，right 不为空 ：p,q 都不在 root 的左子树中，直接返回 right。</li>
 <li>当 left 不为空 ， right 为空 ：与情况 3. 同理；<br>其中1可以合并在3、4中。</li>
 </ol>
 <h3 id="代码实现-1"><a href="#代码实现-1" class="headerlink" title="代码实现"></a>代码实现</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> TreeNode <span class="title">lowestCommonAncestor</span><span class="params">(TreeNode root, TreeNode p, TreeNode q)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (root == <span class="keyword">null</span> || root == p || root == q) <span class="keyword">return</span> root;</span><br><span class="line">        TreeNode left = lowestCommonAncestor(root.left, p, q);</span><br><span class="line">        TreeNode right = lowestCommonAncestor(root.right, p, q);</span><br><span class="line">        <span class="keyword">if</span> (left == <span class="keyword">null</span>) <span class="keyword">return</span> right;</span><br><span class="line">        <span class="keyword">if</span> (right == <span class="keyword">null</span>) <span class="keyword">return</span> left;</span><br><span class="line">        <span class="keyword">return</span> root;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -491,11 +491,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">MyBatisPlus</a>
+                <a href="javascript:void(0)" class="js-tag color4">SSM</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">SSM</a>
+                <a href="javascript:void(0)" class="js-tag color2">MyBatisPlus</a>
               </li>
              
               <li class="article-tag-list-item">
