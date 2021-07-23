@@ -8,15 +8,15 @@
   <link rel="dns-prefetch" href="http://example.com">
   <title>SpringBoot自动装配原理 | Welcome To Study</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="SpringBoot 在启动时会扫描外部引用 jar 包中的META-INF&#x2F;spring.factories文件，将文件中配置的类型信息加载到 Spring 容器，并执行类中定义的各种操作。对于外部 jar 来说，只需要按照 SpringBoot 定义的标准，就能将自己的功能装置进 SpringBoot。">
+  <meta name="description" content="淘宝一面：“说一下 Spring Boot 自动装配原理呗？”https:&#x2F;&#x2F;www.cnblogs.com&#x2F;javaguide&#x2F;p&#x2F;springboot-auto-config.html">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SpringBoot自动装配原理">
 <meta property="og:url" content="http://example.com/2021/07/22/SpringBoot%E8%87%AA%E5%8A%A8%E8%A3%85%E9%85%8D%E5%8E%9F%E7%90%86/index.html">
 <meta property="og:site_name" content="Welcome To Study">
-<meta property="og:description" content="SpringBoot 在启动时会扫描外部引用 jar 包中的META-INF&#x2F;spring.factories文件，将文件中配置的类型信息加载到 Spring 容器，并执行类中定义的各种操作。对于外部 jar 来说，只需要按照 SpringBoot 定义的标准，就能将自己的功能装置进 SpringBoot。">
+<meta property="og:description" content="淘宝一面：“说一下 Spring Boot 自动装配原理呗？”https:&#x2F;&#x2F;www.cnblogs.com&#x2F;javaguide&#x2F;p&#x2F;springboot-auto-config.html">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-07-22T02:30:46.384Z">
-<meta property="article:modified_time" content="2021-07-22T02:51:54.748Z">
+<meta property="article:modified_time" content="2021-07-22T13:10:30.041Z">
 <meta property="article:author" content="zllhard">
 <meta property="article:tag" content="SpringBoot">
 <meta name="twitter:card" content="summary">
@@ -198,7 +198,7 @@
             <div id="toc-article" class="toc-article">
                 <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
                 <strong class="toc-title">文章目录</strong>
-                <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#SpringBootApplication"><span class="toc-number">1.</span> <span class="toc-text">@SpringBootApplication</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#EnableAutoConfiguration"><span class="toc-number">1.1.</span> <span class="toc-text">@EnableAutoConfiguration</span></a></li></ol></li></ol>
+                
            </div>
            <script type="text/javascript">
             function showToc(){
@@ -218,19 +218,8 @@
         <!-- 目录内容结束 -->
     <div class="article-entry" itemprop="articleBody">
       
-        <p>SpringBoot 在启动时会扫描外部引用 jar 包中的META-INF/spring.factories文件，将文件中配置的类型信息加载到 Spring 容器，并执行类中定义的各种操作。对于外部 jar 来说，只需要按照 SpringBoot 定义的标准，就能将自己的功能装置进 SpringBoot。</p>
-<span id="more"></span>
+        <p>淘宝一面：“说一下 Spring Boot 自动装配原理呗？”<br><a target="_blank" rel="noopener" href="https://www.cnblogs.com/javaguide/p/springboot-auto-config.html">https://www.cnblogs.com/javaguide/p/springboot-auto-config.html</a></p>
 
-<h2 id="SpringBootApplication"><a href="#SpringBootApplication" class="headerlink" title="@SpringBootApplication"></a>@SpringBootApplication</h2><p>可以把 <code>@SpringBootApplication</code>看作是 <code>@Configuration</code>、<code>@EnableAutoConfiguration</code>、<code>@ComponentScan</code> 注解的集合。</p>
-<ul>
-<li><p><code>@EnableAutoConfiguration</code>：启用 SpringBoot 的自动配置机制。</p>
-</li>
-<li><p><code>@Configuration</code>：允许在上下文中注册额外的 bean 或导入其他配置类。</p>
-</li>
-<li><p><code>@ComponentScan</code>： 扫描被<code>@Component</code> (<code>@Service</code>,<code>@Controller</code>)注解的 bean，注解默认会扫描启动类所在的包下所有的类 ，可以自定义不扫描某些 bean。</p>
-</li>
-</ul>
-<h3 id="EnableAutoConfiguration"><a href="#EnableAutoConfiguration" class="headerlink" title="@EnableAutoConfiguration"></a>@EnableAutoConfiguration</h3>
       
 
       
@@ -312,6 +301,15 @@
 
   
 <nav id="article-nav">
+  
+    <a href="/2021/07/23/%E4%B8%AD%E8%BD%AF%E5%AE%9E%E8%AE%ADday12/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          中软实训day12
+        
+      </div>
+    </a>
   
   
     <a href="/2021/07/22/%E4%B8%AD%E8%BD%AF%E5%AE%9E%E8%AE%ADday11/" id="article-nav-older" class="article-nav-link-wrap">
@@ -492,11 +490,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Vue</a>
+                <a href="javascript:void(0)" class="js-tag color5">SpringMVC</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">SpringMVC</a>
+                <a href="javascript:void(0)" class="js-tag color5">SpringSecurity</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -504,7 +502,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">SpringSecurity</a>
+                <a href="javascript:void(0)" class="js-tag color4">Vue</a>
               </li>
              
               <li class="article-tag-list-item">
