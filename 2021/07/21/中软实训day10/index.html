@@ -20,7 +20,7 @@
 <meta property="og:image" content="http://example.com/2021/07/21/%E4%B8%AD%E8%BD%AF%E5%AE%9E%E8%AE%ADday10/4.jpg">
 <meta property="og:image" content="http://example.com/2021/07/21/%E4%B8%AD%E8%BD%AF%E5%AE%9E%E8%AE%ADday10/5.jpg">
 <meta property="article:published_time" content="2021-07-21T01:11:39.989Z">
-<meta property="article:modified_time" content="2021-07-21T14:13:11.864Z">
+<meta property="article:modified_time" content="2021-07-26T12:39:49.707Z">
 <meta property="article:author" content="c^_^y">
 <meta property="article:tag" content="中软实训">
 <meta name="twitter:card" content="summary">
@@ -32,10 +32,13 @@
     <link rel="icon" href="/img/fa.ico">
   
   <link rel="stylesheet" type="text/css" href="/./main.0cf68a.css">
+  
+	<link rel="stylesheet" type="text/css" href="/./avatarrotation.css">
+  
   <style type="text/css">
   
     #container.show {
-      background: linear-gradient(200deg,#a0cfe4,#e8c37e);
+      background: linear-gradient(200deg,#ccc,#000);
     }
   </style>
   
@@ -49,7 +52,7 @@
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
     <div class="left-col" q-class="show:isShow">
       
-<div class="overlay" style="background: #4d4d4d"></div>
+<div class="overlay" style="background: #2f4f4f"></div>
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
@@ -111,7 +114,7 @@
     <div class="mid-col" q-class="show:isShow,hide:isShow|isFalse">
       
 <nav id="mobile-nav">
-  	<div class="overlay js-overlay" style="background: #4d4d4d"></div>
+  	<div class="overlay js-overlay" style="background: #2f4f4f"></div>
 	<div class="btnctn js-mobile-btnctn">
   		<div class="slider-trigger list" q-on="click: openSlider(e)"><i class="icon icon-sort"></i></div>
 	</div>
@@ -173,7 +176,7 @@
       <header class="article-header">
         
   
-    <h1 class="article-title" itemprop="name">
+    <h1 class="article-title_code_ant" itemprop="name">
       中软实训day10
     </h1>
   
@@ -196,38 +199,39 @@
       </header>
     
 	<!-- 目录内容 -->
-        
-            <p class="show-toc-btn" id="show-toc-btn" onclick="showToc();" style="display:none">
-            <span class="btn-bg"></span>
-            <span class="btn-text">文章导航</span>
-            </p>
-            <div id="toc-article" class="toc-article">
-                <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
-                <strong class="toc-title">文章目录</strong>
-                <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A1%B9%E7%9B%AE%E7%9A%84%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A5"><span class="toc-number">1.</span> <span class="toc-text">项目的增删改查</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%90%9C%E7%B4%A2%E5%AE%A2%E6%88%B7"><span class="toc-number">1.1.</span> <span class="toc-text">搜索客户</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B7%BB%E5%8A%A0%E5%AE%A2%E6%88%B7"><span class="toc-number">1.2.</span> <span class="toc-text">添加客户</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E5%AE%A2%E6%88%B7"><span class="toc-number">1.3.</span> <span class="toc-text">删除客户</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9B%B4%E6%96%B0%E5%AE%A2%E6%88%B7"><span class="toc-number">1.4.</span> <span class="toc-text">更新客户</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#list%E9%A1%B5%E9%9D%A2"><span class="toc-number">1.5.</span> <span class="toc-text">list页面</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SLF4J-%E6%97%A5%E5%BF%97"><span class="toc-number">2.</span> <span class="toc-text">SLF4J-日志</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%99%BB%E5%BD%95%E5%8A%9F%E8%83%BD"><span class="toc-number">3.</span> <span class="toc-text">登录功能</span></a></li></ol>
-           </div>
-           <script type="text/javascript">
-            function showToc(){
-                var toc_article = document.getElementById("toc-article");
-                var show_toc_btn = document.getElementById("show-toc-btn");
-                toc_article.setAttribute("style","display:block");
-                show_toc_btn.setAttribute("style","display:none");
-                };
-            function showBtn(){
-                var toc_article = document.getElementById("toc-article");
-                var show_toc_btn = document.getElementById("show-toc-btn");
-                toc_article.setAttribute("style","display:none");
-                show_toc_btn.setAttribute("style","display:block");
-                };
-           </script>
-             
-        <!-- 目录内容结束 -->
+	
+		<p class="show-toc-btn" id="show-toc-btn" onclick="showToc();" style="display:none">
+			  <span class="btn-bg"></span>
+			  <span class="btn-text">文章导航</span>
+			  </p>
+		<div id="toc-article" class="toc-article">
+			<span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
+			<strong class="toc-title">文章目录</strong>
+			   <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%A1%B9%E7%9B%AE%E7%9A%84%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A5"><span class="toc-number">1.</span> <span class="toc-text">项目的增删改查</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%90%9C%E7%B4%A2%E5%AE%A2%E6%88%B7"><span class="toc-number">1.1.</span> <span class="toc-text">搜索客户</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B7%BB%E5%8A%A0%E5%AE%A2%E6%88%B7"><span class="toc-number">1.2.</span> <span class="toc-text">添加客户</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E5%AE%A2%E6%88%B7"><span class="toc-number">1.3.</span> <span class="toc-text">删除客户</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9B%B4%E6%96%B0%E5%AE%A2%E6%88%B7"><span class="toc-number">1.4.</span> <span class="toc-text">更新客户</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#list%E9%A1%B5%E9%9D%A2"><span class="toc-number">1.5.</span> <span class="toc-text">list页面</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#SLF4J-%E6%97%A5%E5%BF%97"><span class="toc-number">2.</span> <span class="toc-text">SLF4J-日志</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%99%BB%E5%BD%95%E5%8A%9F%E8%83%BD"><span class="toc-number">3.</span> <span class="toc-text">登录功能</span></a></li></ol>
+			 </div>
+	   <script type="text/javascript">
+		function showToc(){
+			var toc_article = document.getElementById("toc-article");
+			var show_toc_btn = document.getElementById("show-toc-btn");
+			toc_article.setAttribute("style","display:block");
+			show_toc_btn.setAttribute("style","display:none");
+			};
+		function showBtn(){
+			var toc_article = document.getElementById("toc-article");
+			var show_toc_btn = document.getElementById("show-toc-btn");
+			toc_article.setAttribute("style","display:none");
+			show_toc_btn.setAttribute("style","display:block");
+			};
+	   </script>
+		  
+	<!-- 目录内容结束 -->
+
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="项目的增删改查"><a href="#项目的增删改查" class="headerlink" title="项目的增删改查"></a>项目的增删改查</h2><p>实现搜索客户、添加客户、删除客户、修改客户信息</p>
+        <h1 id="项目的增删改查"><a href="#项目的增删改查" class="headerlink" title="项目的增删改查"></a>项目的增删改查</h1><p>实现搜索客户、添加客户、删除客户、修改客户信息</p>
 <span id="more"></span>
 
-<h3 id="搜索客户"><a href="#搜索客户" class="headerlink" title="搜索客户"></a>搜索客户</h3><p>CustomerServlet中的方法：</p>
+<h2 id="搜索客户"><a href="#搜索客户" class="headerlink" title="搜索客户"></a>搜索客户</h2><p>CustomerServlet中的方法：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">searchCustomer</span><span class="params">(HttpServletRequest req, HttpServletResponse resp)</span> <span class="keyword">throws</span> IOException, ServletException </span>&#123;</span><br><span class="line">    String custName = req.getParameter(<span class="string">&quot;custName&quot;</span>);</span><br><span class="line">    List&lt;Customer&gt; customerList = customerService.searchCustomer(custName);</span><br><span class="line">    <span class="comment">// 后台控制器的数据共享到前端页面</span></span><br><span class="line">    req.setAttribute(<span class="string">&quot;custList&quot;</span>, customerList);</span><br><span class="line">    <span class="comment">// 跳转到前端页面</span></span><br><span class="line">    req.getRequestDispatcher(<span class="string">&quot;/WEB-INF/pages/cust_list.jsp&quot;</span>).forward(req, resp);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>CustomerService接口的方法：</p>
@@ -243,7 +247,7 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> List&lt;Customer&gt; <span class="title">searchCustomer</span><span class="params">(String custName)</span> </span>&#123;</span><br><span class="line">    String sql = XMLUtils.getSQLByKey(<span class="string">&quot;listCustomer&quot;</span>);</span><br><span class="line">    StringBuilder stringBuilder = <span class="keyword">new</span> StringBuilder(sql);</span><br><span class="line">    stringBuilder.append(<span class="string">&quot; where cust_name like concat(&#x27;%&#x27;,?,&#x27;%&#x27;)&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> jdbcTemplate.query(stringBuilder.toString(), <span class="keyword">new</span> BeanPropertyRowMapper&lt;&gt;(Customer.class), custName);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>其他之前已经写完。</p>
 <p>搜索结果：<br><img src="/2021/07/21/%E4%B8%AD%E8%BD%AF%E5%AE%9E%E8%AE%ADday10/2.jpg"></p>
-<h3 id="添加客户"><a href="#添加客户" class="headerlink" title="添加客户"></a>添加客户</h3><p>点击添加客户，由Servlet进行预处理跳转</p>
+<h2 id="添加客户"><a href="#添加客户" class="headerlink" title="添加客户"></a>添加客户</h2><p>点击添加客户，由Servlet进行预处理跳转</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 点击“添加客户”，跳转到cust_save.jsp</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> req</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> resp</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@throws</span> IOException</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@throws</span> ServletException</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">preSaveCustomer</span><span class="params">(HttpServletRequest req, HttpServletResponse resp)</span> <span class="keyword">throws</span> IOException, ServletException </span>&#123;</span><br><span class="line">    req.getRequestDispatcher(<span class="string">&quot;/WEB-INF/pages/cust_save.jsp&quot;</span>).forward(req, resp);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>定义添加的表单界面jsp</p>
@@ -253,10 +257,10 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">**</span><br><span class="line"> * 处理添加客户的表单提交</span><br><span class="line"> * <span class="meta">@param</span> req</span><br><span class="line"> * <span class="meta">@param</span> resp</span><br><span class="line"> * <span class="meta">@throws</span> IOException</span><br><span class="line"> * <span class="meta">@throws</span> ServletException</span><br><span class="line"> */</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">saveCustomer</span><span class="params">(HttpServletRequest req, HttpServletResponse resp)</span> <span class="keyword">throws</span> IOException, ServletException </span>&#123;</span><br><span class="line">    <span class="comment">// 获取表单参数</span></span><br><span class="line">    String custName = req.getParameter(<span class="string">&quot;custName&quot;</span>);</span><br><span class="line">    String custMoblie = req.getParameter(<span class="string">&quot;custMobile&quot;</span>);</span><br><span class="line">    String custAddress = req.getParameter(<span class="string">&quot;custAddress&quot;</span>);</span><br><span class="line">    Integer custTicket = Integer.parseInt(req.getParameter(<span class="string">&quot;custTicket&quot;</span>));</span><br><span class="line">    <span class="comment">// 保存客户信息</span></span><br><span class="line">    Customer customer = <span class="keyword">new</span> Customer(-<span class="number">1</span>, custName, custAddress, custMoblie, custTicket);</span><br><span class="line">    customerService.saveCustomer(customer);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 跳转到cust_list.jsp</span></span><br><span class="line">    <span class="keyword">this</span>.listCustomer(req, resp);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>Mapper和Service的方法之前给出。</p>
-<h3 id="删除客户"><a href="#删除客户" class="headerlink" title="删除客户"></a>删除客户</h3><p>Servlet中定义删除的业务逻辑：</p>
+<h2 id="删除客户"><a href="#删除客户" class="headerlink" title="删除客户"></a>删除客户</h2><p>Servlet中定义删除的业务逻辑：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">deleteCustomerById</span><span class="params">(HttpServletRequest req, HttpServletResponse resp)</span> <span class="keyword">throws</span> IOException, ServletException </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> cid = Integer.parseInt(req.getParameter(<span class="string">&quot;cid&quot;</span>));</span><br><span class="line">    customerService.deleteCustomerById(cid);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 跳转到cust_list.jsp</span></span><br><span class="line">    <span class="keyword">this</span>.listCustomer(req, resp);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h3 id="更新客户"><a href="#更新客户" class="headerlink" title="更新客户"></a>更新客户</h3><p>点击修改按钮做跳转预处理</p>
+<h2 id="更新客户"><a href="#更新客户" class="headerlink" title="更新客户"></a>更新客户</h2><p>点击修改按钮做跳转预处理</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 点击修改按钮预处理</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> req</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> resp</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@throws</span> IOException</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@throws</span> ServletException</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">preUpdateCustomer</span><span class="params">(HttpServletRequest req, HttpServletResponse resp)</span> <span class="keyword">throws</span> IOException, ServletException </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> cid = Integer.parseInt(req.getParameter(<span class="string">&quot;cid&quot;</span>));</span><br><span class="line">    Customer customer = customerService.getCustomerById(cid);</span><br><span class="line"></span><br><span class="line">    req.setAttribute(<span class="string">&quot;ticketSet&quot;</span>, TICKET_SET);</span><br><span class="line">    req.setAttribute(<span class="string">&quot;cust&quot;</span>, customer);</span><br><span class="line">    req.getRequestDispatcher(<span class="string">&quot;/WEB-INF/pages/cust_update.jsp&quot;</span>).forward(req, resp);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Set&lt;Integer&gt; TICKET_SET = <span class="keyword">new</span> LinkedHashSet&lt;&gt;();</span><br><span class="line"></span><br><span class="line"><span class="keyword">static</span> &#123;</span><br><span class="line">    TICKET_SET.add(<span class="number">10</span>);</span><br><span class="line">    TICKET_SET.add(<span class="number">20</span>);</span><br><span class="line">    TICKET_SET.add(<span class="number">50</span>);</span><br><span class="line">    TICKET_SET.add(<span class="number">100</span>);</span><br><span class="line">    TICKET_SET.add(<span class="number">200</span>);</span><br><span class="line">    TICKET_SET.add(<span class="number">500</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>主要是设置回显信息。</p>
 <p>更新jsp页面：</p>
@@ -265,9 +269,9 @@
 <p>处理更新逻辑：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 处理更新客户信息提交的表单</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> req</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> resp</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@throws</span> IOException</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@throws</span> ServletException</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">updateCustomer</span><span class="params">(HttpServletRequest req, HttpServletResponse resp)</span> <span class="keyword">throws</span> IOException, ServletException </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> cid = Integer.parseInt(req.getParameter(<span class="string">&quot;cid&quot;</span>));</span><br><span class="line">    String custName = req.getParameter(<span class="string">&quot;custName&quot;</span>);</span><br><span class="line">    String custMoblie = req.getParameter(<span class="string">&quot;custMobile&quot;</span>);</span><br><span class="line">    String custAddress = req.getParameter(<span class="string">&quot;custAddress&quot;</span>);</span><br><span class="line">    Integer custTicket = Integer.parseInt(req.getParameter(<span class="string">&quot;custTicket&quot;</span>));</span><br><span class="line"></span><br><span class="line">    customerService.updateCustomer(<span class="keyword">new</span> Customer(cid, custName, custAddress, custMoblie, custTicket));</span><br><span class="line">    <span class="keyword">this</span>.listCustomer(req, resp);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h3 id="list页面"><a href="#list页面" class="headerlink" title="list页面"></a>list页面</h3><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br></pre></td><td class="code"><pre><span class="line">&lt;%--</span><br><span class="line">  Created by IntelliJ IDEA.</span><br><span class="line">  User: zll</span><br><span class="line">  Date: <span class="number">2021</span>/<span class="number">7</span>/<span class="number">20</span></span><br><span class="line">  Time: <span class="number">16</span>:<span class="number">21</span></span><br><span class="line">  To change <span class="keyword">this</span> template use File | Settings | File Templates.</span><br><span class="line">--%&gt;</span><br><span class="line">&lt;%@ page contentType=<span class="string">&quot;text/html;charset=UTF-8&quot;</span> language=<span class="string">&quot;java&quot;</span> %&gt;</span><br><span class="line">&lt;%@ taglib prefix=<span class="string">&quot;c&quot;</span> uri=<span class="string">&quot;http://java.sun.com/jsp/jstl/core&quot;</span> %&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">    &lt;head&gt;</span><br><span class="line">        &lt;title&gt;Title&lt;/title&gt;</span><br><span class="line">        &lt;!--</span><br><span class="line">        pageContext.request.contextPath 获取当前项目的上下文路径</span><br><span class="line">        --&gt;</span><br><span class="line">        &lt;link rel=<span class="string">&quot;stylesheet&quot;</span> href=<span class="string">&quot;$&#123;pageContext.request.contextPath&#125;/css/bootstrap.css&quot;</span>/&gt;</span><br><span class="line">    &lt;/head&gt;</span><br><span class="line">    &lt;body&gt;</span><br><span class="line">        &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">&quot;container&quot;</span> style=<span class="string">&quot;margin: 50px auto&quot;</span>&gt;</span><br><span class="line">            &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">&quot;row&quot;</span>&gt;</span><br><span class="line">                &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">&quot;col-md-4&quot;</span>&gt;</span><br><span class="line">                    &lt;%--/cust4/method=preSaveCustomer路径是restful--%&gt;</span><br><span class="line">                    &lt;a class=&quot;btn btn-primary&quot; href=&quot;/cust3?method=preSaveCustomer&quot;&gt;添加客户&lt;/a&gt;</span><br><span class="line">                &lt;/div&gt;</span><br><span class="line">                &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">&quot;col-md-8&quot;</span>&gt;</span><br><span class="line">                    &lt;form <span class="class"><span class="keyword">class</span></span>=<span class="string">&quot;form-inline&quot;</span> method=<span class="string">&quot;post&quot;</span> action=<span class="string">&quot;/cust3?method=searchCustomer&quot;</span>&gt;</span><br><span class="line">                        &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">&quot;form-group&quot;</span>&gt;</span><br><span class="line">                            &lt;input type=<span class="string">&quot;text&quot;</span> required <span class="class"><span class="keyword">class</span></span>=<span class="string">&quot;form-control&quot;</span> name=<span class="string">&quot;custName&quot;</span> placeholder=<span class="string">&quot;请输入客户名称&quot;</span>&gt;</span><br><span class="line">                        &lt;/div&gt;</span><br><span class="line">                        &lt;input type=<span class="string">&quot;submit&quot;</span> <span class="class"><span class="keyword">class</span></span>=<span class="string">&quot;btn btn-danger&quot;</span> value=<span class="string">&quot;搜索&quot;</span>/&gt;</span><br><span class="line">                    &lt;/form&gt;</span><br><span class="line">                &lt;/div&gt;</span><br><span class="line">                &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">&quot;col-md-12&quot;</span>&gt;</span><br><span class="line">                    &lt;table <span class="class"><span class="keyword">class</span></span>=<span class="string">&quot;table table-hover table-striped&quot;</span>&gt;</span><br><span class="line">                        &lt;thead&gt;</span><br><span class="line">                        &lt;tr&gt;</span><br><span class="line">                            &lt;td&gt;客户编号&lt;/td&gt;</span><br><span class="line">                            &lt;td&gt;客户名称&lt;/td&gt;</span><br><span class="line">                            &lt;td&gt;客户地址&lt;/td&gt;</span><br><span class="line">                            &lt;td&gt;联系方式&lt;/td&gt;</span><br><span class="line">                            &lt;td&gt;客户水票&lt;/td&gt;</span><br><span class="line">                            &lt;td&gt;编辑&lt;/td&gt;</span><br><span class="line">                        &lt;/tr&gt;</span><br><span class="line">                        &lt;/thead&gt;</span><br><span class="line">                        &lt;%--</span><br><span class="line">                        items=<span class="string">&quot;$&#123;custList&#125;&quot;</span> 获取request作用域传递的数据，然后遍历数据</span><br><span class="line">                        --%&gt;</span><br><span class="line">                        &lt;tbody&gt;</span><br><span class="line">                        &lt;c:forEach items=<span class="string">&quot;$&#123;custList&#125;&quot;</span> <span class="keyword">var</span>=<span class="string">&quot;cust&quot;</span>&gt;</span><br><span class="line">                            &lt;tr&gt;</span><br><span class="line">                                &lt;td&gt;$&#123;cust.cid&#125;&lt;/td&gt;</span><br><span class="line">                                &lt;td&gt;$&#123;cust.custName&#125;&lt;/td&gt;</span><br><span class="line">                                &lt;td&gt;$&#123;cust.custAddress&#125;&lt;/td&gt;</span><br><span class="line">                                &lt;td&gt;$&#123;cust.custMobile&#125;&lt;/td&gt;</span><br><span class="line">                                &lt;td&gt;$&#123;cust.custTicket&#125;&lt;/td&gt;</span><br><span class="line">                                &lt;td&gt;</span><br><span class="line">                                    &lt;a <span class="class"><span class="keyword">class</span></span>=<span class="string">&quot;btn btn-sm btn-primary&quot;</span></span><br><span class="line">                                       href=&quot;/cust3?method=preUpdateCustomer&amp;cid=$&#123;cust.cid&#125;&quot;&gt;修改&lt;/a&gt;</span><br><span class="line">                                    &lt;a <span class="class"><span class="keyword">class</span></span>=<span class="string">&quot;btn btn-sm btn-warning&quot;</span></span><br><span class="line">                                       href=&quot;/cust3?method=deleteCustomerById&amp;cid=$&#123;cust.cid&#125;&quot;&gt;删除&lt;/a&gt;</span><br><span class="line">                                &lt;/td&gt;</span><br><span class="line">                            &lt;/tr&gt;</span><br><span class="line">                        &lt;/c:forEach&gt;</span><br><span class="line">                        &lt;/tbody&gt;</span><br><span class="line">                    &lt;/table&gt;</span><br><span class="line">                &lt;/div&gt;</span><br><span class="line">            &lt;/div&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">    &lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="list页面"><a href="#list页面" class="headerlink" title="list页面"></a>list页面</h2><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br></pre></td><td class="code"><pre><span class="line">&lt;%--</span><br><span class="line">  Created by IntelliJ IDEA.</span><br><span class="line">  User: zll</span><br><span class="line">  Date: <span class="number">2021</span>/<span class="number">7</span>/<span class="number">20</span></span><br><span class="line">  Time: <span class="number">16</span>:<span class="number">21</span></span><br><span class="line">  To change <span class="keyword">this</span> template use File | Settings | File Templates.</span><br><span class="line">--%&gt;</span><br><span class="line">&lt;%@ page contentType=<span class="string">&quot;text/html;charset=UTF-8&quot;</span> language=<span class="string">&quot;java&quot;</span> %&gt;</span><br><span class="line">&lt;%@ taglib prefix=<span class="string">&quot;c&quot;</span> uri=<span class="string">&quot;http://java.sun.com/jsp/jstl/core&quot;</span> %&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">    &lt;head&gt;</span><br><span class="line">        &lt;title&gt;Title&lt;/title&gt;</span><br><span class="line">        &lt;!--</span><br><span class="line">        pageContext.request.contextPath 获取当前项目的上下文路径</span><br><span class="line">        --&gt;</span><br><span class="line">        &lt;link rel=<span class="string">&quot;stylesheet&quot;</span> href=<span class="string">&quot;$&#123;pageContext.request.contextPath&#125;/css/bootstrap.css&quot;</span>/&gt;</span><br><span class="line">    &lt;/head&gt;</span><br><span class="line">    &lt;body&gt;</span><br><span class="line">        &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">&quot;container&quot;</span> style=<span class="string">&quot;margin: 50px auto&quot;</span>&gt;</span><br><span class="line">            &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">&quot;row&quot;</span>&gt;</span><br><span class="line">                &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">&quot;col-md-4&quot;</span>&gt;</span><br><span class="line">                    &lt;%--/cust4/method=preSaveCustomer路径是restful--%&gt;</span><br><span class="line">                    &lt;a class=&quot;btn btn-primary&quot; href=&quot;/cust3?method=preSaveCustomer&quot;&gt;添加客户&lt;/a&gt;</span><br><span class="line">                &lt;/div&gt;</span><br><span class="line">                &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">&quot;col-md-8&quot;</span>&gt;</span><br><span class="line">                    &lt;form <span class="class"><span class="keyword">class</span></span>=<span class="string">&quot;form-inline&quot;</span> method=<span class="string">&quot;post&quot;</span> action=<span class="string">&quot;/cust3?method=searchCustomer&quot;</span>&gt;</span><br><span class="line">                        &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">&quot;form-group&quot;</span>&gt;</span><br><span class="line">                            &lt;input type=<span class="string">&quot;text&quot;</span> required <span class="class"><span class="keyword">class</span></span>=<span class="string">&quot;form-control&quot;</span> name=<span class="string">&quot;custName&quot;</span> placeholder=<span class="string">&quot;请输入客户名称&quot;</span>&gt;</span><br><span class="line">                        &lt;/div&gt;</span><br><span class="line">                        &lt;input type=<span class="string">&quot;submit&quot;</span> <span class="class"><span class="keyword">class</span></span>=<span class="string">&quot;btn btn-danger&quot;</span> value=<span class="string">&quot;搜索&quot;</span>/&gt;</span><br><span class="line">                    &lt;/form&gt;</span><br><span class="line">                &lt;/div&gt;</span><br><span class="line">                &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">&quot;col-md-12&quot;</span>&gt;</span><br><span class="line">                    &lt;table <span class="class"><span class="keyword">class</span></span>=<span class="string">&quot;table table-hover table-striped&quot;</span>&gt;</span><br><span class="line">                        &lt;thead&gt;</span><br><span class="line">                        &lt;tr&gt;</span><br><span class="line">                            &lt;td&gt;客户编号&lt;/td&gt;</span><br><span class="line">                            &lt;td&gt;客户名称&lt;/td&gt;</span><br><span class="line">                            &lt;td&gt;客户地址&lt;/td&gt;</span><br><span class="line">                            &lt;td&gt;联系方式&lt;/td&gt;</span><br><span class="line">                            &lt;td&gt;客户水票&lt;/td&gt;</span><br><span class="line">                            &lt;td&gt;编辑&lt;/td&gt;</span><br><span class="line">                        &lt;/tr&gt;</span><br><span class="line">                        &lt;/thead&gt;</span><br><span class="line">                        &lt;%--</span><br><span class="line">                        items=<span class="string">&quot;$&#123;custList&#125;&quot;</span> 获取request作用域传递的数据，然后遍历数据</span><br><span class="line">                        --%&gt;</span><br><span class="line">                        &lt;tbody&gt;</span><br><span class="line">                        &lt;c:forEach items=<span class="string">&quot;$&#123;custList&#125;&quot;</span> <span class="keyword">var</span>=<span class="string">&quot;cust&quot;</span>&gt;</span><br><span class="line">                            &lt;tr&gt;</span><br><span class="line">                                &lt;td&gt;$&#123;cust.cid&#125;&lt;/td&gt;</span><br><span class="line">                                &lt;td&gt;$&#123;cust.custName&#125;&lt;/td&gt;</span><br><span class="line">                                &lt;td&gt;$&#123;cust.custAddress&#125;&lt;/td&gt;</span><br><span class="line">                                &lt;td&gt;$&#123;cust.custMobile&#125;&lt;/td&gt;</span><br><span class="line">                                &lt;td&gt;$&#123;cust.custTicket&#125;&lt;/td&gt;</span><br><span class="line">                                &lt;td&gt;</span><br><span class="line">                                    &lt;a <span class="class"><span class="keyword">class</span></span>=<span class="string">&quot;btn btn-sm btn-primary&quot;</span></span><br><span class="line">                                       href=&quot;/cust3?method=preUpdateCustomer&amp;cid=$&#123;cust.cid&#125;&quot;&gt;修改&lt;/a&gt;</span><br><span class="line">                                    &lt;a <span class="class"><span class="keyword">class</span></span>=<span class="string">&quot;btn btn-sm btn-warning&quot;</span></span><br><span class="line">                                       href=&quot;/cust3?method=deleteCustomerById&amp;cid=$&#123;cust.cid&#125;&quot;&gt;删除&lt;/a&gt;</span><br><span class="line">                                &lt;/td&gt;</span><br><span class="line">                            &lt;/tr&gt;</span><br><span class="line">                        &lt;/c:forEach&gt;</span><br><span class="line">                        &lt;/tbody&gt;</span><br><span class="line">                    &lt;/table&gt;</span><br><span class="line">                &lt;/div&gt;</span><br><span class="line">            &lt;/div&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">    &lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
 <p>界面截图如下：<br><img src="/2021/07/21/%E4%B8%AD%E8%BD%AF%E5%AE%9E%E8%AE%ADday10/4.jpg"></p>
-<h2 id="SLF4J-日志"><a href="#SLF4J-日志" class="headerlink" title="SLF4J-日志"></a>SLF4J-日志</h2><p>轻量级的日志框架，能够替代System.out.println</p>
+<h1 id="SLF4J-日志"><a href="#SLF4J-日志" class="headerlink" title="SLF4J-日志"></a>SLF4J-日志</h1><p>轻量级的日志框架，能够替代System.out.println</p>
 <p><strong>如何使用？</strong></p>
 <ol>
 <li>导入父工程依赖jar包。</li>
@@ -277,7 +281,7 @@
 <li>在类的上面加上@Slf4j注解。</li>
 <li>使用日志，使用日志打印要判断是否为该级别的日志。</li>
 </ol>
-<h2 id="登录功能"><a href="#登录功能" class="headerlink" title="登录功能"></a>登录功能</h2><ol>
+<h1 id="登录功能"><a href="#登录功能" class="headerlink" title="登录功能"></a>登录功能</h1><ol>
 <li>创建一张account表，存储管理员的用户名和密码。</li>
 <li>在配置文件中编写sql</li>
 <li>编写mapper和数据库交互，根据用户名查询管理员，并判断密码。service调用mapper。<br>上述比较简单，就不列出源码了</li>
@@ -400,6 +404,19 @@
         </div>
         
         
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%A1%B9%E7%9B%AE%E7%9A%84%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A5"><span class="toc-number">1.</span> <span class="toc-text">项目的增删改查</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%90%9C%E7%B4%A2%E5%AE%A2%E6%88%B7"><span class="toc-number">1.1.</span> <span class="toc-text">搜索客户</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B7%BB%E5%8A%A0%E5%AE%A2%E6%88%B7"><span class="toc-number">1.2.</span> <span class="toc-text">添加客户</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E5%AE%A2%E6%88%B7"><span class="toc-number">1.3.</span> <span class="toc-text">删除客户</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9B%B4%E6%96%B0%E5%AE%A2%E6%88%B7"><span class="toc-number">1.4.</span> <span class="toc-text">更新客户</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#list%E9%A1%B5%E9%9D%A2"><span class="toc-number">1.5.</span> <span class="toc-text">list页面</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#SLF4J-%E6%97%A5%E5%BF%97"><span class="toc-number">2.</span> <span class="toc-text">SLF4J-日志</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%99%BB%E5%BD%95%E5%8A%9F%E8%83%BD"><span class="toc-number">3.</span> <span class="toc-text">登录功能</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
     </div>
 </aside>
 
@@ -457,6 +474,58 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
 
 
 <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script type="text/javascript">
+	! function (e, t, a) {
+    function n() {
+        c(".heart{width: 10px;height: 10px;position: fixed;background: #f00;transform: rotate(45deg);-webkit-transform: rotate(45deg);-moz-transform: rotate(45deg);}.heart:after,.heart:before{content: '';width: inherit;height: inherit;background: inherit;border-radius: 50%;-webkit-border-radius: 50%;-moz-border-radius: 50%;position: fixed;}.heart:after{top: -5px;}.heart:before{left: -5px;}"), o(), r()
+    }
+
+    function r() {
+        for (var e = 0; e < d.length; e++) d[e].alpha <= 0 ? (t.body.removeChild(d[e].el), d.splice(e, 1)) : (d[e].y--, d[e].scale += .004, d[e].alpha -= .013, d[e].el.style.cssText = "left:" + d[e].x + "px;top:" + d[e].y + "px;opacity:" + d[e].alpha + ";transform:scale(" + d[e].scale + "," + d[e].scale + ") rotate(45deg);background:" + d[e].color + ";z-index:99999");
+        requestAnimationFrame(r)
+    }
+
+    function o() {
+        var t = "function" == typeof e.onclick && e.onclick;
+        e.onclick = function (e) {
+            t && t(), i(e)
+        }
+    }
+
+    function i(e) {
+        var a = t.createElement("div");
+        a.className = "heart", d.push({
+            el: a,
+            x: e.clientX - 5,
+            y: e.clientY - 5,
+            scale: 1,
+            alpha: 1,
+            color: s()
+        }), t.body.appendChild(a)
+    }
+
+    function c(e) {
+        var a = t.createElement("style");
+        a.type = "text/css";
+        try {
+            a.appendChild(t.createTextNode(e))
+        } catch (t) {
+            a.styleSheet.cssText = e
+        }
+        t.getElementsByTagName("head")[0].appendChild(a)
+    }
+
+    function s() {
+        return "rgb(" + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + ")"
+    }
+    var d = [];
+    e.requestAnimationFrame = function () {
+        return e.requestAnimationFrame || e.webkitRequestAnimationFrame || e.mozRequestAnimationFrame || e.oRequestAnimationFrame || e.msRequestAnimationFrame || function (e) {
+            setTimeout(e, 1e3 / 60)
+        }
+    }(), n()
+}(window, document);
+</script>
     
 <div class="tools-col" q-class="show:isShow,hide:isShow|isFalse" q-on="click:stop(e)">
   <div class="tools-nav header-menu">
@@ -521,10 +590,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">JDBC</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">JVM</a>
               </li>
              
@@ -546,10 +611,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">SSM</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Shiro</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -590,6 +651,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">操作系统</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">yilia</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -700,7 +765,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
     
     	<section class="tools-section tools-section-me" q-show="aboutme">
   	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">我是武理的一名学生&lt;br&gt;&lt;br&gt;用个人博客记录一下自己的学习过程&lt;br&gt;&lt;br&gt;欢迎大家一起来学习&lt;br&gt;&lt;br&gt;QQ联系方式:2745459573</div>
+  	  		<div class="aboutme-wrap" id="js-aboutme">你可会记得，云朵之下指尖轻触，寂寂无言，爱人听见，玫瑰伸展着枝叶；&lt;br&gt;你可记得，友人的笑容，蕴藏着世上所有的温柔；&lt;br&gt;你可会记得，鸽子飞过蓝天，少女脚步轻盈，像清风吹过麦田；&lt;br&gt;你可会记得，在黑暗中有光亮起，你顾冷人生中唯一的璀璨，那是你的家。&lt;br&gt;&lt;br&gt;QQ联系方式：2745459573</div>
   	  	
     	</section>
     

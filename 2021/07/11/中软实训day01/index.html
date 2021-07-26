@@ -31,7 +31,7 @@
 <meta property="og:image" content="http://example.com/2021/07/11/%E4%B8%AD%E8%BD%AF%E5%AE%9E%E8%AE%ADday01/12.jpg">
 <meta property="og:image" content="http://example.com/2021/07/11/%E4%B8%AD%E8%BD%AF%E5%AE%9E%E8%AE%ADday01/11.jpg">
 <meta property="article:published_time" content="2021-07-11T07:09:49.707Z">
-<meta property="article:modified_time" content="2021-07-12T01:55:59.741Z">
+<meta property="article:modified_time" content="2021-07-26T12:38:23.394Z">
 <meta property="article:author" content="c^_^y">
 <meta property="article:tag" content="中软实训">
 <meta name="twitter:card" content="summary">
@@ -43,10 +43,13 @@
     <link rel="icon" href="/img/fa.ico">
   
   <link rel="stylesheet" type="text/css" href="/./main.0cf68a.css">
+  
+	<link rel="stylesheet" type="text/css" href="/./avatarrotation.css">
+  
   <style type="text/css">
   
     #container.show {
-      background: linear-gradient(200deg,#a0cfe4,#e8c37e);
+      background: linear-gradient(200deg,#ccc,#000);
     }
   </style>
   
@@ -60,7 +63,7 @@
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
     <div class="left-col" q-class="show:isShow">
       
-<div class="overlay" style="background: #4d4d4d"></div>
+<div class="overlay" style="background: #2f4f4f"></div>
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
@@ -122,7 +125,7 @@
     <div class="mid-col" q-class="show:isShow,hide:isShow|isFalse">
       
 <nav id="mobile-nav">
-  	<div class="overlay js-overlay" style="background: #4d4d4d"></div>
+  	<div class="overlay js-overlay" style="background: #2f4f4f"></div>
 	<div class="btnctn js-mobile-btnctn">
   		<div class="slider-trigger list" q-on="click: openSlider(e)"><i class="icon icon-sort"></i></div>
 	</div>
@@ -184,7 +187,7 @@
       <header class="article-header">
         
   
-    <h1 class="article-title" itemprop="name">
+    <h1 class="article-title_code_ant" itemprop="name">
       中软实训day01
     </h1>
   
@@ -207,52 +210,53 @@
       </header>
     
 	<!-- 目录内容 -->
-        
-            <p class="show-toc-btn" id="show-toc-btn" onclick="showToc();" style="display:none">
-            <span class="btn-bg"></span>
-            <span class="btn-text">文章导航</span>
-            </p>
-            <div id="toc-article" class="toc-article">
-                <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
-                <strong class="toc-title">文章目录</strong>
-                <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Tomcat"><span class="toc-number">1.</span> <span class="toc-text">Tomcat</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%A3%E6%9E%90%E6%A0%B8%E5%BF%83%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%EF%BC%9Aserver-xml"><span class="toc-number">1.1.</span> <span class="toc-text">解析核心配置文件：server.xml</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Tomcat%E7%9A%84%E9%BB%98%E8%AE%A4%E5%90%AF%E5%8A%A8%E8%BF%87%E7%A8%8B"><span class="toc-number">1.2.</span> <span class="toc-text">Tomcat的默认启动过程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%91%E5%B8%83Web%E9%A1%B9%E7%9B%AE"><span class="toc-number">1.3.</span> <span class="toc-text">发布Web项目</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Tomcat%E5%90%AF%E5%8A%A8%E5%A4%B1%E8%B4%A5%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="toc-number">1.4.</span> <span class="toc-text">Tomcat启动失败的解决方案</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%9C%E4%B8%9A%EF%BC%9A%E5%8F%91%E5%B8%83WEB%E9%A1%B9%E7%9B%AE"><span class="toc-number">1.5.</span> <span class="toc-text">作业：发布WEB项目</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Maven"><span class="toc-number">2.</span> <span class="toc-text">Maven</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#maven%E7%9A%84%E6%A0%B8%E5%BF%83%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%EF%BC%9Asetting-xml"><span class="toc-number">2.1.</span> <span class="toc-text">maven的核心配置文件：setting.xml</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9C%AC%E5%9C%B0%E4%BB%93%E5%BA%93"><span class="toc-number">2.1.1.</span> <span class="toc-text">本地仓库</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E9%98%BF%E9%87%8C%E4%BA%91%E9%95%9C%E5%83%8F"><span class="toc-number">2.1.2.</span> <span class="toc-text">配置阿里云镜像</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#IDEA%E9%9B%86%E6%88%90Maven"><span class="toc-number">2.2.</span> <span class="toc-text">IDEA集成Maven</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#maven%E7%88%B6%E5%AD%90%E5%B7%A5%E7%A8%8B"><span class="toc-number">2.3.</span> <span class="toc-text">maven父子工程</span></a></li></ol></li></ol>
-           </div>
-           <script type="text/javascript">
-            function showToc(){
-                var toc_article = document.getElementById("toc-article");
-                var show_toc_btn = document.getElementById("show-toc-btn");
-                toc_article.setAttribute("style","display:block");
-                show_toc_btn.setAttribute("style","display:none");
-                };
-            function showBtn(){
-                var toc_article = document.getElementById("toc-article");
-                var show_toc_btn = document.getElementById("show-toc-btn");
-                toc_article.setAttribute("style","display:none");
-                show_toc_btn.setAttribute("style","display:block");
-                };
-           </script>
-             
-        <!-- 目录内容结束 -->
+	
+		<p class="show-toc-btn" id="show-toc-btn" onclick="showToc();" style="display:none">
+			  <span class="btn-bg"></span>
+			  <span class="btn-text">文章导航</span>
+			  </p>
+		<div id="toc-article" class="toc-article">
+			<span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
+			<strong class="toc-title">文章目录</strong>
+			   <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Tomcat"><span class="toc-number">1.</span> <span class="toc-text">Tomcat</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%A3%E6%9E%90%E6%A0%B8%E5%BF%83%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%EF%BC%9Aserver-xml"><span class="toc-number">1.1.</span> <span class="toc-text">解析核心配置文件：server.xml</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Tomcat%E7%9A%84%E9%BB%98%E8%AE%A4%E5%90%AF%E5%8A%A8%E8%BF%87%E7%A8%8B"><span class="toc-number">1.2.</span> <span class="toc-text">Tomcat的默认启动过程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%91%E5%B8%83Web%E9%A1%B9%E7%9B%AE"><span class="toc-number">1.3.</span> <span class="toc-text">发布Web项目</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Tomcat%E5%90%AF%E5%8A%A8%E5%A4%B1%E8%B4%A5%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="toc-number">1.4.</span> <span class="toc-text">Tomcat启动失败的解决方案</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%9C%E4%B8%9A%EF%BC%9A%E5%8F%91%E5%B8%83WEB%E9%A1%B9%E7%9B%AE"><span class="toc-number">1.5.</span> <span class="toc-text">作业：发布WEB项目</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Maven"><span class="toc-number">2.</span> <span class="toc-text">Maven</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#maven%E7%9A%84%E6%A0%B8%E5%BF%83%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%EF%BC%9Asetting-xml"><span class="toc-number">2.1.</span> <span class="toc-text">maven的核心配置文件：setting.xml</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%AC%E5%9C%B0%E4%BB%93%E5%BA%93"><span class="toc-number">2.1.1.</span> <span class="toc-text">本地仓库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E9%98%BF%E9%87%8C%E4%BA%91%E9%95%9C%E5%83%8F"><span class="toc-number">2.1.2.</span> <span class="toc-text">配置阿里云镜像</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#IDEA%E9%9B%86%E6%88%90Maven"><span class="toc-number">2.2.</span> <span class="toc-text">IDEA集成Maven</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#maven%E7%88%B6%E5%AD%90%E5%B7%A5%E7%A8%8B"><span class="toc-number">2.3.</span> <span class="toc-text">maven父子工程</span></a></li></ol></li></ol>
+			 </div>
+	   <script type="text/javascript">
+		function showToc(){
+			var toc_article = document.getElementById("toc-article");
+			var show_toc_btn = document.getElementById("show-toc-btn");
+			toc_article.setAttribute("style","display:block");
+			show_toc_btn.setAttribute("style","display:none");
+			};
+		function showBtn(){
+			var toc_article = document.getElementById("toc-article");
+			var show_toc_btn = document.getElementById("show-toc-btn");
+			toc_article.setAttribute("style","display:none");
+			show_toc_btn.setAttribute("style","display:block");
+			};
+	   </script>
+		  
+	<!-- 目录内容结束 -->
+
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="Tomcat"><a href="#Tomcat" class="headerlink" title="Tomcat"></a>Tomcat</h2><p>Tomcat是一个Web服务器，能够接收客户请求、处理请求、响应结果给客户。</p>
+        <h1 id="Tomcat"><a href="#Tomcat" class="headerlink" title="Tomcat"></a>Tomcat</h1><p>Tomcat是一个Web服务器，能够接收客户请求、处理请求、响应结果给客户。</p>
 <span id="more"></span>
 
-<h3 id="解析核心配置文件：server-xml"><a href="#解析核心配置文件：server-xml" class="headerlink" title="解析核心配置文件：server.xml"></a>解析核心配置文件：server.xml</h3><p><strong>Server</strong><br>一个Tomcat只有一个Server<br><img src="/2021/07/11/%E4%B8%AD%E8%BD%AF%E5%AE%9E%E8%AE%ADday01/4.jpg"><br>server是整个Servlet容器组合，可以包含一个或多个Service</p>
+<h2 id="解析核心配置文件：server-xml"><a href="#解析核心配置文件：server-xml" class="headerlink" title="解析核心配置文件：server.xml"></a>解析核心配置文件：server.xml</h2><p><strong>Server</strong><br>一个Tomcat只有一个Server<br><img src="/2021/07/11/%E4%B8%AD%E8%BD%AF%E5%AE%9E%E8%AE%ADday01/4.jpg"><br>server是整个Servlet容器组合，可以包含一个或多个Service</p>
 <p><strong>Service</strong><br>Service：由一个或者多个Connector组成，以及一个Engine，负责处理所有Connector所获得的客户请求。<br><img src="/2021/07/11/%E4%B8%AD%E8%BD%AF%E5%AE%9E%E8%AE%ADday01/2.jpg"><br>Tomcat将所有的工作委托给Catalina<br>比如开启和关闭Tomcat服务器<br><img src="/2021/07/11/%E4%B8%AD%E8%BD%AF%E5%AE%9E%E8%AE%ADday01/3.jpg"></p>
 <p><strong>Connector</strong><br>Connector：客户端与程序交互组件，创建Request和Response对象用于和请求端交换数据，负责接收请求以及向客户端返回响应。<br><img src="/2021/07/11/%E4%B8%AD%E8%BD%AF%E5%AE%9E%E8%AE%ADday01/1.jpg"><br>用来处理http请求</p>
 <p><img src="/2021/07/11/%E4%B8%AD%E8%BD%AF%E5%AE%9E%E8%AE%ADday01/3.jpg"><br>用来处理AJP请求<br>AJP(Apache JServ Protocol)是定向包协议。因为性能原因，使用二进制格式来传输可读性文本。WEB服务器通过TCP连接和SERVLET容器连接。<br>WEB服务器一般维持和Web容器的多个TCP Connecions，即TCP连接池，多个request/respons循环重用同一个Connection。<br>但是当Connection被分配（Assigned）到某个请求时，该请求完成之前，其他请求不得使用该连接。</p>
 <p><strong>Engine</strong><br>Engine：处理连接器接收到请求<br><img src="/2021/07/11/%E4%B8%AD%E8%BD%AF%E5%AE%9E%E8%AE%ADday01/7.jpg"><br>Engine组件在Service组件中有且只有一个<br>Engine组件从一个或多个Connector中接收请求并处理，并将完成的响应返回给Connector，最终传递给客户端。</p>
 <p><strong>Host</strong><br>Host：虚拟主机<br>所有的wep应用的都放在webappps下<br><img src="/2021/07/11/%E4%B8%AD%E8%BD%AF%E5%AE%9E%E8%AE%ADday01/5.jpg"><br>运行多个Web应用（一个Context代表一个Web应用），并负责安装、展开、启动和结束每个Web应用。<br>Host组件代表的虚拟主机，对应了服务器中一个网络名实体(如”<a target="_blank" rel="noopener" href="http://www.test.com”,或ip地址”),一个主机可以有多个虚拟主机来对应,通过不同的主机名访问同一台电脑服务器的不同应用/">www.test.com”，或IP地址”),一个主机可以有多个虚拟主机来对应，通过不同的主机名访问同一台电脑服务器的不同应用</a></p>
 <p><strong>Context</strong><br>一个Context就表示一个应用<br>Engine、Host和Context都是容器，它们不是平行的关系，而是父子关系：Engine包含Host，Host包含Context</p>
-<h3 id="Tomcat的默认启动过程"><a href="#Tomcat的默认启动过程" class="headerlink" title="Tomcat的默认启动过程"></a>Tomcat的默认启动过程</h3><p>开启Tomcat后<br>浏览器地址栏输入<a target="_blank" rel="noopener" href="http://localhost:8080/">http://localhost:8080</a><br>默认进入webapps的ROOT目录下找index.jsp<br><img src="/2021/07/11/%E4%B8%AD%E8%BD%AF%E5%AE%9E%E8%AE%ADday01/6.jpg"></p>
-<h3 id="发布Web项目"><a href="#发布Web项目" class="headerlink" title="发布Web项目"></a>发布Web项目</h3><p>将Web项目放到webapps下</p>
-<h3 id="Tomcat启动失败的解决方案"><a href="#Tomcat启动失败的解决方案" class="headerlink" title="Tomcat启动失败的解决方案"></a>Tomcat启动失败的解决方案</h3><p>打开logs目录下的日志文件，查看异常信息</p>
-<h3 id="作业：发布WEB项目"><a href="#作业：发布WEB项目" class="headerlink" title="作业：发布WEB项目"></a>作业：发布WEB项目</h3><p><img src="/2021/07/11/%E4%B8%AD%E8%BD%AF%E5%AE%9E%E8%AE%ADday01/14.jpg"><br><img src="/2021/07/11/%E4%B8%AD%E8%BD%AF%E5%AE%9E%E8%AE%ADday01/13.jpg"></p>
-<h2 id="Maven"><a href="#Maven" class="headerlink" title="Maven"></a>Maven</h2><h3 id="maven的核心配置文件：setting-xml"><a href="#maven的核心配置文件：setting-xml" class="headerlink" title="maven的核心配置文件：setting.xml"></a>maven的核心配置文件：setting.xml</h3><h4 id="本地仓库"><a href="#本地仓库" class="headerlink" title="本地仓库"></a>本地仓库</h4><p><img src="/2021/07/11/%E4%B8%AD%E8%BD%AF%E5%AE%9E%E8%AE%ADday01/8.jpg"></p>
-<h4 id="配置阿里云镜像"><a href="#配置阿里云镜像" class="headerlink" title="配置阿里云镜像"></a>配置阿里云镜像</h4><p><img src="/2021/07/11/%E4%B8%AD%E8%BD%AF%E5%AE%9E%E8%AE%ADday01/9.jpg"></p>
-<h3 id="IDEA集成Maven"><a href="#IDEA集成Maven" class="headerlink" title="IDEA集成Maven"></a>IDEA集成Maven</h3><p><img src="/2021/07/11/%E4%B8%AD%E8%BD%AF%E5%AE%9E%E8%AE%ADday01/10.jpg"><br><img src="/2021/07/11/%E4%B8%AD%E8%BD%AF%E5%AE%9E%E8%AE%ADday01/12.jpg"><br><img src="/2021/07/11/%E4%B8%AD%E8%BD%AF%E5%AE%9E%E8%AE%ADday01/11.jpg"></p>
-<h3 id="maven父子工程"><a href="#maven父子工程" class="headerlink" title="maven父子工程"></a>maven父子工程</h3><p>父工程的pom.xml<br>项目的打包类型：pom、jar、war<br>packing默认是jar类型，父类型都为pom类型</p>
+<h2 id="Tomcat的默认启动过程"><a href="#Tomcat的默认启动过程" class="headerlink" title="Tomcat的默认启动过程"></a>Tomcat的默认启动过程</h2><p>开启Tomcat后<br>浏览器地址栏输入<a target="_blank" rel="noopener" href="http://localhost:8080/">http://localhost:8080</a><br>默认进入webapps的ROOT目录下找index.jsp<br><img src="/2021/07/11/%E4%B8%AD%E8%BD%AF%E5%AE%9E%E8%AE%ADday01/6.jpg"></p>
+<h2 id="发布Web项目"><a href="#发布Web项目" class="headerlink" title="发布Web项目"></a>发布Web项目</h2><p>将Web项目放到webapps下</p>
+<h2 id="Tomcat启动失败的解决方案"><a href="#Tomcat启动失败的解决方案" class="headerlink" title="Tomcat启动失败的解决方案"></a>Tomcat启动失败的解决方案</h2><p>打开logs目录下的日志文件，查看异常信息</p>
+<h2 id="作业：发布WEB项目"><a href="#作业：发布WEB项目" class="headerlink" title="作业：发布WEB项目"></a>作业：发布WEB项目</h2><p><img src="/2021/07/11/%E4%B8%AD%E8%BD%AF%E5%AE%9E%E8%AE%ADday01/14.jpg"><br><img src="/2021/07/11/%E4%B8%AD%E8%BD%AF%E5%AE%9E%E8%AE%ADday01/13.jpg"></p>
+<h1 id="Maven"><a href="#Maven" class="headerlink" title="Maven"></a>Maven</h1><h2 id="maven的核心配置文件：setting-xml"><a href="#maven的核心配置文件：setting-xml" class="headerlink" title="maven的核心配置文件：setting.xml"></a>maven的核心配置文件：setting.xml</h2><h3 id="本地仓库"><a href="#本地仓库" class="headerlink" title="本地仓库"></a>本地仓库</h3><p><img src="/2021/07/11/%E4%B8%AD%E8%BD%AF%E5%AE%9E%E8%AE%ADday01/8.jpg"></p>
+<h3 id="配置阿里云镜像"><a href="#配置阿里云镜像" class="headerlink" title="配置阿里云镜像"></a>配置阿里云镜像</h3><p><img src="/2021/07/11/%E4%B8%AD%E8%BD%AF%E5%AE%9E%E8%AE%ADday01/9.jpg"></p>
+<h2 id="IDEA集成Maven"><a href="#IDEA集成Maven" class="headerlink" title="IDEA集成Maven"></a>IDEA集成Maven</h2><p><img src="/2021/07/11/%E4%B8%AD%E8%BD%AF%E5%AE%9E%E8%AE%ADday01/10.jpg"><br><img src="/2021/07/11/%E4%B8%AD%E8%BD%AF%E5%AE%9E%E8%AE%ADday01/12.jpg"><br><img src="/2021/07/11/%E4%B8%AD%E8%BD%AF%E5%AE%9E%E8%AE%ADday01/11.jpg"></p>
+<h2 id="maven父子工程"><a href="#maven父子工程" class="headerlink" title="maven父子工程"></a>maven父子工程</h2><p>父工程的pom.xml<br>项目的打包类型：pom、jar、war<br>packing默认是jar类型，父类型都为pom类型</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">project</span> <span class="attr">xmlns</span>=<span class="string">&quot;http://maven.apache.org/POM/4.0.0&quot;</span></span></span><br><span class="line"><span class="tag">         <span class="attr">xmlns:xsi</span>=<span class="string">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span></span></span><br><span class="line"><span class="tag">         <span class="attr">xsi:schemaLocation</span>=<span class="string">&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">modelVersion</span>&gt;</span>4.0.0<span class="tag">&lt;/<span class="name">modelVersion</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.zll<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>zll-springboot<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.0-SNAPSHOT<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">modules</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">module</span>&gt;</span>zll-springboot-01-demo<span class="tag">&lt;/<span class="name">module</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">modules</span>&gt;</span></span><br><span class="line">    </span><br><span class="line">	<span class="comment">&lt;!--父类型都为pom类型--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">packaging</span>&gt;</span>pom<span class="tag">&lt;/<span class="name">packaging</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!--全局变量管理版本号--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">properties</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">junit.version</span>&gt;</span>4.12<span class="tag">&lt;/<span class="name">junit.version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">properties</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependencyManagement</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>junit<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>junit<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">version</span>&gt;</span>$&#123;junit.version&#125;<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">				<span class="comment">&lt;!--只用于测试，不打包--&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">scope</span>&gt;</span>test<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependencyManagement</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">project</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 <p>子工程的pom.xml</p>
@@ -375,6 +379,19 @@
         </div>
         
         
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Tomcat"><span class="toc-number">1.</span> <span class="toc-text">Tomcat</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%A3%E6%9E%90%E6%A0%B8%E5%BF%83%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%EF%BC%9Aserver-xml"><span class="toc-number">1.1.</span> <span class="toc-text">解析核心配置文件：server.xml</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Tomcat%E7%9A%84%E9%BB%98%E8%AE%A4%E5%90%AF%E5%8A%A8%E8%BF%87%E7%A8%8B"><span class="toc-number">1.2.</span> <span class="toc-text">Tomcat的默认启动过程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%91%E5%B8%83Web%E9%A1%B9%E7%9B%AE"><span class="toc-number">1.3.</span> <span class="toc-text">发布Web项目</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Tomcat%E5%90%AF%E5%8A%A8%E5%A4%B1%E8%B4%A5%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="toc-number">1.4.</span> <span class="toc-text">Tomcat启动失败的解决方案</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%9C%E4%B8%9A%EF%BC%9A%E5%8F%91%E5%B8%83WEB%E9%A1%B9%E7%9B%AE"><span class="toc-number">1.5.</span> <span class="toc-text">作业：发布WEB项目</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Maven"><span class="toc-number">2.</span> <span class="toc-text">Maven</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#maven%E7%9A%84%E6%A0%B8%E5%BF%83%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%EF%BC%9Asetting-xml"><span class="toc-number">2.1.</span> <span class="toc-text">maven的核心配置文件：setting.xml</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%AC%E5%9C%B0%E4%BB%93%E5%BA%93"><span class="toc-number">2.1.1.</span> <span class="toc-text">本地仓库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E9%98%BF%E9%87%8C%E4%BA%91%E9%95%9C%E5%83%8F"><span class="toc-number">2.1.2.</span> <span class="toc-text">配置阿里云镜像</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#IDEA%E9%9B%86%E6%88%90Maven"><span class="toc-number">2.2.</span> <span class="toc-text">IDEA集成Maven</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#maven%E7%88%B6%E5%AD%90%E5%B7%A5%E7%A8%8B"><span class="toc-number">2.3.</span> <span class="toc-text">maven父子工程</span></a></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
     </div>
 </aside>
 
@@ -432,6 +449,58 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
 
 
 <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script type="text/javascript">
+	! function (e, t, a) {
+    function n() {
+        c(".heart{width: 10px;height: 10px;position: fixed;background: #f00;transform: rotate(45deg);-webkit-transform: rotate(45deg);-moz-transform: rotate(45deg);}.heart:after,.heart:before{content: '';width: inherit;height: inherit;background: inherit;border-radius: 50%;-webkit-border-radius: 50%;-moz-border-radius: 50%;position: fixed;}.heart:after{top: -5px;}.heart:before{left: -5px;}"), o(), r()
+    }
+
+    function r() {
+        for (var e = 0; e < d.length; e++) d[e].alpha <= 0 ? (t.body.removeChild(d[e].el), d.splice(e, 1)) : (d[e].y--, d[e].scale += .004, d[e].alpha -= .013, d[e].el.style.cssText = "left:" + d[e].x + "px;top:" + d[e].y + "px;opacity:" + d[e].alpha + ";transform:scale(" + d[e].scale + "," + d[e].scale + ") rotate(45deg);background:" + d[e].color + ";z-index:99999");
+        requestAnimationFrame(r)
+    }
+
+    function o() {
+        var t = "function" == typeof e.onclick && e.onclick;
+        e.onclick = function (e) {
+            t && t(), i(e)
+        }
+    }
+
+    function i(e) {
+        var a = t.createElement("div");
+        a.className = "heart", d.push({
+            el: a,
+            x: e.clientX - 5,
+            y: e.clientY - 5,
+            scale: 1,
+            alpha: 1,
+            color: s()
+        }), t.body.appendChild(a)
+    }
+
+    function c(e) {
+        var a = t.createElement("style");
+        a.type = "text/css";
+        try {
+            a.appendChild(t.createTextNode(e))
+        } catch (t) {
+            a.styleSheet.cssText = e
+        }
+        t.getElementsByTagName("head")[0].appendChild(a)
+    }
+
+    function s() {
+        return "rgb(" + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + ")"
+    }
+    var d = [];
+    e.requestAnimationFrame = function () {
+        return e.requestAnimationFrame || e.webkitRequestAnimationFrame || e.mozRequestAnimationFrame || e.oRequestAnimationFrame || e.msRequestAnimationFrame || function (e) {
+            setTimeout(e, 1e3 / 60)
+        }
+    }(), n()
+}(window, document);
+</script>
     
 <div class="tools-col" q-class="show:isShow,hide:isShow|isFalse" q-on="click:stop(e)">
   <div class="tools-nav header-menu">
@@ -496,10 +565,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">JDBC</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">JVM</a>
               </li>
              
@@ -521,10 +586,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">SSM</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Shiro</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -565,6 +626,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">操作系统</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">yilia</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -675,7 +740,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
     
     	<section class="tools-section tools-section-me" q-show="aboutme">
   	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">我是武理的一名学生&lt;br&gt;&lt;br&gt;用个人博客记录一下自己的学习过程&lt;br&gt;&lt;br&gt;欢迎大家一起来学习&lt;br&gt;&lt;br&gt;QQ联系方式:2745459573</div>
+  	  		<div class="aboutme-wrap" id="js-aboutme">你可会记得，云朵之下指尖轻触，寂寂无言，爱人听见，玫瑰伸展着枝叶；&lt;br&gt;你可记得，友人的笑容，蕴藏着世上所有的温柔；&lt;br&gt;你可会记得，鸽子飞过蓝天，少女脚步轻盈，像清风吹过麦田；&lt;br&gt;你可会记得，在黑暗中有光亮起，你顾冷人生中唯一的璀璨，那是你的家。&lt;br&gt;&lt;br&gt;QQ联系方式：2745459573</div>
   	  	
     	</section>
     

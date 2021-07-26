@@ -25,7 +25,7 @@
 <meta property="og:image" content="http://example.com/2021/04/12/AOP/9.jpg">
 <meta property="og:image" content="http://example.com/2021/04/12/AOP/10.jpg">
 <meta property="article:published_time" content="2021-04-12T07:44:53.085Z">
-<meta property="article:modified_time" content="2021-04-12T14:17:09.633Z">
+<meta property="article:modified_time" content="2021-07-26T13:36:19.220Z">
 <meta property="article:author" content="c^_^y">
 <meta property="article:tag" content="Spring5 框架">
 <meta name="twitter:card" content="summary">
@@ -37,10 +37,13 @@
     <link rel="icon" href="/img/fa.ico">
   
   <link rel="stylesheet" type="text/css" href="/./main.0cf68a.css">
+  
+	<link rel="stylesheet" type="text/css" href="/./avatarrotation.css">
+  
   <style type="text/css">
   
     #container.show {
-      background: linear-gradient(200deg,#a0cfe4,#e8c37e);
+      background: linear-gradient(200deg,#ccc,#000);
     }
   </style>
   
@@ -54,7 +57,7 @@
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
     <div class="left-col" q-class="show:isShow">
       
-<div class="overlay" style="background: #4d4d4d"></div>
+<div class="overlay" style="background: #2f4f4f"></div>
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
@@ -116,7 +119,7 @@
     <div class="mid-col" q-class="show:isShow,hide:isShow|isFalse">
       
 <nav id="mobile-nav">
-  	<div class="overlay js-overlay" style="background: #4d4d4d"></div>
+  	<div class="overlay js-overlay" style="background: #2f4f4f"></div>
 	<div class="btnctn js-mobile-btnctn">
   		<div class="slider-trigger list" q-on="click: openSlider(e)"><i class="icon icon-sort"></i></div>
 	</div>
@@ -178,7 +181,7 @@
       <header class="article-header">
         
   
-    <h1 class="article-title" itemprop="name">
+    <h1 class="article-title_code_ant" itemprop="name">
       AOP
     </h1>
   
@@ -201,52 +204,53 @@
       </header>
     
 	<!-- 目录内容 -->
-        
-            <p class="show-toc-btn" id="show-toc-btn" onclick="showToc();" style="display:none">
-            <span class="btn-bg"></span>
-            <span class="btn-text">文章导航</span>
-            </p>
-            <div id="toc-article" class="toc-article">
-                <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
-                <strong class="toc-title">文章目录</strong>
-                <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF-AOP"><span class="toc-number">1.</span> <span class="toc-text">什么是 AOP</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#AOP%E5%BA%95%E5%B1%82%E5%8E%9F%E7%90%86"><span class="toc-number">2.</span> <span class="toc-text">AOP底层原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#AOP-%E7%9A%84%E7%9B%B8%E5%85%B3%E6%9C%AF%E8%AF%AD"><span class="toc-number">3.</span> <span class="toc-text">AOP 的相关术语</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#AOP-%E6%93%8D%E4%BD%9C"><span class="toc-number">4.</span> <span class="toc-text">AOP 操作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#AspectJ-%E6%B3%A8%E8%A7%A3"><span class="toc-number">4.1.</span> <span class="toc-text">AspectJ 注解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#AspectJ-%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="toc-number">4.2.</span> <span class="toc-text">AspectJ 配置文件</span></a></li></ol></li></ol>
-           </div>
-           <script type="text/javascript">
-            function showToc(){
-                var toc_article = document.getElementById("toc-article");
-                var show_toc_btn = document.getElementById("show-toc-btn");
-                toc_article.setAttribute("style","display:block");
-                show_toc_btn.setAttribute("style","display:none");
-                };
-            function showBtn(){
-                var toc_article = document.getElementById("toc-article");
-                var show_toc_btn = document.getElementById("show-toc-btn");
-                toc_article.setAttribute("style","display:none");
-                show_toc_btn.setAttribute("style","display:block");
-                };
-           </script>
-             
-        <!-- 目录内容结束 -->
+	
+		<p class="show-toc-btn" id="show-toc-btn" onclick="showToc();" style="display:none">
+			  <span class="btn-bg"></span>
+			  <span class="btn-text">文章导航</span>
+			  </p>
+		<div id="toc-article" class="toc-article">
+			<span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
+			<strong class="toc-title">文章目录</strong>
+			   <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF-AOP"><span class="toc-number">1.</span> <span class="toc-text">什么是 AOP</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#AOP%E5%BA%95%E5%B1%82%E5%8E%9F%E7%90%86"><span class="toc-number">2.</span> <span class="toc-text">AOP底层原理</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#AOP-%E7%9A%84%E7%9B%B8%E5%85%B3%E6%9C%AF%E8%AF%AD"><span class="toc-number">3.</span> <span class="toc-text">AOP 的相关术语</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#AOP-%E6%93%8D%E4%BD%9C"><span class="toc-number">4.</span> <span class="toc-text">AOP 操作</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#AspectJ-%E6%B3%A8%E8%A7%A3"><span class="toc-number">4.1.</span> <span class="toc-text">AspectJ 注解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#AspectJ-%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="toc-number">4.2.</span> <span class="toc-text">AspectJ 配置文件</span></a></li></ol></li></ol>
+			 </div>
+	   <script type="text/javascript">
+		function showToc(){
+			var toc_article = document.getElementById("toc-article");
+			var show_toc_btn = document.getElementById("show-toc-btn");
+			toc_article.setAttribute("style","display:block");
+			show_toc_btn.setAttribute("style","display:none");
+			};
+		function showBtn(){
+			var toc_article = document.getElementById("toc-article");
+			var show_toc_btn = document.getElementById("show-toc-btn");
+			toc_article.setAttribute("style","display:none");
+			show_toc_btn.setAttribute("style","display:block");
+			};
+	   </script>
+		  
+	<!-- 目录内容结束 -->
+
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="什么是-AOP"><a href="#什么是-AOP" class="headerlink" title="什么是 AOP"></a>什么是 AOP</h2><p>百度定义：在软件业，AOP为Aspect Oriented Programming的缩写，意为：面向切面编程，通过预编译方式和运行期间动态代理实现程序功能的统一维护的一种技术。AOP是OOP的延续，是软件开发中的一个热点，也是Spring框架中的一个重要内容，是函数式编程的一种衍生范型。利用AOP可以对业务逻辑的各个部分进行隔离，从而使得业务逻辑各部分之间的耦合度降低，提高程序的可重用性，同时提高了开发的效率。</p>
+        <h1 id="什么是-AOP"><a href="#什么是-AOP" class="headerlink" title="什么是 AOP"></a>什么是 AOP</h1><p>百度定义：在软件业，AOP为Aspect Oriented Programming的缩写，意为：面向切面编程，通过预编译方式和运行期间动态代理实现程序功能的统一维护的一种技术。AOP是OOP的延续，是软件开发中的一个热点，也是Spring框架中的一个重要内容，是函数式编程的一种衍生范型。利用AOP可以对业务逻辑的各个部分进行隔离，从而使得业务逻辑各部分之间的耦合度降低，提高程序的可重用性，同时提高了开发的效率。</p>
 <p>通俗表述：不通过修改源代码方式，在主干功能里面添加新功能。</p>
 <span id="more"></span>
 
 <p><strong>登录案例理解：</strong><br><img src="/2021/04/12/AOP/1.jpg"></p>
-<h2 id="AOP底层原理"><a href="#AOP底层原理" class="headerlink" title="AOP底层原理"></a>AOP底层原理</h2><p>AOP 底层使用动态代理<br>有两种情况动态代理</p>
+<h1 id="AOP底层原理"><a href="#AOP底层原理" class="headerlink" title="AOP底层原理"></a>AOP底层原理</h1><p>AOP 底层使用动态代理<br>有两种情况动态代理</p>
 <p><strong>第一种 有接口情况，使用 JDK 动态代理</strong><br>创建接口实现类代理对象，增强类的方法。<br><img src="/2021/04/12/AOP/2.jpg"></p>
 <p><strong>第二种 没有接口情况，使用 CGLIB 动态代理</strong><br>创建子类的代理对象，增强类的方法<br><img src="/2021/04/12/AOP/3.jpg"><br>详情点击<a target="_blank" rel="noopener" href="http://zllhard.cn/2021/03/25/%E7%BB%93%E6%9E%84%E5%9E%8B%E6%A8%A1%E5%BC%8F/#%E5%8A%A8%E6%80%81%E4%BB%A3%E7%90%86">设计模式动态代理</a></p>
-<h2 id="AOP-的相关术语"><a href="#AOP-的相关术语" class="headerlink" title="AOP 的相关术语"></a>AOP 的相关术语</h2><p>1、连接点<br>类里面哪些方法可以被增强，这些方法称为连接点。</p>
+<h1 id="AOP-的相关术语"><a href="#AOP-的相关术语" class="headerlink" title="AOP 的相关术语"></a>AOP 的相关术语</h1><p>1、连接点<br>类里面哪些方法可以被增强，这些方法称为连接点。</p>
 <p>2、切入点<br>实际被增强的方法，称为切入点。</p>
 <p>3、通知（增强）<br>实际被增强的逻辑部分，称为通知（增强）<br>通知有多种类型：<br>前置通知<br>后置通知<br>环绕通知<br>异常通知<br>最终通知</p>
 <p>4、切面<br>切面是动作<br>把通知应用到切入点的过程</p>
-<h2 id="AOP-操作"><a href="#AOP-操作" class="headerlink" title="AOP 操作"></a>AOP 操作</h2><p>1、Spring 框架一般都是基于 AspectJ 实现 AOP 操作。<br>AspectJ 不是 Spring 组成部分，独立 AOP 框架，一般把 AspectJ 和 Spirng 框架一起使用，进行 AOP 操作。</p>
+<h1 id="AOP-操作"><a href="#AOP-操作" class="headerlink" title="AOP 操作"></a>AOP 操作</h1><p>1、Spring 框架一般都是基于 AspectJ 实现 AOP 操作。<br>AspectJ 不是 Spring 组成部分，独立 AOP 框架，一般把 AspectJ 和 Spirng 框架一起使用，进行 AOP 操作。</p>
 <p>2、基于 AspectJ 实现 AOP 操作<br>（1）基于 xml 配置文件实现<br>（2）基于注解方式实现（使用）</p>
 <p>3、在项目工程里面引入 AOP 相关依赖<br><img src="/2021/04/12/AOP/5.jpg"></p>
 <p>4、切入点表达式<br>（1）切入点表达式作用：知道对哪个类里面的哪个方法进行增强<br>（2）语法结构： execution([权限修饰符] [返回类型] [类全路径] <a href="%5B%E5%8F%82%E6%95%B0%E5%88%97%E8%A1%A8%5D">方法名称</a>)</p>
 <p>举例 1：对 dao.BookDao 类里面的 add 进行增强<br>execution(* dao.BookDao.add(..))<br>举例 2：对 dao.BookDao 类里面的所有的方法进行增强<br>execution(* dao.BookDao.* (..))<br>举例 3：对 dao 包里面所有类，类里面所有方法进行增强<br>execution(* dao.<em>.</em> (..))</p>
-<h3 id="AspectJ-注解"><a href="#AspectJ-注解" class="headerlink" title="AspectJ 注解"></a>AspectJ 注解</h3><p><strong>1、创建类，在类里面定义方法</strong></p>
+<h2 id="AspectJ-注解"><a href="#AspectJ-注解" class="headerlink" title="AspectJ 注解"></a>AspectJ 注解</h2><p><strong>1、创建类，在类里面定义方法</strong></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> aopanno;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">User</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">add</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;add.......&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p><strong>2、创建增强类（编写增强逻辑）</strong></p>
@@ -267,7 +271,7 @@
 <p><strong>7、完全使用注解开发</strong><br>创建配置类，不需要创建 xml 配置文件。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="meta">@ComponentScan(basePackages = &#123;&quot;aopanno&quot;&#125;)</span></span><br><span class="line"><span class="meta">@EnableAspectJAutoProxy(proxyTargetClass = true)</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ConfigAop</span> </span>&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h3 id="AspectJ-配置文件"><a href="#AspectJ-配置文件" class="headerlink" title="AspectJ 配置文件"></a>AspectJ 配置文件</h3><p>一般使用注解。</p>
+<h2 id="AspectJ-配置文件"><a href="#AspectJ-配置文件" class="headerlink" title="AspectJ 配置文件"></a>AspectJ 配置文件</h2><p>一般使用注解。</p>
 <p>1、创建两个类，增强类和被增强类，创建方法<br>2、在 spring 配置文件中创建两个类对象</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--创建对象--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">&quot;user&quot;</span> <span class="attr">class</span>=<span class="string">&quot;aopxml.User&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">&quot;userProxy&quot;</span> <span class="attr">class</span>=<span class="string">&quot;aopxml.UserProxy&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>3、在 spring 配置文件中配置切入点</p>
@@ -371,8 +375,8 @@
     </a>
   
   
-    <a href="/2021/04/11/JavaScript/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">JavaScript</div>
+    <a href="/2021/04/11/XML/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">XML</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -391,6 +395,19 @@
             </div>
         </div>
         
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF-AOP"><span class="toc-number">1.</span> <span class="toc-text">什么是 AOP</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#AOP%E5%BA%95%E5%B1%82%E5%8E%9F%E7%90%86"><span class="toc-number">2.</span> <span class="toc-text">AOP底层原理</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#AOP-%E7%9A%84%E7%9B%B8%E5%85%B3%E6%9C%AF%E8%AF%AD"><span class="toc-number">3.</span> <span class="toc-text">AOP 的相关术语</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#AOP-%E6%93%8D%E4%BD%9C"><span class="toc-number">4.</span> <span class="toc-text">AOP 操作</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#AspectJ-%E6%B3%A8%E8%A7%A3"><span class="toc-number">4.1.</span> <span class="toc-text">AspectJ 注解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#AspectJ-%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="toc-number">4.2.</span> <span class="toc-text">AspectJ 配置文件</span></a></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
         
     </div>
 </aside>
@@ -449,6 +466,58 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
 
 
 <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script type="text/javascript">
+	! function (e, t, a) {
+    function n() {
+        c(".heart{width: 10px;height: 10px;position: fixed;background: #f00;transform: rotate(45deg);-webkit-transform: rotate(45deg);-moz-transform: rotate(45deg);}.heart:after,.heart:before{content: '';width: inherit;height: inherit;background: inherit;border-radius: 50%;-webkit-border-radius: 50%;-moz-border-radius: 50%;position: fixed;}.heart:after{top: -5px;}.heart:before{left: -5px;}"), o(), r()
+    }
+
+    function r() {
+        for (var e = 0; e < d.length; e++) d[e].alpha <= 0 ? (t.body.removeChild(d[e].el), d.splice(e, 1)) : (d[e].y--, d[e].scale += .004, d[e].alpha -= .013, d[e].el.style.cssText = "left:" + d[e].x + "px;top:" + d[e].y + "px;opacity:" + d[e].alpha + ";transform:scale(" + d[e].scale + "," + d[e].scale + ") rotate(45deg);background:" + d[e].color + ";z-index:99999");
+        requestAnimationFrame(r)
+    }
+
+    function o() {
+        var t = "function" == typeof e.onclick && e.onclick;
+        e.onclick = function (e) {
+            t && t(), i(e)
+        }
+    }
+
+    function i(e) {
+        var a = t.createElement("div");
+        a.className = "heart", d.push({
+            el: a,
+            x: e.clientX - 5,
+            y: e.clientY - 5,
+            scale: 1,
+            alpha: 1,
+            color: s()
+        }), t.body.appendChild(a)
+    }
+
+    function c(e) {
+        var a = t.createElement("style");
+        a.type = "text/css";
+        try {
+            a.appendChild(t.createTextNode(e))
+        } catch (t) {
+            a.styleSheet.cssText = e
+        }
+        t.getElementsByTagName("head")[0].appendChild(a)
+    }
+
+    function s() {
+        return "rgb(" + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + ")"
+    }
+    var d = [];
+    e.requestAnimationFrame = function () {
+        return e.requestAnimationFrame || e.webkitRequestAnimationFrame || e.mozRequestAnimationFrame || e.oRequestAnimationFrame || e.msRequestAnimationFrame || function (e) {
+            setTimeout(e, 1e3 / 60)
+        }
+    }(), n()
+}(window, document);
+</script>
     
 <div class="tools-col" q-class="show:isShow,hide:isShow|isFalse" q-on="click:stop(e)">
   <div class="tools-nav header-menu">
@@ -513,10 +582,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">JDBC</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">JVM</a>
               </li>
              
@@ -538,10 +603,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">SSM</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Shiro</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -582,6 +643,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">操作系统</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">yilia</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -692,7 +757,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
     
     	<section class="tools-section tools-section-me" q-show="aboutme">
   	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">我是武理的一名学生&lt;br&gt;&lt;br&gt;用个人博客记录一下自己的学习过程&lt;br&gt;&lt;br&gt;欢迎大家一起来学习&lt;br&gt;&lt;br&gt;QQ联系方式:2745459573</div>
+  	  		<div class="aboutme-wrap" id="js-aboutme">你可会记得，云朵之下指尖轻触，寂寂无言，爱人听见，玫瑰伸展着枝叶；&lt;br&gt;你可记得，友人的笑容，蕴藏着世上所有的温柔；&lt;br&gt;你可会记得，鸽子飞过蓝天，少女脚步轻盈，像清风吹过麦田；&lt;br&gt;你可会记得，在黑暗中有光亮起，你顾冷人生中唯一的璀璨，那是你的家。&lt;br&gt;&lt;br&gt;QQ联系方式：2745459573</div>
   	  	
     	</section>
     

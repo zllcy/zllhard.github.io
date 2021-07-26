@@ -28,7 +28,7 @@
 <meta property="og:image" content="http://example.com/2021/04/11/XML/11.jpg">
 <meta property="og:image" content="http://example.com/2021/04/11/XML/12.jpg">
 <meta property="article:published_time" content="2021-04-11T08:29:15.917Z">
-<meta property="article:modified_time" content="2021-04-11T09:24:44.018Z">
+<meta property="article:modified_time" content="2021-07-26T13:37:51.447Z">
 <meta property="article:author" content="c^_^y">
 <meta property="article:tag" content="JavaWeb">
 <meta name="twitter:card" content="summary">
@@ -40,10 +40,13 @@
     <link rel="icon" href="/img/fa.ico">
   
   <link rel="stylesheet" type="text/css" href="/./main.0cf68a.css">
+  
+	<link rel="stylesheet" type="text/css" href="/./avatarrotation.css">
+  
   <style type="text/css">
   
     #container.show {
-      background: linear-gradient(200deg,#a0cfe4,#e8c37e);
+      background: linear-gradient(200deg,#ccc,#000);
     }
   </style>
   
@@ -57,7 +60,7 @@
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
     <div class="left-col" q-class="show:isShow">
       
-<div class="overlay" style="background: #4d4d4d"></div>
+<div class="overlay" style="background: #2f4f4f"></div>
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
@@ -119,7 +122,7 @@
     <div class="mid-col" q-class="show:isShow,hide:isShow|isFalse">
       
 <nav id="mobile-nav">
-  	<div class="overlay js-overlay" style="background: #4d4d4d"></div>
+  	<div class="overlay js-overlay" style="background: #2f4f4f"></div>
 	<div class="btnctn js-mobile-btnctn">
   		<div class="slider-trigger list" q-on="click: openSlider(e)"><i class="icon icon-sort"></i></div>
 	</div>
@@ -181,7 +184,7 @@
       <header class="article-header">
         
   
-    <h1 class="article-title" itemprop="name">
+    <h1 class="article-title_code_ant" itemprop="name">
       XML
     </h1>
   
@@ -204,53 +207,54 @@
       </header>
     
 	<!-- 目录内容 -->
-        
-            <p class="show-toc-btn" id="show-toc-btn" onclick="showToc();" style="display:none">
-            <span class="btn-bg"></span>
-            <span class="btn-text">文章导航</span>
-            </p>
-            <div id="toc-article" class="toc-article">
-                <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
-                <strong class="toc-title">文章目录</strong>
-                <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#XML-%E7%AE%80%E4%BB%8B"><span class="toc-number">1.</span> <span class="toc-text">XML 简介</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF-xml"><span class="toc-number">1.1.</span> <span class="toc-text">什么是 xml</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#xml-%E7%9A%84%E4%BD%9C%E7%94%A8"><span class="toc-number">1.2.</span> <span class="toc-text">xml 的作用</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#xml-%E8%AF%AD%E6%B3%95"><span class="toc-number">2.</span> <span class="toc-text">xml 语法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E6%A1%A3%E5%A3%B0%E6%98%8E"><span class="toc-number">2.1.</span> <span class="toc-text">文档声明</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#xml-%E6%B3%A8%E9%87%8A"><span class="toc-number">2.2.</span> <span class="toc-text">xml 注释</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%83%E7%B4%A0%EF%BC%88%E6%A0%87%E7%AD%BE%EF%BC%89"><span class="toc-number">2.3.</span> <span class="toc-text">元素（标签）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#xml-%E5%B1%9E%E6%80%A7"><span class="toc-number">2.4.</span> <span class="toc-text">xml 属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%AD%E6%B3%95%E8%A7%84%E5%88%99"><span class="toc-number">2.5.</span> <span class="toc-text">语法规则</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#xml-%E8%A7%A3%E6%9E%90%E6%8A%80%E6%9C%AF"><span class="toc-number">3.</span> <span class="toc-text">xml 解析技术</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#DOM-%E5%92%8C-Sax%EF%BC%88%E5%B7%B2%E7%BB%8F%E8%BF%87%E6%97%B6%EF%BC%89"><span class="toc-number">3.1.</span> <span class="toc-text">DOM 和 Sax（已经过时）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E6%96%B9%E7%9A%84%E8%A7%A3%E6%9E%90"><span class="toc-number">3.2.</span> <span class="toc-text">第三方的解析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#dom4j-%E8%A7%A3%E6%9E%90%E6%8A%80%E6%9C%AF"><span class="toc-number">3.3.</span> <span class="toc-text">dom4j 解析技术</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#dom4j-%E7%9B%AE%E5%BD%95%E7%9A%84%E4%BB%8B%E7%BB%8D"><span class="toc-number">3.3.1.</span> <span class="toc-text">dom4j 目录的介绍</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#dom4j-%E7%BC%96%E7%A8%8B%E6%AD%A5%E9%AA%A4"><span class="toc-number">3.3.2.</span> <span class="toc-text">dom4j 编程步骤</span></a></li></ol></li></ol></li></ol>
-           </div>
-           <script type="text/javascript">
-            function showToc(){
-                var toc_article = document.getElementById("toc-article");
-                var show_toc_btn = document.getElementById("show-toc-btn");
-                toc_article.setAttribute("style","display:block");
-                show_toc_btn.setAttribute("style","display:none");
-                };
-            function showBtn(){
-                var toc_article = document.getElementById("toc-article");
-                var show_toc_btn = document.getElementById("show-toc-btn");
-                toc_article.setAttribute("style","display:none");
-                show_toc_btn.setAttribute("style","display:block");
-                };
-           </script>
-             
-        <!-- 目录内容结束 -->
+	
+		<p class="show-toc-btn" id="show-toc-btn" onclick="showToc();" style="display:none">
+			  <span class="btn-bg"></span>
+			  <span class="btn-text">文章导航</span>
+			  </p>
+		<div id="toc-article" class="toc-article">
+			<span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
+			<strong class="toc-title">文章目录</strong>
+			   <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#XML-%E7%AE%80%E4%BB%8B"><span class="toc-number">1.</span> <span class="toc-text">XML 简介</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF-xml"><span class="toc-number">1.1.</span> <span class="toc-text">什么是 xml</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#xml-%E7%9A%84%E4%BD%9C%E7%94%A8"><span class="toc-number">1.2.</span> <span class="toc-text">xml 的作用</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#xml-%E8%AF%AD%E6%B3%95"><span class="toc-number">2.</span> <span class="toc-text">xml 语法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%87%E6%A1%A3%E5%A3%B0%E6%98%8E"><span class="toc-number">2.1.</span> <span class="toc-text">文档声明</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#xml-%E6%B3%A8%E9%87%8A"><span class="toc-number">2.2.</span> <span class="toc-text">xml 注释</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%83%E7%B4%A0%EF%BC%88%E6%A0%87%E7%AD%BE%EF%BC%89"><span class="toc-number">2.3.</span> <span class="toc-text">元素（标签）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#xml-%E5%B1%9E%E6%80%A7"><span class="toc-number">2.4.</span> <span class="toc-text">xml 属性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%AD%E6%B3%95%E8%A7%84%E5%88%99"><span class="toc-number">2.5.</span> <span class="toc-text">语法规则</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#xml-%E8%A7%A3%E6%9E%90%E6%8A%80%E6%9C%AF"><span class="toc-number">3.</span> <span class="toc-text">xml 解析技术</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#DOM-%E5%92%8C-Sax%EF%BC%88%E5%B7%B2%E7%BB%8F%E8%BF%87%E6%97%B6%EF%BC%89"><span class="toc-number">3.1.</span> <span class="toc-text">DOM 和 Sax（已经过时）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E6%96%B9%E7%9A%84%E8%A7%A3%E6%9E%90"><span class="toc-number">3.2.</span> <span class="toc-text">第三方的解析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#dom4j-%E8%A7%A3%E6%9E%90%E6%8A%80%E6%9C%AF"><span class="toc-number">3.3.</span> <span class="toc-text">dom4j 解析技术</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#dom4j-%E7%9B%AE%E5%BD%95%E7%9A%84%E4%BB%8B%E7%BB%8D"><span class="toc-number">3.3.1.</span> <span class="toc-text">dom4j 目录的介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#dom4j-%E7%BC%96%E7%A8%8B%E6%AD%A5%E9%AA%A4"><span class="toc-number">3.3.2.</span> <span class="toc-text">dom4j 编程步骤</span></a></li></ol></li></ol></li></ol>
+			 </div>
+	   <script type="text/javascript">
+		function showToc(){
+			var toc_article = document.getElementById("toc-article");
+			var show_toc_btn = document.getElementById("show-toc-btn");
+			toc_article.setAttribute("style","display:block");
+			show_toc_btn.setAttribute("style","display:none");
+			};
+		function showBtn(){
+			var toc_article = document.getElementById("toc-article");
+			var show_toc_btn = document.getElementById("show-toc-btn");
+			toc_article.setAttribute("style","display:none");
+			show_toc_btn.setAttribute("style","display:block");
+			};
+	   </script>
+		  
+	<!-- 目录内容结束 -->
+
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="XML-简介"><a href="#XML-简介" class="headerlink" title="XML 简介"></a>XML 简介</h2><h3 id="什么是-xml"><a href="#什么是-xml" class="headerlink" title="什么是 xml"></a>什么是 xml</h3><p>xml 是可扩展的标记性语言。</p>
+        <h1 id="XML-简介"><a href="#XML-简介" class="headerlink" title="XML 简介"></a>XML 简介</h1><h2 id="什么是-xml"><a href="#什么是-xml" class="headerlink" title="什么是 xml"></a>什么是 xml</h2><p>xml 是可扩展的标记性语言。</p>
 <span id="more"></span>
 
-<h3 id="xml-的作用"><a href="#xml-的作用" class="headerlink" title="xml 的作用"></a>xml 的作用</h3><p>1、用来保存数据，而且这些数据具有自我描述性<br>2、它还可以做为项目或者模块的配置文件<br>3、还可以做为网络传输数据的格式（现在 JSON 为主）。</p>
-<h2 id="xml-语法"><a href="#xml-语法" class="headerlink" title="xml 语法"></a>xml 语法</h2><ol>
+<h2 id="xml-的作用"><a href="#xml-的作用" class="headerlink" title="xml 的作用"></a>xml 的作用</h2><p>1、用来保存数据，而且这些数据具有自我描述性<br>2、它还可以做为项目或者模块的配置文件<br>3、还可以做为网络传输数据的格式（现在 JSON 为主）。</p>
+<h1 id="xml-语法"><a href="#xml-语法" class="headerlink" title="xml 语法"></a>xml 语法</h1><ol>
 <li>文档声明</li>
 <li>元素（标签）</li>
 <li>xml 属性</li>
 <li>xml 注释</li>
 <li>文本区域（CDATA 区）</li>
 </ol>
-<h3 id="文档声明"><a href="#文档声明" class="headerlink" title="文档声明"></a>文档声明</h3><pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+<h2 id="文档声明"><a href="#文档声明" class="headerlink" title="文档声明"></a>文档声明</h2><pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
 </code></pre>
 <p>xml 声明 version 是版本的意思 encoding 是编码，而且这个&lt;?xml 要连在一起写，否则会有报错。</p>
 <p><strong>属性</strong><br>version：是版本号<br>encoding：是 xml 的文件编码<br>standalone=”yes/no”： 表示这个 xml 文件是否是独立的 xml 文间</p>
-<h3 id="xml-注释"><a href="#xml-注释" class="headerlink" title="xml 注释"></a>xml 注释</h3><p>hhtml 和 XML 注释 一样 : </p>
+<h2 id="xml-注释"><a href="#xml-注释" class="headerlink" title="xml 注释"></a>xml 注释</h2><p>hhtml 和 XML 注释 一样 : </p>
 <pre><code>&lt;!-- html 注释 --&gt;
 </code></pre>
-<h3 id="元素（标签）"><a href="#元素（标签）" class="headerlink" title="元素（标签）"></a>元素（标签）</h3><p>xml元素是指从开始标签到结束标签的内容。<br>元素可包含其他元素、文本或者两者的混合物。<br>元素也可以拥有属性。</p>
+<h2 id="元素（标签）"><a href="#元素（标签）" class="headerlink" title="元素（标签）"></a>元素（标签）</h2><p>xml元素是指从开始标签到结束标签的内容。<br>元素可包含其他元素、文本或者两者的混合物。<br>元素也可以拥有属性。</p>
 <p><strong>XML 命名规则</strong><br>1）名称可以含字母、数字以及其他的字符。<br>2）名称不能以数字或者标点符号开始。<br><img src="/2021/04/11/XML/1.jpg"><br>3）名称不能包含空格。<br><img src="/2021/04/11/XML/2.jpg"></p>
 <p><strong>xml 中的元素（标签）也 分成 单标签和双标签</strong><br>单标签</p>
 <pre><code>格式： &lt;标签名 属性=”值” 属性=”值” ...... /&gt;
@@ -259,15 +263,15 @@
 <pre><code>格式：&lt; 标签名 属性=”值” 属性=”值” ......&gt;文本数据或子标签&lt;/标签名&gt;
 </code></pre>
 <p><img src="/2021/04/11/XML/3.jpg"></p>
-<h3 id="xml-属性"><a href="#xml-属性" class="headerlink" title="xml 属性"></a>xml 属性</h3><p>xml 的标签属性和 html 的标签属性是非常类似的，属性可以提供元素的额外信息。<br>在标签上可以书写属性：一个标签上可以书写多个属性。每个属性的值必须使用 引号（””） 引起来。<br><img src="/2021/04/11/XML/4.jpg"></p>
-<h3 id="语法规则"><a href="#语法规则" class="headerlink" title="语法规则"></a>语法规则</h3><p>1）所有 XML 元素都需要关闭标签（也就是闭合）。<br><img src="/2021/04/11/XML/5.jpg"><br>2）XML 标签对大小写敏感。<br><img src="/2021/04/11/XML/6.jpg"><br>3）XML 必须正确地嵌套。<br><img src="/2021/04/11/XML/7.jpg"><br>4）XML 文档必须有根元素。<br><img src="/2021/04/11/XML/8.jpg"><br>5）XML 的属性值须加引号。<br>6）XML 中的特殊字符。<br><img src="/2021/04/11/XML/9.jpg"><br>7）文本区域（CDATA 区）。<br>CDATA 语法可以告诉 xml 解析器，我 CDATA 里的文本内容，只是纯文本，不需要 xml 语法解析。<br><img src="/2021/04/11/XML/10.jpg"></p>
-<h2 id="xml-解析技术"><a href="#xml-解析技术" class="headerlink" title="xml 解析技术"></a>xml 解析技术</h2><p>不管是 html 文件还是 xml 文件它们都是标记型文档，都可以使用 w3c 组织制定的 dom 技术来解析。<br><img src="/2021/04/11/XML/11.jpg"><br>document 对象表示的是整个文档（可以是 html 文档，也可以是xml 文档）</p>
-<h3 id="DOM-和-Sax（已经过时）"><a href="#DOM-和-Sax（已经过时）" class="headerlink" title="DOM 和 Sax（已经过时）"></a>DOM 和 Sax（已经过时）</h3><p>dom 解析技术是 W3C 组织制定的，而所有的编程语言都对这个解析技术使用了自己语言的特点进行实现。<br>Java 对 dom 技术解析标记也做了实现。</p>
+<h2 id="xml-属性"><a href="#xml-属性" class="headerlink" title="xml 属性"></a>xml 属性</h2><p>xml 的标签属性和 html 的标签属性是非常类似的，属性可以提供元素的额外信息。<br>在标签上可以书写属性：一个标签上可以书写多个属性。每个属性的值必须使用 引号（””） 引起来。<br><img src="/2021/04/11/XML/4.jpg"></p>
+<h2 id="语法规则"><a href="#语法规则" class="headerlink" title="语法规则"></a>语法规则</h2><p>1）所有 XML 元素都需要关闭标签（也就是闭合）。<br><img src="/2021/04/11/XML/5.jpg"><br>2）XML 标签对大小写敏感。<br><img src="/2021/04/11/XML/6.jpg"><br>3）XML 必须正确地嵌套。<br><img src="/2021/04/11/XML/7.jpg"><br>4）XML 文档必须有根元素。<br><img src="/2021/04/11/XML/8.jpg"><br>5）XML 的属性值须加引号。<br>6）XML 中的特殊字符。<br><img src="/2021/04/11/XML/9.jpg"><br>7）文本区域（CDATA 区）。<br>CDATA 语法可以告诉 xml 解析器，我 CDATA 里的文本内容，只是纯文本，不需要 xml 语法解析。<br><img src="/2021/04/11/XML/10.jpg"></p>
+<h1 id="xml-解析技术"><a href="#xml-解析技术" class="headerlink" title="xml 解析技术"></a>xml 解析技术</h1><p>不管是 html 文件还是 xml 文件它们都是标记型文档，都可以使用 w3c 组织制定的 dom 技术来解析。<br><img src="/2021/04/11/XML/11.jpg"><br>document 对象表示的是整个文档（可以是 html 文档，也可以是xml 文档）</p>
+<h2 id="DOM-和-Sax（已经过时）"><a href="#DOM-和-Sax（已经过时）" class="headerlink" title="DOM 和 Sax（已经过时）"></a>DOM 和 Sax（已经过时）</h2><p>dom 解析技术是 W3C 组织制定的，而所有的编程语言都对这个解析技术使用了自己语言的特点进行实现。<br>Java 对 dom 技术解析标记也做了实现。</p>
 <p>sun 公司在 JDK5 版本对 dom 解析技术进行升级：SAX（ Simple API for XML ）<br>SAX 解析，它跟 W3C 制定的解析不太一样。它是以类似事件机制通过回调告诉用户当前正在解析的内容。<br>它是一行一行的读取 xml 文件进行解析的。不会创建大量的 dom 对象。<br>所以它在解析 xml 的时候，在内存的使用上和性能上都优于 Dom 解析。</p>
-<h3 id="第三方的解析"><a href="#第三方的解析" class="headerlink" title="第三方的解析"></a>第三方的解析</h3><p>jdom 在 dom 基础上进行了封装。<br>dom4j 又对 jdom 进行了封装。<br>pull 主要用在 Android 手机开发，是在跟 sax 非常类似都是事件机制解析 xml。</p>
-<h3 id="dom4j-解析技术"><a href="#dom4j-解析技术" class="headerlink" title="dom4j 解析技术"></a>dom4j 解析技术</h3><p>由于 dom4j 它不是 sun 公司的技术，而属于第三方公司的技术，我们需要使用 dom4j 就需要到 dom4j 官网下载 dom4j的 jar 包。</p>
-<h4 id="dom4j-目录的介绍"><a href="#dom4j-目录的介绍" class="headerlink" title="dom4j 目录的介绍"></a>dom4j 目录的介绍</h4><p><img src="/2021/04/11/XML/12.jpg"><br>1）docs 是文档目录。<br>2）lib 目录是dom4j需要依赖的其他第三方类库。<br>3）src 目录是dom4j的源码目录。</p>
-<h4 id="dom4j-编程步骤"><a href="#dom4j-编程步骤" class="headerlink" title="dom4j 编程步骤"></a>dom4j 编程步骤</h4><p>1）先加载 xml 文件创建 Document 对象。<br>2）通过 Document 对象拿到根元素对象。<br>3）通过根元素.elelemts(标签名); 可以返回一个集合，这个集合里放着。所有你指定的标签名的元素对象。<br>4）找到你想要修改、删除的子元素，进行相应在的操作。<br>5）保存到硬盘上。</p>
+<h2 id="第三方的解析"><a href="#第三方的解析" class="headerlink" title="第三方的解析"></a>第三方的解析</h2><p>jdom 在 dom 基础上进行了封装。<br>dom4j 又对 jdom 进行了封装。<br>pull 主要用在 Android 手机开发，是在跟 sax 非常类似都是事件机制解析 xml。</p>
+<h2 id="dom4j-解析技术"><a href="#dom4j-解析技术" class="headerlink" title="dom4j 解析技术"></a>dom4j 解析技术</h2><p>由于 dom4j 它不是 sun 公司的技术，而属于第三方公司的技术，我们需要使用 dom4j 就需要到 dom4j 官网下载 dom4j的 jar 包。</p>
+<h3 id="dom4j-目录的介绍"><a href="#dom4j-目录的介绍" class="headerlink" title="dom4j 目录的介绍"></a>dom4j 目录的介绍</h3><p><img src="/2021/04/11/XML/12.jpg"><br>1）docs 是文档目录。<br>2）lib 目录是dom4j需要依赖的其他第三方类库。<br>3）src 目录是dom4j的源码目录。</p>
+<h3 id="dom4j-编程步骤"><a href="#dom4j-编程步骤" class="headerlink" title="dom4j 编程步骤"></a>dom4j 编程步骤</h3><p>1）先加载 xml 文件创建 Document 对象。<br>2）通过 Document 对象拿到根元素对象。<br>3）通过根元素.elelemts(标签名); 可以返回一个集合，这个集合里放着。所有你指定的标签名的元素对象。<br>4）找到你想要修改、删除的子元素，进行相应在的操作。<br>5）保存到硬盘上。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * 读取 xml 文件中的内容</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">readXML</span><span class="params">()</span> <span class="keyword">throws</span> DocumentException </span>&#123;</span><br><span class="line">    <span class="comment">// 需要分四步操作:</span></span><br><span class="line">    <span class="comment">// 第一步，通过创建 SAXReader 对象。来读取 xml 文件，获取 Document 对象</span></span><br><span class="line">    <span class="comment">// 第二步，通过 Document 对象。拿到 XML 的根元素对象</span></span><br><span class="line">    <span class="comment">// 第三步，通过根元素对象。获取所有的 book 标签对象</span></span><br><span class="line">    <span class="comment">// 第四小，遍历每个 book 标签对象。然后获取到 book 标签对象内的每一个元素，再通过 getText() 方法拿到起始标签和结束标签之间的文本内容</span></span><br><span class="line">    <span class="comment">// 第一步，通过创建 SAXReader 对象。来读取 xml 文件，获取 Document 对象</span></span><br><span class="line">    SAXReader reader = <span class="keyword">new</span> SAXReader();</span><br><span class="line">    Document document = reader.read(<span class="string">&quot;src/books.xml&quot;</span>);</span><br><span class="line">    <span class="comment">// 第二步，通过 Document 对象。拿到 XML 的根元素对象</span></span><br><span class="line">    Element root = document.getRootElement();</span><br><span class="line">    <span class="comment">// 打印测试</span></span><br><span class="line">    <span class="comment">// Element.asXML() 它将当前元素转换成为 String 对象</span></span><br><span class="line">    <span class="comment">// System.out.println( root.asXML() );</span></span><br><span class="line">    <span class="comment">// 第三步，通过根元素对象。获取所有的 book 标签对象</span></span><br><span class="line">    <span class="comment">// Element.elements(标签名)它可以拿到当前元素下的指定的子元素的集合</span></span><br><span class="line">    List&lt;Element&gt; books = root.elements(<span class="string">&quot;book&quot;</span>);</span><br><span class="line">    <span class="comment">// 第四小，遍历每个 book 标签对象。然后获取到 book 标签对象内的每一个元素，</span></span><br><span class="line">    <span class="keyword">for</span> (Element book : books) &#123;</span><br><span class="line">        <span class="comment">// 测试</span></span><br><span class="line">        <span class="comment">// System.out.println(book.asXML());</span></span><br><span class="line">        <span class="comment">// 拿到 book 下面的 name 元素对象</span></span><br><span class="line">        Element nameElement = book.element(<span class="string">&quot;name&quot;</span>);</span><br><span class="line">        <span class="comment">// 拿到 book 下面的 price 元素对象</span></span><br><span class="line">        Element priceElement = book.element(<span class="string">&quot;price&quot;</span>);</span><br><span class="line">        <span class="comment">// 拿到 book 下面的 author 元素对象</span></span><br><span class="line">        Element authorElement = book.element(<span class="string">&quot;author&quot;</span>);</span><br><span class="line">        <span class="comment">// 再通过 getText() 方法拿到起始标签和结束标签之间的文本内容</span></span><br><span class="line">        System.out.println(<span class="string">&quot;书名&quot;</span> + nameElement.getText() + <span class="string">&quot; , 价格:&quot;</span></span><br><span class="line">                + priceElement.getText() + <span class="string">&quot;, 作者：&quot;</span> + authorElement.getText());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>xml文件：</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">books</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">book</span> <span class="attr">sn</span>=<span class="string">&quot;SN12341232&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>辟邪剑谱<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">price</span>&gt;</span>9.9<span class="tag">&lt;/<span class="name">price</span>&gt;</span><span class="tag">&lt;<span class="name">author</span>&gt;</span>班主任<span class="tag">&lt;/<span class="name">author</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">book</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">book</span> <span class="attr">sn</span>=<span class="string">&quot;SN12341231&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>葵花宝典<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">price</span>&gt;</span>99.99<span class="tag">&lt;/<span class="name">price</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">author</span>&gt;</span>班长<span class="tag">&lt;/<span class="name">author</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">book</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">books</span>&gt;</span></span><br></pre></td></tr></table></figure>
@@ -373,11 +377,11 @@
   
 <nav id="article-nav">
   
-    <a href="/2021/04/11/JavaScript/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2021/04/12/AOP/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          JavaScript
+          AOP
         
       </div>
     </a>
@@ -403,6 +407,19 @@
             </div>
         </div>
         
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#XML-%E7%AE%80%E4%BB%8B"><span class="toc-number">1.</span> <span class="toc-text">XML 简介</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF-xml"><span class="toc-number">1.1.</span> <span class="toc-text">什么是 xml</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#xml-%E7%9A%84%E4%BD%9C%E7%94%A8"><span class="toc-number">1.2.</span> <span class="toc-text">xml 的作用</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#xml-%E8%AF%AD%E6%B3%95"><span class="toc-number">2.</span> <span class="toc-text">xml 语法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%87%E6%A1%A3%E5%A3%B0%E6%98%8E"><span class="toc-number">2.1.</span> <span class="toc-text">文档声明</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#xml-%E6%B3%A8%E9%87%8A"><span class="toc-number">2.2.</span> <span class="toc-text">xml 注释</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%83%E7%B4%A0%EF%BC%88%E6%A0%87%E7%AD%BE%EF%BC%89"><span class="toc-number">2.3.</span> <span class="toc-text">元素（标签）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#xml-%E5%B1%9E%E6%80%A7"><span class="toc-number">2.4.</span> <span class="toc-text">xml 属性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%AD%E6%B3%95%E8%A7%84%E5%88%99"><span class="toc-number">2.5.</span> <span class="toc-text">语法规则</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#xml-%E8%A7%A3%E6%9E%90%E6%8A%80%E6%9C%AF"><span class="toc-number">3.</span> <span class="toc-text">xml 解析技术</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#DOM-%E5%92%8C-Sax%EF%BC%88%E5%B7%B2%E7%BB%8F%E8%BF%87%E6%97%B6%EF%BC%89"><span class="toc-number">3.1.</span> <span class="toc-text">DOM 和 Sax（已经过时）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E6%96%B9%E7%9A%84%E8%A7%A3%E6%9E%90"><span class="toc-number">3.2.</span> <span class="toc-text">第三方的解析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#dom4j-%E8%A7%A3%E6%9E%90%E6%8A%80%E6%9C%AF"><span class="toc-number">3.3.</span> <span class="toc-text">dom4j 解析技术</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#dom4j-%E7%9B%AE%E5%BD%95%E7%9A%84%E4%BB%8B%E7%BB%8D"><span class="toc-number">3.3.1.</span> <span class="toc-text">dom4j 目录的介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#dom4j-%E7%BC%96%E7%A8%8B%E6%AD%A5%E9%AA%A4"><span class="toc-number">3.3.2.</span> <span class="toc-text">dom4j 编程步骤</span></a></li></ol></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
         
     </div>
 </aside>
@@ -461,6 +478,58 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
 
 
 <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script type="text/javascript">
+	! function (e, t, a) {
+    function n() {
+        c(".heart{width: 10px;height: 10px;position: fixed;background: #f00;transform: rotate(45deg);-webkit-transform: rotate(45deg);-moz-transform: rotate(45deg);}.heart:after,.heart:before{content: '';width: inherit;height: inherit;background: inherit;border-radius: 50%;-webkit-border-radius: 50%;-moz-border-radius: 50%;position: fixed;}.heart:after{top: -5px;}.heart:before{left: -5px;}"), o(), r()
+    }
+
+    function r() {
+        for (var e = 0; e < d.length; e++) d[e].alpha <= 0 ? (t.body.removeChild(d[e].el), d.splice(e, 1)) : (d[e].y--, d[e].scale += .004, d[e].alpha -= .013, d[e].el.style.cssText = "left:" + d[e].x + "px;top:" + d[e].y + "px;opacity:" + d[e].alpha + ";transform:scale(" + d[e].scale + "," + d[e].scale + ") rotate(45deg);background:" + d[e].color + ";z-index:99999");
+        requestAnimationFrame(r)
+    }
+
+    function o() {
+        var t = "function" == typeof e.onclick && e.onclick;
+        e.onclick = function (e) {
+            t && t(), i(e)
+        }
+    }
+
+    function i(e) {
+        var a = t.createElement("div");
+        a.className = "heart", d.push({
+            el: a,
+            x: e.clientX - 5,
+            y: e.clientY - 5,
+            scale: 1,
+            alpha: 1,
+            color: s()
+        }), t.body.appendChild(a)
+    }
+
+    function c(e) {
+        var a = t.createElement("style");
+        a.type = "text/css";
+        try {
+            a.appendChild(t.createTextNode(e))
+        } catch (t) {
+            a.styleSheet.cssText = e
+        }
+        t.getElementsByTagName("head")[0].appendChild(a)
+    }
+
+    function s() {
+        return "rgb(" + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + ")"
+    }
+    var d = [];
+    e.requestAnimationFrame = function () {
+        return e.requestAnimationFrame || e.webkitRequestAnimationFrame || e.mozRequestAnimationFrame || e.oRequestAnimationFrame || e.msRequestAnimationFrame || function (e) {
+            setTimeout(e, 1e3 / 60)
+        }
+    }(), n()
+}(window, document);
+</script>
     
 <div class="tools-col" q-class="show:isShow,hide:isShow|isFalse" q-on="click:stop(e)">
   <div class="tools-nav header-menu">
@@ -525,10 +594,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">JDBC</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">JVM</a>
               </li>
              
@@ -550,10 +615,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">SSM</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Shiro</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -594,6 +655,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">操作系统</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">yilia</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -704,7 +769,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
     
     	<section class="tools-section tools-section-me" q-show="aboutme">
   	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">我是武理的一名学生&lt;br&gt;&lt;br&gt;用个人博客记录一下自己的学习过程&lt;br&gt;&lt;br&gt;欢迎大家一起来学习&lt;br&gt;&lt;br&gt;QQ联系方式:2745459573</div>
+  	  		<div class="aboutme-wrap" id="js-aboutme">你可会记得，云朵之下指尖轻触，寂寂无言，爱人听见，玫瑰伸展着枝叶；&lt;br&gt;你可记得，友人的笑容，蕴藏着世上所有的温柔；&lt;br&gt;你可会记得，鸽子飞过蓝天，少女脚步轻盈，像清风吹过麦田；&lt;br&gt;你可会记得，在黑暗中有光亮起，你顾冷人生中唯一的璀璨，那是你的家。&lt;br&gt;&lt;br&gt;QQ联系方式：2745459573</div>
   	  	
     	</section>
     

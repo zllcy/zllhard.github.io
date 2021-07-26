@@ -32,7 +32,7 @@
 <meta property="og:image" content="http://example.com/2021/04/07/Java%E5%B8%B8%E7%94%A8%E7%B1%BB/14.jpg">
 <meta property="og:image" content="http://example.com/2021/04/07/Java%E5%B8%B8%E7%94%A8%E7%B1%BB/15.jpg">
 <meta property="article:published_time" content="2021-04-07T12:11:09.389Z">
-<meta property="article:modified_time" content="2021-04-09T13:04:29.220Z">
+<meta property="article:modified_time" content="2021-07-26T13:41:14.545Z">
 <meta property="article:author" content="c^_^y">
 <meta property="article:tag" content="Java基础">
 <meta name="twitter:card" content="summary">
@@ -44,10 +44,13 @@
     <link rel="icon" href="/img/fa.ico">
   
   <link rel="stylesheet" type="text/css" href="/./main.0cf68a.css">
+  
+	<link rel="stylesheet" type="text/css" href="/./avatarrotation.css">
+  
   <style type="text/css">
   
     #container.show {
-      background: linear-gradient(200deg,#a0cfe4,#e8c37e);
+      background: linear-gradient(200deg,#ccc,#000);
     }
   </style>
   
@@ -61,7 +64,7 @@
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
     <div class="left-col" q-class="show:isShow">
       
-<div class="overlay" style="background: #4d4d4d"></div>
+<div class="overlay" style="background: #2f4f4f"></div>
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
@@ -123,7 +126,7 @@
     <div class="mid-col" q-class="show:isShow,hide:isShow|isFalse">
       
 <nav id="mobile-nav">
-  	<div class="overlay js-overlay" style="background: #4d4d4d"></div>
+  	<div class="overlay js-overlay" style="background: #2f4f4f"></div>
 	<div class="btnctn js-mobile-btnctn">
   		<div class="slider-trigger list" q-on="click: openSlider(e)"><i class="icon icon-sort"></i></div>
 	</div>
@@ -185,7 +188,7 @@
       <header class="article-header">
         
   
-    <h1 class="article-title" itemprop="name">
+    <h1 class="article-title_code_ant" itemprop="name">
       Java常用类
     </h1>
   
@@ -208,56 +211,57 @@
       </header>
     
 	<!-- 目录内容 -->
-        
-            <p class="show-toc-btn" id="show-toc-btn" onclick="showToc();" style="display:none">
-            <span class="btn-bg"></span>
-            <span class="btn-text">文章导航</span>
-            </p>
-            <div id="toc-article" class="toc-article">
-                <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
-                <strong class="toc-title">文章目录</strong>
-                <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9B%B8%E5%85%B3%E7%9A%84%E7%B1%BB"><span class="toc-number">1.</span> <span class="toc-text">字符串相关的类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#String"><span class="toc-number">1.1.</span> <span class="toc-text">String</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#String%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%88%9B%E5%BB%BA"><span class="toc-number">1.1.1.</span> <span class="toc-text">String对象的创建</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%AF%B9%E8%B1%A1%E6%98%AF%E5%A6%82%E4%BD%95%E5%AD%98%E5%82%A8%E7%9A%84"><span class="toc-number">1.1.2.</span> <span class="toc-text">字符串对象是如何存储的</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%8B%BC%E6%8E%A5"><span class="toc-number">1.1.3.</span> <span class="toc-text">字符串拼接</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#String%E4%BD%BF%E7%94%A8%E9%99%B7%E9%98%B1"><span class="toc-number">1.1.4.</span> <span class="toc-text">String使用陷阱</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#String%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95"><span class="toc-number">1.1.5.</span> <span class="toc-text">String常用方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#String%E4%B8%8E%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2"><span class="toc-number">1.1.6.</span> <span class="toc-text">String与基本数据类型转换</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#StringBuffer%E7%B1%BB"><span class="toc-number">1.2.</span> <span class="toc-text">StringBuffer类</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#StringBuffer%E7%B1%BB%E7%9A%84%E6%9E%84%E9%80%A0%E5%99%A8"><span class="toc-number">1.2.1.</span> <span class="toc-text">StringBuffer类的构造器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#StringBuffer%E7%B1%BB%E7%9A%84%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95"><span class="toc-number">1.2.2.</span> <span class="toc-text">StringBuffer类的常用方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#StringBuffer%E6%89%A9%E5%AE%B9%E6%9C%BA%E5%88%B6"><span class="toc-number">1.2.3.</span> <span class="toc-text">StringBuffer扩容机制</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#StringBuilder%E7%B1%BB"><span class="toc-number">1.3.</span> <span class="toc-text">StringBuilder类</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JDK8%E4%B9%8B%E5%89%8D%E6%97%A5%E6%9C%9F%E6%97%B6%E9%97%B4API"><span class="toc-number">2.</span> <span class="toc-text">JDK8之前日期时间API</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#java-lang-System%E7%B1%BB"><span class="toc-number">2.1.</span> <span class="toc-text">java.lang.System类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#java-util-Date%E7%B1%BB"><span class="toc-number">2.2.</span> <span class="toc-text">java.util.Date类</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9E%84%E9%80%A0%E5%99%A8"><span class="toc-number">2.2.1.</span> <span class="toc-text">构造器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95"><span class="toc-number">2.2.2.</span> <span class="toc-text">常用方法</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#java-text-SimpleDateFormat%E7%B1%BB"><span class="toc-number">2.3.</span> <span class="toc-text">java.text.SimpleDateFormat类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#java-util-Calendar-%E6%97%A5%E5%8E%86-%E7%B1%BB"><span class="toc-number">2.4.</span> <span class="toc-text">java.util.Calendar(日历)类</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JDK8%E4%B8%AD%E6%96%B0%E6%97%A5%E6%9C%9F%E6%97%B6%E9%97%B4API"><span class="toc-number">3.</span> <span class="toc-text">JDK8中新日期时间API</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#LocalDate%E3%80%81LocalTime%E3%80%81LocalDateTime"><span class="toc-number">3.1.</span> <span class="toc-text">LocalDate、LocalTime、LocalDateTime</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9E%AC%E6%97%B6%EF%BC%88Instant%EF%BC%89"><span class="toc-number">3.2.</span> <span class="toc-text">瞬时（Instant）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%BC%E5%BC%8F%E5%8C%96%E4%B8%8E%E8%A7%A3%E6%9E%90%E6%97%A5%E6%9C%9F%E6%88%96%E6%97%B6%E9%97%B4"><span class="toc-number">3.3.</span> <span class="toc-text">格式化与解析日期或时间</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B6%E5%AE%83API"><span class="toc-number">3.4.</span> <span class="toc-text">其它API</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8E%E4%BC%A0%E7%BB%9F%E6%97%A5%E6%9C%9F%E5%A4%84%E7%90%86%E7%9A%84%E8%BD%AC%E6%8D%A2"><span class="toc-number">3.5.</span> <span class="toc-text">与传统日期处理的转换</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Java%E6%AF%94%E8%BE%83%E5%99%A8"><span class="toc-number">4.</span> <span class="toc-text">Java比较器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%87%AA%E7%84%B6%E6%8E%92%E5%BA%8F%EF%BC%9Ajava-lang-Comparable"><span class="toc-number">4.1.</span> <span class="toc-text">自然排序：java.lang.Comparable</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9A%E5%88%B6%E6%8E%92%E5%BA%8F%EF%BC%9Ajava-util-Comparator"><span class="toc-number">4.2.</span> <span class="toc-text">定制排序：java.util.Comparator</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#System%E7%B1%BB"><span class="toc-number">5.</span> <span class="toc-text">System类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Math%E7%B1%BB"><span class="toc-number">6.</span> <span class="toc-text">Math类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#BigInteger%E4%B8%8EBigDecimal"><span class="toc-number">7.</span> <span class="toc-text">BigInteger与BigDecimal</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#BigInteger%E7%B1%BB"><span class="toc-number">7.1.</span> <span class="toc-text">BigInteger类</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9E%84%E9%80%A0%E5%99%A8-1"><span class="toc-number">7.1.1.</span> <span class="toc-text">构造器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95-1"><span class="toc-number">7.1.2.</span> <span class="toc-text">常用方法</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#BigDecimal%E7%B1%BB"><span class="toc-number">7.2.</span> <span class="toc-text">BigDecimal类</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9E%84%E9%80%A0%E5%99%A8-2"><span class="toc-number">7.2.1.</span> <span class="toc-text">构造器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95-2"><span class="toc-number">7.2.2.</span> <span class="toc-text">常用方法</span></a></li></ol></li></ol></li></ol>
-           </div>
-           <script type="text/javascript">
-            function showToc(){
-                var toc_article = document.getElementById("toc-article");
-                var show_toc_btn = document.getElementById("show-toc-btn");
-                toc_article.setAttribute("style","display:block");
-                show_toc_btn.setAttribute("style","display:none");
-                };
-            function showBtn(){
-                var toc_article = document.getElementById("toc-article");
-                var show_toc_btn = document.getElementById("show-toc-btn");
-                toc_article.setAttribute("style","display:none");
-                show_toc_btn.setAttribute("style","display:block");
-                };
-           </script>
-             
-        <!-- 目录内容结束 -->
+	
+		<p class="show-toc-btn" id="show-toc-btn" onclick="showToc();" style="display:none">
+			  <span class="btn-bg"></span>
+			  <span class="btn-text">文章导航</span>
+			  </p>
+		<div id="toc-article" class="toc-article">
+			<span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
+			<strong class="toc-title">文章目录</strong>
+			   <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9B%B8%E5%85%B3%E7%9A%84%E7%B1%BB"><span class="toc-number">1.</span> <span class="toc-text">字符串相关的类</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#String"><span class="toc-number">1.1.</span> <span class="toc-text">String</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#String%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%88%9B%E5%BB%BA"><span class="toc-number">1.1.1.</span> <span class="toc-text">String对象的创建</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%AF%B9%E8%B1%A1%E6%98%AF%E5%A6%82%E4%BD%95%E5%AD%98%E5%82%A8%E7%9A%84"><span class="toc-number">1.1.2.</span> <span class="toc-text">字符串对象是如何存储的</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%8B%BC%E6%8E%A5"><span class="toc-number">1.1.3.</span> <span class="toc-text">字符串拼接</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#String%E4%BD%BF%E7%94%A8%E9%99%B7%E9%98%B1"><span class="toc-number">1.1.4.</span> <span class="toc-text">String使用陷阱</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#String%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95"><span class="toc-number">1.1.5.</span> <span class="toc-text">String常用方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#String%E4%B8%8E%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2"><span class="toc-number">1.1.6.</span> <span class="toc-text">String与基本数据类型转换</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#StringBuffer%E7%B1%BB"><span class="toc-number">1.2.</span> <span class="toc-text">StringBuffer类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#StringBuffer%E7%B1%BB%E7%9A%84%E6%9E%84%E9%80%A0%E5%99%A8"><span class="toc-number">1.2.1.</span> <span class="toc-text">StringBuffer类的构造器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#StringBuffer%E7%B1%BB%E7%9A%84%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95"><span class="toc-number">1.2.2.</span> <span class="toc-text">StringBuffer类的常用方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#StringBuffer%E6%89%A9%E5%AE%B9%E6%9C%BA%E5%88%B6"><span class="toc-number">1.2.3.</span> <span class="toc-text">StringBuffer扩容机制</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#StringBuilder%E7%B1%BB"><span class="toc-number">1.3.</span> <span class="toc-text">StringBuilder类</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#JDK8%E4%B9%8B%E5%89%8D%E6%97%A5%E6%9C%9F%E6%97%B6%E9%97%B4API"><span class="toc-number">2.</span> <span class="toc-text">JDK8之前日期时间API</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#java-lang-System%E7%B1%BB"><span class="toc-number">2.1.</span> <span class="toc-text">java.lang.System类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#java-util-Date%E7%B1%BB"><span class="toc-number">2.2.</span> <span class="toc-text">java.util.Date类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9E%84%E9%80%A0%E5%99%A8"><span class="toc-number">2.2.1.</span> <span class="toc-text">构造器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95"><span class="toc-number">2.2.2.</span> <span class="toc-text">常用方法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#java-text-SimpleDateFormat%E7%B1%BB"><span class="toc-number">2.3.</span> <span class="toc-text">java.text.SimpleDateFormat类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#java-util-Calendar-%E6%97%A5%E5%8E%86-%E7%B1%BB"><span class="toc-number">2.4.</span> <span class="toc-text">java.util.Calendar(日历)类</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#JDK8%E4%B8%AD%E6%96%B0%E6%97%A5%E6%9C%9F%E6%97%B6%E9%97%B4API"><span class="toc-number">3.</span> <span class="toc-text">JDK8中新日期时间API</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#LocalDate%E3%80%81LocalTime%E3%80%81LocalDateTime"><span class="toc-number">3.1.</span> <span class="toc-text">LocalDate、LocalTime、LocalDateTime</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9E%AC%E6%97%B6%EF%BC%88Instant%EF%BC%89"><span class="toc-number">3.2.</span> <span class="toc-text">瞬时（Instant）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%BC%E5%BC%8F%E5%8C%96%E4%B8%8E%E8%A7%A3%E6%9E%90%E6%97%A5%E6%9C%9F%E6%88%96%E6%97%B6%E9%97%B4"><span class="toc-number">3.3.</span> <span class="toc-text">格式化与解析日期或时间</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B6%E5%AE%83API"><span class="toc-number">3.4.</span> <span class="toc-text">其它API</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%8E%E4%BC%A0%E7%BB%9F%E6%97%A5%E6%9C%9F%E5%A4%84%E7%90%86%E7%9A%84%E8%BD%AC%E6%8D%A2"><span class="toc-number">3.5.</span> <span class="toc-text">与传统日期处理的转换</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Java%E6%AF%94%E8%BE%83%E5%99%A8"><span class="toc-number">4.</span> <span class="toc-text">Java比较器</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%87%AA%E7%84%B6%E6%8E%92%E5%BA%8F%EF%BC%9Ajava-lang-Comparable"><span class="toc-number">4.1.</span> <span class="toc-text">自然排序：java.lang.Comparable</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9A%E5%88%B6%E6%8E%92%E5%BA%8F%EF%BC%9Ajava-util-Comparator"><span class="toc-number">4.2.</span> <span class="toc-text">定制排序：java.util.Comparator</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#System%E7%B1%BB"><span class="toc-number">5.</span> <span class="toc-text">System类</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Math%E7%B1%BB"><span class="toc-number">6.</span> <span class="toc-text">Math类</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#BigInteger%E4%B8%8EBigDecimal"><span class="toc-number">7.</span> <span class="toc-text">BigInteger与BigDecimal</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#BigInteger%E7%B1%BB"><span class="toc-number">7.1.</span> <span class="toc-text">BigInteger类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9E%84%E9%80%A0%E5%99%A8-1"><span class="toc-number">7.1.1.</span> <span class="toc-text">构造器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95-1"><span class="toc-number">7.1.2.</span> <span class="toc-text">常用方法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#BigDecimal%E7%B1%BB"><span class="toc-number">7.2.</span> <span class="toc-text">BigDecimal类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9E%84%E9%80%A0%E5%99%A8-2"><span class="toc-number">7.2.1.</span> <span class="toc-text">构造器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95-2"><span class="toc-number">7.2.2.</span> <span class="toc-text">常用方法</span></a></li></ol></li></ol></li></ol>
+			 </div>
+	   <script type="text/javascript">
+		function showToc(){
+			var toc_article = document.getElementById("toc-article");
+			var show_toc_btn = document.getElementById("show-toc-btn");
+			toc_article.setAttribute("style","display:block");
+			show_toc_btn.setAttribute("style","display:none");
+			};
+		function showBtn(){
+			var toc_article = document.getElementById("toc-article");
+			var show_toc_btn = document.getElementById("show-toc-btn");
+			toc_article.setAttribute("style","display:none");
+			show_toc_btn.setAttribute("style","display:block");
+			};
+	   </script>
+		  
+	<!-- 目录内容结束 -->
+
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="字符串相关的类"><a href="#字符串相关的类" class="headerlink" title="字符串相关的类"></a>字符串相关的类</h2><p>String、StringBuffer、StringBuilder</p>
+        <h1 id="字符串相关的类"><a href="#字符串相关的类" class="headerlink" title="字符串相关的类"></a>字符串相关的类</h1><p>String、StringBuffer、StringBuilder</p>
 <span id="more"></span>
 
-<h3 id="String"><a href="#String" class="headerlink" title="String"></a>String</h3><ul>
+<h2 id="String"><a href="#String" class="headerlink" title="String"></a>String</h2><ul>
 <li>String类：代表字符串。Java 程序中的所有字符串字面值（如 “abc” ）都作为此类的实例实现。</li>
 <li>String是一个final类，代表不可变的字符序列。</li>
 <li>字符串是常量，用双引号引起来表示。它们的值在创建之后不能更改。</li>
 <li>String对象的字符内容是存储在一个字符数组value[]中的。<br><img src="/2021/04/07/Java%E5%B8%B8%E7%94%A8%E7%B1%BB/1.jpg"></li>
 </ul>
-<h4 id="String对象的创建"><a href="#String对象的创建" class="headerlink" title="String对象的创建"></a>String对象的创建</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">String str = <span class="string">&quot;hello&quot;</span>;</span><br><span class="line"><span class="comment">//本质上this.value = new char[0];</span></span><br><span class="line">String s1 = <span class="keyword">new</span> String(); </span><br><span class="line"><span class="comment">//this.value = original.value;</span></span><br><span class="line">String s2 = <span class="keyword">new</span> String(String original); </span><br><span class="line"><span class="comment">//this.value = Arrays.copyOf(value, value.length);</span></span><br><span class="line">String s3 = <span class="keyword">new</span> String(<span class="keyword">char</span>[] a); </span><br><span class="line">String s4 = <span class="keyword">new</span> String(<span class="keyword">char</span>[] a,<span class="keyword">int</span> startIndex,<span class="keyword">int</span> count);</span><br></pre></td></tr></table></figure>
+<h3 id="String对象的创建"><a href="#String对象的创建" class="headerlink" title="String对象的创建"></a>String对象的创建</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">String str = <span class="string">&quot;hello&quot;</span>;</span><br><span class="line"><span class="comment">//本质上this.value = new char[0];</span></span><br><span class="line">String s1 = <span class="keyword">new</span> String(); </span><br><span class="line"><span class="comment">//this.value = original.value;</span></span><br><span class="line">String s2 = <span class="keyword">new</span> String(String original); </span><br><span class="line"><span class="comment">//this.value = Arrays.copyOf(value, value.length);</span></span><br><span class="line">String s3 = <span class="keyword">new</span> String(<span class="keyword">char</span>[] a); </span><br><span class="line">String s4 = <span class="keyword">new</span> String(<span class="keyword">char</span>[] a,<span class="keyword">int</span> startIndex,<span class="keyword">int</span> count);</span><br></pre></td></tr></table></figure>
 <p><img src="/2021/04/07/Java%E5%B8%B8%E7%94%A8%E7%B1%BB/2.jpg"><br><img src="/2021/04/07/Java%E5%B8%B8%E7%94%A8%E7%B1%BB/3.jpg"></p>
 <p><strong>String str1 = “abc”;与String str2 = new String(“abc”);的区别？</strong><br><img src="/2021/04/07/Java%E5%B8%B8%E7%94%A8%E7%B1%BB/4.jpg"></p>
-<h4 id="字符串对象是如何存储的"><a href="#字符串对象是如何存储的" class="headerlink" title="字符串对象是如何存储的"></a>字符串对象是如何存储的</h4><p><img src="/2021/04/07/Java%E5%B8%B8%E7%94%A8%E7%B1%BB/5.jpg"><br><img src="/2021/04/07/Java%E5%B8%B8%E7%94%A8%E7%B1%BB/6.jpg"></p>
-<h4 id="字符串拼接"><a href="#字符串拼接" class="headerlink" title="字符串拼接"></a>字符串拼接</h4><p><img src="/2021/04/07/Java%E5%B8%B8%E7%94%A8%E7%B1%BB/7.jpg"><br><strong>结论：</strong><br>常量与常量的拼接结果在常量池。且常量池中不会存在相同内容的常量。<br>只要其中有一个是变量，结果就在堆中。<br>如果拼接的结果调用intern()方法，返回值就在常量池中。</p>
-<h4 id="String使用陷阱"><a href="#String使用陷阱" class="headerlink" title="String使用陷阱"></a>String使用陷阱</h4><ul>
+<h3 id="字符串对象是如何存储的"><a href="#字符串对象是如何存储的" class="headerlink" title="字符串对象是如何存储的"></a>字符串对象是如何存储的</h3><p><img src="/2021/04/07/Java%E5%B8%B8%E7%94%A8%E7%B1%BB/5.jpg"><br><img src="/2021/04/07/Java%E5%B8%B8%E7%94%A8%E7%B1%BB/6.jpg"></p>
+<h3 id="字符串拼接"><a href="#字符串拼接" class="headerlink" title="字符串拼接"></a>字符串拼接</h3><p><img src="/2021/04/07/Java%E5%B8%B8%E7%94%A8%E7%B1%BB/7.jpg"><br><strong>结论：</strong><br>常量与常量的拼接结果在常量池。且常量池中不会存在相同内容的常量。<br>只要其中有一个是变量，结果就在堆中。<br>如果拼接的结果调用intern()方法，返回值就在常量池中。</p>
+<h3 id="String使用陷阱"><a href="#String使用陷阱" class="headerlink" title="String使用陷阱"></a>String使用陷阱</h3><ul>
 <li>String s1 = “a”;<br>说明：在字符串常量池中创建了一个字面量为”a”的字符串。</li>
 <li>s1 = s1 + “b”;<br>说明：实际上原来的“a”字符串对象已经丢弃了，现在在堆空间中产生了一个字符串s1+”b”（也就是”ab”)。如果多次执行这些改变串内容的操作，会导致大量副本字符串对象存留在内存中，降低效率。如果这样的操作放到循环中，会极大影响程序的性能。</li>
 <li>String s2 = “ab”;<br>说明：直接在字符串常量池中创建一个字面量为”ab”的字符串。</li>
 <li>String s3 = “a” + “b”;<br>说明：s3指向字符串常量池中已经创建的”ab”的字符串。</li>
 <li>String s4 = s1.intern();<br>说明：堆空间的s1对象在调用intern()之后，会将常量池中已经存在的”ab”字符串赋值给s4。</li>
 </ul>
-<h4 id="String常用方法"><a href="#String常用方法" class="headerlink" title="String常用方法"></a>String常用方法</h4><pre><code>int length()：返回字符串的长度： return value.length
+<h3 id="String常用方法"><a href="#String常用方法" class="headerlink" title="String常用方法"></a>String常用方法</h3><pre><code>int length()：返回字符串的长度： return value.length
 char charAt(int index)： 返回某索引处的字符return value[index]
 boolean isEmpty()：判断是否是空字符串：return value.length == 0
 String trim()：返回字符串的副本，忽略前导空白和尾部空白
@@ -294,7 +298,7 @@ String replaceFirst(String regex, String replacement) ： 使用给定的replace
 <pre><code>String[] split(String regex)：根据给定正则表达式的匹配拆分此字符串。
 String[] split(String regex, int limit)：根据匹配给定的正则表达式来拆分此字符串，最多不超过limit个，如果超过了，剩下的全部都放到最后一个元素中。
 </code></pre>
-<h4 id="String与基本数据类型转换"><a href="#String与基本数据类型转换" class="headerlink" title="String与基本数据类型转换"></a>String与基本数据类型转换</h4><ul>
+<h3 id="String与基本数据类型转换"><a href="#String与基本数据类型转换" class="headerlink" title="String与基本数据类型转换"></a>String与基本数据类型转换</h3><ul>
 <li><p>字符串 -&gt; 基本数据类型、包装类<br>Integer包装类的public static int parseInt(String s)：可以将由“数字”字符组成的字符串转换为整型。<br>类似地,使用java.lang包中的Byte、Short、Long、Float、Double类调相应的类方法可以将由“数字”字符组成的字符串，转化为相应的基本数据类型。</p>
 </li>
 <li><p>基本数据类型、包装类 -&gt; 字符串<br>调用String类的public String valueOf(int n)可将int型转换为字符串。<br>相应的valueOf(byte b)、valueOf(long l)、valueOf(float f)、valueOf(double d)、valueOf(boolean b)可由参数的相应类型到字符串的转换。</p>
@@ -308,14 +312,14 @@ String[] split(String regex, int limit)：根据匹配给定的正则表达式�
 <li><p>字符串 -&gt; 字节数组<br>public byte[] getBytes() ：使用平台的默认字符集将此 String 编码为byte 序列，并将结果存储到一个新的 byte 数组中。<br>public byte[] getBytes(String charsetName) ：使用指定的字符集将此 String 编码到 byte 序列，并将结果存储到新的 byte 数组。</p>
 </li>
 </ul>
-<h3 id="StringBuffer类"><a href="#StringBuffer类" class="headerlink" title="StringBuffer类"></a>StringBuffer类</h3><ul>
+<h2 id="StringBuffer类"><a href="#StringBuffer类" class="headerlink" title="StringBuffer类"></a>StringBuffer类</h2><ul>
 <li>java.lang.StringBuffer代表可变的字符序列，JDK1.0中声明，可以对字符串内容进行增删，此时不会产生新的对象。</li>
 <li>很多方法与String相同。</li>
 <li>作为参数传递时，方法内部可以改变值。<br><img src="/2021/04/07/Java%E5%B8%B8%E7%94%A8%E7%B1%BB/8.jpg"><br><img src="/2021/04/07/Java%E5%B8%B8%E7%94%A8%E7%B1%BB/9.jpg"><br>StringBuffer extends AbstractStringBuilder<br>AbstractStringBuilder中的value没有final声明,value可以不断扩容。count记录有效字符的个数。</li>
 </ul>
-<h4 id="StringBuffer类的构造器"><a href="#StringBuffer类的构造器" class="headerlink" title="StringBuffer类的构造器"></a>StringBuffer类的构造器</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 初始容量为16的字符串缓冲区</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">StringBuffer</span><span class="params">()</span> </span>&#123;</span><br><span class="line">       <span class="keyword">super</span>(<span class="number">16</span>);</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 初始化指定容量</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">StringBuffer</span><span class="params">(<span class="keyword">int</span> capacity)</span> </span>&#123;</span><br><span class="line">       <span class="keyword">super</span>(capacity);</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 将内容初始化为指定字符串内容，在指定字符串的长度上加上16	</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">StringBuffer</span><span class="params">(String str)</span> </span>&#123;</span><br><span class="line">       <span class="keyword">super</span>(str.length() + <span class="number">16</span>);</span><br><span class="line">       append(str);</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 传入字符数组</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">StringBuffer</span><span class="params">(CharSequence seq)</span> </span>&#123;</span><br><span class="line">       <span class="keyword">this</span>(seq.length() + <span class="number">16</span>);</span><br><span class="line">       append(seq);</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+<h3 id="StringBuffer类的构造器"><a href="#StringBuffer类的构造器" class="headerlink" title="StringBuffer类的构造器"></a>StringBuffer类的构造器</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 初始容量为16的字符串缓冲区</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">StringBuffer</span><span class="params">()</span> </span>&#123;</span><br><span class="line">       <span class="keyword">super</span>(<span class="number">16</span>);</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 初始化指定容量</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">StringBuffer</span><span class="params">(<span class="keyword">int</span> capacity)</span> </span>&#123;</span><br><span class="line">       <span class="keyword">super</span>(capacity);</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 将内容初始化为指定字符串内容，在指定字符串的长度上加上16	</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">StringBuffer</span><span class="params">(String str)</span> </span>&#123;</span><br><span class="line">       <span class="keyword">super</span>(str.length() + <span class="number">16</span>);</span><br><span class="line">       append(str);</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 传入字符数组</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">StringBuffer</span><span class="params">(CharSequence seq)</span> </span>&#123;</span><br><span class="line">       <span class="keyword">this</span>(seq.length() + <span class="number">16</span>);</span><br><span class="line">       append(seq);</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
 
-<h4 id="StringBuffer类的常用方法"><a href="#StringBuffer类的常用方法" class="headerlink" title="StringBuffer类的常用方法"></a>StringBuffer类的常用方法</h4><pre><code>StringBuffer append(xxx)：提供了很多的append()方法，用于进行字符串拼接
+<h3 id="StringBuffer类的常用方法"><a href="#StringBuffer类的常用方法" class="headerlink" title="StringBuffer类的常用方法"></a>StringBuffer类的常用方法</h3><pre><code>StringBuffer append(xxx)：提供了很多的append()方法，用于进行字符串拼接
 StringBuffer delete(int start,int end)：删除指定位置的内容
 StringBuffer replace(int start, int end, String str)：把[start,end)位置替换为str
 StringBuffer insert(int offset, xxx)：在指定位置插入xxx
@@ -329,24 +333,24 @@ public int length()
 public char charAt(int n )
 public void setCharAt(int n ,char ch)
 </code></pre>
-<h4 id="StringBuffer扩容机制"><a href="#StringBuffer扩容机制" class="headerlink" title="StringBuffer扩容机制"></a>StringBuffer扩容机制</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> StringBuffer <span class="title">append</span><span class="params">(String str)</span> </span>&#123;</span><br><span class="line">       toStringCache = <span class="keyword">null</span>;</span><br><span class="line">       <span class="keyword">super</span>.append(str);</span><br><span class="line">       <span class="keyword">return</span> <span class="keyword">this</span>;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+<h3 id="StringBuffer扩容机制"><a href="#StringBuffer扩容机制" class="headerlink" title="StringBuffer扩容机制"></a>StringBuffer扩容机制</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> StringBuffer <span class="title">append</span><span class="params">(String str)</span> </span>&#123;</span><br><span class="line">       toStringCache = <span class="keyword">null</span>;</span><br><span class="line">       <span class="keyword">super</span>.append(str);</span><br><span class="line">       <span class="keyword">return</span> <span class="keyword">this</span>;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
 <p>StringBuffer的append方法都调用了父类的append方法</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> AbstractStringBuilder <span class="title">append</span><span class="params">(String str)</span> </span>&#123;</span><br><span class="line">       <span class="keyword">if</span> (str == <span class="keyword">null</span>)</span><br><span class="line">           <span class="keyword">return</span> appendNull();</span><br><span class="line">       <span class="keyword">int</span> len = str.length();</span><br><span class="line">	<span class="comment">// 如果添加的字符串不为null，首先需要确保容量是够得</span></span><br><span class="line">       ensureCapacityInternal(count + len);</span><br><span class="line">       str.getChars(<span class="number">0</span>, len, value, count);</span><br><span class="line">       count += len;</span><br><span class="line">       <span class="keyword">return</span> <span class="keyword">this</span>;</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">ensureCapacityInternal</span><span class="params">(<span class="keyword">int</span> minimumCapacity)</span> </span>&#123;</span><br><span class="line">       <span class="comment">// overflow-conscious code</span></span><br><span class="line">	<span class="comment">// 容量不够就需要扩容</span></span><br><span class="line">       <span class="keyword">if</span> (minimumCapacity - value.length &gt; <span class="number">0</span>) &#123;</span><br><span class="line">           value = Arrays.copyOf(value,</span><br><span class="line">                   newCapacity(minimumCapacity));</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 返回扩容后的新容量</span></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">newCapacity</span><span class="params">(<span class="keyword">int</span> minCapacity)</span> </span>&#123;</span><br><span class="line">       <span class="comment">// overflow-conscious code</span></span><br><span class="line">	<span class="comment">// 新容量 = 之前容量 * 2 + 2</span></span><br><span class="line">       <span class="keyword">int</span> newCapacity = (value.length &lt;&lt; <span class="number">1</span>) + <span class="number">2</span>;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 如果扩容后还不够，那就拿minCapacity为新容量</span></span><br><span class="line">       <span class="keyword">if</span> (newCapacity - minCapacity &lt; <span class="number">0</span>) &#123;</span><br><span class="line">           newCapacity = minCapacity;</span><br><span class="line">       &#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 容量为负数的情况</span></span><br><span class="line">       <span class="keyword">return</span> (newCapacity &lt;= <span class="number">0</span> || MAX_ARRAY_SIZE - newCapacity &lt; <span class="number">0</span>)</span><br><span class="line">           ? hugeCapacity(minCapacity)</span><br><span class="line">           : newCapacity;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
 <p>默认情况下，扩容为原来容量的2倍 + 2，同时将原有数组中的元素复制到新的数组中。</p>
-<h3 id="StringBuilder类"><a href="#StringBuilder类" class="headerlink" title="StringBuilder类"></a>StringBuilder类</h3><p>StringBuilder 和 StringBuffer 非常类似，均代表可变的字符序列，而且提供相关功能的方法也一样。<br><strong>对比String、StringBuffer、StringBuilder</strong><br>String(JDK1.0)：不可变字符序列<br>StringBuffer(JDK1.0)：可变字符序列、效率低、线程安全<br>StringBuilder(JDK 5.0)：可变字符序列、效率高、线程不安全<br><strong>注意：</strong>作为参数传递的话，方法内部String不会改变其值，StringBuffer和StringBuilder会改变其值。</p>
+<h2 id="StringBuilder类"><a href="#StringBuilder类" class="headerlink" title="StringBuilder类"></a>StringBuilder类</h2><p>StringBuilder 和 StringBuffer 非常类似，均代表可变的字符序列，而且提供相关功能的方法也一样。<br><strong>对比String、StringBuffer、StringBuilder</strong><br>String(JDK1.0)：不可变字符序列<br>StringBuffer(JDK1.0)：可变字符序列、效率低、线程安全<br>StringBuilder(JDK 5.0)：可变字符序列、效率高、线程不安全<br><strong>注意：</strong>作为参数传递的话，方法内部String不会改变其值，StringBuffer和StringBuilder会改变其值。</p>
 <p>开发中建议使用：StringBuffer(int capacity) 或 StringBuilder(int capacity)减少因为扩容带来效率降低的问题。</p>
-<h2 id="JDK8之前日期时间API"><a href="#JDK8之前日期时间API" class="headerlink" title="JDK8之前日期时间API"></a>JDK8之前日期时间API</h2><p><img src="/2021/04/07/Java%E5%B8%B8%E7%94%A8%E7%B1%BB/9.jpg"></p>
-<h3 id="java-lang-System类"><a href="#java-lang-System类" class="headerlink" title="java.lang.System类"></a>java.lang.System类</h3><p>System类提供的public static long currentTimeMillis()用来返回当前时间与1970年1月1日0时0分0秒之间以毫秒为单位的时间差。此方法适于计算时间差。</p>
+<h1 id="JDK8之前日期时间API"><a href="#JDK8之前日期时间API" class="headerlink" title="JDK8之前日期时间API"></a>JDK8之前日期时间API</h1><p><img src="/2021/04/07/Java%E5%B8%B8%E7%94%A8%E7%B1%BB/9.jpg"></p>
+<h2 id="java-lang-System类"><a href="#java-lang-System类" class="headerlink" title="java.lang.System类"></a>java.lang.System类</h2><p>System类提供的public static long currentTimeMillis()用来返回当前时间与1970年1月1日0时0分0秒之间以毫秒为单位的时间差。此方法适于计算时间差。</p>
 <p>计算世界时间的主要标准有：<br>UTC(Coordinated Universal Time)<br>GMT(Greenwich Mean Time)<br>CST(Central Standard Time)</p>
-<h3 id="java-util-Date类"><a href="#java-util-Date类" class="headerlink" title="java.util.Date类"></a>java.util.Date类</h3><p>表示特定的瞬间，精确到毫秒。</p>
-<h4 id="构造器"><a href="#构造器" class="headerlink" title="构造器"></a>构造器</h4><pre><code>Date()：使用无参构造器创建的对象可以获取本地当前时间。
+<h2 id="java-util-Date类"><a href="#java-util-Date类" class="headerlink" title="java.util.Date类"></a>java.util.Date类</h2><p>表示特定的瞬间，精确到毫秒。</p>
+<h3 id="构造器"><a href="#构造器" class="headerlink" title="构造器"></a>构造器</h3><pre><code>Date()：使用无参构造器创建的对象可以获取本地当前时间。
 Date(long date)
 </code></pre>
-<h4 id="常用方法"><a href="#常用方法" class="headerlink" title="常用方法"></a>常用方法</h4><pre><code>getTime():返回自 1970 年 1 月 1 日 00:00:00 GMT 以来此 Date 对象表示的毫秒数。
+<h3 id="常用方法"><a href="#常用方法" class="headerlink" title="常用方法"></a>常用方法</h3><pre><code>getTime():返回自 1970 年 1 月 1 日 00:00:00 GMT 以来此 Date 对象表示的毫秒数。
 toString():把此 Date 对象转换为以下形式的 String： dow mon ddhh:mm:ss zzz yyyy 其中： dow 是一周中的某一天 (Sun, Mon, Tue, Wed, Thu, Fri, Sat)，zzz是时间标准。
 </code></pre>
 <p>其它很多方法都过时了。</p>
-<h3 id="java-text-SimpleDateFormat类"><a href="#java-text-SimpleDateFormat类" class="headerlink" title="java.text.SimpleDateFormat类"></a>java.text.SimpleDateFormat类</h3><p>Date类的API不易于国际化，大部分被废弃了，java.text.SimpleDateFormat类是一个不与语言环境有关的方式来格式化和解析日期的具体类。<br>它允许进行格式化：日期 -&gt; 文本、解析：文本 -&gt; 日期。</p>
+<h2 id="java-text-SimpleDateFormat类"><a href="#java-text-SimpleDateFormat类" class="headerlink" title="java.text.SimpleDateFormat类"></a>java.text.SimpleDateFormat类</h2><p>Date类的API不易于国际化，大部分被废弃了，java.text.SimpleDateFormat类是一个不与语言环境有关的方式来格式化和解析日期的具体类。<br>它允许进行格式化：日期 -&gt; 文本、解析：文本 -&gt; 日期。</p>
 <p><strong>格式化：</strong></p>
 <pre><code>SimpleDateFormat() ：默认的模式和语言环境创建对象
 public SimpleDateFormat(String pattern)：该构造方法可以用参数pattern指定的格式创建一个对象，该对象调用：public String format(Date date)：方法格式化时间对象date
@@ -355,7 +359,7 @@ public SimpleDateFormat(String pattern)：该构造方法可以用参数pattern�
 <pre><code>public Date parse(String source)：从给定字符串的开始解析文本，以生成一个日期。
 </code></pre>
 <p><img src="/2021/04/07/Java%E5%B8%B8%E7%94%A8%E7%B1%BB/10.jpg"></p>
-<h3 id="java-util-Calendar-日历-类"><a href="#java-util-Calendar-日历-类" class="headerlink" title="java.util.Calendar(日历)类"></a>java.util.Calendar(日历)类</h3><p>Calendar是一个抽象基类，主用用于完成日期字段之间相互操作的功能。</p>
+<h2 id="java-util-Calendar-日历-类"><a href="#java-util-Calendar-日历-类" class="headerlink" title="java.util.Calendar(日历)类"></a>java.util.Calendar(日历)类</h2><p>Calendar是一个抽象基类，主用用于完成日期字段之间相互操作的功能。</p>
 <p><strong>获取Calendar实例的方法</strong><br>1）使用Calendar.getInstance()方法<br>2）调用它的子类GregorianCalendar的构造器。</p>
 <p>一个Calendar的实例是系统时间的抽象表示，通过get(int field)方法来取得想要的时间信息。比如YEAR、MONTH、DAY_OF_WEEK、HOUR_OF_DAY 、MINUTE、SECOND</p>
 <pre><code>public void set(int field,int value)
@@ -364,7 +368,7 @@ public final Date getTime()
 public final void setTime(Date date)
 </code></pre>
 <p><strong>注意:</strong><br>获取月份时：一月是0，二月是1，以此类推，12月是11<br>获取星期时：周日是1，周二是2 ，…周六是7</p>
-<h2 id="JDK8中新日期时间API"><a href="#JDK8中新日期时间API" class="headerlink" title="JDK8中新日期时间API"></a>JDK8中新日期时间API</h2><p>JDK 1.0中包含了一个java.util.Date类，但是它的大多数方法已经在JDK 1.1引入Calendar类之后被弃用了。而Calendar并不比Date好多少。它们面临的问题是：<br>可变性：像日期和时间这样的类应该是不可变的。<br>偏移性：Date中的年份是从1900开始的，而月份都从0开始。<br>格式化：格式化只对Date有用，Calendar则不行。<br>此外，它们也不是线程安全的；不能处理闰秒等。</p>
+<h1 id="JDK8中新日期时间API"><a href="#JDK8中新日期时间API" class="headerlink" title="JDK8中新日期时间API"></a>JDK8中新日期时间API</h1><p>JDK 1.0中包含了一个java.util.Date类，但是它的大多数方法已经在JDK 1.1引入Calendar类之后被弃用了。而Calendar并不比Date好多少。它们面临的问题是：<br>可变性：像日期和时间这样的类应该是不可变的。<br>偏移性：Date中的年份是从1900开始的，而月份都从0开始。<br>格式化：格式化只对Date有用，Calendar则不行。<br>此外，它们也不是线程安全的；不能处理闰秒等。</p>
 <p>Java 8 吸收了 Joda-Time 的精华，以一个新的开始为 Java 创建优秀的 API。新的 java.time 中包含了所有关于本地日期（LocalDate）、本地时间（LocalTime）、本地日期时间（LocalDateTime）、时区（ZonedDateTime）和持续时间（Duration）的类。历史悠久的 Date 类新增了 toInstant() 方法，用于把 Date 转换成新的表示形式。这些新增的本地化时间日期 API 大大简化了日期时间和本地化的管理。</p>
 <pre><code>java.time – 包含值对象的基础包
 java.time.chrono – 提供对不同的日历系统的访问
@@ -373,17 +377,17 @@ java.time.temporal – 包括底层框架和扩展特性
 java.time.zone – 包含时区支持的类
 </code></pre>
 <p>说明：大多数开发者只会用到基础包和format包，也可能会用到temporal包。因此，尽管有68个新的公开类型，大多数开发者，大概将只会用到其中的三分之一。</p>
-<h3 id="LocalDate、LocalTime、LocalDateTime"><a href="#LocalDate、LocalTime、LocalDateTime" class="headerlink" title="LocalDate、LocalTime、LocalDateTime"></a>LocalDate、LocalTime、LocalDateTime</h3><p>LocalDate、LocalTime、LocalDateTime 类是其中较重要的几个类，它们的实例是不可变的对象，分别表示使用 ISO-8601日历系统的日期、时间、日期和时间。它们提供了简单的本地日期或时间，并不包含当前的时间信息，也不包含与时区相关的信息。<br>LocalDate代表IOS格式（yyyy-MM-dd）的日期,可以存储 生日、纪念日等日期。<br>LocalTime表示一个时间，而不是日期。<br>LocalDateTime是用来表示日期和时间的，这是一个最常用的类之一。</p>
+<h2 id="LocalDate、LocalTime、LocalDateTime"><a href="#LocalDate、LocalTime、LocalDateTime" class="headerlink" title="LocalDate、LocalTime、LocalDateTime"></a>LocalDate、LocalTime、LocalDateTime</h2><p>LocalDate、LocalTime、LocalDateTime 类是其中较重要的几个类，它们的实例是不可变的对象，分别表示使用 ISO-8601日历系统的日期、时间、日期和时间。它们提供了简单的本地日期或时间，并不包含当前的时间信息，也不包含与时区相关的信息。<br>LocalDate代表IOS格式（yyyy-MM-dd）的日期,可以存储 生日、纪念日等日期。<br>LocalTime表示一个时间，而不是日期。<br>LocalDateTime是用来表示日期和时间的，这是一个最常用的类之一。</p>
 <p>注：ISO-8601日历系统是国际标准化组织制定的现代公民的日期和时间的表示法，也就是公历。</p>
 <p><img src="/2021/04/07/Java%E5%B8%B8%E7%94%A8%E7%B1%BB/11.jpg"></p>
-<h3 id="瞬时（Instant）"><a href="#瞬时（Instant）" class="headerlink" title="瞬时（Instant）"></a>瞬时（Instant）</h3><ul>
+<h2 id="瞬时（Instant）"><a href="#瞬时（Instant）" class="headerlink" title="瞬时（Instant）"></a>瞬时（Instant）</h2><ul>
 <li>Instant：时间线上的一个瞬时点。 这可能被用来记录应用程序中的事件时间戳。</li>
 <li>在处理时间和日期的时候，我们通常会想到年,月,日,时,分,秒。然而，这只是时间的一个模型，是面向人类的。第二种通用模型是面向机器的，或者说是连续的。在此模型中，时间线中的一个点表示为一个很大的数，这有利于计算机处理。在UNIX中，这个数从1970年开始，以秒为的单位；同样的，在Java中，也是从1970年开始，但以毫秒为单位。</li>
 <li>java.time包通过值类型Instant提供机器视图，不提供处理人类意义上的时间单位。Instant表示时间线上的一点，而不需要任何上下文信息，例如，时区。概念上讲，它只是简单的表示自1970年1月1日0时0分0秒（UTC）开始的秒数。因为java.time包是基于纳秒计算的，所以Instant的精度可以达到纳秒级。</li>
 </ul>
 <p><img src="/2021/04/07/Java%E5%B8%B8%E7%94%A8%E7%B1%BB/12.jpg"><br>时间戳是指格林威治时间1970年01月01日00时00分00秒(北京时间1970年01月01日08时00分00秒)起至现在的总秒数。</p>
-<h3 id="格式化与解析日期或时间"><a href="#格式化与解析日期或时间" class="headerlink" title="格式化与解析日期或时间"></a>格式化与解析日期或时间</h3><p>java.time.format.DateTimeFormatter 类：该类提供了三种格式化方法：<br>1）预定义的标准格式。如：ISO_LOCAL_DATE_TIME;ISO_LOCAL_DATE;ISO_LOCAL_TIME<br>2）本地化相关的格式。如：ofLocalizedDateTime(FormatStyle.LONG)<br>3）自定义的格式。如：ofPattern(“yyyy-MM-dd hh:mm:ss”)<br><img src="/2021/04/07/Java%E5%B8%B8%E7%94%A8%E7%B1%BB/13.jpg"></p>
-<h3 id="其它API"><a href="#其它API" class="headerlink" title="其它API"></a>其它API</h3><ul>
+<h2 id="格式化与解析日期或时间"><a href="#格式化与解析日期或时间" class="headerlink" title="格式化与解析日期或时间"></a>格式化与解析日期或时间</h2><p>java.time.format.DateTimeFormatter 类：该类提供了三种格式化方法：<br>1）预定义的标准格式。如：ISO_LOCAL_DATE_TIME;ISO_LOCAL_DATE;ISO_LOCAL_TIME<br>2）本地化相关的格式。如：ofLocalizedDateTime(FormatStyle.LONG)<br>3）自定义的格式。如：ofPattern(“yyyy-MM-dd hh:mm:ss”)<br><img src="/2021/04/07/Java%E5%B8%B8%E7%94%A8%E7%B1%BB/13.jpg"></p>
+<h2 id="其它API"><a href="#其它API" class="headerlink" title="其它API"></a>其它API</h2><ul>
 <li>ZoneId：该类中包含了所有的时区信息，一个时区的ID，如 Europe/Paris</li>
 <li>ZonedDateTime：一个在ISO-8601日历系统时区的日期时间，如 2007-12-03T10:15:30+01:00 Europe/Paris。<br>其中每个时区都对应着ID，地区ID都为“{区域}/{城市}”的格式，例如：Asia/Shanghai等</li>
 <li>Clock：使用时区提供对当前即时、日期和时间的访问的时钟。</li>
@@ -392,30 +396,30 @@ java.time.zone – 包含时区支持的类
 <li>TemporalAdjuster : 时间校正器。有时我们可能需要获取例如：将日期调整到“下一个工作日”等操作。</li>
 <li>TemporalAdjusters : 该类通过静态方法(firstDayOfXxx()/lastDayOfXxx()/nextXxx())提供了大量的常用TemporalAdjuster 的实现。</li>
 </ul>
-<h3 id="与传统日期处理的转换"><a href="#与传统日期处理的转换" class="headerlink" title="与传统日期处理的转换"></a>与传统日期处理的转换</h3><p><img src="/2021/04/07/Java%E5%B8%B8%E7%94%A8%E7%B1%BB/14.jpg"></p>
-<h2 id="Java比较器"><a href="#Java比较器" class="headerlink" title="Java比较器"></a>Java比较器</h2><ul>
+<h2 id="与传统日期处理的转换"><a href="#与传统日期处理的转换" class="headerlink" title="与传统日期处理的转换"></a>与传统日期处理的转换</h2><p><img src="/2021/04/07/Java%E5%B8%B8%E7%94%A8%E7%B1%BB/14.jpg"></p>
+<h1 id="Java比较器"><a href="#Java比较器" class="headerlink" title="Java比较器"></a>Java比较器</h1><ul>
 <li>在Java中经常会涉及到对象数组的排序问题，那么就涉及到对象之间的比较问题。</li>
 <li>Java实现对象排序的方式有两种：<br>自然排序：java.lang.Comparable<br>定制排序：java.util.Comparator</li>
 </ul>
-<h3 id="自然排序：java-lang-Comparable"><a href="#自然排序：java-lang-Comparable" class="headerlink" title="自然排序：java.lang.Comparable"></a>自然排序：java.lang.Comparable</h3><ul>
+<h2 id="自然排序：java-lang-Comparable"><a href="#自然排序：java-lang-Comparable" class="headerlink" title="自然排序：java.lang.Comparable"></a>自然排序：java.lang.Comparable</h2><ul>
 <li>Comparable接口强行对实现它的每个类的对象进行整体排序。这种排序被称为类的自然排序。</li>
 <li>实现 Comparable 的类必须实现 compareTo(Object obj) 方法，两个对象即通过 compareTo(Object obj) 方法的返回值来比较大小。如果当前对象this大于形参对象obj，则返回正整数，如果当前对象this小于形参对象obj，则返回负整数，如果当前对象this等于形参对象obj，则返回零。</li>
 <li>实现Comparable接口的对象列表（和数组）可以通过 Collections.sort 或Arrays.sort进行自动排序。实现此接口的对象可以用作有序映射中的键或有序集合中的元素，无需指定比较器。</li>
 <li>对于类 C 的每一个 e1 和 e2 来说，当且仅当 e1.compareTo(e2) == 0 与e1.equals(e2) 具有相同的 boolean 值时，类 C 的自然排序才叫做与 equals 一致。建议（虽然不是必需的）最好使自然排序与 equals 一致。</li>
 </ul>
 <p><strong>Comparable 的典型实现：(默认都是从小到大排列的)</strong><br>String：按照字符串中字符的Unicode值进行比较<br>Character：按照字符的Unicode值来进行比较<br>数值类型对应的包装类以及BigInteger、BigDecimal：按照它们对应的数值大小进行比较<br>Boolean：true 对应的包装类实例大于 false 对应的包装类实例<br>Date、Time等：后面的日期时间比前面的日期时间大</p>
-<h3 id="定制排序：java-util-Comparator"><a href="#定制排序：java-util-Comparator" class="headerlink" title="定制排序：java.util.Comparator"></a>定制排序：java.util.Comparator</h3><ul>
+<h2 id="定制排序：java-util-Comparator"><a href="#定制排序：java-util-Comparator" class="headerlink" title="定制排序：java.util.Comparator"></a>定制排序：java.util.Comparator</h2><ul>
 <li>当元素的类型没有实现java.lang.Comparable接口而又不方便修改代码，或者实现了java.lang.Comparable接口的排序规则不适合当前的操作，那么可以考虑使用 Comparator 的对象来排序，强行对多个对象进行整体排序的比较。</li>
 <li>重写compare(Object o1,Object o2)方法，比较o1和o2的大小：如果方法返回正整数，则表示o1大于o2；如果返回0，表示相等；返回负整数，表示o1小于o2。</li>
 <li>可以将 Comparator 传递给 sort 方法（如 Collections.sort 或 Arrays.sort），从而允许在排序顺序上实现精确控制。</li>
 <li>还可以使用 Comparator 来控制某些数据结构（如有序 set或有序映射）的顺序，或者为那些没有自然顺序的对象 collection 提供排序。</li>
 </ul>
-<h2 id="System类"><a href="#System类" class="headerlink" title="System类"></a>System类</h2><ul>
+<h1 id="System类"><a href="#System类" class="headerlink" title="System类"></a>System类</h1><ul>
 <li>System类代表系统，系统级的很多属性和控制方法都放置在该类的内部。该类位于java.lang包。</li>
 <li>由于该类的构造器是private的，所以无法创建该类的对象，也就是无法实例化该类。其内部的成员变量和成员方法都是static的，所以也可以很方便的进行调用。</li>
 </ul>
 <p><strong>成员变量</strong><br>System类内部包含in、out和err三个成员变量，分别代表标准输入流(键盘输入)，标准输出流(显示器)和标准错误输出流(显示器)。<br><strong>成员方法</strong><br>native long currentTimeMillis()：该方法的作用是返回当前的计算机时间，时间的表达格式为当前计算机时间和GMT时间(格林威治时间)1970年1月1号0时0分0秒所差的毫秒数。<br>void exit(int status)：该方法的作用是退出程序。其中status的值为0代表正常退出，非零代表异常退出。使用该方法可以在图形界面编程中实现程序的退出功能等。<br>void gc()：该方法的作用是请求系统进行垃圾回收。至于系统是否立刻回收，则取决于系统中垃圾回收算法的实现以及系统执行时的情况。<br>String getProperty(String key)：该方法的作用是获得系统中属性名为key的属性对应的值。系统中常见的属性名以及属性的作用如下表所示：<br><img src="/2021/04/07/Java%E5%B8%B8%E7%94%A8%E7%B1%BB/15.jpg"></p>
-<h2 id="Math类"><a href="#Math类" class="headerlink" title="Math类"></a>Math类</h2><p>java.lang.Math提供了一系列静态方法用于科学计算。其方法的参数和返回值类型一般为double型。</p>
+<h1 id="Math类"><a href="#Math类" class="headerlink" title="Math类"></a>Math类</h1><p>java.lang.Math提供了一系列静态方法用于科学计算。其方法的参数和返回值类型一般为double型。</p>
 <pre><code>abs 绝对值
 acos,asin,atan,cos,sin,tan 三角函数
 sqrt 平方根
@@ -429,13 +433,13 @@ long round(double a) double型数据a转换为long型（四舍五入）
 toDegrees(double angrad) 弧度—&gt;角度
 toRadians(double angdeg) 角度—&gt;弧度
 </code></pre>
-<h2 id="BigInteger与BigDecimal"><a href="#BigInteger与BigDecimal" class="headerlink" title="BigInteger与BigDecimal"></a>BigInteger与BigDecimal</h2><h3 id="BigInteger类"><a href="#BigInteger类" class="headerlink" title="BigInteger类"></a>BigInteger类</h3><ul>
+<h1 id="BigInteger与BigDecimal"><a href="#BigInteger与BigDecimal" class="headerlink" title="BigInteger与BigDecimal"></a>BigInteger与BigDecimal</h1><h2 id="BigInteger类"><a href="#BigInteger类" class="headerlink" title="BigInteger类"></a>BigInteger类</h2><ul>
 <li>Integer类作为int的包装类，能存储的最大整型值为2^31-1，Long类也是有限的，最大为2^63-1。如果要表示再大的整数，不管是基本数据类型还是他们的包装类都无能为力，更不用说进行运算了。</li>
 <li>java.math包的BigInteger可以表示不可变的任意精度的整数。BigInteger 提供所有 Java 的基本整数操作符的对应物，并提供 java.lang.Math 的所有相关方法。另外，BigInteger 还提供以下运算：模算术、GCD 计算、质数测试、素数生成、位操作以及一些其他操作。</li>
 </ul>
-<h4 id="构造器-1"><a href="#构造器-1" class="headerlink" title="构造器"></a>构造器</h4><pre><code>BigInteger(String val)：根据字符串构建BigInteger对象
+<h3 id="构造器-1"><a href="#构造器-1" class="headerlink" title="构造器"></a>构造器</h3><pre><code>BigInteger(String val)：根据字符串构建BigInteger对象
 </code></pre>
-<h4 id="常用方法-1"><a href="#常用方法-1" class="headerlink" title="常用方法"></a>常用方法</h4><pre><code>public BigInteger abs()：返回此 BigInteger 的绝对值的 BigInteger。
+<h3 id="常用方法-1"><a href="#常用方法-1" class="headerlink" title="常用方法"></a>常用方法</h3><pre><code>public BigInteger abs()：返回此 BigInteger 的绝对值的 BigInteger。
 BigInteger add(BigInteger val) ：返回其值为 (this + val) 的 BigInteger
 BigInteger subtract(BigInteger val) ：返回其值为 (this - val) 的 BigInteger
 BigInteger multiply(BigInteger val) ：返回其值为 (this * val) 的 BigInteger
@@ -444,14 +448,14 @@ BigInteger remainder(BigInteger val) ：返回其值为 (this % val) 的 BigInte
 BigInteger[] divideAndRemainder(BigInteger val)：返回包含 (this / val) 后跟(this % val) 的两个 BigInteger 的数组。
 BigInteger pow(int exponent) ：返回其值为 (thisexponent) 的 BigInteger。
 </code></pre>
-<h3 id="BigDecimal类"><a href="#BigDecimal类" class="headerlink" title="BigDecimal类"></a>BigDecimal类</h3><ul>
+<h2 id="BigDecimal类"><a href="#BigDecimal类" class="headerlink" title="BigDecimal类"></a>BigDecimal类</h2><ul>
 <li>一般的Float类和Double类可以用来做科学计算或工程计算，但在商业计算中，要求数字精度比较高，故用到java.math.BigDecimal类。</li>
 <li>BigDecimal类支持不可变的、任意精度的有符号十进制定点数。</li>
 </ul>
-<h4 id="构造器-2"><a href="#构造器-2" class="headerlink" title="构造器"></a>构造器</h4><pre><code>public BigDecimal(double val)
+<h3 id="构造器-2"><a href="#构造器-2" class="headerlink" title="构造器"></a>构造器</h3><pre><code>public BigDecimal(double val)
 public BigDecimal(String val)
 </code></pre>
-<h4 id="常用方法-2"><a href="#常用方法-2" class="headerlink" title="常用方法"></a>常用方法</h4><pre><code>public BigDecimal add(BigDecimal augend)
+<h3 id="常用方法-2"><a href="#常用方法-2" class="headerlink" title="常用方法"></a>常用方法</h3><pre><code>public BigDecimal add(BigDecimal augend)
 public BigDecimal subtract(BigDecimal subtrahend)
 public BigDecimal multiply(BigDecimal multiplicand)
 public BigDecimal divide(BigDecimal divisor, int scale, int roundingMode)
@@ -570,6 +574,19 @@ public BigDecimal divide(BigDecimal divisor, int scale, int roundingMode)
         </div>
         
         
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9B%B8%E5%85%B3%E7%9A%84%E7%B1%BB"><span class="toc-number">1.</span> <span class="toc-text">字符串相关的类</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#String"><span class="toc-number">1.1.</span> <span class="toc-text">String</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#String%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%88%9B%E5%BB%BA"><span class="toc-number">1.1.1.</span> <span class="toc-text">String对象的创建</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%AF%B9%E8%B1%A1%E6%98%AF%E5%A6%82%E4%BD%95%E5%AD%98%E5%82%A8%E7%9A%84"><span class="toc-number">1.1.2.</span> <span class="toc-text">字符串对象是如何存储的</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%8B%BC%E6%8E%A5"><span class="toc-number">1.1.3.</span> <span class="toc-text">字符串拼接</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#String%E4%BD%BF%E7%94%A8%E9%99%B7%E9%98%B1"><span class="toc-number">1.1.4.</span> <span class="toc-text">String使用陷阱</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#String%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95"><span class="toc-number">1.1.5.</span> <span class="toc-text">String常用方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#String%E4%B8%8E%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2"><span class="toc-number">1.1.6.</span> <span class="toc-text">String与基本数据类型转换</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#StringBuffer%E7%B1%BB"><span class="toc-number">1.2.</span> <span class="toc-text">StringBuffer类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#StringBuffer%E7%B1%BB%E7%9A%84%E6%9E%84%E9%80%A0%E5%99%A8"><span class="toc-number">1.2.1.</span> <span class="toc-text">StringBuffer类的构造器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#StringBuffer%E7%B1%BB%E7%9A%84%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95"><span class="toc-number">1.2.2.</span> <span class="toc-text">StringBuffer类的常用方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#StringBuffer%E6%89%A9%E5%AE%B9%E6%9C%BA%E5%88%B6"><span class="toc-number">1.2.3.</span> <span class="toc-text">StringBuffer扩容机制</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#StringBuilder%E7%B1%BB"><span class="toc-number">1.3.</span> <span class="toc-text">StringBuilder类</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#JDK8%E4%B9%8B%E5%89%8D%E6%97%A5%E6%9C%9F%E6%97%B6%E9%97%B4API"><span class="toc-number">2.</span> <span class="toc-text">JDK8之前日期时间API</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#java-lang-System%E7%B1%BB"><span class="toc-number">2.1.</span> <span class="toc-text">java.lang.System类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#java-util-Date%E7%B1%BB"><span class="toc-number">2.2.</span> <span class="toc-text">java.util.Date类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9E%84%E9%80%A0%E5%99%A8"><span class="toc-number">2.2.1.</span> <span class="toc-text">构造器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95"><span class="toc-number">2.2.2.</span> <span class="toc-text">常用方法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#java-text-SimpleDateFormat%E7%B1%BB"><span class="toc-number">2.3.</span> <span class="toc-text">java.text.SimpleDateFormat类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#java-util-Calendar-%E6%97%A5%E5%8E%86-%E7%B1%BB"><span class="toc-number">2.4.</span> <span class="toc-text">java.util.Calendar(日历)类</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#JDK8%E4%B8%AD%E6%96%B0%E6%97%A5%E6%9C%9F%E6%97%B6%E9%97%B4API"><span class="toc-number">3.</span> <span class="toc-text">JDK8中新日期时间API</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#LocalDate%E3%80%81LocalTime%E3%80%81LocalDateTime"><span class="toc-number">3.1.</span> <span class="toc-text">LocalDate、LocalTime、LocalDateTime</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9E%AC%E6%97%B6%EF%BC%88Instant%EF%BC%89"><span class="toc-number">3.2.</span> <span class="toc-text">瞬时（Instant）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%BC%E5%BC%8F%E5%8C%96%E4%B8%8E%E8%A7%A3%E6%9E%90%E6%97%A5%E6%9C%9F%E6%88%96%E6%97%B6%E9%97%B4"><span class="toc-number">3.3.</span> <span class="toc-text">格式化与解析日期或时间</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B6%E5%AE%83API"><span class="toc-number">3.4.</span> <span class="toc-text">其它API</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%8E%E4%BC%A0%E7%BB%9F%E6%97%A5%E6%9C%9F%E5%A4%84%E7%90%86%E7%9A%84%E8%BD%AC%E6%8D%A2"><span class="toc-number">3.5.</span> <span class="toc-text">与传统日期处理的转换</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Java%E6%AF%94%E8%BE%83%E5%99%A8"><span class="toc-number">4.</span> <span class="toc-text">Java比较器</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%87%AA%E7%84%B6%E6%8E%92%E5%BA%8F%EF%BC%9Ajava-lang-Comparable"><span class="toc-number">4.1.</span> <span class="toc-text">自然排序：java.lang.Comparable</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9A%E5%88%B6%E6%8E%92%E5%BA%8F%EF%BC%9Ajava-util-Comparator"><span class="toc-number">4.2.</span> <span class="toc-text">定制排序：java.util.Comparator</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#System%E7%B1%BB"><span class="toc-number">5.</span> <span class="toc-text">System类</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Math%E7%B1%BB"><span class="toc-number">6.</span> <span class="toc-text">Math类</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#BigInteger%E4%B8%8EBigDecimal"><span class="toc-number">7.</span> <span class="toc-text">BigInteger与BigDecimal</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#BigInteger%E7%B1%BB"><span class="toc-number">7.1.</span> <span class="toc-text">BigInteger类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9E%84%E9%80%A0%E5%99%A8-1"><span class="toc-number">7.1.1.</span> <span class="toc-text">构造器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95-1"><span class="toc-number">7.1.2.</span> <span class="toc-text">常用方法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#BigDecimal%E7%B1%BB"><span class="toc-number">7.2.</span> <span class="toc-text">BigDecimal类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9E%84%E9%80%A0%E5%99%A8-2"><span class="toc-number">7.2.1.</span> <span class="toc-text">构造器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95-2"><span class="toc-number">7.2.2.</span> <span class="toc-text">常用方法</span></a></li></ol></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
     </div>
 </aside>
 
@@ -627,6 +644,58 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
 
 
 <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script type="text/javascript">
+	! function (e, t, a) {
+    function n() {
+        c(".heart{width: 10px;height: 10px;position: fixed;background: #f00;transform: rotate(45deg);-webkit-transform: rotate(45deg);-moz-transform: rotate(45deg);}.heart:after,.heart:before{content: '';width: inherit;height: inherit;background: inherit;border-radius: 50%;-webkit-border-radius: 50%;-moz-border-radius: 50%;position: fixed;}.heart:after{top: -5px;}.heart:before{left: -5px;}"), o(), r()
+    }
+
+    function r() {
+        for (var e = 0; e < d.length; e++) d[e].alpha <= 0 ? (t.body.removeChild(d[e].el), d.splice(e, 1)) : (d[e].y--, d[e].scale += .004, d[e].alpha -= .013, d[e].el.style.cssText = "left:" + d[e].x + "px;top:" + d[e].y + "px;opacity:" + d[e].alpha + ";transform:scale(" + d[e].scale + "," + d[e].scale + ") rotate(45deg);background:" + d[e].color + ";z-index:99999");
+        requestAnimationFrame(r)
+    }
+
+    function o() {
+        var t = "function" == typeof e.onclick && e.onclick;
+        e.onclick = function (e) {
+            t && t(), i(e)
+        }
+    }
+
+    function i(e) {
+        var a = t.createElement("div");
+        a.className = "heart", d.push({
+            el: a,
+            x: e.clientX - 5,
+            y: e.clientY - 5,
+            scale: 1,
+            alpha: 1,
+            color: s()
+        }), t.body.appendChild(a)
+    }
+
+    function c(e) {
+        var a = t.createElement("style");
+        a.type = "text/css";
+        try {
+            a.appendChild(t.createTextNode(e))
+        } catch (t) {
+            a.styleSheet.cssText = e
+        }
+        t.getElementsByTagName("head")[0].appendChild(a)
+    }
+
+    function s() {
+        return "rgb(" + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + ")"
+    }
+    var d = [];
+    e.requestAnimationFrame = function () {
+        return e.requestAnimationFrame || e.webkitRequestAnimationFrame || e.mozRequestAnimationFrame || e.oRequestAnimationFrame || e.msRequestAnimationFrame || function (e) {
+            setTimeout(e, 1e3 / 60)
+        }
+    }(), n()
+}(window, document);
+</script>
     
 <div class="tools-col" q-class="show:isShow,hide:isShow|isFalse" q-on="click:stop(e)">
   <div class="tools-nav header-menu">
@@ -691,10 +760,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">JDBC</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">JVM</a>
               </li>
              
@@ -716,10 +781,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">SSM</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Shiro</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -760,6 +821,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">操作系统</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">yilia</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -870,7 +935,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
     
     	<section class="tools-section tools-section-me" q-show="aboutme">
   	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">我是武理的一名学生&lt;br&gt;&lt;br&gt;用个人博客记录一下自己的学习过程&lt;br&gt;&lt;br&gt;欢迎大家一起来学习&lt;br&gt;&lt;br&gt;QQ联系方式:2745459573</div>
+  	  		<div class="aboutme-wrap" id="js-aboutme">你可会记得，云朵之下指尖轻触，寂寂无言，爱人听见，玫瑰伸展着枝叶；&lt;br&gt;你可记得，友人的笑容，蕴藏着世上所有的温柔；&lt;br&gt;你可会记得，鸽子飞过蓝天，少女脚步轻盈，像清风吹过麦田；&lt;br&gt;你可会记得，在黑暗中有光亮起，你顾冷人生中唯一的璀璨，那是你的家。&lt;br&gt;&lt;br&gt;QQ联系方式：2745459573</div>
   	  	
     	</section>
     

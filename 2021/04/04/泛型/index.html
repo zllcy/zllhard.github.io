@@ -18,7 +18,7 @@
 <meta property="og:image" content="http://example.com/2021/04/04/%E6%B3%9B%E5%9E%8B/1.jpg">
 <meta property="og:image" content="http://example.com/2021/04/04/%E6%B3%9B%E5%9E%8B/2.jpg">
 <meta property="article:published_time" content="2021-04-04T12:50:18.461Z">
-<meta property="article:modified_time" content="2021-04-05T12:20:13.437Z">
+<meta property="article:modified_time" content="2021-07-26T13:43:36.663Z">
 <meta property="article:author" content="c^_^y">
 <meta property="article:tag" content="Java基础">
 <meta name="twitter:card" content="summary">
@@ -30,10 +30,13 @@
     <link rel="icon" href="/img/fa.ico">
   
   <link rel="stylesheet" type="text/css" href="/./main.0cf68a.css">
+  
+	<link rel="stylesheet" type="text/css" href="/./avatarrotation.css">
+  
   <style type="text/css">
   
     #container.show {
-      background: linear-gradient(200deg,#a0cfe4,#e8c37e);
+      background: linear-gradient(200deg,#ccc,#000);
     }
   </style>
   
@@ -47,7 +50,7 @@
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
     <div class="left-col" q-class="show:isShow">
       
-<div class="overlay" style="background: #4d4d4d"></div>
+<div class="overlay" style="background: #2f4f4f"></div>
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
@@ -109,7 +112,7 @@
     <div class="mid-col" q-class="show:isShow,hide:isShow|isFalse">
       
 <nav id="mobile-nav">
-  	<div class="overlay js-overlay" style="background: #4d4d4d"></div>
+  	<div class="overlay js-overlay" style="background: #2f4f4f"></div>
 	<div class="btnctn js-mobile-btnctn">
   		<div class="slider-trigger list" q-on="click: openSlider(e)"><i class="icon icon-sort"></i></div>
 	</div>
@@ -171,7 +174,7 @@
       <header class="article-header">
         
   
-    <h1 class="article-title" itemprop="name">
+    <h1 class="article-title_code_ant" itemprop="name">
       泛型
     </h1>
   
@@ -194,51 +197,52 @@
       </header>
     
 	<!-- 目录内容 -->
-        
-            <p class="show-toc-btn" id="show-toc-btn" onclick="showToc();" style="display:none">
-            <span class="btn-bg"></span>
-            <span class="btn-text">文章导航</span>
-            </p>
-            <div id="toc-article" class="toc-article">
-                <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
-                <strong class="toc-title">文章目录</strong>
-                <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E6%9C%89%E6%B3%9B%E5%9E%8B-Generic"><span class="toc-number">1.</span> <span class="toc-text">为什么要有泛型(Generic)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B3%9B%E5%9E%8B%E7%9A%84%E6%A6%82%E5%BF%B5"><span class="toc-number">1.1.</span> <span class="toc-text">泛型的概念</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B3%9B%E5%9E%8B%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86%EF%BC%88%E7%B1%BB%E5%9E%8B%E6%93%A6%E9%99%A4%EF%BC%89"><span class="toc-number">2.</span> <span class="toc-text">泛型的实现原理（类型擦除）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E6%B3%9B%E5%9E%8B%E7%BB%93%E6%9E%84"><span class="toc-number">3.</span> <span class="toc-text">自定义泛型结构</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B3%9B%E5%9E%8B%E7%B1%BB%E3%80%81%E6%B3%9B%E5%9E%8B%E6%8E%A5%E5%8F%A3"><span class="toc-number">3.1.</span> <span class="toc-text">泛型类、泛型接口</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B3%9B%E5%9E%8B%E6%96%B9%E6%B3%95"><span class="toc-number">3.2.</span> <span class="toc-text">泛型方法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B3%9B%E5%9E%8B%E5%9C%A8%E7%BB%A7%E6%89%BF%E4%B8%8A%E7%9A%84%E4%BD%93%E7%8E%B0"><span class="toc-number">4.</span> <span class="toc-text">泛型在继承上的体现</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%80%9A%E9%85%8D%E7%AC%A6%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="toc-number">5.</span> <span class="toc-text">通配符的使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%9A%E9%85%8D%E7%AC%A6%E7%9A%84%E4%BD%BF%E7%94%A8%EF%BC%9A%E6%B3%A8%E6%84%8F%E7%82%B9"><span class="toc-number">5.1.</span> <span class="toc-text">通配符的使用：注意点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%89%E9%99%90%E5%88%B6%E7%9A%84%E9%80%9A%E9%85%8D%E7%AC%A6"><span class="toc-number">5.2.</span> <span class="toc-text">有限制的通配符</span></a></li></ol></li></ol>
-           </div>
-           <script type="text/javascript">
-            function showToc(){
-                var toc_article = document.getElementById("toc-article");
-                var show_toc_btn = document.getElementById("show-toc-btn");
-                toc_article.setAttribute("style","display:block");
-                show_toc_btn.setAttribute("style","display:none");
-                };
-            function showBtn(){
-                var toc_article = document.getElementById("toc-article");
-                var show_toc_btn = document.getElementById("show-toc-btn");
-                toc_article.setAttribute("style","display:none");
-                show_toc_btn.setAttribute("style","display:block");
-                };
-           </script>
-             
-        <!-- 目录内容结束 -->
+	
+		<p class="show-toc-btn" id="show-toc-btn" onclick="showToc();" style="display:none">
+			  <span class="btn-bg"></span>
+			  <span class="btn-text">文章导航</span>
+			  </p>
+		<div id="toc-article" class="toc-article">
+			<span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
+			<strong class="toc-title">文章目录</strong>
+			   <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E6%9C%89%E6%B3%9B%E5%9E%8B-Generic"><span class="toc-number">1.</span> <span class="toc-text">为什么要有泛型(Generic)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B3%9B%E5%9E%8B%E7%9A%84%E6%A6%82%E5%BF%B5"><span class="toc-number">1.1.</span> <span class="toc-text">泛型的概念</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%B3%9B%E5%9E%8B%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86%EF%BC%88%E7%B1%BB%E5%9E%8B%E6%93%A6%E9%99%A4%EF%BC%89"><span class="toc-number">2.</span> <span class="toc-text">泛型的实现原理（类型擦除）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E6%B3%9B%E5%9E%8B%E7%BB%93%E6%9E%84"><span class="toc-number">3.</span> <span class="toc-text">自定义泛型结构</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B3%9B%E5%9E%8B%E7%B1%BB%E3%80%81%E6%B3%9B%E5%9E%8B%E6%8E%A5%E5%8F%A3"><span class="toc-number">3.1.</span> <span class="toc-text">泛型类、泛型接口</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B3%9B%E5%9E%8B%E6%96%B9%E6%B3%95"><span class="toc-number">3.2.</span> <span class="toc-text">泛型方法</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%B3%9B%E5%9E%8B%E5%9C%A8%E7%BB%A7%E6%89%BF%E4%B8%8A%E7%9A%84%E4%BD%93%E7%8E%B0"><span class="toc-number">4.</span> <span class="toc-text">泛型在继承上的体现</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%80%9A%E9%85%8D%E7%AC%A6%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="toc-number">5.</span> <span class="toc-text">通配符的使用</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%80%9A%E9%85%8D%E7%AC%A6%E7%9A%84%E4%BD%BF%E7%94%A8%EF%BC%9A%E6%B3%A8%E6%84%8F%E7%82%B9"><span class="toc-number">5.1.</span> <span class="toc-text">通配符的使用：注意点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%89%E9%99%90%E5%88%B6%E7%9A%84%E9%80%9A%E9%85%8D%E7%AC%A6"><span class="toc-number">5.2.</span> <span class="toc-text">有限制的通配符</span></a></li></ol></li></ol>
+			 </div>
+	   <script type="text/javascript">
+		function showToc(){
+			var toc_article = document.getElementById("toc-article");
+			var show_toc_btn = document.getElementById("show-toc-btn");
+			toc_article.setAttribute("style","display:block");
+			show_toc_btn.setAttribute("style","display:none");
+			};
+		function showBtn(){
+			var toc_article = document.getElementById("toc-article");
+			var show_toc_btn = document.getElementById("show-toc-btn");
+			toc_article.setAttribute("style","display:none");
+			show_toc_btn.setAttribute("style","display:block");
+			};
+	   </script>
+		  
+	<!-- 目录内容结束 -->
+
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="为什么要有泛型-Generic"><a href="#为什么要有泛型-Generic" class="headerlink" title="为什么要有泛型(Generic)"></a>为什么要有泛型(Generic)</h2><p>集合容器类在设计阶段/声明阶段不能确定这个容器到底实际存的是什么类型的对象，所以在JDK1.5之前只能把元素类型设计为Object，JDK1.5之后使用泛型来解决。因为这个时候除了元素的类型不确定，其他的部分是确定的，例如关于这个元素如何保存，如何管理等是确定的，因此此时把元素的类型设计成一个参数，这个类型参数叫做泛型。Collection<E>，List<E>，ArrayList<E> 这个<E>就是类型参数，即泛型。</E></E></E></E></p>
+        <h1 id="为什么要有泛型-Generic"><a href="#为什么要有泛型-Generic" class="headerlink" title="为什么要有泛型(Generic)"></a>为什么要有泛型(Generic)</h1><p>集合容器类在设计阶段/声明阶段不能确定这个容器到底实际存的是什么类型的对象，所以在JDK1.5之前只能把元素类型设计为Object，JDK1.5之后使用泛型来解决。因为这个时候除了元素的类型不确定，其他的部分是确定的，例如关于这个元素如何保存，如何管理等是确定的，因此此时把元素的类型设计成一个参数，这个类型参数叫做泛型。Collection<E>，List<E>，ArrayList<E> 这个<E>就是类型参数，即泛型。</E></E></E></E></p>
 <span id="more"></span>
 
 <p>1）解决元素存储的安全性问题<br>2）解决获取数据元素时，需要类型强制转换的问题。<br><strong>在集合中没有泛型时</strong><br><img src="/2021/04/04/%E6%B3%9B%E5%9E%8B/1.jpg"><br><strong>在集合中有泛型时</strong><br><img src="/2021/04/04/%E6%B3%9B%E5%9E%8B/2.jpg"><br>Java泛型可以保证如果程序在编译时没有发出警告，运行时就不会产生ClassCastException异常。同时，代码更加简洁、健壮。</p>
-<h3 id="泛型的概念"><a href="#泛型的概念" class="headerlink" title="泛型的概念"></a>泛型的概念</h3><ul>
+<h2 id="泛型的概念"><a href="#泛型的概念" class="headerlink" title="泛型的概念"></a>泛型的概念</h2><ul>
 <li>所谓泛型，就是允许在定义类、接口时通过一个标识表示类中某个属性的类型或者是某个方法的返回值及参数类型。这个类型参数将在使用时（例如，继承或实现这个接口，用这个类型声明变量、创建对象时）确定（即传入实际的类型参数，也称为类型实参）。</li>
 <li>从JDK1.5以后，Java引入了“参数化类型（Parameterized type）”的概念，允许我们在创建集合时再指定集合元素的类型，正如：List<String>，这表明该List只能保存字符串类型的对象。</String></li>
 <li>JDK1.5改写了集合框架中的全部接口和类，为这些接口、类增加了泛型支持，从而可以在声明集合变量、创建集合对象时传入类型实参。</li>
 </ul>
-<h2 id="泛型的实现原理（类型擦除）"><a href="#泛型的实现原理（类型擦除）" class="headerlink" title="泛型的实现原理（类型擦除）"></a>泛型的实现原理（类型擦除）</h2><ul>
+<h1 id="泛型的实现原理（类型擦除）"><a href="#泛型的实现原理（类型擦除）" class="headerlink" title="泛型的实现原理（类型擦除）"></a>泛型的实现原理（类型擦除）</h1><ul>
 <li>Java的泛型是伪泛型。在编译期间，所有的泛型信息都会被擦除掉。正确理解泛型概念的首要前提是理解类型擦出（type erasure）。</li>
 <li>Java中的泛型基本上都是在编译器这个层次来实现的。在生成的Java字节码中是不包含泛型中的类型信息的。使用泛型的时候加上的类型参数，会在编译器在编译的时候去掉。这个过程就称为类型擦除。</li>
 <li>如在代码中定义的List<object>和List<String>等类型，在编译后都会编程List。JVM看到的只是List，而由泛型附加的类型信息对JVM来说是不可见的。Java编译器会在编译时尽可能的发现可能出错的地方，但是仍然无法避免在运行时刻出现类型转换异常的情况。</String></object></li>
 </ul>
-<h2 id="自定义泛型结构"><a href="#自定义泛型结构" class="headerlink" title="自定义泛型结构"></a>自定义泛型结构</h2><p><strong>泛型的声明:</strong><br>interface List<T> 和 class GenTest&lt;K,V&gt;<br>其中，T,K,V不代表值，而是表示类型。这里使用任意字母都可以。常用T表示，是Type的缩写。</T></p>
+<h1 id="自定义泛型结构"><a href="#自定义泛型结构" class="headerlink" title="自定义泛型结构"></a>自定义泛型结构</h1><p><strong>泛型的声明:</strong><br>interface List<T> 和 class GenTest&lt;K,V&gt;<br>其中，T,K,V不代表值，而是表示类型。这里使用任意字母都可以。常用T表示，是Type的缩写。</T></p>
 <p><strong>泛型的实例化：</strong><br>一定要在类名后面指定类型参数的值（类型）。如：List<String> strList = new ArrayList<String>();<br>T只能是类，不能用基本数据类型填充。但可以使用包装类填充。<br>把一个集合中的内容限制为一个特定的数据类型，这就是generics背后的核心思想。</String></String></p>
-<h3 id="泛型类、泛型接口"><a href="#泛型类、泛型接口" class="headerlink" title="泛型类、泛型接口"></a>泛型类、泛型接口</h3><p>1）泛型类可能有多个参数，此时应将多个参数一起放在尖括号内。比如：&lt;E1,E2,E3&gt;<br>2）泛型类的构造器如下：public GenericClass(){}。而下面是错误的：public GenericClass<E>(){}<br>3）实例化后，操作原来泛型位置的结构必须与指定的泛型类型一致。<br>4）泛型不同的引用不能相互赋值。<br>尽管在编译时ArrayList<String>和ArrayList<Integer>是两种类型，但是，在运行时只有一个ArrayList被加载到JVM中。<br>5）泛型如果不指定，将被擦除，泛型对应的类型均按照Object处理，但不等价于Object。经验：泛型要使用一路都用。要不用，一路都不要用。<br>6）如果泛型结构是一个接口或抽象类，则不可创建泛型类的对象。<br>7）jdk1.7，泛型的简化操作：ArrayList<Fruit> flist = new ArrayList&lt;&gt;();<br>8）泛型的指定中不能使用基本数据类型，可以使用包装类替换。<br>9）在类/接口上声明的泛型，在本类或本接口中即代表某种类型，可以作为非静态属性的类型、非静态方法的参数类型、非静态方法的返回值类型。但在静态方法中不能使用类的泛型。<br>10）异常类不能是泛型的。<br>11）不能使用new E[]。但是可以：E[] elements = (E[])new Object[capacity];<br>参考：ArrayList源码中声明：Object[] elementData，而非泛型参数类型数组。<br>12）父类有泛型，子类可以选择保留泛型也可以选择指定泛型类型：<br>子类不保留父类的泛型：按需实现<br>没有类型（擦除）</Fruit></Integer></String></E></p>
+<h2 id="泛型类、泛型接口"><a href="#泛型类、泛型接口" class="headerlink" title="泛型类、泛型接口"></a>泛型类、泛型接口</h2><p>1）泛型类可能有多个参数，此时应将多个参数一起放在尖括号内。比如：&lt;E1,E2,E3&gt;<br>2）泛型类的构造器如下：public GenericClass(){}。而下面是错误的：public GenericClass<E>(){}<br>3）实例化后，操作原来泛型位置的结构必须与指定的泛型类型一致。<br>4）泛型不同的引用不能相互赋值。<br>尽管在编译时ArrayList<String>和ArrayList<Integer>是两种类型，但是，在运行时只有一个ArrayList被加载到JVM中。<br>5）泛型如果不指定，将被擦除，泛型对应的类型均按照Object处理，但不等价于Object。经验：泛型要使用一路都用。要不用，一路都不要用。<br>6）如果泛型结构是一个接口或抽象类，则不可创建泛型类的对象。<br>7）jdk1.7，泛型的简化操作：ArrayList<Fruit> flist = new ArrayList&lt;&gt;();<br>8）泛型的指定中不能使用基本数据类型，可以使用包装类替换。<br>9）在类/接口上声明的泛型，在本类或本接口中即代表某种类型，可以作为非静态属性的类型、非静态方法的参数类型、非静态方法的返回值类型。但在静态方法中不能使用类的泛型。<br>10）异常类不能是泛型的。<br>11）不能使用new E[]。但是可以：E[] elements = (E[])new Object[capacity];<br>参考：ArrayList源码中声明：Object[] elementData，而非泛型参数类型数组。<br>12）父类有泛型，子类可以选择保留泛型也可以选择指定泛型类型：<br>子类不保留父类的泛型：按需实现<br>没有类型（擦除）</Fruit></Integer></String></E></p>
 <pre><code>class Son1 extends Father &#123;&#125;// 等价于class Son extends Father&lt;Object,Object&gt;&#123;&#125;
 class Son&lt;A, B&gt; extends Father&#123;&#125;  //可以自定义类型
 </code></pre>
@@ -254,10 +258,10 @@ class Son3&lt;T1, T2, A, B&gt; extends Father&lt;T1, T2&gt; &#123;&#125;
 <pre><code>class Son4&lt;T2&gt; extends Father&lt;Integer, T2&gt; &#123;&#125;
 class Son4&lt;T2, A, B&gt; extends Father&lt;Integer, T2&gt; &#123;&#125;
 </code></pre>
-<h3 id="泛型方法"><a href="#泛型方法" class="headerlink" title="泛型方法"></a>泛型方法</h3><p>方法，也可以被泛型化，不管此时定义在其中的类是不是泛型类。在泛型方法中可以定义泛型参数，此时，参数的类型就是传入数据的类型。</p>
+<h2 id="泛型方法"><a href="#泛型方法" class="headerlink" title="泛型方法"></a>泛型方法</h2><p>方法，也可以被泛型化，不管此时定义在其中的类是不是泛型类。在泛型方法中可以定义泛型参数，此时，参数的类型就是传入数据的类型。</p>
 <p><strong>泛型方法的格式：</strong><br>[访问权限] &lt;泛型&gt; 返回类型 方法名([泛型标识 参数名称]) 抛出的异常</p>
-<h2 id="泛型在继承上的体现"><a href="#泛型在继承上的体现" class="headerlink" title="泛型在继承上的体现"></a>泛型在继承上的体现</h2><p>如果B是A的一个子类型（子类或者子接口），而G是具有泛型声明的类或接口，G<B>并不是G<A>的子类型！<br>比如：String是Object的子类，但是List<String>并不是List<Object>的子类。</Object></String></A></B></p>
-<h2 id="通配符的使用"><a href="#通配符的使用" class="headerlink" title="通配符的使用"></a>通配符的使用</h2><ul>
+<h1 id="泛型在继承上的体现"><a href="#泛型在继承上的体现" class="headerlink" title="泛型在继承上的体现"></a>泛型在继承上的体现</h1><p>如果B是A的一个子类型（子类或者子接口），而G是具有泛型声明的类或接口，G<B>并不是G<A>的子类型！<br>比如：String是Object的子类，但是List<String>并不是List<Object>的子类。</Object></String></A></B></p>
+<h1 id="通配符的使用"><a href="#通配符的使用" class="headerlink" title="通配符的使用"></a>通配符的使用</h1><ul>
 <li>使用类型通配符：？<br>比如：List<?> ，Map<?,?><br>List&lt;?&gt;是List<String>、List<Object>等各种泛型List的父类。</Object></String></li>
 <li>读取List&lt;?&gt;的对象list中的元素时，永远是安全的，因为不管list的真实类型是什么，它包含的都是Object。</li>
 <li>写入list中的元素时，不行。因为我们不知道c的元素类型，我们不能向其中添加对象。唯一的例外是null，它是所有类型的成员。</li>
@@ -267,7 +271,7 @@ class Son4&lt;T2, A, B&gt; extends Father&lt;Integer, T2&gt; &#123;&#125;
 c.add(new Object()); // 编译时错误
 </code></pre>
 <p>因为我们不知道c的元素类型，我们不能向其中添加对象。add方法有类型参数E作为集合的元素类型。我们传给add的任何参数都必须是一个未知类型的子类。因为我们不知道那是什么类型，所以我们无法传任何东西进去。<br>唯一的例外的是null，它是所有类型的成员。<br>另一方面，我们可以调用get()方法并使用其返回值。返回值是一个未知的类型，但是我们知道，它总是一个Object。</p>
-<h3 id="通配符的使用：注意点"><a href="#通配符的使用：注意点" class="headerlink" title="通配符的使用：注意点"></a>通配符的使用：注意点</h3><pre><code>//注意点1：编译错误：不能用在泛型方法声明上，返回值类型前面&lt;&gt;不能使用?
+<h2 id="通配符的使用：注意点"><a href="#通配符的使用：注意点" class="headerlink" title="通配符的使用：注意点"></a>通配符的使用：注意点</h2><pre><code>//注意点1：编译错误：不能用在泛型方法声明上，返回值类型前面&lt;&gt;不能使用?
 public static &lt;?&gt; void test(ArrayList&lt;?&gt; list)&#123;
 &#125;
 //注意点2：编译错误：不能用在泛型类的声明上
@@ -276,7 +280,7 @@ class GenericTypeClass&lt;?&gt;&#123;
 //注意点3：编译错误：不能用在创建对象上，右边属于创建集合对象
 ArrayList&lt;?&gt; list2 = new ArrayList&lt;?&gt;();
 </code></pre>
-<h3 id="有限制的通配符"><a href="#有限制的通配符" class="headerlink" title="有限制的通配符"></a>有限制的通配符</h3><?> 允许所有泛型的引用调用。
+<h2 id="有限制的通配符"><a href="#有限制的通配符" class="headerlink" title="有限制的通配符"></a>有限制的通配符</h2><?> 允许所有泛型的引用调用。
 **通配符指定上限**
 上限extends：使用时指定的类型必须是继承某个类，或者实现某个接口，即<= **通配符指定下限** 下限super：使用时指定的类型不能小于操作的类，即>=
 **举例：**
@@ -421,6 +425,19 @@ ArrayList&lt;?&gt; list2 = new ArrayList&lt;?&gt;();
         </div>
         
         
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E6%9C%89%E6%B3%9B%E5%9E%8B-Generic"><span class="toc-number">1.</span> <span class="toc-text">为什么要有泛型(Generic)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B3%9B%E5%9E%8B%E7%9A%84%E6%A6%82%E5%BF%B5"><span class="toc-number">1.1.</span> <span class="toc-text">泛型的概念</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%B3%9B%E5%9E%8B%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86%EF%BC%88%E7%B1%BB%E5%9E%8B%E6%93%A6%E9%99%A4%EF%BC%89"><span class="toc-number">2.</span> <span class="toc-text">泛型的实现原理（类型擦除）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E6%B3%9B%E5%9E%8B%E7%BB%93%E6%9E%84"><span class="toc-number">3.</span> <span class="toc-text">自定义泛型结构</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B3%9B%E5%9E%8B%E7%B1%BB%E3%80%81%E6%B3%9B%E5%9E%8B%E6%8E%A5%E5%8F%A3"><span class="toc-number">3.1.</span> <span class="toc-text">泛型类、泛型接口</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B3%9B%E5%9E%8B%E6%96%B9%E6%B3%95"><span class="toc-number">3.2.</span> <span class="toc-text">泛型方法</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%B3%9B%E5%9E%8B%E5%9C%A8%E7%BB%A7%E6%89%BF%E4%B8%8A%E7%9A%84%E4%BD%93%E7%8E%B0"><span class="toc-number">4.</span> <span class="toc-text">泛型在继承上的体现</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%80%9A%E9%85%8D%E7%AC%A6%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="toc-number">5.</span> <span class="toc-text">通配符的使用</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%80%9A%E9%85%8D%E7%AC%A6%E7%9A%84%E4%BD%BF%E7%94%A8%EF%BC%9A%E6%B3%A8%E6%84%8F%E7%82%B9"><span class="toc-number">5.1.</span> <span class="toc-text">通配符的使用：注意点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%89%E9%99%90%E5%88%B6%E7%9A%84%E9%80%9A%E9%85%8D%E7%AC%A6"><span class="toc-number">5.2.</span> <span class="toc-text">有限制的通配符</span></a></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
     </div>
 </aside>
 
@@ -478,6 +495,58 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
 
 
 <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script type="text/javascript">
+	! function (e, t, a) {
+    function n() {
+        c(".heart{width: 10px;height: 10px;position: fixed;background: #f00;transform: rotate(45deg);-webkit-transform: rotate(45deg);-moz-transform: rotate(45deg);}.heart:after,.heart:before{content: '';width: inherit;height: inherit;background: inherit;border-radius: 50%;-webkit-border-radius: 50%;-moz-border-radius: 50%;position: fixed;}.heart:after{top: -5px;}.heart:before{left: -5px;}"), o(), r()
+    }
+
+    function r() {
+        for (var e = 0; e < d.length; e++) d[e].alpha <= 0 ? (t.body.removeChild(d[e].el), d.splice(e, 1)) : (d[e].y--, d[e].scale += .004, d[e].alpha -= .013, d[e].el.style.cssText = "left:" + d[e].x + "px;top:" + d[e].y + "px;opacity:" + d[e].alpha + ";transform:scale(" + d[e].scale + "," + d[e].scale + ") rotate(45deg);background:" + d[e].color + ";z-index:99999");
+        requestAnimationFrame(r)
+    }
+
+    function o() {
+        var t = "function" == typeof e.onclick && e.onclick;
+        e.onclick = function (e) {
+            t && t(), i(e)
+        }
+    }
+
+    function i(e) {
+        var a = t.createElement("div");
+        a.className = "heart", d.push({
+            el: a,
+            x: e.clientX - 5,
+            y: e.clientY - 5,
+            scale: 1,
+            alpha: 1,
+            color: s()
+        }), t.body.appendChild(a)
+    }
+
+    function c(e) {
+        var a = t.createElement("style");
+        a.type = "text/css";
+        try {
+            a.appendChild(t.createTextNode(e))
+        } catch (t) {
+            a.styleSheet.cssText = e
+        }
+        t.getElementsByTagName("head")[0].appendChild(a)
+    }
+
+    function s() {
+        return "rgb(" + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + ")"
+    }
+    var d = [];
+    e.requestAnimationFrame = function () {
+        return e.requestAnimationFrame || e.webkitRequestAnimationFrame || e.mozRequestAnimationFrame || e.oRequestAnimationFrame || e.msRequestAnimationFrame || function (e) {
+            setTimeout(e, 1e3 / 60)
+        }
+    }(), n()
+}(window, document);
+</script>
     
 <div class="tools-col" q-class="show:isShow,hide:isShow|isFalse" q-on="click:stop(e)">
   <div class="tools-nav header-menu">
@@ -542,10 +611,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">JDBC</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">JVM</a>
               </li>
              
@@ -567,10 +632,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">SSM</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Shiro</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -611,6 +672,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">操作系统</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">yilia</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -721,7 +786,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
     
     	<section class="tools-section tools-section-me" q-show="aboutme">
   	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">我是武理的一名学生&lt;br&gt;&lt;br&gt;用个人博客记录一下自己的学习过程&lt;br&gt;&lt;br&gt;欢迎大家一起来学习&lt;br&gt;&lt;br&gt;QQ联系方式:2745459573</div>
+  	  		<div class="aboutme-wrap" id="js-aboutme">你可会记得，云朵之下指尖轻触，寂寂无言，爱人听见，玫瑰伸展着枝叶；&lt;br&gt;你可记得，友人的笑容，蕴藏着世上所有的温柔；&lt;br&gt;你可会记得，鸽子飞过蓝天，少女脚步轻盈，像清风吹过麦田；&lt;br&gt;你可会记得，在黑暗中有光亮起，你顾冷人生中唯一的璀璨，那是你的家。&lt;br&gt;&lt;br&gt;QQ联系方式：2745459573</div>
   	  	
     	</section>
     

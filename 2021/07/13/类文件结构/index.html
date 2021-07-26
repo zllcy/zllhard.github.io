@@ -18,7 +18,7 @@
 <meta property="og:image" content="http://example.com/2021/07/13/%E7%B1%BB%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84/1.jpeg">
 <meta property="og:image" content="http://example.com/2021/07/13/%E7%B1%BB%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84/1.png">
 <meta property="article:published_time" content="2021-07-13T13:27:09.309Z">
-<meta property="article:modified_time" content="2021-07-13T13:55:27.290Z">
+<meta property="article:modified_time" content="2021-07-26T12:38:42.836Z">
 <meta property="article:author" content="c^_^y">
 <meta property="article:tag" content="JVM">
 <meta name="twitter:card" content="summary">
@@ -30,10 +30,13 @@
     <link rel="icon" href="/img/fa.ico">
   
   <link rel="stylesheet" type="text/css" href="/./main.0cf68a.css">
+  
+	<link rel="stylesheet" type="text/css" href="/./avatarrotation.css">
+  
   <style type="text/css">
   
     #container.show {
-      background: linear-gradient(200deg,#a0cfe4,#e8c37e);
+      background: linear-gradient(200deg,#ccc,#000);
     }
   </style>
   
@@ -47,7 +50,7 @@
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
     <div class="left-col" q-class="show:isShow">
       
-<div class="overlay" style="background: #4d4d4d"></div>
+<div class="overlay" style="background: #2f4f4f"></div>
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
@@ -109,7 +112,7 @@
     <div class="mid-col" q-class="show:isShow,hide:isShow|isFalse">
       
 <nav id="mobile-nav">
-  	<div class="overlay js-overlay" style="background: #4d4d4d"></div>
+  	<div class="overlay js-overlay" style="background: #2f4f4f"></div>
 	<div class="btnctn js-mobile-btnctn">
   		<div class="slider-trigger list" q-on="click: openSlider(e)"><i class="icon icon-sort"></i></div>
 	</div>
@@ -171,7 +174,7 @@
       <header class="article-header">
         
   
-    <h1 class="article-title" itemprop="name">
+    <h1 class="article-title_code_ant" itemprop="name">
       类文件结构
     </h1>
   
@@ -194,45 +197,46 @@
       </header>
     
 	<!-- 目录内容 -->
-        
-            <p class="show-toc-btn" id="show-toc-btn" onclick="showToc();" style="display:none">
-            <span class="btn-bg"></span>
-            <span class="btn-text">文章导航</span>
-            </p>
-            <div id="toc-article" class="toc-article">
-                <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
-                <strong class="toc-title">文章目录</strong>
-                <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#ClassFile-%E7%9A%84%E7%BB%93%E6%9E%84"><span class="toc-number">1.</span> <span class="toc-text">ClassFile 的结构</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%AD%94%E6%95%B0%EF%BC%88Magic-Number%EF%BC%89"><span class="toc-number">1.1.</span> <span class="toc-text">魔数（Magic Number）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Class-%E6%96%87%E4%BB%B6%E7%89%88%E6%9C%AC%E5%8F%B7%EF%BC%88Minor-amp-Major-Version%EF%BC%89"><span class="toc-number">1.2.</span> <span class="toc-text">Class 文件版本号（Minor&amp;Major Version）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E9%87%8F%E6%B1%A0%EF%BC%88Constant-Pool%EF%BC%89"><span class="toc-number">1.3.</span> <span class="toc-text">常量池（Constant Pool）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%BF%E9%97%AE%E6%A0%87%E5%BF%97-Access-Flags"><span class="toc-number">1.4.</span> <span class="toc-text">访问标志(Access Flags)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BD%93%E5%89%8D%E7%B1%BB%EF%BC%88This-Class%EF%BC%89%E3%80%81%E7%88%B6%E7%B1%BB%EF%BC%88Super-Class%EF%BC%89%E3%80%81%E6%8E%A5%E5%8F%A3%EF%BC%88Interfaces%EF%BC%89%E7%B4%A2%E5%BC%95%E9%9B%86%E5%90%88"><span class="toc-number">1.5.</span> <span class="toc-text">当前类（This Class）、父类（Super Class）、接口（Interfaces）索引集合</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%97%E6%AE%B5%E8%A1%A8%E9%9B%86%E5%90%88%EF%BC%88Fields%EF%BC%89"><span class="toc-number">1.6.</span> <span class="toc-text">字段表集合（Fields）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%B9%E6%B3%95%E8%A1%A8%E9%9B%86%E5%90%88%EF%BC%88Methods%EF%BC%89"><span class="toc-number">1.7.</span> <span class="toc-text">方法表集合（Methods）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B1%9E%E6%80%A7%E8%A1%A8%E9%9B%86%E5%90%88%EF%BC%88Attributes%EF%BC%89"><span class="toc-number">1.8.</span> <span class="toc-text">属性表集合（Attributes）</span></a></li></ol></li></ol>
-           </div>
-           <script type="text/javascript">
-            function showToc(){
-                var toc_article = document.getElementById("toc-article");
-                var show_toc_btn = document.getElementById("show-toc-btn");
-                toc_article.setAttribute("style","display:block");
-                show_toc_btn.setAttribute("style","display:none");
-                };
-            function showBtn(){
-                var toc_article = document.getElementById("toc-article");
-                var show_toc_btn = document.getElementById("show-toc-btn");
-                toc_article.setAttribute("style","display:none");
-                show_toc_btn.setAttribute("style","display:block");
-                };
-           </script>
-             
-        <!-- 目录内容结束 -->
+	
+		<p class="show-toc-btn" id="show-toc-btn" onclick="showToc();" style="display:none">
+			  <span class="btn-bg"></span>
+			  <span class="btn-text">文章导航</span>
+			  </p>
+		<div id="toc-article" class="toc-article">
+			<span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
+			<strong class="toc-title">文章目录</strong>
+			   <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#ClassFile-%E7%9A%84%E7%BB%93%E6%9E%84"><span class="toc-number">1.</span> <span class="toc-text">ClassFile 的结构</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%AD%94%E6%95%B0%EF%BC%88Magic-Number%EF%BC%89"><span class="toc-number">1.1.</span> <span class="toc-text">魔数（Magic Number）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Class-%E6%96%87%E4%BB%B6%E7%89%88%E6%9C%AC%E5%8F%B7%EF%BC%88Minor-amp-Major-Version%EF%BC%89"><span class="toc-number">1.2.</span> <span class="toc-text">Class 文件版本号（Minor&amp;Major Version）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E9%87%8F%E6%B1%A0%EF%BC%88Constant-Pool%EF%BC%89"><span class="toc-number">1.3.</span> <span class="toc-text">常量池（Constant Pool）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%BF%E9%97%AE%E6%A0%87%E5%BF%97-Access-Flags"><span class="toc-number">1.4.</span> <span class="toc-text">访问标志(Access Flags)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BD%93%E5%89%8D%E7%B1%BB%EF%BC%88This-Class%EF%BC%89%E3%80%81%E7%88%B6%E7%B1%BB%EF%BC%88Super-Class%EF%BC%89%E3%80%81%E6%8E%A5%E5%8F%A3%EF%BC%88Interfaces%EF%BC%89%E7%B4%A2%E5%BC%95%E9%9B%86%E5%90%88"><span class="toc-number">1.5.</span> <span class="toc-text">当前类（This Class）、父类（Super Class）、接口（Interfaces）索引集合</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AD%97%E6%AE%B5%E8%A1%A8%E9%9B%86%E5%90%88%EF%BC%88Fields%EF%BC%89"><span class="toc-number">1.6.</span> <span class="toc-text">字段表集合（Fields）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%B9%E6%B3%95%E8%A1%A8%E9%9B%86%E5%90%88%EF%BC%88Methods%EF%BC%89"><span class="toc-number">1.7.</span> <span class="toc-text">方法表集合（Methods）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B1%9E%E6%80%A7%E8%A1%A8%E9%9B%86%E5%90%88%EF%BC%88Attributes%EF%BC%89"><span class="toc-number">1.8.</span> <span class="toc-text">属性表集合（Attributes）</span></a></li></ol></li></ol>
+			 </div>
+	   <script type="text/javascript">
+		function showToc(){
+			var toc_article = document.getElementById("toc-article");
+			var show_toc_btn = document.getElementById("show-toc-btn");
+			toc_article.setAttribute("style","display:block");
+			show_toc_btn.setAttribute("style","display:none");
+			};
+		function showBtn(){
+			var toc_article = document.getElementById("toc-article");
+			var show_toc_btn = document.getElementById("show-toc-btn");
+			toc_article.setAttribute("style","display:none");
+			show_toc_btn.setAttribute("style","display:block");
+			};
+	   </script>
+		  
+	<!-- 目录内容结束 -->
+
     <div class="article-entry" itemprop="articleBody">
       
         <p>在 Java 中，JVM 可以理解的代码就叫做字节码（即扩展名为 .class 的文件），它不面向任何特定的处理器，只面向虚拟机。Java 语言通过字节码的方式，在一定程度上解决了传统解释型语言执行效率低的问题，同时又保留了解释型语言可移植的特点。所以 Java 程序运行时比较高效，而且，由于字节码并不针对一种特定的机器，因此，Java 程序无须重新编译便可在多种不同操作系统的计算机上运行。</p>
 <p>Clojure（Lisp 语言的一种方言）、Groovy、Scala 等语言都是运行在 Java 虚拟机之上。可以说.class文件是不同的语言在 Java 虚拟机之间的重要桥梁，同时也是支持 Java 跨平台很重要的一个原因。</p>
 <span id="more"></span>
 
-<h2 id="ClassFile-的结构"><a href="#ClassFile-的结构" class="headerlink" title="ClassFile 的结构"></a>ClassFile 的结构</h2><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">ClassFile &#123;</span><br><span class="line">    u4             magic; <span class="regexp">//</span>Class 文件的标志</span><br><span class="line">    u2             minor_version;<span class="regexp">//</span>Class 的小版本号</span><br><span class="line">    u2             major_version;<span class="regexp">//</span>Class 的大版本号</span><br><span class="line">    u2             constant_pool_count;<span class="regexp">//</span>常量池的数量</span><br><span class="line">    cp_info        constant_pool[constant_pool_count-<span class="number">1</span>];<span class="regexp">//</span>常量池</span><br><span class="line">    u2             access_flags;<span class="regexp">//</span>Class 的访问标记</span><br><span class="line">    u2             this_class;<span class="regexp">//</span>当前类</span><br><span class="line">    u2             super_class;<span class="regexp">//</span>父类</span><br><span class="line">    u2             interfaces_count;<span class="regexp">//</span>接口</span><br><span class="line">    u2             interfaces[interfaces_count];<span class="regexp">//</span>一个类可以实现多个接口</span><br><span class="line">    u2             fields_count;<span class="regexp">//</span>Class 文件的字段属性</span><br><span class="line">    field_info     fields[fields_count];<span class="regexp">//</span>一个类会可以有多个字段</span><br><span class="line">    u2             methods_count;<span class="regexp">//</span>Class 文件的方法数量</span><br><span class="line">    method_info    methods[methods_count];<span class="regexp">//</span>一个类可以有个多个方法</span><br><span class="line">    u2             attributes_count;<span class="regexp">//</span>此类的属性表中的属性数</span><br><span class="line">    attribute_info attributes[attributes_count];<span class="regexp">//</span>属性表集合</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="ClassFile-的结构"><a href="#ClassFile-的结构" class="headerlink" title="ClassFile 的结构"></a>ClassFile 的结构</h1><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">ClassFile &#123;</span><br><span class="line">    u4             magic; <span class="regexp">//</span>Class 文件的标志</span><br><span class="line">    u2             minor_version;<span class="regexp">//</span>Class 的小版本号</span><br><span class="line">    u2             major_version;<span class="regexp">//</span>Class 的大版本号</span><br><span class="line">    u2             constant_pool_count;<span class="regexp">//</span>常量池的数量</span><br><span class="line">    cp_info        constant_pool[constant_pool_count-<span class="number">1</span>];<span class="regexp">//</span>常量池</span><br><span class="line">    u2             access_flags;<span class="regexp">//</span>Class 的访问标记</span><br><span class="line">    u2             this_class;<span class="regexp">//</span>当前类</span><br><span class="line">    u2             super_class;<span class="regexp">//</span>父类</span><br><span class="line">    u2             interfaces_count;<span class="regexp">//</span>接口</span><br><span class="line">    u2             interfaces[interfaces_count];<span class="regexp">//</span>一个类可以实现多个接口</span><br><span class="line">    u2             fields_count;<span class="regexp">//</span>Class 文件的字段属性</span><br><span class="line">    field_info     fields[fields_count];<span class="regexp">//</span>一个类会可以有多个字段</span><br><span class="line">    u2             methods_count;<span class="regexp">//</span>Class 文件的方法数量</span><br><span class="line">    method_info    methods[methods_count];<span class="regexp">//</span>一个类可以有个多个方法</span><br><span class="line">    u2             attributes_count;<span class="regexp">//</span>此类的属性表中的属性数</span><br><span class="line">    attribute_info attributes[attributes_count];<span class="regexp">//</span>属性表集合</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>class 文件的组成图示：<br><img src="/2021/07/13/%E7%B1%BB%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84/1.jpeg"></p>
-<h3 id="魔数（Magic-Number）"><a href="#魔数（Magic-Number）" class="headerlink" title="魔数（Magic Number）"></a>魔数（Magic Number）</h3><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">u4             magic; <span class="regexp">//</span>Class 文件的标志</span><br></pre></td></tr></table></figure>
+<h2 id="魔数（Magic-Number）"><a href="#魔数（Magic-Number）" class="headerlink" title="魔数（Magic Number）"></a>魔数（Magic Number）</h2><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">u4             magic; <span class="regexp">//</span>Class 文件的标志</span><br></pre></td></tr></table></figure>
 <p>每个 Class 文件的头 4 个字节称为魔数（Magic Number）,它的唯一作用是确定这个文件是否为一个能被虚拟机接收的 Class 文件。</p>
-<h3 id="Class-文件版本号（Minor-amp-Major-Version）"><a href="#Class-文件版本号（Minor-amp-Major-Version）" class="headerlink" title="Class 文件版本号（Minor&amp;Major Version）"></a>Class 文件版本号（Minor&amp;Major Version）</h3><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">u2             minor_version;<span class="regexp">//</span>Class 的小版本号</span><br><span class="line">u2             major_version;<span class="regexp">//</span>Class 的大版本号</span><br></pre></td></tr></table></figure>
+<h2 id="Class-文件版本号（Minor-amp-Major-Version）"><a href="#Class-文件版本号（Minor-amp-Major-Version）" class="headerlink" title="Class 文件版本号（Minor&amp;Major Version）"></a>Class 文件版本号（Minor&amp;Major Version）</h2><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">u2             minor_version;<span class="regexp">//</span>Class 的小版本号</span><br><span class="line">u2             major_version;<span class="regexp">//</span>Class 的大版本号</span><br></pre></td></tr></table></figure>
 <p>紧接着魔数的四个字节存储的是 Class 文件的版本号：第 5 和第 6 位是次版本号，第 7 和第 8 位是主版本号。<br>每当 Java 发布大版本（比如 Java 8，Java9）的时候，主版本号都会加 1。你可以使用 <code>javap -v</code> 命令来快速查看 Class 文件的版本号信息。<br>高版本的 Java 虚拟机可以执行低版本编译器生成的 Class 文件，但是低版本的 Java 虚拟机不能执行高版本编译器生成的 Class 文件。</p>
-<h3 id="常量池（Constant-Pool）"><a href="#常量池（Constant-Pool）" class="headerlink" title="常量池（Constant Pool）"></a>常量池（Constant Pool）</h3><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">u2             constant_pool_count;<span class="regexp">//</span>常量池的数量</span><br><span class="line">cp_info        constant_pool[constant_pool_count-<span class="number">1</span>];<span class="regexp">//</span>常量池</span><br></pre></td></tr></table></figure>
+<h2 id="常量池（Constant-Pool）"><a href="#常量池（Constant-Pool）" class="headerlink" title="常量池（Constant Pool）"></a>常量池（Constant Pool）</h2><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">u2             constant_pool_count;<span class="regexp">//</span>常量池的数量</span><br><span class="line">cp_info        constant_pool[constant_pool_count-<span class="number">1</span>];<span class="regexp">//</span>常量池</span><br></pre></td></tr></table></figure>
 <p>紧接着主次版本号之后的是常量池，常量池的数量是 constant_pool_count-1（常量池计数器是从 1 开始计数的，将第 0 项常量空出来是有特殊考虑的，索引值为 0 代表“不引用任何一个常量池项”）。</p>
 <p>常量池主要存放两大常量：字面量和符号引用。字面量比较接近于 Java 语言层面的的常量概念，如文本字符串、声明为 final 的常量值等。而符号引用则属于编译原理方面的概念。包括下面三类常量：</p>
 <ul>
@@ -241,11 +245,11 @@
 <li>方法的名称和描述符</li>
 </ul>
 <p>常量池中每一项常量都是一个表，这 14 种表有一个共同的特点：开始的第一位是一个 u1 类型的标志位 -tag 来标识常量的类型，代表当前这个常量属于哪种常量类型。<br>.class 文件可以通过<code>javap -v class类名</code> 指令来看一下其常量池中的信息(<code>javap -v class类名-&gt; temp.txt</code> ：将结果输出到 temp.txt 文件)。</p>
-<h3 id="访问标志-Access-Flags"><a href="#访问标志-Access-Flags" class="headerlink" title="访问标志(Access Flags)"></a>访问标志(Access Flags)</h3><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">u2             access_flags;<span class="regexp">//</span>Class 的访问标记</span><br></pre></td></tr></table></figure>
+<h2 id="访问标志-Access-Flags"><a href="#访问标志-Access-Flags" class="headerlink" title="访问标志(Access Flags)"></a>访问标志(Access Flags)</h2><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">u2             access_flags;<span class="regexp">//</span>Class 的访问标记</span><br></pre></td></tr></table></figure>
 <p>在常量池结束之后，紧接着的两个字节代表访问标志，这个标志用于识别一些类或者接口层次的访问信息，包括：这个 Class 是类还是接口，是否为 public 或者 abstract 类型，如果是类的话是否声明为 final 等等。</p>
-<h3 id="当前类（This-Class）、父类（Super-Class）、接口（Interfaces）索引集合"><a href="#当前类（This-Class）、父类（Super-Class）、接口（Interfaces）索引集合" class="headerlink" title="当前类（This Class）、父类（Super Class）、接口（Interfaces）索引集合"></a>当前类（This Class）、父类（Super Class）、接口（Interfaces）索引集合</h3><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">u2             this_class;<span class="regexp">//</span>当前类</span><br><span class="line">u2             super_class;<span class="regexp">//</span>父类</span><br><span class="line">u2             interfaces_count;<span class="regexp">//</span>接口</span><br><span class="line">u2             interfaces[interfaces_count];<span class="regexp">//</span>一个类可以实现多个接口</span><br></pre></td></tr></table></figure>
+<h2 id="当前类（This-Class）、父类（Super-Class）、接口（Interfaces）索引集合"><a href="#当前类（This-Class）、父类（Super-Class）、接口（Interfaces）索引集合" class="headerlink" title="当前类（This Class）、父类（Super Class）、接口（Interfaces）索引集合"></a>当前类（This Class）、父类（Super Class）、接口（Interfaces）索引集合</h2><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">u2             this_class;<span class="regexp">//</span>当前类</span><br><span class="line">u2             super_class;<span class="regexp">//</span>父类</span><br><span class="line">u2             interfaces_count;<span class="regexp">//</span>接口</span><br><span class="line">u2             interfaces[interfaces_count];<span class="regexp">//</span>一个类可以实现多个接口</span><br></pre></td></tr></table></figure>
 <p>类索引用于确定这个类的全限定名，父类索引用于确定这个类的父类的全限定名，由于 Java 语言的单继承，所以父类索引只有一个，除了 java.lang.Object 之外，所有的 java 类都有父类，因此除了 java.lang.Object 外，所有 Java 类的父类索引都不为 0。<br>接口索引集合用来描述这个类实现了那些接口，这些被实现的接口将按 implements (如果这个类本身是接口的话则是extends) 后的接口顺序从左到右排列在接口索引集合中。</p>
-<h3 id="字段表集合（Fields）"><a href="#字段表集合（Fields）" class="headerlink" title="字段表集合（Fields）"></a>字段表集合（Fields）</h3><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">u2             fields_count;<span class="regexp">//</span>Class 文件的字段的个数</span><br><span class="line">field_info     fields[fields_count];<span class="regexp">//</span>一个类会可以有个字段</span><br></pre></td></tr></table></figure>
+<h2 id="字段表集合（Fields）"><a href="#字段表集合（Fields）" class="headerlink" title="字段表集合（Fields）"></a>字段表集合（Fields）</h2><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">u2             fields_count;<span class="regexp">//</span>Class 文件的字段的个数</span><br><span class="line">field_info     fields[fields_count];<span class="regexp">//</span>一个类会可以有个字段</span><br></pre></td></tr></table></figure>
 <p>字段表（field info）用于描述接口或类中声明的变量。字段包括类级变量以及实例变量，但不包括在方法内部声明的局部变量。</p>
 <p>field info(字段表) 的结构:<br><img src="/2021/07/13/%E7%B1%BB%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84/1.png"></p>
 <ul>
@@ -255,10 +259,10 @@
 <li>attributes_count: 一个字段还会拥有一些额外的属性，attributes_count 存放属性的个数；</li>
 <li>attributes[attributes_count]: 存放具体属性具体内容。<br>上述这些信息中，各个修饰符都是布尔值，要么有某个修饰符，要么没有，很适合使用标志位来表示。而字段叫什么名字、字段被定义为什么数据类型这些都是无法固定的，只能引用常量池中常量来描述。</li>
 </ul>
-<h3 id="方法表集合（Methods）"><a href="#方法表集合（Methods）" class="headerlink" title="方法表集合（Methods）"></a>方法表集合（Methods）</h3><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">u2             methods_count;<span class="regexp">//</span>Class 文件的方法的数量</span><br><span class="line">method_info    methods[methods_count];<span class="regexp">//</span>一个类可以有个多个方法</span><br></pre></td></tr></table></figure>
+<h2 id="方法表集合（Methods）"><a href="#方法表集合（Methods）" class="headerlink" title="方法表集合（Methods）"></a>方法表集合（Methods）</h2><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">u2             methods_count;<span class="regexp">//</span>Class 文件的方法的数量</span><br><span class="line">method_info    methods[methods_count];<span class="regexp">//</span>一个类可以有个多个方法</span><br></pre></td></tr></table></figure>
 <p>methods_count 表示方法的数量，而 method_info 表示方法表。<br>方法表的结构如同字段表一样，依次包括了访问标志、名称索引、描述符索引、属性表集合几项。</p>
 <p><strong>注意：</strong>因为volatile修饰符和transient修饰符不可以修饰方法，所以方法表的访问标志中没有这两个对应的标志，但是增加了synchronized、native、abstract等关键字修饰方法，所以也就多了这些关键字对应的标志。</p>
-<h3 id="属性表集合（Attributes）"><a href="#属性表集合（Attributes）" class="headerlink" title="属性表集合（Attributes）"></a>属性表集合（Attributes）</h3><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">u2             attributes_count;<span class="regexp">//</span>此类的属性表中的属性数</span><br><span class="line">attribute_info attributes[attributes_count];<span class="regexp">//</span>属性表集合</span><br></pre></td></tr></table></figure>
+<h2 id="属性表集合（Attributes）"><a href="#属性表集合（Attributes）" class="headerlink" title="属性表集合（Attributes）"></a>属性表集合（Attributes）</h2><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">u2             attributes_count;<span class="regexp">//</span>此类的属性表中的属性数</span><br><span class="line">attribute_info attributes[attributes_count];<span class="regexp">//</span>属性表集合</span><br></pre></td></tr></table></figure>
 <p>在 Class 文件，字段表，方法表中都可以携带自己的属性表集合，以用于描述某些场景专有的信息。与 Class 文件中其它的数据项目要求的顺序、长度和内容不同，属性表集合的限制稍微宽松一些，不再要求各个属性表具有严格的顺序，并且只要不与已有的属性名重复，任何人实现的编译器都可以向属性表中写 入自己定义的属性信息，Java 虚拟机运行时会忽略掉它不认识的属性。</p>
 
       
@@ -374,6 +378,19 @@
         </div>
         
         
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#ClassFile-%E7%9A%84%E7%BB%93%E6%9E%84"><span class="toc-number">1.</span> <span class="toc-text">ClassFile 的结构</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%AD%94%E6%95%B0%EF%BC%88Magic-Number%EF%BC%89"><span class="toc-number">1.1.</span> <span class="toc-text">魔数（Magic Number）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Class-%E6%96%87%E4%BB%B6%E7%89%88%E6%9C%AC%E5%8F%B7%EF%BC%88Minor-amp-Major-Version%EF%BC%89"><span class="toc-number">1.2.</span> <span class="toc-text">Class 文件版本号（Minor&amp;Major Version）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E9%87%8F%E6%B1%A0%EF%BC%88Constant-Pool%EF%BC%89"><span class="toc-number">1.3.</span> <span class="toc-text">常量池（Constant Pool）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%BF%E9%97%AE%E6%A0%87%E5%BF%97-Access-Flags"><span class="toc-number">1.4.</span> <span class="toc-text">访问标志(Access Flags)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BD%93%E5%89%8D%E7%B1%BB%EF%BC%88This-Class%EF%BC%89%E3%80%81%E7%88%B6%E7%B1%BB%EF%BC%88Super-Class%EF%BC%89%E3%80%81%E6%8E%A5%E5%8F%A3%EF%BC%88Interfaces%EF%BC%89%E7%B4%A2%E5%BC%95%E9%9B%86%E5%90%88"><span class="toc-number">1.5.</span> <span class="toc-text">当前类（This Class）、父类（Super Class）、接口（Interfaces）索引集合</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AD%97%E6%AE%B5%E8%A1%A8%E9%9B%86%E5%90%88%EF%BC%88Fields%EF%BC%89"><span class="toc-number">1.6.</span> <span class="toc-text">字段表集合（Fields）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%B9%E6%B3%95%E8%A1%A8%E9%9B%86%E5%90%88%EF%BC%88Methods%EF%BC%89"><span class="toc-number">1.7.</span> <span class="toc-text">方法表集合（Methods）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B1%9E%E6%80%A7%E8%A1%A8%E9%9B%86%E5%90%88%EF%BC%88Attributes%EF%BC%89"><span class="toc-number">1.8.</span> <span class="toc-text">属性表集合（Attributes）</span></a></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
     </div>
 </aside>
 
@@ -431,6 +448,58 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
 
 
 <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script type="text/javascript">
+	! function (e, t, a) {
+    function n() {
+        c(".heart{width: 10px;height: 10px;position: fixed;background: #f00;transform: rotate(45deg);-webkit-transform: rotate(45deg);-moz-transform: rotate(45deg);}.heart:after,.heart:before{content: '';width: inherit;height: inherit;background: inherit;border-radius: 50%;-webkit-border-radius: 50%;-moz-border-radius: 50%;position: fixed;}.heart:after{top: -5px;}.heart:before{left: -5px;}"), o(), r()
+    }
+
+    function r() {
+        for (var e = 0; e < d.length; e++) d[e].alpha <= 0 ? (t.body.removeChild(d[e].el), d.splice(e, 1)) : (d[e].y--, d[e].scale += .004, d[e].alpha -= .013, d[e].el.style.cssText = "left:" + d[e].x + "px;top:" + d[e].y + "px;opacity:" + d[e].alpha + ";transform:scale(" + d[e].scale + "," + d[e].scale + ") rotate(45deg);background:" + d[e].color + ";z-index:99999");
+        requestAnimationFrame(r)
+    }
+
+    function o() {
+        var t = "function" == typeof e.onclick && e.onclick;
+        e.onclick = function (e) {
+            t && t(), i(e)
+        }
+    }
+
+    function i(e) {
+        var a = t.createElement("div");
+        a.className = "heart", d.push({
+            el: a,
+            x: e.clientX - 5,
+            y: e.clientY - 5,
+            scale: 1,
+            alpha: 1,
+            color: s()
+        }), t.body.appendChild(a)
+    }
+
+    function c(e) {
+        var a = t.createElement("style");
+        a.type = "text/css";
+        try {
+            a.appendChild(t.createTextNode(e))
+        } catch (t) {
+            a.styleSheet.cssText = e
+        }
+        t.getElementsByTagName("head")[0].appendChild(a)
+    }
+
+    function s() {
+        return "rgb(" + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + ")"
+    }
+    var d = [];
+    e.requestAnimationFrame = function () {
+        return e.requestAnimationFrame || e.webkitRequestAnimationFrame || e.mozRequestAnimationFrame || e.oRequestAnimationFrame || e.msRequestAnimationFrame || function (e) {
+            setTimeout(e, 1e3 / 60)
+        }
+    }(), n()
+}(window, document);
+</script>
     
 <div class="tools-col" q-class="show:isShow,hide:isShow|isFalse" q-on="click:stop(e)">
   <div class="tools-nav header-menu">
@@ -495,10 +564,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">JDBC</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">JVM</a>
               </li>
              
@@ -520,10 +585,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">SSM</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Shiro</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -564,6 +625,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">操作系统</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">yilia</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -674,7 +739,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
     
     	<section class="tools-section tools-section-me" q-show="aboutme">
   	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">我是武理的一名学生&lt;br&gt;&lt;br&gt;用个人博客记录一下自己的学习过程&lt;br&gt;&lt;br&gt;欢迎大家一起来学习&lt;br&gt;&lt;br&gt;QQ联系方式:2745459573</div>
+  	  		<div class="aboutme-wrap" id="js-aboutme">你可会记得，云朵之下指尖轻触，寂寂无言，爱人听见，玫瑰伸展着枝叶；&lt;br&gt;你可记得，友人的笑容，蕴藏着世上所有的温柔；&lt;br&gt;你可会记得，鸽子飞过蓝天，少女脚步轻盈，像清风吹过麦田；&lt;br&gt;你可会记得，在黑暗中有光亮起，你顾冷人生中唯一的璀璨，那是你的家。&lt;br&gt;&lt;br&gt;QQ联系方式：2745459573</div>
   	  	
     	</section>
     

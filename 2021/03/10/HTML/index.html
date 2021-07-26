@@ -31,10 +31,13 @@
     <link rel="icon" href="/img/fa.ico">
   
   <link rel="stylesheet" type="text/css" href="/./main.0cf68a.css">
+  
+	<link rel="stylesheet" type="text/css" href="/./avatarrotation.css">
+  
   <style type="text/css">
   
     #container.show {
-      background: linear-gradient(200deg,#a0cfe4,#e8c37e);
+      background: linear-gradient(200deg,#ccc,#000);
     }
   </style>
   
@@ -48,7 +51,7 @@
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
     <div class="left-col" q-class="show:isShow">
       
-<div class="overlay" style="background: #4d4d4d"></div>
+<div class="overlay" style="background: #2f4f4f"></div>
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
@@ -110,7 +113,7 @@
     <div class="mid-col" q-class="show:isShow,hide:isShow|isFalse">
       
 <nav id="mobile-nav">
-  	<div class="overlay js-overlay" style="background: #4d4d4d"></div>
+  	<div class="overlay js-overlay" style="background: #2f4f4f"></div>
 	<div class="btnctn js-mobile-btnctn">
   		<div class="slider-trigger list" q-on="click: openSlider(e)"><i class="icon icon-sort"></i></div>
 	</div>
@@ -172,7 +175,7 @@
       <header class="article-header">
         
   
-    <h1 class="article-title" itemprop="name">
+    <h1 class="article-title_code_ant" itemprop="name">
       HTML
     </h1>
   
@@ -195,32 +198,33 @@
       </header>
     
 	<!-- 目录内容 -->
-        
-            <p class="show-toc-btn" id="show-toc-btn" onclick="showToc();" style="display:none">
-            <span class="btn-bg"></span>
-            <span class="btn-text">文章导航</span>
-            </p>
-            <div id="toc-article" class="toc-article">
-                <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
-                <strong class="toc-title">文章目录</strong>
-                <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#HTML%E7%AE%80%E4%BB%8B"><span class="toc-number">1.</span> <span class="toc-text">HTML简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HTML-%E6%96%87%E4%BB%B6%E7%9A%84%E4%B9%A6%E5%86%99%E8%A7%84%E8%8C%83"><span class="toc-number">2.</span> <span class="toc-text">HTML 文件的书写规范</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HTML-%E6%A0%87%E7%AD%BE%E4%BB%8B%E7%BB%8D"><span class="toc-number">3.</span> <span class="toc-text">HTML 标签介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%87%E7%AD%BE%E7%9A%84%E8%AF%AD%E6%B3%95%E6%B3%A8%E6%84%8F%E7%82%B9"><span class="toc-number">3.1.</span> <span class="toc-text">标签的语法注意点</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E6%A0%87%E7%AD%BE%E4%BB%8B%E7%BB%8D"><span class="toc-number">4.</span> <span class="toc-text">常用标签介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#font-%E5%AD%97%E4%BD%93%E6%A0%87%E7%AD%BE"><span class="toc-number">4.1.</span> <span class="toc-text">font 字体标签</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%89%B9%E6%AE%8A%E5%AD%97%E7%AC%A6"><span class="toc-number">4.2.</span> <span class="toc-text">特殊字符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%87%E9%A2%98%E6%A0%87%E7%AD%BE"><span class="toc-number">4.3.</span> <span class="toc-text">标题标签</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B6%85%E9%93%BE%E6%8E%A5"><span class="toc-number">4.4.</span> <span class="toc-text">超链接</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%97%E8%A1%A8%E6%A0%87%E7%AD%BE"><span class="toc-number">4.5.</span> <span class="toc-text">列表标签</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#img-%E6%A0%87%E7%AD%BE"><span class="toc-number">4.6.</span> <span class="toc-text">img 标签</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A1%A8%E6%A0%BC%E6%A0%87%E7%AD%BE"><span class="toc-number">4.7.</span> <span class="toc-text">表格标签</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#iframe-%E6%A1%86%E6%9E%B6%E6%A0%87%E7%AD%BE-%E5%86%85%E5%B5%8C%E7%AA%97%E5%8F%A3"><span class="toc-number">4.8.</span> <span class="toc-text">iframe 框架标签 (内嵌窗口)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A1%A8%E5%8D%95%E6%A0%87%E7%AD%BE"><span class="toc-number">4.9.</span> <span class="toc-text">表单标签</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%A1%A8%E5%8D%95%E6%A0%BC%E5%BC%8F%E5%8C%96"><span class="toc-number">4.9.1.</span> <span class="toc-text">表单格式化</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%A1%A8%E5%8D%95%E6%8F%90%E4%BA%A4%E7%BB%86%E8%8A%82"><span class="toc-number">4.9.2.</span> <span class="toc-text">表单提交细节</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B6%E4%BB%96%E6%A0%87%E7%AD%BE"><span class="toc-number">4.10.</span> <span class="toc-text">其他标签</span></a></li></ol></li></ol>
-           </div>
-           <script type="text/javascript">
-            function showToc(){
-                var toc_article = document.getElementById("toc-article");
-                var show_toc_btn = document.getElementById("show-toc-btn");
-                toc_article.setAttribute("style","display:block");
-                show_toc_btn.setAttribute("style","display:none");
-                };
-            function showBtn(){
-                var toc_article = document.getElementById("toc-article");
-                var show_toc_btn = document.getElementById("show-toc-btn");
-                toc_article.setAttribute("style","display:none");
-                show_toc_btn.setAttribute("style","display:block");
-                };
-           </script>
-             
-        <!-- 目录内容结束 -->
+	
+		<p class="show-toc-btn" id="show-toc-btn" onclick="showToc();" style="display:none">
+			  <span class="btn-bg"></span>
+			  <span class="btn-text">文章导航</span>
+			  </p>
+		<div id="toc-article" class="toc-article">
+			<span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
+			<strong class="toc-title">文章目录</strong>
+			   <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#HTML%E7%AE%80%E4%BB%8B"><span class="toc-number">1.</span> <span class="toc-text">HTML简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HTML-%E6%96%87%E4%BB%B6%E7%9A%84%E4%B9%A6%E5%86%99%E8%A7%84%E8%8C%83"><span class="toc-number">2.</span> <span class="toc-text">HTML 文件的书写规范</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HTML-%E6%A0%87%E7%AD%BE%E4%BB%8B%E7%BB%8D"><span class="toc-number">3.</span> <span class="toc-text">HTML 标签介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%87%E7%AD%BE%E7%9A%84%E8%AF%AD%E6%B3%95%E6%B3%A8%E6%84%8F%E7%82%B9"><span class="toc-number">3.1.</span> <span class="toc-text">标签的语法注意点</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E6%A0%87%E7%AD%BE%E4%BB%8B%E7%BB%8D"><span class="toc-number">4.</span> <span class="toc-text">常用标签介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#font-%E5%AD%97%E4%BD%93%E6%A0%87%E7%AD%BE"><span class="toc-number">4.1.</span> <span class="toc-text">font 字体标签</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%89%B9%E6%AE%8A%E5%AD%97%E7%AC%A6"><span class="toc-number">4.2.</span> <span class="toc-text">特殊字符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%87%E9%A2%98%E6%A0%87%E7%AD%BE"><span class="toc-number">4.3.</span> <span class="toc-text">标题标签</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B6%85%E9%93%BE%E6%8E%A5"><span class="toc-number">4.4.</span> <span class="toc-text">超链接</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%97%E8%A1%A8%E6%A0%87%E7%AD%BE"><span class="toc-number">4.5.</span> <span class="toc-text">列表标签</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#img-%E6%A0%87%E7%AD%BE"><span class="toc-number">4.6.</span> <span class="toc-text">img 标签</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A1%A8%E6%A0%BC%E6%A0%87%E7%AD%BE"><span class="toc-number">4.7.</span> <span class="toc-text">表格标签</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#iframe-%E6%A1%86%E6%9E%B6%E6%A0%87%E7%AD%BE-%E5%86%85%E5%B5%8C%E7%AA%97%E5%8F%A3"><span class="toc-number">4.8.</span> <span class="toc-text">iframe 框架标签 (内嵌窗口)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A1%A8%E5%8D%95%E6%A0%87%E7%AD%BE"><span class="toc-number">4.9.</span> <span class="toc-text">表单标签</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%A1%A8%E5%8D%95%E6%A0%BC%E5%BC%8F%E5%8C%96"><span class="toc-number">4.9.1.</span> <span class="toc-text">表单格式化</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%A1%A8%E5%8D%95%E6%8F%90%E4%BA%A4%E7%BB%86%E8%8A%82"><span class="toc-number">4.9.2.</span> <span class="toc-text">表单提交细节</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B6%E4%BB%96%E6%A0%87%E7%AD%BE"><span class="toc-number">4.10.</span> <span class="toc-text">其他标签</span></a></li></ol></li></ol>
+			 </div>
+	   <script type="text/javascript">
+		function showToc(){
+			var toc_article = document.getElementById("toc-article");
+			var show_toc_btn = document.getElementById("show-toc-btn");
+			toc_article.setAttribute("style","display:block");
+			show_toc_btn.setAttribute("style","display:none");
+			};
+		function showBtn(){
+			var toc_article = document.getElementById("toc-article");
+			var show_toc_btn = document.getElementById("show-toc-btn");
+			toc_article.setAttribute("style","display:none");
+			show_toc_btn.setAttribute("style","display:block");
+			};
+	   </script>
+		  
+	<!-- 目录内容结束 -->
+
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="HTML简介"><a href="#HTML简介" class="headerlink" title="HTML简介"></a>HTML简介</h2><p>Hyper Text Markup Language （超文本标记语言）<br>HTML 通过标签来标记要显示的网页中的各个部分。网页文件本身是一种文本文件，<br>通过在文本文件中添加标记符，可以告诉浏览器如何显示其中的内容（如：文字如何处理，画<br>面如何安排，图片如何显示等）</p>
@@ -356,6 +360,19 @@
         </div>
         
         
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#HTML%E7%AE%80%E4%BB%8B"><span class="toc-number">1.</span> <span class="toc-text">HTML简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HTML-%E6%96%87%E4%BB%B6%E7%9A%84%E4%B9%A6%E5%86%99%E8%A7%84%E8%8C%83"><span class="toc-number">2.</span> <span class="toc-text">HTML 文件的书写规范</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HTML-%E6%A0%87%E7%AD%BE%E4%BB%8B%E7%BB%8D"><span class="toc-number">3.</span> <span class="toc-text">HTML 标签介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%87%E7%AD%BE%E7%9A%84%E8%AF%AD%E6%B3%95%E6%B3%A8%E6%84%8F%E7%82%B9"><span class="toc-number">3.1.</span> <span class="toc-text">标签的语法注意点</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E6%A0%87%E7%AD%BE%E4%BB%8B%E7%BB%8D"><span class="toc-number">4.</span> <span class="toc-text">常用标签介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#font-%E5%AD%97%E4%BD%93%E6%A0%87%E7%AD%BE"><span class="toc-number">4.1.</span> <span class="toc-text">font 字体标签</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%89%B9%E6%AE%8A%E5%AD%97%E7%AC%A6"><span class="toc-number">4.2.</span> <span class="toc-text">特殊字符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%87%E9%A2%98%E6%A0%87%E7%AD%BE"><span class="toc-number">4.3.</span> <span class="toc-text">标题标签</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B6%85%E9%93%BE%E6%8E%A5"><span class="toc-number">4.4.</span> <span class="toc-text">超链接</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%97%E8%A1%A8%E6%A0%87%E7%AD%BE"><span class="toc-number">4.5.</span> <span class="toc-text">列表标签</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#img-%E6%A0%87%E7%AD%BE"><span class="toc-number">4.6.</span> <span class="toc-text">img 标签</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A1%A8%E6%A0%BC%E6%A0%87%E7%AD%BE"><span class="toc-number">4.7.</span> <span class="toc-text">表格标签</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#iframe-%E6%A1%86%E6%9E%B6%E6%A0%87%E7%AD%BE-%E5%86%85%E5%B5%8C%E7%AA%97%E5%8F%A3"><span class="toc-number">4.8.</span> <span class="toc-text">iframe 框架标签 (内嵌窗口)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A1%A8%E5%8D%95%E6%A0%87%E7%AD%BE"><span class="toc-number">4.9.</span> <span class="toc-text">表单标签</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%A1%A8%E5%8D%95%E6%A0%BC%E5%BC%8F%E5%8C%96"><span class="toc-number">4.9.1.</span> <span class="toc-text">表单格式化</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%A1%A8%E5%8D%95%E6%8F%90%E4%BA%A4%E7%BB%86%E8%8A%82"><span class="toc-number">4.9.2.</span> <span class="toc-text">表单提交细节</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B6%E4%BB%96%E6%A0%87%E7%AD%BE"><span class="toc-number">4.10.</span> <span class="toc-text">其他标签</span></a></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
     </div>
 </aside>
 
@@ -413,6 +430,58 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
 
 
 <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script type="text/javascript">
+	! function (e, t, a) {
+    function n() {
+        c(".heart{width: 10px;height: 10px;position: fixed;background: #f00;transform: rotate(45deg);-webkit-transform: rotate(45deg);-moz-transform: rotate(45deg);}.heart:after,.heart:before{content: '';width: inherit;height: inherit;background: inherit;border-radius: 50%;-webkit-border-radius: 50%;-moz-border-radius: 50%;position: fixed;}.heart:after{top: -5px;}.heart:before{left: -5px;}"), o(), r()
+    }
+
+    function r() {
+        for (var e = 0; e < d.length; e++) d[e].alpha <= 0 ? (t.body.removeChild(d[e].el), d.splice(e, 1)) : (d[e].y--, d[e].scale += .004, d[e].alpha -= .013, d[e].el.style.cssText = "left:" + d[e].x + "px;top:" + d[e].y + "px;opacity:" + d[e].alpha + ";transform:scale(" + d[e].scale + "," + d[e].scale + ") rotate(45deg);background:" + d[e].color + ";z-index:99999");
+        requestAnimationFrame(r)
+    }
+
+    function o() {
+        var t = "function" == typeof e.onclick && e.onclick;
+        e.onclick = function (e) {
+            t && t(), i(e)
+        }
+    }
+
+    function i(e) {
+        var a = t.createElement("div");
+        a.className = "heart", d.push({
+            el: a,
+            x: e.clientX - 5,
+            y: e.clientY - 5,
+            scale: 1,
+            alpha: 1,
+            color: s()
+        }), t.body.appendChild(a)
+    }
+
+    function c(e) {
+        var a = t.createElement("style");
+        a.type = "text/css";
+        try {
+            a.appendChild(t.createTextNode(e))
+        } catch (t) {
+            a.styleSheet.cssText = e
+        }
+        t.getElementsByTagName("head")[0].appendChild(a)
+    }
+
+    function s() {
+        return "rgb(" + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + ")"
+    }
+    var d = [];
+    e.requestAnimationFrame = function () {
+        return e.requestAnimationFrame || e.webkitRequestAnimationFrame || e.mozRequestAnimationFrame || e.oRequestAnimationFrame || e.msRequestAnimationFrame || function (e) {
+            setTimeout(e, 1e3 / 60)
+        }
+    }(), n()
+}(window, document);
+</script>
     
 <div class="tools-col" q-class="show:isShow,hide:isShow|isFalse" q-on="click:stop(e)">
   <div class="tools-nav header-menu">
@@ -477,10 +546,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">JDBC</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">JVM</a>
               </li>
              
@@ -502,10 +567,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">SSM</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Shiro</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -546,6 +607,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">操作系统</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">yilia</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -656,7 +721,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
     
     	<section class="tools-section tools-section-me" q-show="aboutme">
   	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">我是武理的一名学生&lt;br&gt;&lt;br&gt;用个人博客记录一下自己的学习过程&lt;br&gt;&lt;br&gt;欢迎大家一起来学习&lt;br&gt;&lt;br&gt;QQ联系方式:2745459573</div>
+  	  		<div class="aboutme-wrap" id="js-aboutme">你可会记得，云朵之下指尖轻触，寂寂无言，爱人听见，玫瑰伸展着枝叶；&lt;br&gt;你可记得，友人的笑容，蕴藏着世上所有的温柔；&lt;br&gt;你可会记得，鸽子飞过蓝天，少女脚步轻盈，像清风吹过麦田；&lt;br&gt;你可会记得，在黑暗中有光亮起，你顾冷人生中唯一的璀璨，那是你的家。&lt;br&gt;&lt;br&gt;QQ联系方式：2745459573</div>
   	  	
     	</section>
     

@@ -20,7 +20,7 @@
 <meta property="og:image" content="http://example.com/2021/07/24/%E4%B8%AD%E8%BD%AF%E5%AE%9E%E8%AE%ADday13/3.jpg">
 <meta property="og:image" content="http://example.com/2021/07/24/%E4%B8%AD%E8%BD%AF%E5%AE%9E%E8%AE%ADday13/4.jpg">
 <meta property="article:published_time" content="2021-07-24T00:44:58.853Z">
-<meta property="article:modified_time" content="2021-07-24T16:08:32.524Z">
+<meta property="article:modified_time" content="2021-07-26T12:39:31.380Z">
 <meta property="article:author" content="c^_^y">
 <meta property="article:tag" content="中软实训">
 <meta name="twitter:card" content="summary">
@@ -32,10 +32,13 @@
     <link rel="icon" href="/img/fa.ico">
   
   <link rel="stylesheet" type="text/css" href="/./main.0cf68a.css">
+  
+	<link rel="stylesheet" type="text/css" href="/./avatarrotation.css">
+  
   <style type="text/css">
   
     #container.show {
-      background: linear-gradient(200deg,#a0cfe4,#e8c37e);
+      background: linear-gradient(200deg,#ccc,#000);
     }
   </style>
   
@@ -49,7 +52,7 @@
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
     <div class="left-col" q-class="show:isShow">
       
-<div class="overlay" style="background: #4d4d4d"></div>
+<div class="overlay" style="background: #2f4f4f"></div>
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
@@ -111,7 +114,7 @@
     <div class="mid-col" q-class="show:isShow,hide:isShow|isFalse">
       
 <nav id="mobile-nav">
-  	<div class="overlay js-overlay" style="background: #4d4d4d"></div>
+  	<div class="overlay js-overlay" style="background: #2f4f4f"></div>
 	<div class="btnctn js-mobile-btnctn">
   		<div class="slider-trigger list" q-on="click: openSlider(e)"><i class="icon icon-sort"></i></div>
 	</div>
@@ -173,7 +176,7 @@
       <header class="article-header">
         
   
-    <h1 class="article-title" itemprop="name">
+    <h1 class="article-title_code_ant" itemprop="name">
       中软实训day13
     </h1>
   
@@ -196,59 +199,60 @@
       </header>
     
 	<!-- 目录内容 -->
-        
-            <p class="show-toc-btn" id="show-toc-btn" onclick="showToc();" style="display:none">
-            <span class="btn-bg"></span>
-            <span class="btn-text">文章导航</span>
-            </p>
-            <div id="toc-article" class="toc-article">
-                <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
-                <strong class="toc-title">文章目录</strong>
-                <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%9A%E8%A1%A8%E6%9F%A5%E8%AF%A2"><span class="toc-number">1.</span> <span class="toc-text">多表查询</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0%E6%A0%B9%E6%8D%AE%E6%97%A5%E6%9C%9F%E8%8C%83%E5%9B%B4%E6%90%9C%E7%B4%A2%E8%AE%B0%E5%BD%95"><span class="toc-number">2.</span> <span class="toc-text">实现根据日期范围搜索记录</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E9%80%81%E6%B0%B4%E8%AE%B0%E5%BD%95"><span class="toc-number">3.</span> <span class="toc-text">修改送水记录</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%85%A7%E7%89%87%E4%B8%8A%E4%BC%A0"><span class="toc-number">4.</span> <span class="toc-text">照片上传</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%93%E6%9E%9C%E6%98%BE%E7%A4%BA"><span class="toc-number">5.</span> <span class="toc-text">结果显示</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%86%E8%8A%82"><span class="toc-number">6.</span> <span class="toc-text">细节</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Param-%E4%BB%80%E4%B9%88%E6%97%B6%E5%80%99%E7%94%A8"><span class="toc-number">6.1.</span> <span class="toc-text">@Param 什么时候用</span></a></li></ol></li></ol>
-           </div>
-           <script type="text/javascript">
-            function showToc(){
-                var toc_article = document.getElementById("toc-article");
-                var show_toc_btn = document.getElementById("show-toc-btn");
-                toc_article.setAttribute("style","display:block");
-                show_toc_btn.setAttribute("style","display:none");
-                };
-            function showBtn(){
-                var toc_article = document.getElementById("toc-article");
-                var show_toc_btn = document.getElementById("show-toc-btn");
-                toc_article.setAttribute("style","display:none");
-                show_toc_btn.setAttribute("style","display:block");
-                };
-           </script>
-             
-        <!-- 目录内容结束 -->
+	
+		<p class="show-toc-btn" id="show-toc-btn" onclick="showToc();" style="display:none">
+			  <span class="btn-bg"></span>
+			  <span class="btn-text">文章导航</span>
+			  </p>
+		<div id="toc-article" class="toc-article">
+			<span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
+			<strong class="toc-title">文章目录</strong>
+			   <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%A4%9A%E8%A1%A8%E6%9F%A5%E8%AF%A2"><span class="toc-number">1.</span> <span class="toc-text">多表查询</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0%E6%A0%B9%E6%8D%AE%E6%97%A5%E6%9C%9F%E8%8C%83%E5%9B%B4%E6%90%9C%E7%B4%A2%E8%AE%B0%E5%BD%95"><span class="toc-number">2.</span> <span class="toc-text">实现根据日期范围搜索记录</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E9%80%81%E6%B0%B4%E8%AE%B0%E5%BD%95"><span class="toc-number">3.</span> <span class="toc-text">修改送水记录</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%85%A7%E7%89%87%E4%B8%8A%E4%BC%A0"><span class="toc-number">4.</span> <span class="toc-text">照片上传</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BB%93%E6%9E%9C%E6%98%BE%E7%A4%BA"><span class="toc-number">5.</span> <span class="toc-text">结果显示</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BB%86%E8%8A%82"><span class="toc-number">6.</span> <span class="toc-text">细节</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Param-%E4%BB%80%E4%B9%88%E6%97%B6%E5%80%99%E7%94%A8"><span class="toc-number">6.1.</span> <span class="toc-text">@Param 什么时候用</span></a></li></ol></li></ol>
+			 </div>
+	   <script type="text/javascript">
+		function showToc(){
+			var toc_article = document.getElementById("toc-article");
+			var show_toc_btn = document.getElementById("show-toc-btn");
+			toc_article.setAttribute("style","display:block");
+			show_toc_btn.setAttribute("style","display:none");
+			};
+		function showBtn(){
+			var toc_article = document.getElementById("toc-article");
+			var show_toc_btn = document.getElementById("show-toc-btn");
+			toc_article.setAttribute("style","display:none");
+			show_toc_btn.setAttribute("style","display:block");
+			};
+	   </script>
+		  
+	<!-- 目录内容结束 -->
+
     <div class="article-entry" itemprop="articleBody">
       
         <p>送水历史管理：显示送水历史记录（多表查询）、根据时间范围搜索记录、增加历史记录、修改和删除历史记录。<br>因为这些增删改查操作和昨天的客户管理和送水工管理很相似，所以就不多啰嗦了，主要写差别的地方。</p>
 <span id="more"></span>
 
-<h2 id="多表查询"><a href="#多表查询" class="headerlink" title="多表查询"></a>多表查询</h2><p><strong>需要用到的HistoryMapper.xml:</strong></p>
+<h1 id="多表查询"><a href="#多表查询" class="headerlink" title="多表查询"></a>多表查询</h1><p><strong>需要用到的HistoryMapper.xml:</strong></p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;</span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">mapper</span></span></span><br><span class="line"><span class="meta">        <span class="meta-keyword">PUBLIC</span> <span class="meta-string">&quot;-//mybatis.org//DTD Mapper 3.0//EN&quot;</span></span></span><br><span class="line"><span class="meta">        <span class="meta-string">&quot;http://mybatis.org/dtd/mybatis-3-mapper.dtd&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">mapper</span> <span class="attr">namespace</span>=<span class="string">&quot;com.zll.water.mapper.HistoryMapper&quot;</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--重新封装连表查询的结果集--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">resultMap</span> <span class="attr">id</span>=<span class="string">&quot;historyMap&quot;</span> <span class="attr">type</span>=<span class="string">&quot;History&quot;</span>&gt;</span></span><br><span class="line">		<span class="comment">&lt;!--</span></span><br><span class="line"><span class="comment">		property对应实体类的属性名，column对应数据库的列名</span></span><br><span class="line"><span class="comment">		--&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">id</span> <span class="attr">property</span>=<span class="string">&quot;hid&quot;</span> <span class="attr">column</span>=<span class="string">&quot;hid&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">result</span> <span class="attr">property</span>=<span class="string">&quot;sendWaterTime&quot;</span> <span class="attr">column</span>=<span class="string">&quot;send_water_time&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">result</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">result</span> <span class="attr">property</span>=<span class="string">&quot;sendWaterCount&quot;</span> <span class="attr">column</span>=<span class="string">&quot;send_water_count&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">result</span>&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">&lt;!--</span></span><br><span class="line"><span class="comment">		关联的表</span></span><br><span class="line"><span class="comment">		property是History实体类的worker属性</span></span><br><span class="line"><span class="comment">		javaType对应Worker实体类</span></span><br><span class="line"><span class="comment">		--&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">association</span> <span class="attr">property</span>=<span class="string">&quot;worker&quot;</span> <span class="attr">javaType</span>=<span class="string">&quot;Worker&quot;</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">result</span> <span class="attr">property</span>=<span class="string">&quot;workerName&quot;</span> <span class="attr">column</span>=<span class="string">&quot;worker_name&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">result</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">association</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">association</span> <span class="attr">property</span>=<span class="string">&quot;customer&quot;</span> <span class="attr">javaType</span>=<span class="string">&quot;Customer&quot;</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">result</span> <span class="attr">property</span>=<span class="string">&quot;custName&quot;</span> <span class="attr">column</span>=<span class="string">&quot;cust_name&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">result</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">association</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">resultMap</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">&lt;!--多表联查--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">&quot;listHistory&quot;</span> <span class="attr">resultMap</span>=<span class="string">&quot;historyMap&quot;</span>&gt;</span></span><br><span class="line">        select h.hid,w.worker_name,h.send_water_time,c.cust_name,h.send_water_count</span><br><span class="line">        from customer c, worker w, history h</span><br><span class="line">        where h.cust_id = c.cid and h.worker_id = w.wid</span><br><span class="line">    <span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">&quot;searchHistory&quot;</span> <span class="attr">parameterType</span>=<span class="string">&quot;Date&quot;</span> <span class="attr">resultMap</span>=<span class="string">&quot;historyMap&quot;</span>&gt;</span></span><br><span class="line">        select h.hid,w.worker_name,h.send_water_time,c.cust_name,h.send_water_count</span><br><span class="line">        from customer c, worker w, history h</span><br><span class="line">        where h.cust_id = c.cid and h.worker_id = w.wid</span><br><span class="line">        <span class="tag">&lt;<span class="name">if</span> <span class="attr">test</span>=<span class="string">&quot;startTime != null and endTime != null&quot;</span>&gt;</span></span><br><span class="line">            and (send_water_time between #&#123;startTime&#125; and  #&#123;endTime&#125;)</span><br><span class="line">        <span class="tag">&lt;/<span class="name">if</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">&quot;getHistoryById&quot;</span> <span class="attr">parameterType</span>=<span class="string">&quot;Integer&quot;</span> <span class="attr">resultMap</span>=<span class="string">&quot;historyMap&quot;</span>&gt;</span></span><br><span class="line">        select h.hid,w.worker_name,h.send_water_time,c.cust_name,h.send_water_count</span><br><span class="line">        from customer c, worker w, history h</span><br><span class="line">        where h.cust_id = c.cid and h.worker_id = w.wid and hid = #&#123;hid&#125;</span><br><span class="line">    <span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">update</span> <span class="attr">id</span>=<span class="string">&quot;updateHistory&quot;</span> <span class="attr">parameterType</span>=<span class="string">&quot;History&quot;</span>&gt;</span></span><br><span class="line">        update history</span><br><span class="line">        set cust_id = #&#123;customer.cid&#125; , worker_id = #&#123;worker.wid&#125;, send_water_time = #&#123;sendWaterTime&#125; , send_water_count = #&#123;sendWaterCount&#125;</span><br><span class="line">        where hid = #&#123;hid&#125;</span><br><span class="line">    <span class="tag">&lt;/<span class="name">update</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">mapper</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>因为多表查询返回的结果在不同的实体类中，所以需要自定义一个historyMap用来映射结果集。</p>
-<h2 id="实现根据日期范围搜索记录"><a href="#实现根据日期范围搜索记录" class="headerlink" title="实现根据日期范围搜索记录"></a>实现根据日期范围搜索记录</h2><p>SQL语句上面给出，主要看一下controller：</p>
+<h1 id="实现根据日期范围搜索记录"><a href="#实现根据日期范围搜索记录" class="headerlink" title="实现根据日期范围搜索记录"></a>实现根据日期范围搜索记录</h1><p>SQL语句上面给出，主要看一下controller：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> SimpleDateFormat simpleDateFormat = <span class="keyword">new</span> SimpleDateFormat(<span class="string">&quot;yyyy-MM-dd&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="meta">@RequestMapping(&quot;/searchHistory&quot;)</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">searchHistory</span><span class="params">(String start, String end, Model model)</span> <span class="keyword">throws</span> ParseException </span>&#123;</span><br><span class="line">    Date startTime = simpleDateFormat.parse(start);</span><br><span class="line">    Date endTime = simpleDateFormat.parse(end);</span><br><span class="line">    List&lt;History&gt; historyList = historyService.searchHistory(startTime, endTime);</span><br><span class="line">    model.addAttribute(<span class="string">&quot;historyList&quot;</span>, historyList);</span><br><span class="line">    model.addAttribute(<span class="string">&quot;start&quot;</span>, start);</span><br><span class="line">    model.addAttribute(<span class="string">&quot;end&quot;</span>, end);</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;historyList&quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>因为前端传入后端的日期是String类型，所以使用SimpleDateFormat的parse方法解析为Date类型。</p>
-<h2 id="修改送水记录"><a href="#修改送水记录" class="headerlink" title="修改送水记录"></a>修改送水记录</h2><p>主要想要实现前端下拉列表显示所有的送水工、客户。<br>所以需要后端将查询的结果传给前端。</p>
+<h1 id="修改送水记录"><a href="#修改送水记录" class="headerlink" title="修改送水记录"></a>修改送水记录</h1><p>主要想要实现前端下拉列表显示所有的送水工、客户。<br>所以需要后端将查询的结果传给前端。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Autowired</span></span><br><span class="line"><span class="keyword">private</span> CustomerService customerService;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Autowired</span></span><br><span class="line"><span class="keyword">private</span> WorkerService workerService;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 回显送水历史信息，跳转到修改页面</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> hid</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@RequestMapping(&quot;/preUpdateHistory/&#123;hid&#125;&quot;)</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">preUpdateHistory</span><span class="params">(<span class="meta">@PathVariable(&quot;hid&quot;)</span> Integer hid, Model model)</span> </span>&#123;</span><br><span class="line">    History history = historyService.getHistoryById(hid);</span><br><span class="line">    List&lt;Customer&gt; customerList = customerService.listCustomer();</span><br><span class="line">    List&lt;Worker&gt; workerList = workerService.listWorker();</span><br><span class="line"></span><br><span class="line">    model.addAttribute(<span class="string">&quot;history&quot;</span>, history);</span><br><span class="line">    model.addAttribute(<span class="string">&quot;customerList&quot;</span>, customerList);</span><br><span class="line">    model.addAttribute(<span class="string">&quot;workerList&quot;</span>, workerList);</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;historyUpdate&quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h2 id="照片上传"><a href="#照片上传" class="headerlink" title="照片上传"></a>照片上传</h2><p>显示送水工的照片，照片从浏览器上传到服务器，数据库存储图片的名称，显示时根据配置文件中的路径去服务器中寻找图片，并显示在浏览器上。</p>
+<h1 id="照片上传"><a href="#照片上传" class="headerlink" title="照片上传"></a>照片上传</h1><p>显示送水工的照片，照片从浏览器上传到服务器，数据库存储图片的名称，显示时根据配置文件中的路径去服务器中寻找图片，并显示在浏览器上。</p>
 <p>增加配置文件：</p>
 <figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Springboot将从classpath中按如下优先级加载对应前端静态资源</span></span><br><span class="line">  <span class="comment"># classpath:/static,classpath:/public,classpath:/resources,classpath:/META-INF/resource</span></span><br><span class="line">  <span class="comment"># 除此之外还要加载E:/upLoad/picture/路径下的静态资源</span></span><br><span class="line">  <span class="attr">resources:</span></span><br><span class="line">   <span class="attr">static-locations:</span> <span class="string">classpath:/static,classpath:/public,classpath:/resources,classpath:/META-INF/resource,file:$&#123;location&#125;</span></span><br><span class="line"><span class="comment"># 上传到服务器的路径</span></span><br><span class="line"><span class="attr">location:</span> <span class="string">D:/图库/water/</span></span><br></pre></td></tr></table></figure>
 
 <p>控制器：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RequestMapping(value = &quot;/saveWorker&quot;, method = RequestMethod.POST)</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">saveWorker</span><span class="params">(Worker worker, MultipartFile uploadFile)</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">    <span class="comment">// 获取上传的文件名</span></span><br><span class="line">    String originalFilename = uploadFile.getOriginalFilename();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (StrUtil.isNotEmpty(originalFilename)) &#123;</span><br><span class="line">        <span class="keyword">int</span> suffixIndex = originalFilename.lastIndexOf(<span class="string">&#x27;.&#x27;</span>);</span><br><span class="line">        <span class="comment">// 获取后缀</span></span><br><span class="line">        String suffix = originalFilename.substring(suffixIndex);</span><br><span class="line">        <span class="comment">// 当前时间的毫秒值作为前缀</span></span><br><span class="line">        <span class="keyword">long</span> prefix = System.currentTimeMillis();</span><br><span class="line">        <span class="comment">// 文件名</span></span><br><span class="line">        String fullFileName = prefix + suffix;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 拼接路径</span></span><br><span class="line">        File parentPath = <span class="keyword">new</span> File(location);</span><br><span class="line">        <span class="comment">// 条件成立：服务器路径不存在创建路径</span></span><br><span class="line">        <span class="keyword">if</span> (!parentPath.exists()) &#123;</span><br><span class="line">            parentPath.mkdirs();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 全路径</span></span><br><span class="line">        File fullPath = <span class="keyword">new</span> File(parentPath, fullFileName);</span><br><span class="line">        <span class="comment">// 上传</span></span><br><span class="line">        uploadFile.transferTo(fullPath);</span><br><span class="line">        worker.setWorkerImage(fullFileName);</span><br><span class="line">    &#125;</span><br><span class="line">    workerService.saveWorker(worker);</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;redirect:/worker/listWorker&quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><strong>注意一个坑：</strong><br>在前端页面要form处，要加上<code>enctype=&quot;multipart/form-data&quot;</code>，否则前端返回的<code>uploadFile</code>是null。<br>前端代码就不予展示了。</p>
-<h2 id="结果显示"><a href="#结果显示" class="headerlink" title="结果显示"></a>结果显示</h2><p>送水工列表：<br><img src="/2021/07/24/%E4%B8%AD%E8%BD%AF%E5%AE%9E%E8%AE%ADday13/1.jpg"></p>
+<h1 id="结果显示"><a href="#结果显示" class="headerlink" title="结果显示"></a>结果显示</h1><p>送水工列表：<br><img src="/2021/07/24/%E4%B8%AD%E8%BD%AF%E5%AE%9E%E8%AE%ADday13/1.jpg"></p>
 <p>修改送水工信息：<br><img src="/2021/07/24/%E4%B8%AD%E8%BD%AF%E5%AE%9E%E8%AE%ADday13/2.jpg"></p>
 <p>送水记录列表：<br><img src="/2021/07/24/%E4%B8%AD%E8%BD%AF%E5%AE%9E%E8%AE%ADday13/3.jpg"></p>
 <p>修改送水记录：<br><img src="/2021/07/24/%E4%B8%AD%E8%BD%AF%E5%AE%9E%E8%AE%ADday13/4.jpg"></p>
 <p>其他增加、删除、搜索就不演示了。</p>
-<h2 id="细节"><a href="#细节" class="headerlink" title="细节"></a>细节</h2><h3 id="Param-什么时候用"><a href="#Param-什么时候用" class="headerlink" title="@Param 什么时候用"></a>@Param 什么时候用</h3><ol>
+<h1 id="细节"><a href="#细节" class="headerlink" title="细节"></a>细节</h1><h2 id="Param-什么时候用"><a href="#Param-什么时候用" class="headerlink" title="@Param 什么时候用"></a>@Param 什么时候用</h2><ol>
 <li>多个参数是要写的</li>
 <li>要是想给参数起个别名，那得写</li>
 <li>XML 中的 sql 语句使用了 $ 符号也要写</li>
@@ -368,6 +372,19 @@
         </div>
         
         
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%A4%9A%E8%A1%A8%E6%9F%A5%E8%AF%A2"><span class="toc-number">1.</span> <span class="toc-text">多表查询</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0%E6%A0%B9%E6%8D%AE%E6%97%A5%E6%9C%9F%E8%8C%83%E5%9B%B4%E6%90%9C%E7%B4%A2%E8%AE%B0%E5%BD%95"><span class="toc-number">2.</span> <span class="toc-text">实现根据日期范围搜索记录</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E9%80%81%E6%B0%B4%E8%AE%B0%E5%BD%95"><span class="toc-number">3.</span> <span class="toc-text">修改送水记录</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%85%A7%E7%89%87%E4%B8%8A%E4%BC%A0"><span class="toc-number">4.</span> <span class="toc-text">照片上传</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BB%93%E6%9E%9C%E6%98%BE%E7%A4%BA"><span class="toc-number">5.</span> <span class="toc-text">结果显示</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BB%86%E8%8A%82"><span class="toc-number">6.</span> <span class="toc-text">细节</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Param-%E4%BB%80%E4%B9%88%E6%97%B6%E5%80%99%E7%94%A8"><span class="toc-number">6.1.</span> <span class="toc-text">@Param 什么时候用</span></a></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
     </div>
 </aside>
 
@@ -425,6 +442,58 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
 
 
 <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script type="text/javascript">
+	! function (e, t, a) {
+    function n() {
+        c(".heart{width: 10px;height: 10px;position: fixed;background: #f00;transform: rotate(45deg);-webkit-transform: rotate(45deg);-moz-transform: rotate(45deg);}.heart:after,.heart:before{content: '';width: inherit;height: inherit;background: inherit;border-radius: 50%;-webkit-border-radius: 50%;-moz-border-radius: 50%;position: fixed;}.heart:after{top: -5px;}.heart:before{left: -5px;}"), o(), r()
+    }
+
+    function r() {
+        for (var e = 0; e < d.length; e++) d[e].alpha <= 0 ? (t.body.removeChild(d[e].el), d.splice(e, 1)) : (d[e].y--, d[e].scale += .004, d[e].alpha -= .013, d[e].el.style.cssText = "left:" + d[e].x + "px;top:" + d[e].y + "px;opacity:" + d[e].alpha + ";transform:scale(" + d[e].scale + "," + d[e].scale + ") rotate(45deg);background:" + d[e].color + ";z-index:99999");
+        requestAnimationFrame(r)
+    }
+
+    function o() {
+        var t = "function" == typeof e.onclick && e.onclick;
+        e.onclick = function (e) {
+            t && t(), i(e)
+        }
+    }
+
+    function i(e) {
+        var a = t.createElement("div");
+        a.className = "heart", d.push({
+            el: a,
+            x: e.clientX - 5,
+            y: e.clientY - 5,
+            scale: 1,
+            alpha: 1,
+            color: s()
+        }), t.body.appendChild(a)
+    }
+
+    function c(e) {
+        var a = t.createElement("style");
+        a.type = "text/css";
+        try {
+            a.appendChild(t.createTextNode(e))
+        } catch (t) {
+            a.styleSheet.cssText = e
+        }
+        t.getElementsByTagName("head")[0].appendChild(a)
+    }
+
+    function s() {
+        return "rgb(" + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + ")"
+    }
+    var d = [];
+    e.requestAnimationFrame = function () {
+        return e.requestAnimationFrame || e.webkitRequestAnimationFrame || e.mozRequestAnimationFrame || e.oRequestAnimationFrame || e.msRequestAnimationFrame || function (e) {
+            setTimeout(e, 1e3 / 60)
+        }
+    }(), n()
+}(window, document);
+</script>
     
 <div class="tools-col" q-class="show:isShow,hide:isShow|isFalse" q-on="click:stop(e)">
   <div class="tools-nav header-menu">
@@ -489,10 +558,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">JDBC</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">JVM</a>
               </li>
              
@@ -514,10 +579,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">SSM</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Shiro</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -558,6 +619,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">操作系统</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">yilia</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -668,7 +733,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
     
     	<section class="tools-section tools-section-me" q-show="aboutme">
   	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">我是武理的一名学生&lt;br&gt;&lt;br&gt;用个人博客记录一下自己的学习过程&lt;br&gt;&lt;br&gt;欢迎大家一起来学习&lt;br&gt;&lt;br&gt;QQ联系方式:2745459573</div>
+  	  		<div class="aboutme-wrap" id="js-aboutme">你可会记得，云朵之下指尖轻触，寂寂无言，爱人听见，玫瑰伸展着枝叶；&lt;br&gt;你可记得，友人的笑容，蕴藏着世上所有的温柔；&lt;br&gt;你可会记得，鸽子飞过蓝天，少女脚步轻盈，像清风吹过麦田；&lt;br&gt;你可会记得，在黑暗中有光亮起，你顾冷人生中唯一的璀璨，那是你的家。&lt;br&gt;&lt;br&gt;QQ联系方式：2745459573</div>
   	  	
     	</section>
     
