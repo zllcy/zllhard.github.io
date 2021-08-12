@@ -462,19 +462,6 @@ public void buyBook(String username, String isbn) &#123;
         </div>
         
         
-        <div class="toc-container tooltip-left">
-            <i class="icon-font icon-category"></i>
-            <div class="tooltip tooltip-east">
-                <span class="tooltip-item">
-                </span>
-                <span class="tooltip-content">
-                    <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9E%9A%E4%B8%BE%E7%B1%BB%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="toc-number">1.</span> <span class="toc-text">枚举类的使用</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E6%9E%9A%E4%B8%BE%E7%B1%BB"><span class="toc-number">1.1.</span> <span class="toc-text">自定义枚举类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8enum%E5%AE%9A%E4%B9%89%E6%9E%9A%E4%B8%BE%E7%B1%BB"><span class="toc-number">1.2.</span> <span class="toc-text">使用enum定义枚举类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Enum%E7%B1%BB%E7%9A%84%E4%B8%BB%E8%A6%81%E6%96%B9%E6%B3%95"><span class="toc-number">1.3.</span> <span class="toc-text">Enum类的主要方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9E%9A%E4%B8%BE%E7%B1%BB%E5%B0%8F%E7%BB%93"><span class="toc-number">1.4.</span> <span class="toc-text">枚举类小结</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%B3%A8%E8%A7%A3-Annotation"><span class="toc-number">2.</span> <span class="toc-text">注解(Annotation)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E7%9A%84Annotation%E7%A4%BA%E4%BE%8B"><span class="toc-number">2.1.</span> <span class="toc-text">常见的Annotation示例</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A4%BA%E4%BE%8B%E4%B8%80%EF%BC%9A%E7%94%9F%E6%88%90%E6%96%87%E6%A1%A3%E7%9B%B8%E5%85%B3%E7%9A%84%E6%B3%A8%E8%A7%A3"><span class="toc-number">2.1.1.</span> <span class="toc-text">示例一：生成文档相关的注解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A4%BA%E4%BE%8B%E4%BA%8C%EF%BC%9A%E5%9C%A8%E7%BC%96%E8%AF%91%E6%97%B6%E8%BF%9B%E8%A1%8C%E6%A0%BC%E5%BC%8F%E6%A3%80%E6%9F%A5-JDK%E5%86%85%E7%BD%AE%E7%9A%84%E4%B8%89%E4%B8%AA%E5%9F%BA%E6%9C%AC%E6%B3%A8%E8%A7%A3"><span class="toc-number">2.1.2.</span> <span class="toc-text">示例二：在编译时进行格式检查(JDK内置的三个基本注解)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A4%BA%E4%BE%8B%E4%B8%89%EF%BC%9A%E8%B7%9F%E8%B8%AA%E4%BB%A3%E7%A0%81%E4%BE%9D%E8%B5%96%E6%80%A7%EF%BC%8C%E5%AE%9E%E7%8E%B0%E6%9B%BF%E4%BB%A3%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E5%8A%9F%E8%83%BD"><span class="toc-number">2.1.3.</span> <span class="toc-text">示例三：跟踪代码依赖性，实现替代配置文件功能</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89-Annotation"><span class="toc-number">2.2.</span> <span class="toc-text">自定义 Annotation</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JDK-%E4%B8%AD%E7%9A%84%E5%85%83%E6%B3%A8%E8%A7%A3"><span class="toc-number">2.3.</span> <span class="toc-text">JDK 中的元注解</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Retention"><span class="toc-number">2.3.1.</span> <span class="toc-text">@Retention</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Target"><span class="toc-number">2.3.2.</span> <span class="toc-text">@Target</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Documented"><span class="toc-number">2.3.3.</span> <span class="toc-text">@Documented</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Inherited"><span class="toc-number">2.3.4.</span> <span class="toc-text">@Inherited</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%A9%E7%94%A8%E5%8F%8D%E5%B0%84%E8%8E%B7%E5%8F%96%E6%B3%A8%E8%A7%A3%E4%BF%A1%E6%81%AF"><span class="toc-number">2.4.</span> <span class="toc-text">利用反射获取注解信息</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JDK8%E4%B8%AD%E6%B3%A8%E8%A7%A3%E7%9A%84%E6%96%B0%E7%89%B9%E6%80%A7"><span class="toc-number">2.5.</span> <span class="toc-text">JDK8中注解的新特性</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%AF%E9%87%8D%E5%A4%8D%E6%B3%A8%E8%A7%A3%E7%A4%BA%E4%BE%8B"><span class="toc-number">2.5.1.</span> <span class="toc-text">可重复注解示例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B1%BB%E5%9E%8B%E6%B3%A8%E8%A7%A3"><span class="toc-number">2.5.2.</span> <span class="toc-text">类型注解</span></a></li></ol></li></ol></li></ol>
-                    </div>
-                </span>
-            </div>
-        </div>
-        
     </div>
 </aside>
 
@@ -669,11 +656,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">算法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">MyBatis</a>
+                <a href="javascript:void(0)" class="js-tag color4">LeetCode</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -681,11 +664,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">LeetCode</a>
+                <a href="javascript:void(0)" class="js-tag color3">MyBatis</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">SSM</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -701,11 +688,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">VueAdmin项目</a>
+                <a href="javascript:void(0)" class="js-tag color4">Vue</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Vue</a>
+                <a href="javascript:void(0)" class="js-tag color1">VueAdmin项目</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -742,6 +729,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">面试</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">剑指offer</a>
               </li>
              
               <li class="article-tag-list-item">
