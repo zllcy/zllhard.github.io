@@ -6,19 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>相交链表 | 张显宗，我牙疼</title>
+  <title>火车进站 | 张显宗，我牙疼</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="160. 相交链表编写一个程序，找到两个单链表相交的起始节点。这是一道浪漫的算法题">
+  <meta name="description" content="给定一个正整数N代表火车数量，0&lt;N&lt;10，接下来输入火车入站的序列，一共N辆火车，每辆火车以数字1-9编号，火车站只有一个方向进出，同时停靠在火车站的列车中，只有后进站的出站了，先进站的才能出站。要求输出所有火车出站的方案，以字典序排序输出。求一个序列的所有出栈情况。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="相交链表">
-<meta property="og:url" content="http://example.com/2021/05/19/%E7%9B%B8%E4%BA%A4%E9%93%BE%E8%A1%A8/index.html">
+<meta property="og:title" content="火车进站">
+<meta property="og:url" content="http://example.com/2021/10/08/%E7%81%AB%E8%BD%A6%E8%BF%9B%E7%AB%99/index.html">
 <meta property="og:site_name" content="张显宗，我牙疼">
-<meta property="og:description" content="160. 相交链表编写一个程序，找到两个单链表相交的起始节点。这是一道浪漫的算法题">
+<meta property="og:description" content="给定一个正整数N代表火车数量，0&lt;N&lt;10，接下来输入火车入站的序列，一共N辆火车，每辆火车以数字1-9编号，火车站只有一个方向进出，同时停靠在火车站的列车中，只有后进站的出站了，先进站的才能出站。要求输出所有火车出站的方案，以字典序排序输出。求一个序列的所有出栈情况。">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2021-05-19T07:52:49.084Z">
-<meta property="article:modified_time" content="2021-07-26T12:56:22.846Z">
+<meta property="article:published_time" content="2021-10-08T15:45:46.354Z">
+<meta property="article:modified_time" content="2021-10-08T15:52:30.057Z">
 <meta property="article:author" content="c^_^y">
-<meta property="article:tag" content="LeetCode">
+<meta property="article:tag" content="华为机试">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="张显宗，我牙疼" type="application/atom+xml">
@@ -171,14 +171,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-相交链表" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-火车进站" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title_code_ant" itemprop="name">
-      相交链表
+      火车进站
     </h1>
   
 
@@ -193,8 +193,8 @@
 		  </a>
 		
         
-        <a href="/2021/05/19/%E7%9B%B8%E4%BA%A4%E9%93%BE%E8%A1%A8/" class="archive-article-date">
-  	<time datetime="2021-05-19T07:52:49.084Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-05-19</time>
+        <a href="/2021/10/08/%E7%81%AB%E8%BD%A6%E8%BF%9B%E7%AB%99/" class="archive-article-date">
+  	<time datetime="2021-10-08T15:45:46.354Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-10-08</time>
 </a>
         
       </header>
@@ -229,12 +229,11 @@
 
     <div class="article-entry" itemprop="articleBody">
       
-        <p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/intersection-of-two-linked-lists/">160. 相交链表</a><br>编写一个程序，找到两个单链表相交的起始节点。<br>这是一道浪漫的算法题</p>
+        <p>给定一个正整数N代表火车数量，0&lt;N&lt;10，接下来输入火车入站的序列，一共N辆火车，每辆火车以数字1-9编号，火车站只有一个方向进出，同时停靠在火车站的列车中，只有后进站的出站了，先进站的才能出站。<br>要求输出所有火车出站的方案，以字典序排序输出。<br>求一个序列的所有出栈情况。</p>
 <span id="more"></span>
 
-<h1 id="思路分析"><a href="#思路分析" class="headerlink" title="思路分析"></a>思路分析</h1><p>可以用哈希表暴力解，但是程序员需要浪漫一点嘛！</p>
-<p>你变成我，走过我走过的路。<br>我变成你，走过你走过的路。<br>然后我们便相遇了..</p>
-<h1 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * public class ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     ListNode next;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x) &#123;</span></span><br><span class="line"><span class="comment"> *         val = x;</span></span><br><span class="line"><span class="comment"> *         next = null;</span></span><br><span class="line"><span class="comment"> *     &#125;</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> ListNode <span class="title">getIntersectionNode</span><span class="params">(ListNode headA, ListNode headB)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//你变成我，走过我走过的路。</span></span><br><span class="line">        <span class="comment">//我变成你，走过你走过的路。</span></span><br><span class="line">        <span class="comment">//然后我们便相遇了..</span></span><br><span class="line">        ListNode A = headA, B = headB;</span><br><span class="line">        <span class="keyword">while</span> (A != B) &#123;</span><br><span class="line">            A = A != <span class="keyword">null</span> ? A.next : headB;</span><br><span class="line">            B = B != <span class="keyword">null</span> ? B.next : headA;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> A;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="思路分析"><a href="#思路分析" class="headerlink" title="思路分析"></a>思路分析</h1><p>递归+回溯<br>所有元素全部入栈出栈完毕结束递归<br>选择入栈，需要有入栈元素，然后递归，递归完后回溯将之前入栈元素出栈<br>选择出栈，需要栈不为空，然后递归，递归完后回溯将字符串减去之前加入的元素，并将出栈元素重新入栈。</p>
+<h1 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        Scanner sc = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">        <span class="keyword">while</span> (sc.hasNextInt()) &#123;</span><br><span class="line">            <span class="keyword">int</span> n = sc.nextInt();</span><br><span class="line">            <span class="keyword">int</span>[] a = <span class="keyword">new</span> <span class="keyword">int</span>[n];</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">                a[i] = sc.nextInt();</span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">            <span class="comment">// 结果集</span></span><br><span class="line">            TreeSet&lt;String&gt; res = <span class="keyword">new</span> TreeSet&lt;&gt;();</span><br><span class="line">            solve(res, <span class="keyword">new</span> StringBuilder(), a, n, <span class="keyword">new</span> Stack&lt;Integer&gt;(), <span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line">            <span class="keyword">for</span> (String str : res) &#123;</span><br><span class="line">                System.out.println(str);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">    i: 出栈序列位置</span></span><br><span class="line"><span class="comment">    j: 入栈序列位置</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">solve</span><span class="params">(TreeSet&lt;String&gt; res, StringBuilder sb, <span class="keyword">int</span>[] a, <span class="keyword">int</span> n,</span></span></span><br><span class="line"><span class="function"><span class="params">                              Stack&lt;Integer&gt; stack, <span class="keyword">int</span> i, <span class="keyword">int</span> j)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 全部出栈、入栈完成</span></span><br><span class="line">        <span class="keyword">if</span> (i == n &amp;&amp; j == n) &#123;</span><br><span class="line">            res.add(sb.toString());</span><br><span class="line">            sb = <span class="keyword">new</span> StringBuilder();</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 选择进站</span></span><br><span class="line">        <span class="keyword">if</span> (j != n) &#123;</span><br><span class="line">            stack.push(a[j]);</span><br><span class="line">            solve(res, sb, a, n, stack, i ,j+<span class="number">1</span>);</span><br><span class="line">            stack.pop();</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 出栈</span></span><br><span class="line">        <span class="keyword">if</span> (!stack.isEmpty()) &#123;</span><br><span class="line">            <span class="keyword">int</span> temp = stack.pop();</span><br><span class="line">            sb.append(temp + <span class="string">&quot; &quot;</span>);</span><br><span class="line">            solve(res, sb, a, n, stack, i+<span class="number">1</span>, j);</span><br><span class="line">            sb.delete(sb.length() - <span class="number">2</span>, sb.length());</span><br><span class="line">            stack.push(temp);</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
 
@@ -248,7 +247,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">LeetCode</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">华为机试</a>
         		</li>
       		
 		</ul>
@@ -304,7 +303,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2021/05/19/%E7%9B%B8%E4%BA%A4%E9%93%BE%E8%A1%A8/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2021/10/08/%E7%81%AB%E8%BD%A6%E8%BF%9B%E7%AB%99/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -318,18 +317,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2021/05/19/%E7%BD%91%E7%BB%9C%E5%B1%82/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          网络层
-        
-      </div>
-    </a>
   
-  
-    <a href="/2021/05/17/%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">数据链路层</div>
+    <a href="/2021/10/08/redis%E5%B8%B8%E7%94%A8%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">redis常用数据类型</div>
       <i class="icon-circle-right"></i>
     </a>
   
