@@ -28,10 +28,10 @@
 <meta property="og:image" content="http://example.com/2021/12/21/JDBC%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/11.png">
 <meta property="og:image" content="http://example.com/2021/12/21/JDBC%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/12.png">
 <meta property="og:image" content="http://example.com/2021/12/21/JDBC%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/15.png">
-<meta property="og:image" content="http://example.com/2021/12/21/JDBC%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/13.jpg">
+<meta property="og:image" content="http://example.com/2021/12/21/JDBC%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/13.png">
 <meta property="og:image" content="http://example.com/2021/12/21/JDBC%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/14.png">
 <meta property="article:published_time" content="2021-12-21T07:47:44.181Z">
-<meta property="article:modified_time" content="2021-12-28T13:10:47.367Z">
+<meta property="article:modified_time" content="2022-01-12T02:14:10.929Z">
 <meta property="article:author" content="c^_^y">
 <meta property="article:tag" content="玩转Spring全家桶">
 <meta name="twitter:card" content="summary">
@@ -413,7 +413,7 @@
 <p>如何让该方法支持事务？</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Autowired</span></span><br><span class="line"><span class="keyword">private</span> FooService fooService;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">invokeInsertThenRollback</span><span class="params">()</span> <span class="keyword">throws</span> RollbackException </span>&#123;</span><br><span class="line">    fooService.insertThenRollback();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><img src="/2021/12/21/JDBC%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/15.png"></p>
-<h1 id="Spring的JDBC异常抽象"><a href="#Spring的JDBC异常抽象" class="headerlink" title="Spring的JDBC异常抽象"></a>Spring的JDBC异常抽象</h1><p>Spring 会将数据操作的异常转换为 DataAccessException。<br>⽆论使⽤何种数据访问⽅式，都能使⽤⼀样的异常。<br><img src="/2021/12/21/JDBC%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/13.jpg"></p>
+<h1 id="Spring的JDBC异常抽象"><a href="#Spring的JDBC异常抽象" class="headerlink" title="Spring的JDBC异常抽象"></a>Spring的JDBC异常抽象</h1><p>Spring 会将数据操作的异常转换为 DataAccessException。<br>⽆论使⽤何种数据访问⽅式，都能使⽤⼀样的异常。<br><img src="/2021/12/21/JDBC%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/13.png"></p>
 <p>Spring通过 SQLErrorCodeSQLExceptionTranslator 解析错误码。<br>ErrorCode 定义</p>
 <ul>
 <li>org/springframework/jdbc/support/sql-error-codes.xml</li>
@@ -721,11 +721,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">面经</a>
+                <a href="javascript:void(0)" class="js-tag color1">Spring5 框架</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Spring5 框架</a>
+                <a href="javascript:void(0)" class="js-tag color3">面经</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -741,11 +741,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">LeetCode</a>
+                <a href="javascript:void(0)" class="js-tag color3">算法</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">算法</a>
+                <a href="javascript:void(0)" class="js-tag color4">LeetCode</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -757,11 +757,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">SpringBoot</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">SSM</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">SpringBoot</a>
+                <a href="javascript:void(0)" class="js-tag color2">玩转Spring全家桶</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -769,11 +773,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">SpringSecurity</a>
+                <a href="javascript:void(0)" class="js-tag color4">Vue</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Vue</a>
+                <a href="javascript:void(0)" class="js-tag color5">SpringSecurity</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -789,11 +793,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">中软实训</a>
+                <a href="javascript:void(0)" class="js-tag color3">剑指offer</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">剑指offer</a>
+                <a href="javascript:void(0)" class="js-tag color5">中软实训</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -802,10 +806,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">玩转Spring全家桶</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -829,11 +829,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
+                <a href="javascript:void(0)" class="js-tag color1">yilia</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">yilia</a>
+                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
               </li>
              
               <li class="article-tag-list-item">
