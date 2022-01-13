@@ -16,7 +16,7 @@
 <meta property="og:description" content="本章包括通过RestTemplate访问Web资源、RestTemplate的高阶用法、简单定制RestTemplate、通过WebClient访问Web资源。">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-01-12T03:08:08.146Z">
-<meta property="article:modified_time" content="2022-01-13T08:32:17.179Z">
+<meta property="article:modified_time" content="2022-01-13T12:32:51.385Z">
 <meta property="article:author" content="c^_^y">
 <meta property="article:tag" content="玩转Spring全家桶">
 <meta name="twitter:card" content="summary">
@@ -202,7 +202,7 @@
 		<div id="toc-article" class="toc-article">
 			<span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
 			<strong class="toc-title">文章目录</strong>
-			   <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%80%9A%E8%BF%87-RestTemplate-%E8%AE%BF%E9%97%AE-Web-%E8%B5%84%E6%BA%90"><span class="toc-number">1.</span> <span class="toc-text">通过 RestTemplate 访问 Web 资源</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#RestTemplate-%E7%9A%84%E2%BE%BC%E9%98%B6%E2%BD%A4%E6%B3%95"><span class="toc-number">2.</span> <span class="toc-text">RestTemplate 的⾼阶⽤法</span></a></li></ol>
+			   <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%80%9A%E8%BF%87-RestTemplate-%E8%AE%BF%E9%97%AE-Web-%E8%B5%84%E6%BA%90"><span class="toc-number">1.</span> <span class="toc-text">通过 RestTemplate 访问 Web 资源</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#RestTemplate-%E7%9A%84%E2%BE%BC%E9%98%B6%E2%BD%A4%E6%B3%95"><span class="toc-number">2.</span> <span class="toc-text">RestTemplate 的⾼阶⽤法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AE%80%E5%8D%95%E5%AE%9A%E5%88%B6RestTemplate"><span class="toc-number">3.</span> <span class="toc-text">简单定制RestTemplate</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#RestTemplate-%E2%BD%80%E6%8C%81%E7%9A%84-HTTP-%E5%BA%93"><span class="toc-number">3.1.</span> <span class="toc-text">RestTemplate ⽀持的 HTTP 库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BC%98%E5%8C%96%E5%BA%95%E5%B1%82%E8%AF%B7%E6%B1%82%E7%AD%96%E7%95%A5"><span class="toc-number">3.2.</span> <span class="toc-text">优化底层请求策略</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9A%E5%88%B6%E6%A1%88%E4%BE%8B"><span class="toc-number">3.3.</span> <span class="toc-text">定制案例</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%80%9A%E8%BF%87-WebClient-%E8%AE%BF%E9%97%AE-Web-%E8%B5%84%E6%BA%90"><span class="toc-number">4.</span> <span class="toc-text">通过 WebClient 访问 Web 资源</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%86%E8%A7%A3-WebClient"><span class="toc-number">4.1.</span> <span class="toc-text">了解 WebClient</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#WebClient-%E7%9A%84%E5%9F%BA%E6%9C%AC%E2%BD%A4%E6%B3%95"><span class="toc-number">4.2.</span> <span class="toc-text">WebClient 的基本⽤法</span></a></li></ol></li></ol>
 			 </div>
 	   <script type="text/javascript">
 		function showToc(){
@@ -248,11 +248,93 @@
 <ul>
 <li>MvcUriComponentsBuilder</li>
 </ul>
-<h1 id="RestTemplate-的⾼阶⽤法"><a href="#RestTemplate-的⾼阶⽤法" class="headerlink" title="RestTemplate 的⾼阶⽤法"></a>RestTemplate 的⾼阶⽤法</h1><p>传递 HTTP Header </p>
+<h1 id="RestTemplate-的⾼阶⽤法"><a href="#RestTemplate-的⾼阶⽤法" class="headerlink" title="RestTemplate 的⾼阶⽤法"></a>RestTemplate 的⾼阶⽤法</h1><p><strong>传递 HTTP Header</strong> </p>
+<ul>
+<li>RestTemplate.exchange() 传入RequestEntity<T> / ResponseEntity<T></T></T></li>
+</ul>
+<p>设置accept头，接收的响应类型为xml</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">RequestEntity&lt;Void&gt; req = RequestEntity.get(uri)</span><br><span class="line">		.accept(MediaType.APPLICATION_XML)</span><br><span class="line">		.build();</span><br><span class="line">ResponseEntity&lt;String&gt; resp = restTemplate.exchange(req, String.class);</span><br></pre></td></tr></table></figure>
+
+<p><strong>类型转换</strong></p>
+<ul>
+<li>JsonSerializer / JsonDeserializer</li>
+<li>@JsonComponent</li>
+</ul>
+<p>序列化，将money中的amount的取出，输出为一个数字。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> com.fasterxml.jackson.core.JsonGenerator;</span><br><span class="line"><span class="keyword">import</span> com.fasterxml.jackson.databind.SerializerProvider;</span><br><span class="line"><span class="keyword">import</span> com.fasterxml.jackson.databind.ser.std.StdSerializer;</span><br><span class="line"><span class="keyword">import</span> org.joda.money.Money;</span><br><span class="line"><span class="keyword">import</span> org.springframework.boot.jackson.JsonComponent;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"></span><br><span class="line"><span class="meta">@JsonComponent</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MoneySerializer</span> <span class="keyword">extends</span> <span class="title">StdSerializer</span>&lt;<span class="title">Money</span>&gt; </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="title">MoneySerializer</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>(Money.class);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">serialize</span><span class="params">(Money money, JsonGenerator jsonGenerator, SerializerProvider serializerProvider)</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">        jsonGenerator.writeNumber(money.getAmount());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>反序列化，构造为CNY的一个money类型</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> com.fasterxml.jackson.core.JsonParser;</span><br><span class="line"><span class="keyword">import</span> com.fasterxml.jackson.core.JsonProcessingException;</span><br><span class="line"><span class="keyword">import</span> com.fasterxml.jackson.databind.DeserializationContext;</span><br><span class="line"><span class="keyword">import</span> com.fasterxml.jackson.databind.deser.std.StdDeserializer;</span><br><span class="line"><span class="keyword">import</span> org.joda.money.CurrencyUnit;</span><br><span class="line"><span class="keyword">import</span> org.joda.money.Money;</span><br><span class="line"><span class="keyword">import</span> org.springframework.boot.jackson.JsonComponent;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"></span><br><span class="line"><span class="meta">@JsonComponent</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MoneyDeserializer</span> <span class="keyword">extends</span> <span class="title">StdDeserializer</span>&lt;<span class="title">Money</span>&gt; </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="title">MoneyDeserializer</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>(Money.class);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Money <span class="title">deserialize</span><span class="params">(JsonParser p, DeserializationContext ctxt)</span> <span class="keyword">throws</span> IOException, JsonProcessingException </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> Money.of(CurrencyUnit.of(<span class="string">&quot;CNY&quot;</span>), p.getDecimalValue());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>解析泛型对象</strong></p>
 <ul>
 <li>RestTemplate.exchange()</li>
-<li>RequestEntity<T> / ResponseEntity<T></T></T></li>
+<li>ParameterizedTypeReference<T></T></li>
 </ul>
+<p>将请求取回的结果设置为一个list</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ParameterizedTypeReference&lt;List&lt;Coffee&gt;&gt; ptr =</span><br><span class="line">			<span class="keyword">new</span> ParameterizedTypeReference&lt;List&lt;Coffee&gt;&gt;() &#123;&#125;;</span><br><span class="line">	ResponseEntity&lt;List&lt;Coffee&gt;&gt; list = restTemplate</span><br><span class="line">			.exchange(coffeeUri, HttpMethod.GET, <span class="keyword">null</span>, ptr);</span><br><span class="line">	list.getBody().forEach(c -&gt; log.info(<span class="string">&quot;Coffee: &#123;&#125;&quot;</span>, c));</span><br></pre></td></tr></table></figure>
+
+
+<h1 id="简单定制RestTemplate"><a href="#简单定制RestTemplate" class="headerlink" title="简单定制RestTemplate"></a>简单定制RestTemplate</h1><h2 id="RestTemplate-⽀持的-HTTP-库"><a href="#RestTemplate-⽀持的-HTTP-库" class="headerlink" title="RestTemplate ⽀持的 HTTP 库"></a>RestTemplate ⽀持的 HTTP 库</h2><p>通⽤接⼝</p>
+<ul>
+<li>ClientHttpRequestFactory<br>默认实现</li>
+<li>SimpleClientHttpRequestFactory<br>Apache HttpComponents </li>
+<li>HttpComponentsClientHttpRequestFactory<br>Netty </li>
+<li>Netty4ClientHttpRequestFactory<br>OkHttp </li>
+<li>OkHttp3ClientHttpRequestFactory</li>
+</ul>
+<h2 id="优化底层请求策略"><a href="#优化底层请求策略" class="headerlink" title="优化底层请求策略"></a>优化底层请求策略</h2><p>连接管理</p>
+<ul>
+<li>PoolingHttpClientConnectionManager</li>
+<li>KeepAlive 策略</li>
+</ul>
+<p>超时设置（对请求的超时要做设置，以防出现无限制等待耗尽线程资源）</p>
+<ul>
+<li>connectTimeout / readTimeout</li>
+</ul>
+<p>SSL校验</p>
+<ul>
+<li>证书检查策略</li>
+</ul>
+<h2 id="定制案例"><a href="#定制案例" class="headerlink" title="定制案例"></a>定制案例</h2><p><strong>连接复⽤</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> org.apache.commons.lang3.StringUtils;</span><br><span class="line"><span class="keyword">import</span> org.apache.commons.lang3.math.NumberUtils;</span><br><span class="line"><span class="keyword">import</span> org.apache.http.HttpResponse;</span><br><span class="line"><span class="keyword">import</span> org.apache.http.conn.ConnectionKeepAliveStrategy;</span><br><span class="line"><span class="keyword">import</span> org.apache.http.protocol.HTTP;</span><br><span class="line"><span class="keyword">import</span> org.apache.http.protocol.HttpContext;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.Arrays;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CustomConnectionKeepAliveStrategy</span> <span class="keyword">implements</span> <span class="title">ConnectionKeepAliveStrategy</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">long</span> DEFAULT_SECONDS = <span class="number">30</span>;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">long</span> <span class="title">getKeepAliveDuration</span><span class="params">(HttpResponse response, HttpContext context)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> Arrays.asList(response.getHeaders(HTTP.CONN_KEEP_ALIVE))</span><br><span class="line">                .stream()</span><br><span class="line">                .filter(h -&gt; StringUtils.equalsIgnoreCase(h.getName(), <span class="string">&quot;timeout&quot;</span>)</span><br><span class="line">                        &amp;&amp; StringUtils.isNumeric(h.getValue()))</span><br><span class="line">                .findFirst()</span><br><span class="line">                .map(h -&gt; NumberUtils.toLong(h.getValue(), DEFAULT_SECONDS))</span><br><span class="line">                .orElse(DEFAULT_SECONDS) * <span class="number">1000</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>自定义请求策略配置</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Bean</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> HttpComponentsClientHttpRequestFactory <span class="title">requestFactory</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="comment">// 连接管理</span></span><br><span class="line">	PoolingHttpClientConnectionManager connectionManager =</span><br><span class="line">			<span class="keyword">new</span> PoolingHttpClientConnectionManager(<span class="number">30</span>, TimeUnit.SECONDS);</span><br><span class="line">	connectionManager.setMaxTotal(<span class="number">200</span>);</span><br><span class="line">	connectionManager.setDefaultMaxPerRoute(<span class="number">20</span>);</span><br><span class="line"></span><br><span class="line">	CloseableHttpClient httpClient = HttpClients.custom()</span><br><span class="line">			.setConnectionManager(connectionManager)</span><br><span class="line">			.evictIdleConnections(<span class="number">30</span>, TimeUnit.SECONDS)</span><br><span class="line">			.disableAutomaticRetries()  <span class="comment">// 关闭自动重试</span></span><br><span class="line">			.setKeepAliveStrategy(<span class="keyword">new</span> CustomConnectionKeepAliveStrategy())  <span class="comment">// 换成自定义的KeepAlive策略</span></span><br><span class="line">			.build();</span><br><span class="line"></span><br><span class="line">	HttpComponentsClientHttpRequestFactory requestFactory =</span><br><span class="line">			<span class="keyword">new</span> HttpComponentsClientHttpRequestFactory(httpClient);</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> requestFactory;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Bean</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> RestTemplate <span class="title">restTemplate</span><span class="params">(RestTemplateBuilder builder)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> builder</span><br><span class="line">			.setConnectTimeout(Duration.ofMillis(<span class="number">100</span>))  <span class="comment">// 连接超时</span></span><br><span class="line">			.setReadTimeout(Duration.ofMillis(<span class="number">500</span>))</span><br><span class="line">			.requestFactory(<span class="keyword">this</span>::requestFactory)</span><br><span class="line">			.build();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h1 id="通过-WebClient-访问-Web-资源"><a href="#通过-WebClient-访问-Web-资源" class="headerlink" title="通过 WebClient 访问 Web 资源"></a>通过 WebClient 访问 Web 资源</h1><h2 id="了解-WebClient"><a href="#了解-WebClient" class="headerlink" title="了解 WebClient"></a>了解 WebClient</h2><p>WebClient是⼀个以 Reactive ⽅式处理 HTTP 请求的⾮阻塞式的客户端。</p>
+<p><strong>⽀持的底层 HTTP 库</strong></p>
+<ul>
+<li>Reactor Netty - ReactorClientHttpConnector</li>
+<li>Jetty ReactiveStream HttpClient - JettyClientHttpConnector</li>
+</ul>
+<h2 id="WebClient-的基本⽤法"><a href="#WebClient-的基本⽤法" class="headerlink" title="WebClient 的基本⽤法"></a>WebClient 的基本⽤法</h2><p>**创建 WebClient **</p>
+<ul>
+<li>WebClient.create()</li>
+<li>WebClient.builder()</li>
+</ul>
+<p>通过builder构建实例</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Bean</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> WebClient <span class="title">webClient</span><span class="params">(WebClient.Builder builder)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> builder.baseUrl(<span class="string">&quot;http://localhost:8080&quot;</span>).build();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>发起请求</strong></p>
+<ul>
+<li>get() / post() / put() / delete() / patch()</li>
+</ul>
+<p><strong>获得结果</strong></p>
+<ul>
+<li>retrieve() / exchange()</li>
+</ul>
+<p>**处理 HTTP Status **</p>
+<ul>
+<li>onStatus()</li>
+</ul>
+<p><strong>应答正⽂</strong></p>
+<ul>
+<li>bodyToMono() / bodyToFlux()（单个和多个的区别）</li>
+</ul>
+<p>通过Reactive方式发起请求</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">(ApplicationArguments args)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">	CountDownLatch cdl = <span class="keyword">new</span> CountDownLatch(<span class="number">2</span>);</span><br><span class="line"></span><br><span class="line">	webClient.get()</span><br><span class="line">			.uri(<span class="string">&quot;/coffee/&#123;id&#125;&quot;</span>, <span class="number">1</span>)</span><br><span class="line">			.accept(MediaType.APPLICATION_JSON_UTF8)</span><br><span class="line">			.retrieve()</span><br><span class="line">			.bodyToMono(Coffee.class)</span><br><span class="line">			.doOnError(t -&gt; log.error(<span class="string">&quot;Error: &quot;</span>, t))</span><br><span class="line">			.doFinally(s -&gt; cdl.countDown())</span><br><span class="line">			.subscribeOn(Schedulers.single())</span><br><span class="line">			.subscribe(c -&gt; log.info(<span class="string">&quot;Coffee 1: &#123;&#125;&quot;</span>, c));</span><br><span class="line"></span><br><span class="line">	Mono&lt;Coffee&gt; americano = Mono.just(</span><br><span class="line">			Coffee.builder()</span><br><span class="line">					.name(<span class="string">&quot;americano&quot;</span>)</span><br><span class="line">					.price(Money.of(CurrencyUnit.of(<span class="string">&quot;CNY&quot;</span>), <span class="number">25.00</span>))</span><br><span class="line">					.build()</span><br><span class="line">	);</span><br><span class="line">	webClient.post()</span><br><span class="line">			.uri(<span class="string">&quot;/coffee/&quot;</span>)</span><br><span class="line">			.body(americano, Coffee.class)</span><br><span class="line">			.retrieve()</span><br><span class="line">			.bodyToMono(Coffee.class)</span><br><span class="line">			.doFinally(s -&gt; cdl.countDown())</span><br><span class="line">			.subscribeOn(Schedulers.single())</span><br><span class="line">			.subscribe(c -&gt; log.info(<span class="string">&quot;Coffee Created: &#123;&#125;&quot;</span>, c));</span><br><span class="line"></span><br><span class="line">	cdl.await();</span><br><span class="line"></span><br><span class="line">	<span class="comment">//</span></span><br><span class="line">	webClient.get()</span><br><span class="line">			.uri(<span class="string">&quot;/coffee/&quot;</span>)</span><br><span class="line">			.retrieve()</span><br><span class="line">			.bodyToFlux(Coffee.class)</span><br><span class="line">			.toStream()</span><br><span class="line">			.forEach(c -&gt; log.info(<span class="string">&quot;Coffee in List: &#123;&#125;&quot;</span>, c));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 
       
 
@@ -553,11 +635,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">JavaWeb</a>
+                <a href="javascript:void(0)" class="js-tag color2">Java基础</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Java基础</a>
+                <a href="javascript:void(0)" class="js-tag color3">JavaWeb</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -565,11 +647,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">算法</a>
+                <a href="javascript:void(0)" class="js-tag color4">LeetCode</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">LeetCode</a>
+                <a href="javascript:void(0)" class="js-tag color3">算法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -577,11 +659,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">SpringBoot</a>
+                <a href="javascript:void(0)" class="js-tag color2">MyBatisPlus</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">MyBatisPlus</a>
+                <a href="javascript:void(0)" class="js-tag color1">SpringBoot</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -617,11 +699,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">中软实训</a>
+                <a href="javascript:void(0)" class="js-tag color3">剑指offer</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">剑指offer</a>
+                <a href="javascript:void(0)" class="js-tag color5">中软实训</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -630,6 +712,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">毕业设计</a>
               </li>
              
               <li class="article-tag-list-item">
