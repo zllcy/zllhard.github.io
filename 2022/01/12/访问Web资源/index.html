@@ -8,13 +8,15 @@
   <link rel="dns-prefetch" href="http://example.com">
   <title>访问Web资源 | 张显宗，我牙疼</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="article">
+  <meta name="description" content="本章包括通过RestTemplate访问Web资源、RestTemplate的高阶用法、简单定制RestTemplate、通过WebClient访问Web资源。">
+<meta property="og:type" content="article">
 <meta property="og:title" content="访问Web资源">
 <meta property="og:url" content="http://example.com/2022/01/12/%E8%AE%BF%E9%97%AEWeb%E8%B5%84%E6%BA%90/index.html">
 <meta property="og:site_name" content="张显宗，我牙疼">
+<meta property="og:description" content="本章包括通过RestTemplate访问Web资源、RestTemplate的高阶用法、简单定制RestTemplate、通过WebClient访问Web资源。">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-01-12T03:08:08.146Z">
-<meta property="article:modified_time" content="2022-01-12T03:09:05.492Z">
+<meta property="article:modified_time" content="2022-01-13T08:32:17.179Z">
 <meta property="article:author" content="c^_^y">
 <meta property="article:tag" content="玩转Spring全家桶">
 <meta name="twitter:card" content="summary">
@@ -200,7 +202,7 @@
 		<div id="toc-article" class="toc-article">
 			<span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
 			<strong class="toc-title">文章目录</strong>
-			   
+			   <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%80%9A%E8%BF%87-RestTemplate-%E8%AE%BF%E9%97%AE-Web-%E8%B5%84%E6%BA%90"><span class="toc-number">1.</span> <span class="toc-text">通过 RestTemplate 访问 Web 资源</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#RestTemplate-%E7%9A%84%E2%BE%BC%E9%98%B6%E2%BD%A4%E6%B3%95"><span class="toc-number">2.</span> <span class="toc-text">RestTemplate 的⾼阶⽤法</span></a></li></ol>
 			 </div>
 	   <script type="text/javascript">
 		function showToc(){
@@ -221,7 +223,37 @@
 
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <p>本章包括通过RestTemplate访问Web资源、RestTemplate的高阶用法、简单定制RestTemplate、通过WebClient访问Web资源。</p>
+<span id="more"></span>
+
+<h1 id="通过-RestTemplate-访问-Web-资源"><a href="#通过-RestTemplate-访问-Web-资源" class="headerlink" title="通过 RestTemplate 访问 Web 资源"></a>通过 RestTemplate 访问 Web 资源</h1><p>Spring Boot 中没有⾃动配置 RestTemplate<br>Spring Boot 提供了 RestTemplateBuilder，通过RestTemplateBuilder.build()创建实例。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Bean</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> RestTemplate <span class="title">restTemplate</span><span class="params">(RestTemplateBuilder builder)</span> </span>&#123;</span><br><span class="line"><span class="comment">//		return new RestTemplate();</span></span><br><span class="line">	<span class="keyword">return</span> builder.build();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>常用方法</strong><br>GET 请求</p>
+<ul>
+<li>getForObject() / getForEntity()<br>POST 请求</li>
+<li>postForObject() / postForEntity()<br>PUT 请求</li>
+<li>put()<br>DELETE 请求</li>
+<li>delete()</li>
+</ul>
+<p><strong>构造URI</strong><br>构造 URI </p>
+<ul>
+<li>UriComponentsBuilder<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">URI uri = UriComponentsBuilder</span><br><span class="line">		.fromUriString(<span class="string">&quot;http://localhost:8080/coffee/&#123;id&#125;&quot;</span>)</span><br><span class="line">		.build(<span class="number">1</span>);</span><br></pre></td></tr></table></figure></li>
+</ul>
+<p>构造相对于当前请求的 URI </p>
+<ul>
+<li>ServletUriComponentsBuilder</li>
+</ul>
+<p>构造指向 Controller 的 URI </p>
+<ul>
+<li>MvcUriComponentsBuilder</li>
+</ul>
+<h1 id="RestTemplate-的⾼阶⽤法"><a href="#RestTemplate-的⾼阶⽤法" class="headerlink" title="RestTemplate 的⾼阶⽤法"></a>RestTemplate 的⾼阶⽤法</h1><p>传递 HTTP Header </p>
+<ul>
+<li>RestTemplate.exchange()</li>
+<li>RequestEntity<T> / ResponseEntity<T></T></T></li>
+</ul>
+
       
 
       
@@ -513,19 +545,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Spring5 框架</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">面经</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Java基础</a>
+                <a href="javascript:void(0)" class="js-tag color1">Spring5 框架</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">JavaWeb</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Java基础</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -545,11 +577,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">MyBatisPlus</a>
+                <a href="javascript:void(0)" class="js-tag color1">SpringBoot</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">SpringBoot</a>
+                <a href="javascript:void(0)" class="js-tag color2">MyBatisPlus</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -557,15 +589,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">玩转Spring全家桶</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">SpringMVC</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Vue</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -573,7 +597,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Vue</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">VueAdmin项目</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">玩转Spring全家桶</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -585,11 +617,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">剑指offer</a>
+                <a href="javascript:void(0)" class="js-tag color5">中软实训</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">中软实训</a>
+                <a href="javascript:void(0)" class="js-tag color3">剑指offer</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -609,11 +641,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">华为机试</a>
+                <a href="javascript:void(0)" class="js-tag color5">读书笔记</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">读书笔记</a>
+                <a href="javascript:void(0)" class="js-tag color5">华为机试</a>
               </li>
              
               <li class="article-tag-list-item">
