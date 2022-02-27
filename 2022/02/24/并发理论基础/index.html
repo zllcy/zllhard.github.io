@@ -19,7 +19,7 @@
 <meta property="og:image" content="http://example.com/2022/02/24/%E5%B9%B6%E5%8F%91%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80/2.webp">
 <meta property="og:image" content="http://example.com/2022/02/24/%E5%B9%B6%E5%8F%91%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80/3.webp">
 <meta property="article:published_time" content="2022-02-24T05:30:55.485Z">
-<meta property="article:modified_time" content="2022-02-25T15:20:26.122Z">
+<meta property="article:modified_time" content="2022-02-27T07:21:40.965Z">
 <meta property="article:author" content="c^_^y">
 <meta property="article:tag" content="Java并发编程实战">
 <meta name="twitter:card" content="summary">
@@ -206,7 +206,7 @@
 		<div id="toc-article" class="toc-article">
 			<span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
 			<strong class="toc-title">文章目录</strong>
-			   <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E7%9A%84%E4%B8%89%E4%B8%AA%E6%A0%B8%E5%BF%83%E9%97%AE%E9%A2%98"><span class="toc-number">1.</span> <span class="toc-text">并发编程的三个核心问题</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8BBUG%E7%9A%84%E6%BA%90%E5%A4%B4"><span class="toc-number">2.</span> <span class="toc-text">并发编程BUG的源头</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BC%93%E5%AD%98%E5%AF%BC%E8%87%B4%E7%9A%84%E5%8F%AF%E8%A7%81%E6%80%A7%E9%97%AE%E9%A2%98"><span class="toc-number">2.1.</span> <span class="toc-text">缓存导致的可见性问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BA%BF%E7%A8%8B%E5%88%87%E6%8D%A2%E5%B8%A6%E6%9D%A5%E7%9A%84%E5%8E%9F%E5%AD%90%E6%80%A7%E9%97%AE%E9%A2%98"><span class="toc-number">2.2.</span> <span class="toc-text">线程切换带来的原子性问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BC%96%E8%AF%91%E4%BC%98%E5%8C%96%E5%B8%A6%E6%9D%A5%E7%9A%84%E6%9C%89%E5%BA%8F%E6%80%A7%E9%97%AE%E9%A2%98"><span class="toc-number">2.3.</span> <span class="toc-text">编译优化带来的有序性问题</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Java%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B"><span class="toc-number">3.</span> <span class="toc-text">Java内存模型</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Happens-Before-%E8%A7%84%E5%88%99"><span class="toc-number">3.1.</span> <span class="toc-text">Happens-Before 规则</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#final-%E5%85%B3%E9%94%AE%E5%AD%97"><span class="toc-number">3.2.</span> <span class="toc-text">final 关键字</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%92%E6%96%A5%E9%94%81"><span class="toc-number">4.</span> <span class="toc-text">互斥锁</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#synchronized-%E5%85%B3%E9%94%AE%E5%AD%97"><span class="toc-number">4.1.</span> <span class="toc-text">synchronized 关键字</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%94%81%E5%92%8C%E5%8F%97%E4%BF%9D%E6%8A%A4%E8%B5%84%E6%BA%90%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="toc-number">4.2.</span> <span class="toc-text">锁和受保护资源的关系</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BF%9D%E6%8A%A4%E6%B2%A1%E6%9C%89%E5%85%B3%E8%81%94%E5%85%B3%E7%B3%BB%E7%9A%84%E5%A4%9A%E4%B8%AA%E8%B5%84%E6%BA%90"><span class="toc-number">4.2.1.</span> <span class="toc-text">保护没有关联关系的多个资源</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BF%9D%E6%8A%A4%E6%9C%89%E5%85%B3%E8%81%94%E5%85%B3%E7%B3%BB%E7%9A%84%E5%A4%9A%E4%B8%AA%E8%B5%84%E6%BA%90"><span class="toc-number">4.2.2.</span> <span class="toc-text">保护有关联关系的多个资源</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%AD%BB%E9%94%81"><span class="toc-number">5.</span> <span class="toc-text">死锁</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%80%A0%E6%88%90%E6%AD%BB%E9%94%81%E7%9A%84%E5%BF%85%E8%A6%81%E6%9D%A1%E4%BB%B6"><span class="toc-number">5.1.</span> <span class="toc-text">造成死锁的必要条件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A0%B4%E5%9D%8F%E6%AD%BB%E9%94%81"><span class="toc-number">5.2.</span> <span class="toc-text">破坏死锁</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AD%89%E5%BE%85-%E9%80%9A%E7%9F%A5%E6%9C%BA%E5%88%B6"><span class="toc-number">6.</span> <span class="toc-text">等待-通知机制</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%89%E5%85%A8%E6%80%A7%E9%97%AE%E9%A2%98%E3%80%81%E6%B4%BB%E8%B7%83%E6%80%A7%E9%97%AE%E9%A2%98%E5%92%8C%E6%80%A7%E8%83%BD%E9%97%AE%E9%A2%98"><span class="toc-number">7.</span> <span class="toc-text">安全性问题、活跃性问题和性能问题</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E5%85%A8%E6%80%A7%E9%97%AE%E9%A2%98"><span class="toc-number">7.1.</span> <span class="toc-text">安全性问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B4%BB%E8%B7%83%E6%80%A7%E9%97%AE%E9%A2%98"><span class="toc-number">7.2.</span> <span class="toc-text">活跃性问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%A7%E8%83%BD%E9%97%AE%E9%A2%98"><span class="toc-number">7.3.</span> <span class="toc-text">性能问题</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AE%A1%E7%A8%8B"><span class="toc-number">8.</span> <span class="toc-text">管程</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#MESA-%E6%A8%A1%E5%9E%8B"><span class="toc-number">8.1.</span> <span class="toc-text">MESA 模型</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Java-%E7%BA%BF%E7%A8%8B"><span class="toc-number">9.</span> <span class="toc-text">Java 线程</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%80%9A%E7%94%A8%E7%9A%84%E7%BA%BF%E7%A8%8B%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F"><span class="toc-number">9.1.</span> <span class="toc-text">通用的线程生命周期</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Java-%E4%B8%AD%E7%BA%BF%E7%A8%8B%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F"><span class="toc-number">9.2.</span> <span class="toc-text">Java 中线程的生命周期</span></a></li></ol></li></ol>
+			   <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E7%9A%84%E4%B8%89%E4%B8%AA%E6%A0%B8%E5%BF%83%E9%97%AE%E9%A2%98"><span class="toc-number">1.</span> <span class="toc-text">并发编程的三个核心问题</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8BBUG%E7%9A%84%E6%BA%90%E5%A4%B4"><span class="toc-number">2.</span> <span class="toc-text">并发编程BUG的源头</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BC%93%E5%AD%98%E5%AF%BC%E8%87%B4%E7%9A%84%E5%8F%AF%E8%A7%81%E6%80%A7%E9%97%AE%E9%A2%98"><span class="toc-number">2.1.</span> <span class="toc-text">缓存导致的可见性问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BA%BF%E7%A8%8B%E5%88%87%E6%8D%A2%E5%B8%A6%E6%9D%A5%E7%9A%84%E5%8E%9F%E5%AD%90%E6%80%A7%E9%97%AE%E9%A2%98"><span class="toc-number">2.2.</span> <span class="toc-text">线程切换带来的原子性问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BC%96%E8%AF%91%E4%BC%98%E5%8C%96%E5%B8%A6%E6%9D%A5%E7%9A%84%E6%9C%89%E5%BA%8F%E6%80%A7%E9%97%AE%E9%A2%98"><span class="toc-number">2.3.</span> <span class="toc-text">编译优化带来的有序性问题</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Java%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B"><span class="toc-number">3.</span> <span class="toc-text">Java内存模型</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Happens-Before-%E8%A7%84%E5%88%99"><span class="toc-number">3.1.</span> <span class="toc-text">Happens-Before 规则</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#final-%E5%85%B3%E9%94%AE%E5%AD%97"><span class="toc-number">3.2.</span> <span class="toc-text">final 关键字</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%92%E6%96%A5%E9%94%81"><span class="toc-number">4.</span> <span class="toc-text">互斥锁</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#synchronized-%E5%85%B3%E9%94%AE%E5%AD%97"><span class="toc-number">4.1.</span> <span class="toc-text">synchronized 关键字</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%94%81%E5%92%8C%E5%8F%97%E4%BF%9D%E6%8A%A4%E8%B5%84%E6%BA%90%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="toc-number">4.2.</span> <span class="toc-text">锁和受保护资源的关系</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BF%9D%E6%8A%A4%E6%B2%A1%E6%9C%89%E5%85%B3%E8%81%94%E5%85%B3%E7%B3%BB%E7%9A%84%E5%A4%9A%E4%B8%AA%E8%B5%84%E6%BA%90"><span class="toc-number">4.2.1.</span> <span class="toc-text">保护没有关联关系的多个资源</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BF%9D%E6%8A%A4%E6%9C%89%E5%85%B3%E8%81%94%E5%85%B3%E7%B3%BB%E7%9A%84%E5%A4%9A%E4%B8%AA%E8%B5%84%E6%BA%90"><span class="toc-number">4.2.2.</span> <span class="toc-text">保护有关联关系的多个资源</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%AD%BB%E9%94%81"><span class="toc-number">5.</span> <span class="toc-text">死锁</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%80%A0%E6%88%90%E6%AD%BB%E9%94%81%E7%9A%84%E5%BF%85%E8%A6%81%E6%9D%A1%E4%BB%B6"><span class="toc-number">5.1.</span> <span class="toc-text">造成死锁的必要条件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A0%B4%E5%9D%8F%E6%AD%BB%E9%94%81"><span class="toc-number">5.2.</span> <span class="toc-text">破坏死锁</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AD%89%E5%BE%85-%E9%80%9A%E7%9F%A5%E6%9C%BA%E5%88%B6"><span class="toc-number">6.</span> <span class="toc-text">等待-通知机制</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%89%E5%85%A8%E6%80%A7%E9%97%AE%E9%A2%98%E3%80%81%E6%B4%BB%E8%B7%83%E6%80%A7%E9%97%AE%E9%A2%98%E5%92%8C%E6%80%A7%E8%83%BD%E9%97%AE%E9%A2%98"><span class="toc-number">7.</span> <span class="toc-text">安全性问题、活跃性问题和性能问题</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E5%85%A8%E6%80%A7%E9%97%AE%E9%A2%98"><span class="toc-number">7.1.</span> <span class="toc-text">安全性问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B4%BB%E8%B7%83%E6%80%A7%E9%97%AE%E9%A2%98"><span class="toc-number">7.2.</span> <span class="toc-text">活跃性问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%A7%E8%83%BD%E9%97%AE%E9%A2%98"><span class="toc-number">7.3.</span> <span class="toc-text">性能问题</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AE%A1%E7%A8%8B"><span class="toc-number">8.</span> <span class="toc-text">管程</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#MESA-%E6%A8%A1%E5%9E%8B"><span class="toc-number">8.1.</span> <span class="toc-text">MESA 模型</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Java-%E7%BA%BF%E7%A8%8B"><span class="toc-number">9.</span> <span class="toc-text">Java 线程</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%80%9A%E7%94%A8%E7%9A%84%E7%BA%BF%E7%A8%8B%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F"><span class="toc-number">9.1.</span> <span class="toc-text">通用的线程生命周期</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Java-%E4%B8%AD%E7%BA%BF%E7%A8%8B%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F"><span class="toc-number">9.2.</span> <span class="toc-text">Java 中线程的生命周期</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%9A%E7%BA%BF%E7%A8%8B"><span class="toc-number">9.3.</span> <span class="toc-text">多线程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E5%B1%80%E9%83%A8%E5%8F%98%E9%87%8F%E6%98%AF%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8%E7%9A%84%EF%BC%9F"><span class="toc-number">9.4.</span> <span class="toc-text">为什么局部变量是线程安全的？</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E7%94%A8%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E6%80%9D%E6%83%B3%E5%86%99%E5%A5%BD%E5%B9%B6%E5%8F%91%E7%A8%8B%E5%BA%8F%EF%BC%9F"><span class="toc-number">10.</span> <span class="toc-text">如何用面向对象思想写好并发程序？</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B0%81%E8%A3%85%E5%85%B1%E4%BA%AB%E5%8F%98%E9%87%8F"><span class="toc-number">10.1.</span> <span class="toc-text">封装共享变量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%86%E5%88%AB%E5%85%B1%E4%BA%AB%E5%8F%98%E9%87%8F%E9%97%B4%E7%9A%84%E7%BA%A6%E6%9D%9F%E6%9D%A1%E4%BB%B6"><span class="toc-number">10.2.</span> <span class="toc-text">识别共享变量间的约束条件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%B6%E5%AE%9A%E5%B9%B6%E5%8F%91%E8%AE%BF%E9%97%AE%E7%AD%96%E7%95%A5"><span class="toc-number">10.3.</span> <span class="toc-text">制定并发访问策略</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">11.</span> <span class="toc-text">总结</span></a></li></ol>
 			 </div>
 	   <script type="text/javascript">
 		function showToc(){
@@ -305,6 +305,46 @@
 <li>TERMINATED（终止状态）</li>
 </ul>
 <p>其实就是将休眠状态分成了BLOCKED、WAITING、TIMED_WAITING这三种状态。<br>同时将可运行和运行态合并为RUNNABLE。</p>
+<p><strong>RUNNABLE 与 BLOCKED 的状态转换</strong><br>只有一种场景会触发这种转换，就是线程等待 synchronized 的隐式锁。synchronized 修饰的方法、代码块同一时刻只允许一个线程执行，其他线程只能等待，这种情况下，等待的线程就会从 RUNNABLE 转换到 BLOCKED 状态。而当等待的线程获得 synchronized 隐式锁时，就又会从 BLOCKED 转换到 RUNNABLE 状态。</p>
+<p>线程调用阻塞式 API 时，Java 线程的状态不会发生变化，JVM 层面并不关心操作系统调度相关的状态，因为在 JVM 看来，等待 CPU 使用权（操作系统层面此时处于可执行状态）与等待 I/O（操作系统层面此时处于休眠状态）没有区别，都是在等待某个资源，所以都归入了 RUNNABLE 状态。</p>
+<p><strong>RUNNABLE 与 WAITING 的状态转换</strong><br>有三种场景会触发这种转换：</p>
+<ol>
+<li>获得 synchronized 隐式锁的线程，调用无参数的 Object.wait() 方法。</li>
+<li>调用无参数的 Thread.join() 方法。有一个线程对象 thread A，当调用 A.join() 的时候，执行这条语句的线程会等待 thread A 执行完，而等待中的这个线程，其状态会从 RUNNABLE 转换到 WAITING。当线程 thread A 执行完，原来等待它的线程又会从 WAITING 状态转换到 RUNNABLE。</li>
+<li>调用 LockSupport.park() 方法，当前线程会阻塞，线程的状态会从 RUNNABLE 转换到 WAITING。调用 LockSupport.unpark(Thread thread) 可唤醒目标线程，目标线程的状态又会从 WAITING 状态转换到 RUNNABLE。</li>
+</ol>
+<p><strong>RUNNABLE 与 TIMED_WAITING 的状态转换</strong><br>有五种场景会触发这种转换：</p>
+<ol>
+<li>调用带超时参数的 Thread.sleep(long millis) 方法；</li>
+<li>获得 synchronized 隐式锁的线程，调用带超时参数的 Object.wait(long timeout) 方法；</li>
+<li>调用带超时参数的 Thread.join(long millis) 方法；</li>
+<li>调用带超时参数的 LockSupport.parkNanos(Object blocker, long deadline) 方法；</li>
+<li>调用带超时参数的 LockSupport.parkUntil(long deadline) 方法。</li>
+</ol>
+<p><strong>从 NEW 到 RUNNABLE 状态</strong><br>Java 刚创建出来的 Thread 对象就是 NEW 状态，三种创建线程的方式：</p>
+<ol>
+<li>实现Runnable接口的run方法。</li>
+<li>继承Thread类并重写run方法。</li>
+<li>使用FutureTask方式，实现Callable接口中的call方法。</li>
+</ol>
+<p>《并发编程之美中》解释这些创建方式的优劣：<br>使用继承的好处是方便传参，你在子类里面添加成员变量，通过set方法设置参数或者通过构造函数进行传递，而如果使用Runnable方式，则只能使用主线程里面被声明为final的变量。不好的地方是Java不支持多继承，如果继承了Thread类，那么子类不能再继承其他类，而Runnable则没有这个限制。前两种方式都没办法拿到任务的返回结果，但是Futuretask方式可以。</p>
+<p>调用线程对象的 start() 方法，可以从 NEW 状态转换到 RUNNABLE 状态。</p>
+<p><strong>从 RUNNABLE 到 TERMINATED 状态</strong><br>线程执行完 run() 方法后，会自动转换到 TERMINATED 状态，当然如果执行 run() 方法的时候异常抛出，也会导致线程终止。<br>想要中断 run() 方法的执行可以调用 interrupt() 方法，interrupt() 方法仅仅是通知线程，线程有机会执行一些后续操作，同时也可以无视这个通知。</p>
+<p>当线程 A 处于 WAITING、TIMED_WAITING 状态时，如果其他线程调用线程 A 的 interrupt() 方法，会使线程 A 返回到 RUNNABLE 状态，同时线程 A 的代码会触发 InterruptedException 异常。<br>当线程 A 处于 RUNNABLE 状态时，并且阻塞在 java.nio.channels.InterruptibleChannel 上时，如果其他线程调用线程 A 的 interrupt() 方法，线程 A 会触发 java.nio.channels.ClosedByInterruptException 这个异常；而阻塞在 java.nio.channels.Selector 上时，如果其他线程调用线程 A 的 interrupt() 方法，线程 A 的 java.nio.channels.Selector 会立即返回。</p>
+<p>上面这两种情况属于被中断的线程通过异常的方式获得了通知。<br>线程 A 还可以可以通过 isInterrupted() 方法，检测是不是自己被中断。</p>
+<h2 id="多线程"><a href="#多线程" class="headerlink" title="多线程"></a>多线程</h2><p>使用多线程，通过降低延迟，提高吞吐量，提升程序性能。<br>提升性能本质上就是提升硬件的利用率，再具体点来说，就是提升 I/O 的利用率和 CPU 的利用率。</p>
+<p><strong>创建多少线程合适？</strong><br>对于 CPU 密集型的计算场景，理论上“线程的数量 =CPU 核数”就是最合适的。不过在工程上，线程的数量一般会设置为“CPU 核数 +1”，这样的话，当线程因为偶尔的内存页失效或其他原因导致阻塞时，这个额外的线程可以顶上，从而保证 CPU 的利用率。</p>
+<p>对于 I/O 密集型的计算场景，最佳线程数 =1 +（I/O 耗时 / CPU 耗时）。</p>
+<h2 id="为什么局部变量是线程安全的？"><a href="#为什么局部变量是线程安全的？" class="headerlink" title="为什么局部变量是线程安全的？"></a>为什么局部变量是线程安全的？</h2><p>因为每个线程都有自己的调用栈，局部变量保存在线程各自的调用栈里面，不会共享，所以自然也就没有并发问题。</p>
+<h1 id="如何用面向对象思想写好并发程序？"><a href="#如何用面向对象思想写好并发程序？" class="headerlink" title="如何用面向对象思想写好并发程序？"></a>如何用面向对象思想写好并发程序？</h1><h2 id="封装共享变量"><a href="#封装共享变量" class="headerlink" title="封装共享变量"></a>封装共享变量</h2><p>将共享变量作为对象属性封装在内部，对所有公共方法制定并发访问策略。<br>对于不会发生变化的共享变量，用 final 关键字来修饰。</p>
+<h2 id="识别共享变量间的约束条件"><a href="#识别共享变量间的约束条件" class="headerlink" title="识别共享变量间的约束条件"></a>识别共享变量间的约束条件</h2><p>一定要识别出所有共享变量之间的约束条件，如果约束条件识别不足，很可能导致制定的并发访问策略南辕北辙。</p>
+<h2 id="制定并发访问策略"><a href="#制定并发访问策略" class="headerlink" title="制定并发访问策略"></a>制定并发访问策略</h2><p><strong>写并发程序需要遵守的原则：</strong></p>
+<ul>
+<li>优先使用成熟的工具类：Java SDK 并发包里提供了丰富的工具类，基本上能满足你日常的需要，建议你熟悉它们，用好它们，而不是自己再“发明轮子”，毕竟并发工具类不是随随便便就能发明成功的。</li>
+<li>迫不得已时才使用低级的同步原语：低级的同步原语主要指的是 synchronized、Lock、Semaphore 等，这些虽然感觉简单，但实际上并没那么简单，一定要小心使用。</li>
+<li>避免过早优化：安全第一，并发程序首先要保证安全，出现性能瓶颈后再优化。在设计期和开发期，很多人经常会情不自禁地预估性能的瓶颈，并对此实施优化，但残酷的现实却是：性能瓶颈不是你想预估就能预估的。</li>
+</ul>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>并发编程需要通过多线程来提供性能，但是多线程在访问共享变量时出现可见性、原子性、有序性的问题。<br>想要解决访问共享变量时碰到的问题可以通过互斥实现，这就出现了各种锁。<br>使用锁时可能会导致循环等待资源的情况，这就会导致死锁现象，解决死锁需要去破坏产生死锁的条件。<br>通过等待-通知机制可以优化循环等待，这使用的是管程的思想。<br>了解Java的线程生命周期可以帮助我们去排查并发程序的BUG。</p>
 
       
 
@@ -608,7 +648,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">LeetCode</a>
+                <a href="javascript:void(0)" class="js-tag color3">算法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -616,7 +656,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">算法</a>
+                <a href="javascript:void(0)" class="js-tag color4">LeetCode</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">MyBatisPlus</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">SSM</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -628,15 +676,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">SpringSecurity</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">SSM</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Vue</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">SpringSecurity</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -644,15 +688,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">redis</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">MyBatisPlus</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">玩转Spring全家桶</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">redis</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -681,10 +721,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">开源项目</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Java并发编程实战</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -717,6 +753,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">数据库</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Java并发编程实战</a>
               </li>
             
             <div class="clearfix"></div>
