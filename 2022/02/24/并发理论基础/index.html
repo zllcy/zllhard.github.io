@@ -19,7 +19,7 @@
 <meta property="og:image" content="http://example.com/2022/02/24/%E5%B9%B6%E5%8F%91%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80/2.webp">
 <meta property="og:image" content="http://example.com/2022/02/24/%E5%B9%B6%E5%8F%91%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80/3.webp">
 <meta property="article:published_time" content="2022-02-24T05:30:55.485Z">
-<meta property="article:modified_time" content="2022-02-27T07:21:40.965Z">
+<meta property="article:modified_time" content="2022-03-03T05:59:59.437Z">
 <meta property="article:author" content="c^_^y">
 <meta property="article:tag" content="Java并发编程实战">
 <meta name="twitter:card" content="summary">
@@ -293,6 +293,7 @@
 </ol>
 <h1 id="管程"><a href="#管程" class="headerlink" title="管程"></a>管程</h1><p>管程，指的是管理共享变量以及对共享变量的操作过程，让它们支持并发。<br>synchronized 关键字及 wait()、notify()、notifyAll() 这三个方法都是管程的组成部分。<br>管程，对应的英文是 Monitor，以前看 synchronized 关键字时的解释也一直以为是监视器的意思，现在知道也是管程的意思。</p>
 <h2 id="MESA-模型"><a href="#MESA-模型" class="headerlink" title="MESA 模型"></a>MESA 模型</h2><p>这是一种管程模型，其他的管程模型还有Hasen 模型、Hoare 模型。</p>
+<p>管程解决互斥问题的思路很简单，就是将共享变量及其对共享变量的操作统一封装起来，线程只能调用封装好的线程安全的方法。<br>管程的入口有一个等待队列，当多个线程同时试图进入管程内部时，只允许一个线程进入，其他线程则在入口等待队列中等待。<br>管程内部还引入条件变量和条件变量等待队列，当线程进入管程后发现条件变量不满足，则进入条件变量等待队列等待，等待后面条件满足后再次进入入口等待队列。</p>
 <h1 id="Java-线程"><a href="#Java-线程" class="headerlink" title="Java 线程"></a>Java 线程</h1><p>Java 语言里的线程和操作系统的线程是一一对应的。</p>
 <h2 id="通用的线程生命周期"><a href="#通用的线程生命周期" class="headerlink" title="通用的线程生命周期"></a>通用的线程生命周期</h2><p><img src="/2022/02/24/%E5%B9%B6%E5%8F%91%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80/3.webp"><br><strong>初始状态：</strong>线程已经被创建，但是还不允许分配 CPU 执行。<br><strong>可运行状态：</strong>线程除了CPU资源，其他资源都已就绪。<br><strong>运行状态：</strong>操作系统分配了CPU资源后进入运行状态。<br><strong>休眠状态：</strong>调用一个阻塞的 API或者等待某个事件后进入休眠状态。<br><strong>终止状态：</strong>线程执行完或者出现异常就会进入终止状态。</p>
 <h2 id="Java-中线程的生命周期"><a href="#Java-中线程的生命周期" class="headerlink" title="Java 中线程的生命周期"></a>Java 中线程的生命周期</h2><p>Java 语言中线程共有六种状态：</p>
@@ -427,6 +428,15 @@
 
   
 <nav id="article-nav">
+  
+    <a href="/2022/02/28/%E5%B9%B6%E5%8F%91%E5%B7%A5%E5%85%B7%E7%B1%BB/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          并发工具类
+        
+      </div>
+    </a>
   
   
     <a href="/2022/01/14/%E9%87%8D%E6%96%B0%E8%AE%A4%E8%AF%86Spring-Boot/" id="article-nav-older" class="article-nav-link-wrap">
@@ -652,15 +662,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">MyBatis</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">LeetCode</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">MyBatisPlus</a>
+                <a href="javascript:void(0)" class="js-tag color3">MyBatis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">SpringBoot</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -668,7 +678,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">SpringBoot</a>
+                <a href="javascript:void(0)" class="js-tag color2">MyBatisPlus</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -688,11 +698,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">玩转Spring全家桶</a>
+                <a href="javascript:void(0)" class="js-tag color1">redis</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">redis</a>
+                <a href="javascript:void(0)" class="js-tag color2">玩转Spring全家桶</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -712,15 +722,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">毕业设计</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">开源项目</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Java并发编程实战</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -753,10 +767,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">数据库</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Java并发编程实战</a>
               </li>
             
             <div class="clearfix"></div>
