@@ -15,15 +15,15 @@
 <meta property="og:site_name" content="张显宗，我牙疼">
 <meta property="og:description" content="平衡二叉树基本介绍平衡二叉树也叫平衡二叉搜索树（Self-balancing binary search tree）又被称为AVL树， 可以保证查询效率较高。具有以下特点：它是一 棵空树或它的左右两个子树的高度差的绝对值不超过1，并且左右两个子树都是一棵平衡二叉树。平衡二叉树的常用实现方法有红黑树、AVL、替罪羊树、Treap、伸展树等。">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://example.com/2021/03/12/%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%A0%91/1.jpg">
-<meta property="og:image" content="http://example.com/2021/03/12/%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%A0%91/2.jpg">
-<meta property="og:image" content="http://example.com/2021/03/12/%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%A0%91/3.jpg">
+<meta property="og:image" content="http://example.com/.com//1.jpg">
+<meta property="og:image" content="http://example.com/.com//2.jpg">
+<meta property="og:image" content="http://example.com/.com//3.jpg">
 <meta property="article:published_time" content="2021-03-12T11:46:43.671Z">
 <meta property="article:modified_time" content="2021-03-22T03:36:00.002Z">
 <meta property="article:author" content="c^_^y">
 <meta property="article:tag" content="数据结构">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/2021/03/12/%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%A0%91/1.jpg">
+<meta name="twitter:image" content="http://example.com/.com//1.jpg">
   
     <link rel="alternative" href="/atom.xml" title="张显宗，我牙疼" type="application/atom+xml">
   
@@ -230,13 +230,13 @@
         <h2 id="平衡二叉树基本介绍"><a href="#平衡二叉树基本介绍" class="headerlink" title="平衡二叉树基本介绍"></a>平衡二叉树基本介绍</h2><p>平衡二叉树也叫平衡二叉搜索树（Self-balancing binary search tree）又被称为AVL树， 可以保证查询效率较高。<br>具有以下特点：它是一 棵空树或它的左右两个子树的高度差的绝对值不超过1，并且左右两个子树都是一棵平衡二叉树。平衡二叉树的常用实现方法有红黑树、AVL、替罪羊树、Treap、伸展树等。</p>
 <span id="more"></span>
 
-<h2 id="左旋转"><a href="#左旋转" class="headerlink" title="左旋转"></a>左旋转</h2><h3 id="思路图解"><a href="#思路图解" class="headerlink" title="思路图解"></a>思路图解</h3><p><img src="/2021/03/12/%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%A0%91/1.jpg"></p>
+<h2 id="左旋转"><a href="#左旋转" class="headerlink" title="左旋转"></a>左旋转</h2><h3 id="思路图解"><a href="#思路图解" class="headerlink" title="思路图解"></a>思路图解</h3><p><img src="/.com//1.jpg"></p>
 <h3 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">leftRotate</span><span class="params">()</span> </span>&#123;</span><br><span class="line">       <span class="comment">//以当前节点的值创建新的节点</span></span><br><span class="line">       Node3 newNode = <span class="keyword">new</span> Node3(val);</span><br><span class="line">       <span class="comment">//把新的节点的左子树设置成为当前节点的左子树</span></span><br><span class="line">       newNode.left = left;</span><br><span class="line">       <span class="comment">//把新的节点的右子树设置成为当前节点的右子树的左子树</span></span><br><span class="line">       newNode.right = right.left;</span><br><span class="line">       <span class="comment">//把当前节点的值替换成右子节点的值</span></span><br><span class="line">       val = right.val;</span><br><span class="line">       <span class="comment">//把当前节点的右子树设置成当前节点右子树的右子树</span></span><br><span class="line">       right = right.right;</span><br><span class="line">       <span class="comment">//把当前节点的左子节点设置为新的节点</span></span><br><span class="line">       left = newNode;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
 
-<h2 id="右旋转"><a href="#右旋转" class="headerlink" title="右旋转"></a>右旋转</h2><h3 id="思路图解-1"><a href="#思路图解-1" class="headerlink" title="思路图解"></a>思路图解</h3><p><img src="/2021/03/12/%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%A0%91/2.jpg"></p>
+<h2 id="右旋转"><a href="#右旋转" class="headerlink" title="右旋转"></a>右旋转</h2><h3 id="思路图解-1"><a href="#思路图解-1" class="headerlink" title="思路图解"></a>思路图解</h3><p><img src="/.com//2.jpg"></p>
 <h3 id="代码实现-1"><a href="#代码实现-1" class="headerlink" title="代码实现"></a>代码实现</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">rightRotate</span><span class="params">()</span> </span>&#123;</span><br><span class="line">       <span class="comment">//以当前节点的值创建新的节点</span></span><br><span class="line">       Node3 newNode = <span class="keyword">new</span> Node3(val);</span><br><span class="line">       <span class="comment">//把新的节点的右子树设置成为当前节点的右子树</span></span><br><span class="line">       newNode.right = right;</span><br><span class="line">       <span class="comment">//把新的节点的左子树设置成为当前节点的左子树的右子树</span></span><br><span class="line">       newNode.left = left.right;</span><br><span class="line">       <span class="comment">//把当前节点的值替换成左子节点的值</span></span><br><span class="line">       val = left.val;</span><br><span class="line">       <span class="comment">//把当前节点的左子树设置成当前节点左子树的左子树</span></span><br><span class="line">       left = left.left;</span><br><span class="line">       <span class="comment">//把当前节点的右子节点设置为新的节点</span></span><br><span class="line">       right = newNode;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
 
-<h2 id="双旋转"><a href="#双旋转" class="headerlink" title="双旋转"></a>双旋转</h2><p>在某些情况下，单旋转不能完成平衡二叉树的转换。<br>int[] arr = { 10, 11, 7, 6, 8, 9 };  运行原来的代码可以看到，并没有转成 AVL树。<br><img src="/2021/03/12/%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%A0%91/3.jpg"></p>
+<h2 id="双旋转"><a href="#双旋转" class="headerlink" title="双旋转"></a>双旋转</h2><p>在某些情况下，单旋转不能完成平衡二叉树的转换。<br>int[] arr = { 10, 11, 7, 6, 8, 9 };  运行原来的代码可以看到，并没有转成 AVL树。<br><img src="/.com//3.jpg"></p>
 <ol>
 <li>当符号右旋转的条件时</li>
 <li>如果它的左子树的右子树高度大于它的左子树的高度</li>
@@ -564,11 +564,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">LeetCode</a>
+                <a href="javascript:void(0)" class="js-tag color3">算法</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">算法</a>
+                <a href="javascript:void(0)" class="js-tag color4">LeetCode</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -616,11 +616,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">中软实训</a>
+                <a href="javascript:void(0)" class="js-tag color3">剑指offer</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">剑指offer</a>
+                <a href="javascript:void(0)" class="js-tag color5">中软实训</a>
               </li>
              
               <li class="article-tag-list-item">

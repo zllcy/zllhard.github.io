@@ -15,24 +15,24 @@
 <meta property="og:site_name" content="张显宗，我牙疼">
 <meta property="og:description" content="XML 简介什么是 xmlxml 是可扩展的标记性语言。">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://example.com/2021/04/11/XML/1.jpg">
-<meta property="og:image" content="http://example.com/2021/04/11/XML/2.jpg">
-<meta property="og:image" content="http://example.com/2021/04/11/XML/3.jpg">
-<meta property="og:image" content="http://example.com/2021/04/11/XML/4.jpg">
-<meta property="og:image" content="http://example.com/2021/04/11/XML/5.jpg">
-<meta property="og:image" content="http://example.com/2021/04/11/XML/6.jpg">
-<meta property="og:image" content="http://example.com/2021/04/11/XML/7.jpg">
-<meta property="og:image" content="http://example.com/2021/04/11/XML/8.jpg">
-<meta property="og:image" content="http://example.com/2021/04/11/XML/9.jpg">
-<meta property="og:image" content="http://example.com/2021/04/11/XML/10.jpg">
-<meta property="og:image" content="http://example.com/2021/04/11/XML/11.jpg">
-<meta property="og:image" content="http://example.com/2021/04/11/XML/12.jpg">
+<meta property="og:image" content="http://example.com/.com//1.jpg">
+<meta property="og:image" content="http://example.com/.com//2.jpg">
+<meta property="og:image" content="http://example.com/.com//3.jpg">
+<meta property="og:image" content="http://example.com/.com//4.jpg">
+<meta property="og:image" content="http://example.com/.com//5.jpg">
+<meta property="og:image" content="http://example.com/.com//6.jpg">
+<meta property="og:image" content="http://example.com/.com//7.jpg">
+<meta property="og:image" content="http://example.com/.com//8.jpg">
+<meta property="og:image" content="http://example.com/.com//9.jpg">
+<meta property="og:image" content="http://example.com/.com//10.jpg">
+<meta property="og:image" content="http://example.com/.com//11.jpg">
+<meta property="og:image" content="http://example.com/.com//12.jpg">
 <meta property="article:published_time" content="2021-04-11T08:29:15.917Z">
 <meta property="article:modified_time" content="2021-07-26T13:37:51.447Z">
 <meta property="article:author" content="c^_^y">
 <meta property="article:tag" content="JavaWeb">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/2021/04/11/XML/1.jpg">
+<meta name="twitter:image" content="http://example.com/.com//1.jpg">
   
     <link rel="alternative" href="/atom.xml" title="张显宗，我牙疼" type="application/atom+xml">
   
@@ -255,22 +255,22 @@
 <pre><code>&lt;!-- html 注释 --&gt;
 </code></pre>
 <h2 id="元素（标签）"><a href="#元素（标签）" class="headerlink" title="元素（标签）"></a>元素（标签）</h2><p>xml元素是指从开始标签到结束标签的内容。<br>元素可包含其他元素、文本或者两者的混合物。<br>元素也可以拥有属性。</p>
-<p><strong>XML 命名规则</strong><br>1）名称可以含字母、数字以及其他的字符。<br>2）名称不能以数字或者标点符号开始。<br><img src="/2021/04/11/XML/1.jpg"><br>3）名称不能包含空格。<br><img src="/2021/04/11/XML/2.jpg"></p>
+<p><strong>XML 命名规则</strong><br>1）名称可以含字母、数字以及其他的字符。<br>2）名称不能以数字或者标点符号开始。<br><img src="/.com//1.jpg"><br>3）名称不能包含空格。<br><img src="/.com//2.jpg"></p>
 <p><strong>xml 中的元素（标签）也 分成 单标签和双标签</strong><br>单标签</p>
 <pre><code>格式： &lt;标签名 属性=”值” 属性=”值” ...... /&gt;
 </code></pre>
 <p>双标签</p>
 <pre><code>格式：&lt; 标签名 属性=”值” 属性=”值” ......&gt;文本数据或子标签&lt;/标签名&gt;
 </code></pre>
-<p><img src="/2021/04/11/XML/3.jpg"></p>
-<h2 id="xml-属性"><a href="#xml-属性" class="headerlink" title="xml 属性"></a>xml 属性</h2><p>xml 的标签属性和 html 的标签属性是非常类似的，属性可以提供元素的额外信息。<br>在标签上可以书写属性：一个标签上可以书写多个属性。每个属性的值必须使用 引号（””） 引起来。<br><img src="/2021/04/11/XML/4.jpg"></p>
-<h2 id="语法规则"><a href="#语法规则" class="headerlink" title="语法规则"></a>语法规则</h2><p>1）所有 XML 元素都需要关闭标签（也就是闭合）。<br><img src="/2021/04/11/XML/5.jpg"><br>2）XML 标签对大小写敏感。<br><img src="/2021/04/11/XML/6.jpg"><br>3）XML 必须正确地嵌套。<br><img src="/2021/04/11/XML/7.jpg"><br>4）XML 文档必须有根元素。<br><img src="/2021/04/11/XML/8.jpg"><br>5）XML 的属性值须加引号。<br>6）XML 中的特殊字符。<br><img src="/2021/04/11/XML/9.jpg"><br>7）文本区域（CDATA 区）。<br>CDATA 语法可以告诉 xml 解析器，我 CDATA 里的文本内容，只是纯文本，不需要 xml 语法解析。<br><img src="/2021/04/11/XML/10.jpg"></p>
-<h1 id="xml-解析技术"><a href="#xml-解析技术" class="headerlink" title="xml 解析技术"></a>xml 解析技术</h1><p>不管是 html 文件还是 xml 文件它们都是标记型文档，都可以使用 w3c 组织制定的 dom 技术来解析。<br><img src="/2021/04/11/XML/11.jpg"><br>document 对象表示的是整个文档（可以是 html 文档，也可以是xml 文档）</p>
+<p><img src="/.com//3.jpg"></p>
+<h2 id="xml-属性"><a href="#xml-属性" class="headerlink" title="xml 属性"></a>xml 属性</h2><p>xml 的标签属性和 html 的标签属性是非常类似的，属性可以提供元素的额外信息。<br>在标签上可以书写属性：一个标签上可以书写多个属性。每个属性的值必须使用 引号（””） 引起来。<br><img src="/.com//4.jpg"></p>
+<h2 id="语法规则"><a href="#语法规则" class="headerlink" title="语法规则"></a>语法规则</h2><p>1）所有 XML 元素都需要关闭标签（也就是闭合）。<br><img src="/.com//5.jpg"><br>2）XML 标签对大小写敏感。<br><img src="/.com//6.jpg"><br>3）XML 必须正确地嵌套。<br><img src="/.com//7.jpg"><br>4）XML 文档必须有根元素。<br><img src="/.com//8.jpg"><br>5）XML 的属性值须加引号。<br>6）XML 中的特殊字符。<br><img src="/.com//9.jpg"><br>7）文本区域（CDATA 区）。<br>CDATA 语法可以告诉 xml 解析器，我 CDATA 里的文本内容，只是纯文本，不需要 xml 语法解析。<br><img src="/.com//10.jpg"></p>
+<h1 id="xml-解析技术"><a href="#xml-解析技术" class="headerlink" title="xml 解析技术"></a>xml 解析技术</h1><p>不管是 html 文件还是 xml 文件它们都是标记型文档，都可以使用 w3c 组织制定的 dom 技术来解析。<br><img src="/.com//11.jpg"><br>document 对象表示的是整个文档（可以是 html 文档，也可以是xml 文档）</p>
 <h2 id="DOM-和-Sax（已经过时）"><a href="#DOM-和-Sax（已经过时）" class="headerlink" title="DOM 和 Sax（已经过时）"></a>DOM 和 Sax（已经过时）</h2><p>dom 解析技术是 W3C 组织制定的，而所有的编程语言都对这个解析技术使用了自己语言的特点进行实现。<br>Java 对 dom 技术解析标记也做了实现。</p>
 <p>sun 公司在 JDK5 版本对 dom 解析技术进行升级：SAX（ Simple API for XML ）<br>SAX 解析，它跟 W3C 制定的解析不太一样。它是以类似事件机制通过回调告诉用户当前正在解析的内容。<br>它是一行一行的读取 xml 文件进行解析的。不会创建大量的 dom 对象。<br>所以它在解析 xml 的时候，在内存的使用上和性能上都优于 Dom 解析。</p>
 <h2 id="第三方的解析"><a href="#第三方的解析" class="headerlink" title="第三方的解析"></a>第三方的解析</h2><p>jdom 在 dom 基础上进行了封装。<br>dom4j 又对 jdom 进行了封装。<br>pull 主要用在 Android 手机开发，是在跟 sax 非常类似都是事件机制解析 xml。</p>
 <h2 id="dom4j-解析技术"><a href="#dom4j-解析技术" class="headerlink" title="dom4j 解析技术"></a>dom4j 解析技术</h2><p>由于 dom4j 它不是 sun 公司的技术，而属于第三方公司的技术，我们需要使用 dom4j 就需要到 dom4j 官网下载 dom4j的 jar 包。</p>
-<h3 id="dom4j-目录的介绍"><a href="#dom4j-目录的介绍" class="headerlink" title="dom4j 目录的介绍"></a>dom4j 目录的介绍</h3><p><img src="/2021/04/11/XML/12.jpg"><br>1）docs 是文档目录。<br>2）lib 目录是dom4j需要依赖的其他第三方类库。<br>3）src 目录是dom4j的源码目录。</p>
+<h3 id="dom4j-目录的介绍"><a href="#dom4j-目录的介绍" class="headerlink" title="dom4j 目录的介绍"></a>dom4j 目录的介绍</h3><p><img src="/.com//12.jpg"><br>1）docs 是文档目录。<br>2）lib 目录是dom4j需要依赖的其他第三方类库。<br>3）src 目录是dom4j的源码目录。</p>
 <h3 id="dom4j-编程步骤"><a href="#dom4j-编程步骤" class="headerlink" title="dom4j 编程步骤"></a>dom4j 编程步骤</h3><p>1）先加载 xml 文件创建 Document 对象。<br>2）通过 Document 对象拿到根元素对象。<br>3）通过根元素.elelemts(标签名); 可以返回一个集合，这个集合里放着。所有你指定的标签名的元素对象。<br>4）找到你想要修改、删除的子元素，进行相应在的操作。<br>5）保存到硬盘上。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * 读取 xml 文件中的内容</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">readXML</span><span class="params">()</span> <span class="keyword">throws</span> DocumentException </span>&#123;</span><br><span class="line">    <span class="comment">// 需要分四步操作:</span></span><br><span class="line">    <span class="comment">// 第一步，通过创建 SAXReader 对象。来读取 xml 文件，获取 Document 对象</span></span><br><span class="line">    <span class="comment">// 第二步，通过 Document 对象。拿到 XML 的根元素对象</span></span><br><span class="line">    <span class="comment">// 第三步，通过根元素对象。获取所有的 book 标签对象</span></span><br><span class="line">    <span class="comment">// 第四小，遍历每个 book 标签对象。然后获取到 book 标签对象内的每一个元素，再通过 getText() 方法拿到起始标签和结束标签之间的文本内容</span></span><br><span class="line">    <span class="comment">// 第一步，通过创建 SAXReader 对象。来读取 xml 文件，获取 Document 对象</span></span><br><span class="line">    SAXReader reader = <span class="keyword">new</span> SAXReader();</span><br><span class="line">    Document document = reader.read(<span class="string">&quot;src/books.xml&quot;</span>);</span><br><span class="line">    <span class="comment">// 第二步，通过 Document 对象。拿到 XML 的根元素对象</span></span><br><span class="line">    Element root = document.getRootElement();</span><br><span class="line">    <span class="comment">// 打印测试</span></span><br><span class="line">    <span class="comment">// Element.asXML() 它将当前元素转换成为 String 对象</span></span><br><span class="line">    <span class="comment">// System.out.println( root.asXML() );</span></span><br><span class="line">    <span class="comment">// 第三步，通过根元素对象。获取所有的 book 标签对象</span></span><br><span class="line">    <span class="comment">// Element.elements(标签名)它可以拿到当前元素下的指定的子元素的集合</span></span><br><span class="line">    List&lt;Element&gt; books = root.elements(<span class="string">&quot;book&quot;</span>);</span><br><span class="line">    <span class="comment">// 第四小，遍历每个 book 标签对象。然后获取到 book 标签对象内的每一个元素，</span></span><br><span class="line">    <span class="keyword">for</span> (Element book : books) &#123;</span><br><span class="line">        <span class="comment">// 测试</span></span><br><span class="line">        <span class="comment">// System.out.println(book.asXML());</span></span><br><span class="line">        <span class="comment">// 拿到 book 下面的 name 元素对象</span></span><br><span class="line">        Element nameElement = book.element(<span class="string">&quot;name&quot;</span>);</span><br><span class="line">        <span class="comment">// 拿到 book 下面的 price 元素对象</span></span><br><span class="line">        Element priceElement = book.element(<span class="string">&quot;price&quot;</span>);</span><br><span class="line">        <span class="comment">// 拿到 book 下面的 author 元素对象</span></span><br><span class="line">        Element authorElement = book.element(<span class="string">&quot;author&quot;</span>);</span><br><span class="line">        <span class="comment">// 再通过 getText() 方法拿到起始标签和结束标签之间的文本内容</span></span><br><span class="line">        System.out.println(<span class="string">&quot;书名&quot;</span> + nameElement.getText() + <span class="string">&quot; , 价格:&quot;</span></span><br><span class="line">                + priceElement.getText() + <span class="string">&quot;, 作者：&quot;</span> + authorElement.getText());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>xml文件：</p>
@@ -606,11 +606,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">LeetCode</a>
+                <a href="javascript:void(0)" class="js-tag color3">算法</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">算法</a>
+                <a href="javascript:void(0)" class="js-tag color4">LeetCode</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -658,11 +658,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">中软实训</a>
+                <a href="javascript:void(0)" class="js-tag color3">剑指offer</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">剑指offer</a>
+                <a href="javascript:void(0)" class="js-tag color5">中软实训</a>
               </li>
              
               <li class="article-tag-list-item">

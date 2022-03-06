@@ -15,13 +15,13 @@
 <meta property="og:site_name" content="张显宗，我牙疼">
 <meta property="og:description" content="剑指 Offer 41、LeetCode 295. 数据流的中位数 题目描述如何得到一个数据流中的中位数？如果从数据流中读出奇数个数值，那么中位数就是所有数值排序之后位于中间的数值。如果从数据流中读出偶数个数值，那么中位数就是所有数值排序之后中间两个数的平均值。">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://example.com/2021/03/26/%E6%95%B0%E6%8D%AE%E6%B5%81%E4%B8%AD%E7%9A%84%E4%B8%AD%E4%BD%8D%E6%95%B0/1.jpg">
+<meta property="og:image" content="http://example.com/.com//1.jpg">
 <meta property="article:published_time" content="2021-03-26T06:53:21.261Z">
 <meta property="article:modified_time" content="2021-03-26T11:45:43.939Z">
 <meta property="article:author" content="c^_^y">
 <meta property="article:tag" content="LeetCode">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/2021/03/26/%E6%95%B0%E6%8D%AE%E6%B5%81%E4%B8%AD%E7%9A%84%E4%B8%AD%E4%BD%8D%E6%95%B0/1.jpg">
+<meta name="twitter:image" content="http://example.com/.com//1.jpg">
   
     <link rel="alternative" href="/atom.xml" title="张显宗，我牙疼" type="application/atom+xml">
   
@@ -233,7 +233,7 @@
 <p>设计一个支持以下两种操作的数据结构：<br>void addNum(int num) - 从数据流中添加一个整数到数据结构中。<br>double findMedian() - 返回目前所有元素的中位数。</p>
 <h2 id="思路分析"><a href="#思路分析" class="headerlink" title="思路分析"></a>思路分析</h2><p>使用两个PriorityQueue实现，优先级队列的元素按照其自然顺序进行排序，可以得到一个小顶堆。<br>new PriorityQueue&lt;&gt;((x, y) -&gt; (y - x)); 可以得到一个大顶堆。</p>
 <p>小顶堆存放较大的一半元素（N / 2个 或者 N+1 / 2个），大顶堆存放较小的一半元素(N / 2个 或者 N+1 / 2个)。<br><strong>重点是如何添加元素：</strong><br>因为小顶堆中的元素要么和大顶堆相同，要么就多一个。<br>所以如果两个堆中的元素个数相同时，先添加到大顶堆中，然后将大顶堆的堆顶元素取出添加到小顶堆中。<br>如果两个堆的元素个数不同，先添加到小顶堆中，然后将小顶堆的堆顶元素取出添加到大顶堆中。<br>这样可以保证每次轮流这往一个堆中添加元素，同时满足小顶堆中的元素要么和大顶堆相同，要么多一个。</p>
-<p>这样由一个小顶堆和一个大顶堆组合，可以得到一个有序的序列，如图：<br><img src="/2021/03/26/%E6%95%B0%E6%8D%AE%E6%B5%81%E4%B8%AD%E7%9A%84%E4%B8%AD%E4%BD%8D%E6%95%B0/1.jpg"><br>如果两个堆的元素相同，则可以取出小顶堆中的最小元素和大顶堆的最大元素 / 2.0得到中位数；反之，直接取出小顶堆的堆顶元素即是中位数。</p>
+<p>这样由一个小顶堆和一个大顶堆组合，可以得到一个有序的序列，如图：<br><img src="/.com//1.jpg"><br>如果两个堆的元素相同，则可以取出小顶堆中的最小元素和大顶堆的最大元素 / 2.0得到中位数；反之，直接取出小顶堆的堆顶元素即是中位数。</p>
 <h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MedianFinder</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    Queue&lt;Integer&gt; A;</span><br><span class="line">    Queue&lt;Integer&gt; B;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/** initialize your data structure here. */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">MedianFinder</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">//小顶堆</span></span><br><span class="line">        A = <span class="keyword">new</span> PriorityQueue&lt;&gt;();</span><br><span class="line">        <span class="comment">//大顶堆</span></span><br><span class="line">        B= <span class="keyword">new</span> PriorityQueue&lt;&gt;((x, y) -&gt; (y - x));</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addNum</span><span class="params">(<span class="keyword">int</span> num)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (A.size() != B.size()) &#123;  <span class="comment">//奇数情况</span></span><br><span class="line">            <span class="comment">//先将num插入A</span></span><br><span class="line">            A.add(num);</span><br><span class="line">            <span class="comment">//再将A堆顶元素添加到B(即将A中最小元素添加到B)</span></span><br><span class="line">            B.add(A.poll());</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;  <span class="comment">//偶数情况</span></span><br><span class="line">            B.add(num);</span><br><span class="line">            A.add(B.poll());</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">findMedian</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> A.size() != B.size() ? A.peek() : (A.peek() + B.peek()) / <span class="number">2.0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Your MedianFinder object will be instantiated and called as such:</span></span><br><span class="line"><span class="comment"> * MedianFinder obj = new MedianFinder();</span></span><br><span class="line"><span class="comment"> * obj.addNum(num);</span></span><br><span class="line"><span class="comment"> * double param_2 = obj.findMedian();</span></span><br><span class="line"><span class="comment"> */</span></span><br></pre></td></tr></table></figure>
 
 
@@ -548,11 +548,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">LeetCode</a>
+                <a href="javascript:void(0)" class="js-tag color3">算法</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">算法</a>
+                <a href="javascript:void(0)" class="js-tag color4">LeetCode</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -600,11 +600,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">中软实训</a>
+                <a href="javascript:void(0)" class="js-tag color3">剑指offer</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">剑指offer</a>
+                <a href="javascript:void(0)" class="js-tag color5">中软实训</a>
               </li>
              
               <li class="article-tag-list-item">

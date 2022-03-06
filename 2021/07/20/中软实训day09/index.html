@@ -15,14 +15,14 @@
 <meta property="og:site_name" content="张显宗，我牙疼">
 <meta property="og:description" content="JSP动态页面视图可以用JSP页面表示，它的全称是Java Server Page。是用Java语言(Servlet)编写的服务器端页面，可以在页面上编写Java代码。JSP使用Servlet编写的，所以跟Servlet一样：单实例、多线程。">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://example.com/2021/07/20/%E4%B8%AD%E8%BD%AF%E5%AE%9E%E8%AE%ADday09/1.png">
-<meta property="og:image" content="http://example.com/2021/07/20/%E4%B8%AD%E8%BD%AF%E5%AE%9E%E8%AE%ADday09/1.jpg">
+<meta property="og:image" content="http://example.com/.com//1.png">
+<meta property="og:image" content="http://example.com/.com//1.jpg">
 <meta property="article:published_time" content="2021-07-20T00:43:42.165Z">
 <meta property="article:modified_time" content="2021-07-26T12:39:58.592Z">
 <meta property="article:author" content="c^_^y">
 <meta property="article:tag" content="中软实训">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/2021/07/20/%E4%B8%AD%E8%BD%AF%E5%AE%9E%E8%AE%ADday09/1.png">
+<meta name="twitter:image" content="http://example.com/.com//1.png">
   
     <link rel="alternative" href="/atom.xml" title="张显宗，我牙疼" type="application/atom+xml">
   
@@ -226,7 +226,7 @@
 
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="JSP动态页面"><a href="#JSP动态页面" class="headerlink" title="JSP动态页面"></a>JSP动态页面</h1><p>视图可以用JSP页面表示，它的全称是Java Server Page。是用Java语言(Servlet)编写的服务器端页面，可以在页面上编写Java代码。<br><img src="/2021/07/20/%E4%B8%AD%E8%BD%AF%E5%AE%9E%E8%AE%ADday09/1.png"><br>JSP使用Servlet编写的，所以跟Servlet一样：单实例、多线程。</p>
+        <h1 id="JSP动态页面"><a href="#JSP动态页面" class="headerlink" title="JSP动态页面"></a>JSP动态页面</h1><p>视图可以用JSP页面表示，它的全称是Java Server Page。是用Java语言(Servlet)编写的服务器端页面，可以在页面上编写Java代码。<br><img src="/.com//1.png"><br>JSP使用Servlet编写的，所以跟Servlet一样：单实例、多线程。</p>
 <span id="more"></span>
 
 <h2 id="JSP内置对象"><a href="#JSP内置对象" class="headerlink" title="JSP内置对象"></a>JSP内置对象</h2><p><strong>内置对象分为四组：</strong></p>
@@ -282,7 +282,7 @@
 
 <p>将后台数据共享到前端页面：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> com.zll.common.BaseServlet;</span><br><span class="line"><span class="keyword">import</span> com.zll.jdbc.entities.Customer;</span><br><span class="line"><span class="keyword">import</span> com.zll.jdbc.service.CustomerService;</span><br><span class="line"><span class="keyword">import</span> com.zll.jdbc.service.impl.CustomerServiceImpl;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> javax.servlet.ServletException;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.annotation.WebServlet;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletRequest;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletResponse;</span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"></span><br><span class="line"><span class="meta">@WebServlet(urlPatterns = &quot;/cust3&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CustomerServlet</span> <span class="keyword">extends</span> <span class="title">BaseServlet</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> CustomerService customerService = <span class="keyword">new</span> CustomerServiceImpl();</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">listCustomer</span><span class="params">(HttpServletRequest req, HttpServletResponse resp)</span> <span class="keyword">throws</span> IOException, ServletException </span>&#123;</span><br><span class="line">        List&lt;Customer&gt; customerList = customerService.listCustomer();</span><br><span class="line">        <span class="comment">// 后台控制器的数据共享到前端页面</span></span><br><span class="line">        req.setAttribute(<span class="string">&quot;custList&quot;</span>, customerList);</span><br><span class="line">        <span class="comment">// 跳转到前端页面</span></span><br><span class="line">        req.getRequestDispatcher(<span class="string">&quot;/WEB-INF/pages/cust_list.jsp&quot;</span>).forward(req, resp);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>测试结果：<br><img src="/2021/07/20/%E4%B8%AD%E8%BD%AF%E5%AE%9E%E8%AE%ADday09/1.jpg"></p>
+<p>测试结果：<br><img src="/.com//1.jpg"></p>
 
       
 
@@ -595,11 +595,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">LeetCode</a>
+                <a href="javascript:void(0)" class="js-tag color3">算法</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">算法</a>
+                <a href="javascript:void(0)" class="js-tag color4">LeetCode</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -647,11 +647,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">中软实训</a>
+                <a href="javascript:void(0)" class="js-tag color3">剑指offer</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">剑指offer</a>
+                <a href="javascript:void(0)" class="js-tag color5">中软实训</a>
               </li>
              
               <li class="article-tag-list-item">

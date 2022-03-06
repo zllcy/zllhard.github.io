@@ -15,16 +15,16 @@
 <meta property="og:site_name" content="张显宗，我牙疼">
 <meta property="og:description" content="送水历史管理：显示送水历史记录（多表查询）、根据时间范围搜索记录、增加历史记录、修改和删除历史记录。因为这些增删改查操作和昨天的客户管理和送水工管理很相似，所以就不多啰嗦了，主要写差别的地方。">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://example.com/2021/07/24/%E4%B8%AD%E8%BD%AF%E5%AE%9E%E8%AE%ADday13/1.jpg">
-<meta property="og:image" content="http://example.com/2021/07/24/%E4%B8%AD%E8%BD%AF%E5%AE%9E%E8%AE%ADday13/2.jpg">
-<meta property="og:image" content="http://example.com/2021/07/24/%E4%B8%AD%E8%BD%AF%E5%AE%9E%E8%AE%ADday13/3.jpg">
-<meta property="og:image" content="http://example.com/2021/07/24/%E4%B8%AD%E8%BD%AF%E5%AE%9E%E8%AE%ADday13/4.jpg">
+<meta property="og:image" content="http://example.com/.com//1.jpg">
+<meta property="og:image" content="http://example.com/.com//2.jpg">
+<meta property="og:image" content="http://example.com/.com//3.jpg">
+<meta property="og:image" content="http://example.com/.com//4.jpg">
 <meta property="article:published_time" content="2021-07-24T00:44:58.853Z">
 <meta property="article:modified_time" content="2021-07-26T12:39:31.380Z">
 <meta property="article:author" content="c^_^y">
 <meta property="article:tag" content="中软实训">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/2021/07/24/%E4%B8%AD%E8%BD%AF%E5%AE%9E%E8%AE%ADday13/1.jpg">
+<meta name="twitter:image" content="http://example.com/.com//1.jpg">
   
     <link rel="alternative" href="/atom.xml" title="张显宗，我牙疼" type="application/atom+xml">
   
@@ -247,10 +247,10 @@
 <p>控制器：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RequestMapping(value = &quot;/saveWorker&quot;, method = RequestMethod.POST)</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">saveWorker</span><span class="params">(Worker worker, MultipartFile uploadFile)</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">    <span class="comment">// 获取上传的文件名</span></span><br><span class="line">    String originalFilename = uploadFile.getOriginalFilename();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (StrUtil.isNotEmpty(originalFilename)) &#123;</span><br><span class="line">        <span class="keyword">int</span> suffixIndex = originalFilename.lastIndexOf(<span class="string">&#x27;.&#x27;</span>);</span><br><span class="line">        <span class="comment">// 获取后缀</span></span><br><span class="line">        String suffix = originalFilename.substring(suffixIndex);</span><br><span class="line">        <span class="comment">// 当前时间的毫秒值作为前缀</span></span><br><span class="line">        <span class="keyword">long</span> prefix = System.currentTimeMillis();</span><br><span class="line">        <span class="comment">// 文件名</span></span><br><span class="line">        String fullFileName = prefix + suffix;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 拼接路径</span></span><br><span class="line">        File parentPath = <span class="keyword">new</span> File(location);</span><br><span class="line">        <span class="comment">// 条件成立：服务器路径不存在创建路径</span></span><br><span class="line">        <span class="keyword">if</span> (!parentPath.exists()) &#123;</span><br><span class="line">            parentPath.mkdirs();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 全路径</span></span><br><span class="line">        File fullPath = <span class="keyword">new</span> File(parentPath, fullFileName);</span><br><span class="line">        <span class="comment">// 上传</span></span><br><span class="line">        uploadFile.transferTo(fullPath);</span><br><span class="line">        worker.setWorkerImage(fullFileName);</span><br><span class="line">    &#125;</span><br><span class="line">    workerService.saveWorker(worker);</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;redirect:/worker/listWorker&quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><strong>注意一个坑：</strong><br>在前端页面要form处，要加上<code>enctype=&quot;multipart/form-data&quot;</code>，否则前端返回的<code>uploadFile</code>是null。<br>前端代码就不予展示了。</p>
-<h1 id="结果显示"><a href="#结果显示" class="headerlink" title="结果显示"></a>结果显示</h1><p>送水工列表：<br><img src="/2021/07/24/%E4%B8%AD%E8%BD%AF%E5%AE%9E%E8%AE%ADday13/1.jpg"></p>
-<p>修改送水工信息：<br><img src="/2021/07/24/%E4%B8%AD%E8%BD%AF%E5%AE%9E%E8%AE%ADday13/2.jpg"></p>
-<p>送水记录列表：<br><img src="/2021/07/24/%E4%B8%AD%E8%BD%AF%E5%AE%9E%E8%AE%ADday13/3.jpg"></p>
-<p>修改送水记录：<br><img src="/2021/07/24/%E4%B8%AD%E8%BD%AF%E5%AE%9E%E8%AE%ADday13/4.jpg"></p>
+<h1 id="结果显示"><a href="#结果显示" class="headerlink" title="结果显示"></a>结果显示</h1><p>送水工列表：<br><img src="/.com//1.jpg"></p>
+<p>修改送水工信息：<br><img src="/.com//2.jpg"></p>
+<p>送水记录列表：<br><img src="/.com//3.jpg"></p>
+<p>修改送水记录：<br><img src="/.com//4.jpg"></p>
 <p>其他增加、删除、搜索就不演示了。</p>
 <h1 id="细节"><a href="#细节" class="headerlink" title="细节"></a>细节</h1><h2 id="Param-什么时候用"><a href="#Param-什么时候用" class="headerlink" title="@Param 什么时候用"></a>@Param 什么时候用</h2><ol>
 <li>多个参数是要写的</li>
@@ -570,11 +570,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">LeetCode</a>
+                <a href="javascript:void(0)" class="js-tag color3">算法</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">算法</a>
+                <a href="javascript:void(0)" class="js-tag color4">LeetCode</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -622,11 +622,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">中软实训</a>
+                <a href="javascript:void(0)" class="js-tag color3">剑指offer</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">剑指offer</a>
+                <a href="javascript:void(0)" class="js-tag color5">中软实训</a>
               </li>
              
               <li class="article-tag-list-item">

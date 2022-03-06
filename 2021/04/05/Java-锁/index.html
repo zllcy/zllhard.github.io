@@ -15,22 +15,22 @@
 <meta property="og:site_name" content="张显宗，我牙疼">
 <meta property="og:description" content="乐观锁和悲观锁乐观并发控制(乐观锁)和悲观并发控制（悲观锁）是并发控制主要采用的技术手段。并发控制，一般都和数据库管理系统(DBMS)有关。在 DBMS 中的并发控制的任务，是确保在多个事务同时存取数据库中同一数据时，不破坏事务的隔离性、一致性和数据库的统一性。没有做好并发控制，就可能导致脏读、幻读和不可重复读等问题。 乐观锁比较适用于读多写少的情况(多读场景)，悲观锁比较适用于写多读少的情况(多">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://example.com/2021/04/05/Java-%E9%94%81/1.jpg">
-<meta property="og:image" content="http://example.com/2021/04/05/Java-%E9%94%81/2.jpg">
-<meta property="og:image" content="http://example.com/2021/04/05/Java-%E9%94%81/3.jpg">
-<meta property="og:image" content="http://example.com/2021/04/05/Java-%E9%94%81/8.jpg">
-<meta property="og:image" content="http://example.com/2021/04/05/Java-%E9%94%81/4.jpg">
-<meta property="og:image" content="http://example.com/2021/04/05/Java-%E9%94%81/5.jpg">
-<meta property="og:image" content="http://example.com/2021/04/05/Java-%E9%94%81/6.jpg">
-<meta property="og:image" content="http://example.com/2021/04/05/Java-%E9%94%81/7.jpg">
-<meta property="og:image" content="http://example.com/2021/04/05/Java-%E9%94%81/9.jpg">
-<meta property="og:image" content="http://example.com/2021/04/05/Java-%E9%94%81/10.jpg">
+<meta property="og:image" content="http://example.com/.com//1.jpg">
+<meta property="og:image" content="http://example.com/.com//2.jpg">
+<meta property="og:image" content="http://example.com/.com//3.jpg">
+<meta property="og:image" content="http://example.com/.com//8.jpg">
+<meta property="og:image" content="http://example.com/.com//4.jpg">
+<meta property="og:image" content="http://example.com/.com//5.jpg">
+<meta property="og:image" content="http://example.com/.com//6.jpg">
+<meta property="og:image" content="http://example.com/.com//7.jpg">
+<meta property="og:image" content="http://example.com/.com//9.jpg">
+<meta property="og:image" content="http://example.com/.com//10.jpg">
 <meta property="article:published_time" content="2021-04-05T12:27:15.992Z">
 <meta property="article:modified_time" content="2021-07-26T12:38:48.464Z">
 <meta property="article:author" content="c^_^y">
 <meta property="article:tag" content="Java基础">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/2021/04/05/Java-%E9%94%81/1.jpg">
+<meta name="twitter:image" content="http://example.com/.com//1.jpg">
   
     <link rel="alternative" href="/atom.xml" title="张显宗，我牙疼" type="application/atom+xml">
   
@@ -255,12 +255,12 @@
 <p><strong>乐观锁的实现：</strong><br>1）CAS 实现：Java 中java.util.concurrent.atomic包下面的原子变量使用了乐观锁的一种 CAS 实现方式。<br>2）版本号控制：一般是在数据表中加上一个数据版本号 version 字段，表示数据被修改的次数。当数据被修改时，version 值会+1。当线程A要更新数据值时，在读取数据的同时也会读取 version 值，在提交更新时，若刚才读取到的 version 值与当前数据库中的 version 值相等时才更新，否则重试更新操作，直到更新成功。</p>
 <p><strong>总结：</strong><br>乐观锁是一种乐观思想，即认为读多写少，遇到并发写的可能性低，每次去拿数据的时候都认为别人不会修改，所以不会上锁，但是在更新的时候会判断一下在此期间别人有没有去更新这个数据，采取在写时先读出当前版本号，然后加锁操作（比较跟上一次的版本号，如果一样则更新），如果失败则要重复读-比较-写的操作。<br>java 中的乐观锁基本都是通过 CAS 操作实现的，CAS 是一种更新的原子操作，比较当前值跟传入值是否一样，一样则更新，否则失败。</p>
 <h2 id="具体实现"><a href="#具体实现" class="headerlink" title="具体实现"></a>具体实现</h2><h3 id="悲观锁实现方式"><a href="#悲观锁实现方式" class="headerlink" title="悲观锁实现方式"></a>悲观锁实现方式</h3><p>悲观锁的实现，往往依靠数据库提供的锁机制。在数据库中，悲观锁的流程如下：<br>1）在对记录进行修改前，先尝试为该记录加上排他锁(exclusive locks)。<br>2）如果加锁失败，说明该记录正在被修改，那么当前查询可能要等待或者抛出异常。具体响应方式由开发者根据实际需要决定。<br>3）如果成功加锁，那么就可以对记录做修改，事务完成后就会解锁了。<br>4）期间如果有其他对该记录做修改或加排他锁的操作，都会等待解锁或直接抛出异常。</p>
-<p><strong>MySql Innodb 引擎举例</strong><br>要使用悲观锁，必须关闭 MySQL 数据库的自动提交属性。因为 MySQL 默认使用 autocommit 模式，也就是说，当执行一个更新操作后，MySQL 会立刻将结果进行提交。(sql语句：set autocommit=0)<br>以电商下单扣减库存的过程说明一下悲观锁的使用：<br><img src="/2021/04/05/Java-%E9%94%81/1.jpg"><br>以上，在对id = 1的记录修改前，先通过 for update 的方式进行加锁，然后再进行修改。这就是比较典型的悲观锁策略。<br>for update 是一种行级锁，又叫排他锁。一旦用户对某个行施加了行级锁，则该用户可以查询也可以更新被加锁的数据行，其它用户只能查询但不能更新被加锁的数据行。<br>如果以上修改库存的代码发生并发，同一时间只有一个线程可以开启事务并获得id=1的锁，其它的事务必须等本次事务提交之后才能执行。这样可以保证当前的数据不会被其它事务修改。<br><strong>注意：</strong><br>上面提到，使用 select…for update 会把数据给锁住，不过需要注意一些锁的级别，MySQL InnoDB 默认行级锁。行级锁都是基于索引的，如果一条 SQL 语句用不到索引是不会使用行级锁的，会使用表级锁把整张表锁住。</p>
+<p><strong>MySql Innodb 引擎举例</strong><br>要使用悲观锁，必须关闭 MySQL 数据库的自动提交属性。因为 MySQL 默认使用 autocommit 模式，也就是说，当执行一个更新操作后，MySQL 会立刻将结果进行提交。(sql语句：set autocommit=0)<br>以电商下单扣减库存的过程说明一下悲观锁的使用：<br><img src="/.com//1.jpg"><br>以上，在对id = 1的记录修改前，先通过 for update 的方式进行加锁，然后再进行修改。这就是比较典型的悲观锁策略。<br>for update 是一种行级锁，又叫排他锁。一旦用户对某个行施加了行级锁，则该用户可以查询也可以更新被加锁的数据行，其它用户只能查询但不能更新被加锁的数据行。<br>如果以上修改库存的代码发生并发，同一时间只有一个线程可以开启事务并获得id=1的锁，其它的事务必须等本次事务提交之后才能执行。这样可以保证当前的数据不会被其它事务修改。<br><strong>注意：</strong><br>上面提到，使用 select…for update 会把数据给锁住，不过需要注意一些锁的级别，MySQL InnoDB 默认行级锁。行级锁都是基于索引的，如果一条 SQL 语句用不到索引是不会使用行级锁的，会使用表级锁把整张表锁住。</p>
 <h2 id="乐观锁实现方式"><a href="#乐观锁实现方式" class="headerlink" title="乐观锁实现方式"></a>乐观锁实现方式</h2><p>乐观锁不需要借助数据库的锁机制。<br>主要就是两个步骤：冲突检测和数据更新。比较典型的就是 CAS (Compare and Swap)。</p>
 <p>CAS 即比较并交换。是解决多线程并行情况下使用锁造成性能损耗的一种机制，CAS 操作包含三个操作数——内存位置(V)、预期原值(A)和新值(B)。如果内存位置的值(V)与预期原值(A)相匹配，那么处理器会自动将该位置值更新为新值(B)。否则，处理器不做任何操作。无论哪种情况，它都会在 CAS 指令之前返回该位置的值。CAS 有效地说明了“我认为位置(V)应该包含值(A)。如果包含该值，则将新值(B)放到这个位置；否则，不要更改该位置，只告诉我这个位置现在的值即可”。Java 中，sun.misc.Unsafe 类提供了硬件级别的原子操作来实现这个 CAS。java.util.concurrent包下大量的类都使用了这个 Unsafe.java 类的 CAS 操作。</p>
-<p>当多个线程尝试使用 CAS 同时更新同一个变量时，只有其中一个线程能更新变量的值，而其它线程都失败，失败的线程并不会被挂起，而是被告知这次竞争中失败，并可以再次尝试。比如前面的扣减库存问题，通过乐观锁可以实现如下：<br><img src="/2021/04/05/Java-%E9%94%81/2.jpg"><br>在更新之前，先查询一下库存表中当前库存数(quantity)，然后在做 update 的时候，以库存数作为一个修改条件。当提交更新的时候，判断数据库表对应记录的当前库存数与第一次取出来的库存数进行比对，如果数据库表当前库存数与第一次取出来的库存数相等，则予以更新，否则认为是过期数据。</p>
+<p>当多个线程尝试使用 CAS 同时更新同一个变量时，只有其中一个线程能更新变量的值，而其它线程都失败，失败的线程并不会被挂起，而是被告知这次竞争中失败，并可以再次尝试。比如前面的扣减库存问题，通过乐观锁可以实现如下：<br><img src="/.com//2.jpg"><br>在更新之前，先查询一下库存表中当前库存数(quantity)，然后在做 update 的时候，以库存数作为一个修改条件。当提交更新的时候，判断数据库表对应记录的当前库存数与第一次取出来的库存数进行比对，如果数据库表当前库存数与第一次取出来的库存数相等，则予以更新，否则认为是过期数据。</p>
 <p><strong>以上更新语句存在一个比较严重的问题，即ABA问题：</strong><br>比如说线程一从数据库中取出库存数 3，这时候线程二也从数据库中取出库存数 3，并且线程二进行了一些操作变成了 2。<br>然后线程二又将库存数变成 3，这时候线程一进行 CAS 操作发现数据库中仍然是 3，然后线程一操作成功。<br>尽管线程一的 CAS 操作成功，但是不代表这个过程就是没有问题的。<br><strong>一个比较好的解决办法，就是通过一个单独的可以顺序递增的 version 字段。优化如下：</strong><br>乐观锁每次在执行数据修改操作时，都会带上一个版本号，一旦版本号和数据的版本号一致就可以执行修改操作并对版本号执行 +1 操作，否则就执行失败。因为每次操作的版本号都会随之增加，所以不会出现 ABA 问题。除了 version 以外，还可以使用时间戳，因为时间戳天然具有顺序递增性。</p>
-<p>以上 SQL 其实还是有一定的问题的，就是一旦遇上高并发的时候，就只有一个线程可以修改成功，那么就会存在大量的失败。对于像淘宝这样的电商网站，高并发是常有的事，总让用户感知到失败显然是不合理的。所以，还是要想办法减少乐观锁的粒度。一个比较好的建议，就是减小乐观锁力度，最大程度的提升吞吐率，提高并发能力！如下：<br><img src="/2021/04/05/Java-%E9%94%81/3.jpg"><br>以上 SQL 语句中，如果用户下单数为 1，则通过quantity - 1 &gt; 0的方式进行乐观锁控制。在执行过程中，会在一次原子操作中查询一遍 quantity 的值，并将其扣减掉 1。</p>
+<p>以上 SQL 其实还是有一定的问题的，就是一旦遇上高并发的时候，就只有一个线程可以修改成功，那么就会存在大量的失败。对于像淘宝这样的电商网站，高并发是常有的事，总让用户感知到失败显然是不合理的。所以，还是要想办法减少乐观锁的粒度。一个比较好的建议，就是减小乐观锁力度，最大程度的提升吞吐率，提高并发能力！如下：<br><img src="/.com//3.jpg"><br>以上 SQL 语句中，如果用户下单数为 1，则通过quantity - 1 &gt; 0的方式进行乐观锁控制。在执行过程中，会在一次原子操作中查询一遍 quantity 的值，并将其扣减掉 1。</p>
 <h1 id="自旋锁"><a href="#自旋锁" class="headerlink" title="自旋锁"></a>自旋锁</h1><ul>
 <li>百度概念：何谓自旋锁？它是为实现保护共享资源而提出一种锁机制。其实，自旋锁与互斥锁比较类似，它们都是为了解决对某项资源的互斥使用。无论是互斥锁，还是自旋锁，在任何时刻，最多只能有一个保持者，也就说，在任何时刻最多只能有一个执行单元获得锁。但是两者在调度机制上略有不同。对于互斥锁，如果资源已经被占用，资源申请者只能进入睡眠状态。但是自旋锁不会引起调用者睡眠，如果自旋锁已经被别的执行单元保持，调用者就一直循环在那里看是否该自旋锁的保持者已经释放了锁，”自旋”一词就是因此而得名。</li>
 <li>自旋锁原理非常简单，如果持有锁的线程能在很短时间内释放锁资源，那么那些等待竞争锁的线程就不需要做内核态和用户态之间的切换进入阻塞挂起状态，它们只需要等一等（自旋），等持有锁的线程释放锁后即可立即获取锁，这样就避免用户线程和内核的切换的消耗。<br>线程自旋是需要消耗 cup 的，说白了就是让 cup 在做无用功，如果一直获取不到锁，那线程也不能一直占用 cup 自旋做无用功，所以需要设定一个自旋等待的最大时间。<br>如果持有锁的线程执行的时间超过自旋等待的最大时间扔没有释放锁，就会导致其它争用锁的线程在最大等待时间内还是获取不到锁，这时争用线程会停止自旋进入阻塞状态。</li>
@@ -289,14 +289,14 @@
 <li>当作用于静态方法时，锁住的是Class实例，又因为Class的相关数据存储在永久带PermGen（jdk1.8 则是 metaspace），永久带是全局共享的，因此静态方法锁相当于类的一个全局锁，会锁所有调用该方法的线程。</li>
 <li>synchronized 作用于一个对象实例时，锁住的是所有以该对象为锁的代码块。它有多个队列，当多个线程一起访问某个对象监视器的时候，对象监视器会将这些线程存储在不同的容器中。</li>
 </ol>
-<h2 id="synchronized锁的底层原理"><a href="#synchronized锁的底层原理" class="headerlink" title="synchronized锁的底层原理"></a>synchronized锁的底层原理</h2><p>在理解锁实现原理之前先了解一下Java的对象头和Monitor，在JVM中，对象是分成三部分存在的：对象头、实例数据、对其填充。<br><img src="/2021/04/05/Java-%E9%94%81/8.jpg"><br>实例数据和对齐填充与synchronized无关。实例数据存放类的属性数据信息，包括父类的属性信息，如果是数组的实例部分还包括数组的长度，这部分内存按4字节对齐；对齐填充不是必须部分，由于虚拟机要求对象起始地址必须是8字节的整数倍，对齐填充仅仅是为了使字节对齐。<br>对象头是我们需要关注的重点，它是synchronized实现锁的基础，因为synchronized申请锁、上锁、释放锁都与对象头有关。对象头主要结构是由Mark Word 和 Class Metadata Address组成，其中Mark Word存储对象的hashCode、锁信息或分代年龄或GC标志等信息，Class Metadata Address是类型指针指向对象的类元数据，JVM通过该指针确定该对象是哪个类的实例。</p>
+<h2 id="synchronized锁的底层原理"><a href="#synchronized锁的底层原理" class="headerlink" title="synchronized锁的底层原理"></a>synchronized锁的底层原理</h2><p>在理解锁实现原理之前先了解一下Java的对象头和Monitor，在JVM中，对象是分成三部分存在的：对象头、实例数据、对其填充。<br><img src="/.com//8.jpg"><br>实例数据和对齐填充与synchronized无关。实例数据存放类的属性数据信息，包括父类的属性信息，如果是数组的实例部分还包括数组的长度，这部分内存按4字节对齐；对齐填充不是必须部分，由于虚拟机要求对象起始地址必须是8字节的整数倍，对齐填充仅仅是为了使字节对齐。<br>对象头是我们需要关注的重点，它是synchronized实现锁的基础，因为synchronized申请锁、上锁、释放锁都与对象头有关。对象头主要结构是由Mark Word 和 Class Metadata Address组成，其中Mark Word存储对象的hashCode、锁信息或分代年龄或GC标志等信息，Class Metadata Address是类型指针指向对象的类元数据，JVM通过该指针确定该对象是哪个类的实例。</p>
 <p>锁也分不同状态，JDK6之前只有两个状态：无锁、有锁（重量级锁），而在JDK6之后对synchronized进行了优化，新增了两种状态，总共就是四个状态：无锁状态、偏向锁、轻量级锁、重量级锁，其中无锁就是一种状态了。锁的类型和状态在对象头Mark Word中都有记录，在申请锁、锁升级等过程中JVM都需要读取对象的Mark Word数据。</p>
 <p>这里我们主要分析一下重量级锁也就是通常说synchronized的对象锁，锁标识位为10，其中指针指向的是monitor对象（也称为管程或监视器锁）的起始地址。每个对象都存在着一个 monitor 与之关联，对象与其 monitor 之间的关系有存在多种实现方式，如monitor可以与对象一起创建销毁或当线程试图获取对象锁时自动生成，但当一个 monitor 被某个线程持有后，它便处于锁定状态。在Java虚拟机(HotSpot)中，monitor是由ObjectMonitor实现的，其主要数据结构如下（位于HotSpot虚拟机源码ObjectMonitor.hpp文件，C++实现的）</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">ObjectMonitor() &#123;</span><br><span class="line">   _header       = <span class="literal">NULL</span>;</span><br><span class="line">   _count        = <span class="number">0</span>;  <span class="comment">//锁计数器</span></span><br><span class="line">   _waiters      = <span class="number">0</span>,</span><br><span class="line">   _recursions   = <span class="number">0</span>;</span><br><span class="line">   _object       = <span class="literal">NULL</span>;</span><br><span class="line">   _owner        = <span class="literal">NULL</span>;</span><br><span class="line">   _WaitSet      = <span class="literal">NULL</span>; <span class="comment">//处于wait状态的线程，会被加入到_WaitSet</span></span><br><span class="line">   _WaitSetLock  = <span class="number">0</span> ;</span><br><span class="line">   _Responsible  = <span class="literal">NULL</span> ;</span><br><span class="line">   _succ         = <span class="literal">NULL</span> ;</span><br><span class="line">   _cxq          = <span class="literal">NULL</span> ;</span><br><span class="line">   FreeNext      = <span class="literal">NULL</span> ;</span><br><span class="line">   _EntryList    = <span class="literal">NULL</span> ; <span class="comment">//处于等待锁block状态的线程，会被加入到该列表</span></span><br><span class="line">   _SpinFreq     = <span class="number">0</span> ;</span><br><span class="line">   _SpinClock    = <span class="number">0</span> ;</span><br><span class="line">   OwnerIsThread = <span class="number">0</span> ;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
 <p>ObjectMonitor中有两个队列，_WaitSet 和 _EntryList，用来保存ObjectWaiter对象列表( 每个等待锁的线程都会被封装成ObjectWaiter对象)，_owner指向持有ObjectMonitor对象的线程，当多个线程同时访问一段同步代码时，首先会进入 _EntryList 集合，当线程获取到对象的monitor 后进入 _Owner 区域并把monitor中的owner变量设置为当前线程同时monitor中的计数器count加1，若线程调用 wait() 方法，将释放当前持有的monitor，owner变量恢复为null，count自减1，同时该线程进入 WaitSet集合中等待被唤醒。若当前线程执行完毕也将释放monitor(锁)并复位变量的值，以便其他线程进入获取monitor(锁)。</p>
 <h2 id="synchronized锁的实现"><a href="#synchronized锁的实现" class="headerlink" title="synchronized锁的实现"></a>synchronized锁的实现</h2><p>synchronized有两种形式上锁，一个是对方法上锁，一个是构造同步代码块。他们的底层实现其实都一样，在进入同步代码之前先获取锁，获取到锁之后锁的计数器+1，同步代码执行完锁的计数器-1，如果获取失败就阻塞式等待锁的释放。只是他们在同步块识别方式上有所不一样，从class字节码文件可以表现出来，一个是通过方法flags标志，一个是monitorenter和monitorexit指令操作。</p>
-<h3 id="同步方法"><a href="#同步方法" class="headerlink" title="同步方法"></a>同步方法</h3><p>首先来看在方法上上锁，我们就新定义一个同步方法然后进行反编译，查看其字节码：<br><img src="/2021/04/05/Java-%E9%94%81/4.jpg"><br><img src="/2021/04/05/Java-%E9%94%81/5.jpg"><br>可以看到在add方法的flags里面多了一个ACC_SYNCHRONIZED标志，这标志用来告诉JVM这是一个同步方法，在进入该方法之前先获取相应的锁，锁的计数器加1，方法结束后计数器-1，如果获取失败就阻塞住，知道该锁被释放。</p>
-<h3 id="同步代码块"><a href="#同步代码块" class="headerlink" title="同步代码块"></a>同步代码块</h3><p>定义一个同步代码块，编译出class字节码，然后找到method方法所在的指令块，可以清楚的看到其实现上锁和释放锁的过程；<br><img src="/2021/04/05/Java-%E9%94%81/6.jpg"><br><img src="/2021/04/05/Java-%E9%94%81/7.jpg"><br>从反编译的同步代码块可以看到同步块是由monitorenter指令进入，然后monitorexit释放锁，在执行monitorenter之前需要尝试获取锁，如果这个对象没有被锁定，或者当前线程已经拥有了这个对象的锁，那么就把锁的计数器加1。当执行monitorexit指令时，锁的计数器也会减1。当获取锁失败时会被阻塞，一直等待锁被释放。<br>但是为什么会有两个monitorexit呢？其实第二个monitorexit是来处理异常的，仔细看反编译的字节码，正常情况下第一个monitorexit之后会执行goto指令，而该指令转向的就是23行的return，也就是说正常情况下只会执行第一个monitorexit释放锁，然后返回。而如果在执行中发生了异常，第二个monitorexit就起作用了，它是由编译器自动生成的，在发生异常时处理异常然后释放掉锁。</p>
+<h3 id="同步方法"><a href="#同步方法" class="headerlink" title="同步方法"></a>同步方法</h3><p>首先来看在方法上上锁，我们就新定义一个同步方法然后进行反编译，查看其字节码：<br><img src="/.com//4.jpg"><br><img src="/.com//5.jpg"><br>可以看到在add方法的flags里面多了一个ACC_SYNCHRONIZED标志，这标志用来告诉JVM这是一个同步方法，在进入该方法之前先获取相应的锁，锁的计数器加1，方法结束后计数器-1，如果获取失败就阻塞住，知道该锁被释放。</p>
+<h3 id="同步代码块"><a href="#同步代码块" class="headerlink" title="同步代码块"></a>同步代码块</h3><p>定义一个同步代码块，编译出class字节码，然后找到method方法所在的指令块，可以清楚的看到其实现上锁和释放锁的过程；<br><img src="/.com//6.jpg"><br><img src="/.com//7.jpg"><br>从反编译的同步代码块可以看到同步块是由monitorenter指令进入，然后monitorexit释放锁，在执行monitorenter之前需要尝试获取锁，如果这个对象没有被锁定，或者当前线程已经拥有了这个对象的锁，那么就把锁的计数器加1。当执行monitorexit指令时，锁的计数器也会减1。当获取锁失败时会被阻塞，一直等待锁被释放。<br>但是为什么会有两个monitorexit呢？其实第二个monitorexit是来处理异常的，仔细看反编译的字节码，正常情况下第一个monitorexit之后会执行goto指令，而该指令转向的就是23行的return，也就是说正常情况下只会执行第一个monitorexit释放锁，然后返回。而如果在执行中发生了异常，第二个monitorexit就起作用了，它是由编译器自动生成的，在发生异常时处理异常然后释放掉锁。</p>
 <h2 id="Synchronized-核心组件"><a href="#Synchronized-核心组件" class="headerlink" title="Synchronized 核心组件"></a>Synchronized 核心组件</h2><ol>
 <li>Wait Set：哪些调用 wait 方法被阻塞的线程被放置在这里。</li>
 <li>Contention List：竞争队列，所有请求锁的线程首先被放在这个竞争队列中。</li>
@@ -338,7 +338,7 @@
 <li>tryLock(long timeout TimeUnit unit)：如果锁在给定等待时间内没有被另一个线程保持，则获取该锁。</li>
 </ol>
 <h2 id="非公平锁"><a href="#非公平锁" class="headerlink" title="非公平锁"></a>非公平锁</h2><p>JVM 按随机、就近原则分配锁的机制则称为不公平锁，ReentrantLock 在构造函数中提供了是否公平锁的初始化方式，默认为非公平锁。非公平锁实际执行的效率要远远超出公平锁，除非程序有特殊需要，否则最常用非公平锁的分配机制。<br>synchronized 也是非公平锁。</p>
-<h2 id="公平锁"><a href="#公平锁" class="headerlink" title="公平锁"></a>公平锁</h2><p>公平锁指的是锁的分配机制是公平的，通常先对锁提出获取请求的线程会先被分配到锁，ReentrantLock 在构造函数中提供了是否公平锁的初始化方式来定义公平锁。<br><img src="/2021/04/05/Java-%E9%94%81/9.jpg"></p>
+<h2 id="公平锁"><a href="#公平锁" class="headerlink" title="公平锁"></a>公平锁</h2><p>公平锁指的是锁的分配机制是公平的，通常先对锁提出获取请求的线程会先被分配到锁，ReentrantLock 在构造函数中提供了是否公平锁的初始化方式来定义公平锁。<br><img src="/.com//9.jpg"></p>
 <h2 id="ReentrantLock-与-synchronized"><a href="#ReentrantLock-与-synchronized" class="headerlink" title="ReentrantLock 与 synchronized"></a>ReentrantLock 与 synchronized</h2><ol>
 <li>ReentrantLock 通过方法 lock()与 unlock()来进行加锁与解锁操作，与 synchronized 会被 JVM 自动解锁机制不同，ReentrantLock 加锁后需要手动进行解锁。为了避免程序出现异常而无法正常解锁的情况，使用 ReentrantLock 必须在 finally 控制块中进行解锁操作。</li>
 <li>ReentrantLock 相比 synchronized 的优势是可中断、公平锁、多个锁。这种情况下需要使用 ReentrantLock。</li>
@@ -359,7 +359,7 @@
 <h2 id="Semaphore-与-ReentrantLock"><a href="#Semaphore-与-ReentrantLock" class="headerlink" title="Semaphore 与 ReentrantLock"></a>Semaphore 与 ReentrantLock</h2><p>1）Semaphore 基本能完成 ReentrantLock 的所有工作，使用方法也与之类似，通过 acquire()与release()方法来获得和释放临界资源。Semaphone.acquire()方法默认为可响应中断锁，与 ReentrantLock.lockInterruptibly()作用效果一致，也就是说在等待临界资源的过程中可以被Thread.interrupt()方法中断。<br>2）此外，Semaphore 也实现了可轮询的锁请求与定时锁的功能，除了方法名 tryAcquire 与 tryLock不同，其使用方法与 ReentrantLock 几乎一致。Semaphore 也提供了公平与非公平锁的机制，也可在构造函数中进行设定。<br>3）Semaphore 的锁释放操作也由手动进行，因此与 ReentrantLock 一样，为避免线程因抛出异常而无法正常释放锁的情况发生，释放锁的操作也必须在 finally 代码块中完成。</p>
 <h1 id="AtomicInteger"><a href="#AtomicInteger" class="headerlink" title="AtomicInteger"></a>AtomicInteger</h1><p>AtomicInteger ，一个提供原子操作的 Integer 的类，常见的还有AtomicBoolean、AtomicInteger、AtomicLong、AtomicReference 等，他们的实现原理相同，区别在与运算对象类型的不同。还可以通过 AtomicReference<V>将一个对象的所有操作转化成原子操作。<br>在多线程程序中，诸如++i 或 i++等运算不具有原子性，是不安全的线程操作之一。<br>通常我们会使用 synchronized 将该操作变成一个原子操作，但 JVM 为此类操作特意提供了一些同步类，使得使用更方便，且使程序运行效率变得更高。通过相关资料显示，通常AtomicInteger的性能是 ReentantLock 的好几倍。</V></p>
 <h1 id="可重入锁（递归锁）"><a href="#可重入锁（递归锁）" class="headerlink" title="可重入锁（递归锁）"></a>可重入锁（递归锁）</h1><p>广义上的可重入锁，而不是单指 JAVA 下的 ReentrantLock。<br>可重入锁，也叫做递归锁，指的是同一线程 外层函数获得锁之后 ，内层递归函数仍然有获取该锁的代码，但不受影响。在 JAVA 环境下 ReentrantLock 和 synchronized 都是 可重入锁。</p>
-<h1 id="读写锁（ReadWriteLock）"><a href="#读写锁（ReadWriteLock）" class="headerlink" title="读写锁（ReadWriteLock）"></a>读写锁（ReadWriteLock）</h1><p>为了提高性能，Java 提供了读写锁，在读的地方使用读锁，在写的地方使用写锁，灵活控制，如果没有写锁的情况下，读是无阻塞的,在一定程度上提高了程序的执行效率。读写锁分为读锁和写锁，多个读锁不互斥，读锁与写锁互斥，这是由 jvm 自己控制的，你只要上好相应的锁即可。<br>Java 中 读 写 锁 有 个 接 口 java.util.concurrent.locks.ReadWriteLock ， 也 有 具 体 的 实 现ReentrantReadWriteLock。<br><img src="/2021/04/05/Java-%E9%94%81/10.jpg"></p>
+<h1 id="读写锁（ReadWriteLock）"><a href="#读写锁（ReadWriteLock）" class="headerlink" title="读写锁（ReadWriteLock）"></a>读写锁（ReadWriteLock）</h1><p>为了提高性能，Java 提供了读写锁，在读的地方使用读锁，在写的地方使用写锁，灵活控制，如果没有写锁的情况下，读是无阻塞的,在一定程度上提高了程序的执行效率。读写锁分为读锁和写锁，多个读锁不互斥，读锁与写锁互斥，这是由 jvm 自己控制的，你只要上好相应的锁即可。<br>Java 中 读 写 锁 有 个 接 口 java.util.concurrent.locks.ReadWriteLock ， 也 有 具 体 的 实 现ReentrantReadWriteLock。<br><img src="/.com//10.jpg"></p>
 <h2 id="读锁"><a href="#读锁" class="headerlink" title="读锁"></a>读锁</h2><p>如果你的代码只读数据，可以很多人同时读，但不能同时写，那就上读锁。</p>
 <h2 id="写锁"><a href="#写锁" class="headerlink" title="写锁"></a>写锁</h2><p>如果你的代码修改数据，只能有一个人在写，且不能同时读取，那就上写锁。总之，读的时候上读锁，写的时候上写锁。</p>
 <h1 id="共享锁和独占锁"><a href="#共享锁和独占锁" class="headerlink" title="共享锁和独占锁"></a>共享锁和独占锁</h1><p>java 并发包提供的加锁模式分为独占锁和共享锁。</p>
@@ -687,11 +687,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">LeetCode</a>
+                <a href="javascript:void(0)" class="js-tag color3">算法</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">算法</a>
+                <a href="javascript:void(0)" class="js-tag color4">LeetCode</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -739,11 +739,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">中软实训</a>
+                <a href="javascript:void(0)" class="js-tag color3">剑指offer</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">剑指offer</a>
+                <a href="javascript:void(0)" class="js-tag color5">中软实训</a>
               </li>
              
               <li class="article-tag-list-item">
