@@ -15,14 +15,14 @@
 <meta property="og:site_name" content="张显宗，我牙疼">
 <meta property="og:description" content="为什么要有泛型(Generic)集合容器类在设计阶段&#x2F;声明阶段不能确定这个容器到底实际存的是什么类型的对象，所以在JDK1.5之前只能把元素类型设计为Object，JDK1.5之后使用泛型来解决。因为这个时候除了元素的类型不确定，其他的部分是确定的，例如关于这个元素如何保存，如何管理等是确定的，因此此时把元素的类型设计成一个参数，这个类型参数叫做泛型。Collection，List，ArrayLi">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://example.com/.com//04/04/%E6%B3%9B%E5%9E%8B/1.jpg">
-<meta property="og:image" content="http://example.com/.com//04/04/%E6%B3%9B%E5%9E%8B/2.jpg">
+<meta property="og:image" content="http://example.com/2021/04/04/%E6%B3%9B%E5%9E%8B/1.jpg">
+<meta property="og:image" content="http://example.com/2021/04/04/%E6%B3%9B%E5%9E%8B/2.jpg">
 <meta property="article:published_time" content="2021-04-04T12:50:18.461Z">
 <meta property="article:modified_time" content="2021-07-26T13:43:36.663Z">
 <meta property="article:author" content="c^_^y">
 <meta property="article:tag" content="Java基础">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/.com//04/04/%E6%B3%9B%E5%9E%8B/1.jpg">
+<meta name="twitter:image" content="http://example.com/2021/04/04/%E6%B3%9B%E5%9E%8B/1.jpg">
   
     <link rel="alternative" href="/atom.xml" title="张显宗，我牙疼" type="application/atom+xml">
   
@@ -229,7 +229,7 @@
         <h1 id="为什么要有泛型-Generic"><a href="#为什么要有泛型-Generic" class="headerlink" title="为什么要有泛型(Generic)"></a>为什么要有泛型(Generic)</h1><p>集合容器类在设计阶段/声明阶段不能确定这个容器到底实际存的是什么类型的对象，所以在JDK1.5之前只能把元素类型设计为Object，JDK1.5之后使用泛型来解决。因为这个时候除了元素的类型不确定，其他的部分是确定的，例如关于这个元素如何保存，如何管理等是确定的，因此此时把元素的类型设计成一个参数，这个类型参数叫做泛型。Collection<E>，List<E>，ArrayList<E> 这个<E>就是类型参数，即泛型。</E></E></E></E></p>
 <span id="more"></span>
 
-<p>1）解决元素存储的安全性问题<br>2）解决获取数据元素时，需要类型强制转换的问题。<br><strong>在集合中没有泛型时</strong><br><img src="/.com//04/04/%E6%B3%9B%E5%9E%8B/1.jpg"><br><strong>在集合中有泛型时</strong><br><img src="/.com//04/04/%E6%B3%9B%E5%9E%8B/2.jpg"><br>Java泛型可以保证如果程序在编译时没有发出警告，运行时就不会产生ClassCastException异常。同时，代码更加简洁、健壮。</p>
+<p>1）解决元素存储的安全性问题<br>2）解决获取数据元素时，需要类型强制转换的问题。<br><strong>在集合中没有泛型时</strong><br><img src="/2021/04/04/%E6%B3%9B%E5%9E%8B/1.jpg"><br><strong>在集合中有泛型时</strong><br><img src="/2021/04/04/%E6%B3%9B%E5%9E%8B/2.jpg"><br>Java泛型可以保证如果程序在编译时没有发出警告，运行时就不会产生ClassCastException异常。同时，代码更加简洁、健壮。</p>
 <h2 id="泛型的概念"><a href="#泛型的概念" class="headerlink" title="泛型的概念"></a>泛型的概念</h2><ul>
 <li>所谓泛型，就是允许在定义类、接口时通过一个标识表示类中某个属性的类型或者是某个方法的返回值及参数类型。这个类型参数将在使用时（例如，继承或实现这个接口，用这个类型声明变量、创建对象时）确定（即传入实际的类型参数，也称为类型实参）。</li>
 <li>从JDK1.5以后，Java引入了“参数化类型（Parameterized type）”的概念，允许我们在创建集合时再指定集合元素的类型，正如：List<String>，这表明该List只能保存字符串类型的对象。</String></li>
@@ -655,11 +655,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">VueAdmin项目</a>
+                <a href="javascript:void(0)" class="js-tag color4">Vue</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Vue</a>
+                <a href="javascript:void(0)" class="js-tag color1">VueAdmin项目</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -687,11 +687,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
+                <a href="javascript:void(0)" class="js-tag color5">毕业设计</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">毕业设计</a>
+                <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
               </li>
              
               <li class="article-tag-list-item">

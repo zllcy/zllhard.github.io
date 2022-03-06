@@ -15,14 +15,14 @@
 <meta property="og:site_name" content="张显宗，我牙疼">
 <meta property="og:description" content="反射">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://example.com/.com//07/12/%E4%B8%AD%E8%BD%AF%E5%AE%9E%E8%AE%ADday02/1.png">
-<meta property="og:image" content="http://example.com/.com//07/12/%E4%B8%AD%E8%BD%AF%E5%AE%9E%E8%AE%ADday02/1.jpg">
+<meta property="og:image" content="http://example.com/2021/07/12/%E4%B8%AD%E8%BD%AF%E5%AE%9E%E8%AE%ADday02/1.png">
+<meta property="og:image" content="http://example.com/2021/07/12/%E4%B8%AD%E8%BD%AF%E5%AE%9E%E8%AE%ADday02/1.jpg">
 <meta property="article:published_time" content="2021-07-12T01:27:55.631Z">
 <meta property="article:modified_time" content="2021-07-26T12:38:27.533Z">
 <meta property="article:author" content="c^_^y">
 <meta property="article:tag" content="中软实训">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/.com//07/12/%E4%B8%AD%E8%BD%AF%E5%AE%9E%E8%AE%ADday02/1.png">
+<meta name="twitter:image" content="http://example.com/2021/07/12/%E4%B8%AD%E8%BD%AF%E5%AE%9E%E8%AE%ADday02/1.png">
   
     <link rel="alternative" href="/atom.xml" title="张显宗，我牙疼" type="application/atom+xml">
   
@@ -226,7 +226,7 @@
 
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="反射"><a href="#反射" class="headerlink" title="反射"></a>反射</h1><p><img src="/.com//07/12/%E4%B8%AD%E8%BD%AF%E5%AE%9E%E8%AE%ADday02/1.png"></p>
+        <h1 id="反射"><a href="#反射" class="headerlink" title="反射"></a>反射</h1><p><img src="/2021/07/12/%E4%B8%AD%E8%BD%AF%E5%AE%9E%E8%AE%ADday02/1.png"></p>
 <span id="more"></span>
 
 <h2 id="反射的入口"><a href="#反射的入口" class="headerlink" title="反射的入口"></a>反射的入口</h2><p>反射的入口，就是获取类字节码对应的Class对象。<br>一个类是否成功加载到JVM的标志是看元空间是否产生class对象。</p>
@@ -242,7 +242,7 @@
 <h3 id="获取接口信息"><a href="#获取接口信息" class="headerlink" title="获取接口信息"></a>获取接口信息</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">	<span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">getInterfaceInfoTest</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        Class&lt;ArrayList&gt; arrayListClass = ArrayList.class;</span><br><span class="line">        <span class="comment">// 遍历接口信息</span></span><br><span class="line">        Class&lt;?&gt;[] interfaces = arrayListClass.getInterfaces();</span><br><span class="line">        StringBuilder stringBuilder = <span class="keyword">new</span> StringBuilder(<span class="string">&quot;implements&quot;</span>);</span><br><span class="line">        <span class="keyword">for</span> (Class&lt;?&gt; inter : interfaces) &#123;</span><br><span class="line">            stringBuilder.append(<span class="string">&quot;, &quot;</span>+ inter.getSimpleName());</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        stringBuilder.append(<span class="string">&quot; &#123; &quot;</span>);</span><br><span class="line">        String interfaceInfo = stringBuilder.toString();</span><br><span class="line">        interfaceInfo = interfaceInfo.replaceFirst(<span class="string">&quot;,&quot;</span>,<span class="string">&quot; &quot;</span>);</span><br><span class="line">        System.out.println(<span class="string">&quot;        &quot;</span> + interfaceInfo);</span><br><span class="line"></span><br><span class="line"><span class="comment">//        System.out.println(stringBuilder.toString());</span></span><br><span class="line"></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 
 <h3 id="综合结果"><a href="#综合结果" class="headerlink" title="综合结果"></a>综合结果</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">allTest</span><span class="params">()</span> </span>&#123;</span><br><span class="line">       <span class="keyword">this</span>.getPackageInfoTest();</span><br><span class="line">       <span class="keyword">this</span>.getClassInfoTest();</span><br><span class="line">       <span class="keyword">this</span>.getSuperClassInfoTest();</span><br><span class="line">       <span class="keyword">this</span>.getInterfaceInfoTest();</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
-<p><img src="/.com//07/12/%E4%B8%AD%E8%BD%AF%E5%AE%9E%E8%AE%ADday02/1.jpg"></p>
+<p><img src="/2021/07/12/%E4%B8%AD%E8%BD%AF%E5%AE%9E%E8%AE%ADday02/1.jpg"></p>
 <h2 id="获取属性信息"><a href="#获取属性信息" class="headerlink" title="获取属性信息"></a>获取属性信息</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">	<span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">getAllFiledTest</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        Class&lt;ArrayList&gt; arrayListClass = ArrayList.class;</span><br><span class="line">        <span class="comment">// 获取自己所有的属性，但是不能获取父类的属性</span></span><br><span class="line">        Field[] declaredFields = arrayListClass.getDeclaredFields();</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span>(Field field : declaredFields) &#123;</span><br><span class="line"><span class="comment">//            System.out.println(field);</span></span><br><span class="line">            <span class="comment">// 获取属性的修饰符</span></span><br><span class="line">            <span class="keyword">int</span> modifiers = field.getModifiers();</span><br><span class="line">            String modifier = Modifier.toString(modifiers);</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 获取类型名称</span></span><br><span class="line">            String typeName = field.getType().getSimpleName();</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 获取属性名</span></span><br><span class="line">            String fieldName = field.getName();</span><br><span class="line">            System.out.println(modifier + <span class="string">&quot; &quot;</span> + typeName + <span class="string">&quot; &quot;</span> + fieldName + <span class="string">&quot;;&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 
 <h2 id="获取方法信息"><a href="#获取方法信息" class="headerlink" title="获取方法信息"></a>获取方法信息</h2><p>获取所有方法信息</p>
@@ -615,11 +615,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">VueAdmin项目</a>
+                <a href="javascript:void(0)" class="js-tag color4">Vue</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Vue</a>
+                <a href="javascript:void(0)" class="js-tag color1">VueAdmin项目</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -647,11 +647,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
+                <a href="javascript:void(0)" class="js-tag color5">毕业设计</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">毕业设计</a>
+                <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
               </li>
              
               <li class="article-tag-list-item">
