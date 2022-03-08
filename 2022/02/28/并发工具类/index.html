@@ -16,7 +16,7 @@
 <meta property="og:description" content="Java SDK 并发包中的工具类，核心还是对管程的实现。">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-02-28T11:58:46.318Z">
-<meta property="article:modified_time" content="2022-03-08T05:33:54.846Z">
+<meta property="article:modified_time" content="2022-03-08T06:14:40.453Z">
 <meta property="article:author" content="c^_^y">
 <meta property="article:tag" content="Java并发编程实战">
 <meta name="twitter:card" content="summary">
@@ -202,7 +202,7 @@
 		<div id="toc-article" class="toc-article">
 			<span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
 			<strong class="toc-title">文章目录</strong>
-			   <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Lock"><span class="toc-number">1.</span> <span class="toc-text">Lock</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%AF%E9%87%8D%E5%85%A5%E9%94%81"><span class="toc-number">1.1.</span> <span class="toc-text">可重入锁</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%AC%E5%B9%B3%E9%94%81%E4%B8%8E%E9%9D%9E%E5%85%AC%E5%B9%B3%E9%94%81"><span class="toc-number">1.2.</span> <span class="toc-text">公平锁与非公平锁</span></a></li></ol></li></ol>
+			   <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Lock"><span class="toc-number">1.</span> <span class="toc-text">Lock</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%AF%E9%87%8D%E5%85%A5%E9%94%81"><span class="toc-number">1.1.</span> <span class="toc-text">可重入锁</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%AC%E5%B9%B3%E9%94%81%E4%B8%8E%E9%9D%9E%E5%85%AC%E5%B9%B3%E9%94%81"><span class="toc-number">1.2.</span> <span class="toc-text">公平锁与非公平锁</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%A8%E9%94%81%E7%9A%84%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5"><span class="toc-number">1.3.</span> <span class="toc-text">用锁的最佳实践</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Condition"><span class="toc-number">2.</span> <span class="toc-text">Condition</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%A9%E7%94%A8%E4%B8%A4%E4%B8%AA%E6%9D%A1%E4%BB%B6%E5%8F%98%E9%87%8F%E5%BF%AB%E9%80%9F%E5%AE%9E%E7%8E%B0%E9%98%BB%E5%A1%9E%E9%98%9F%E5%88%97"><span class="toc-number">2.1.</span> <span class="toc-text">利用两个条件变量快速实现阻塞队列</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%90%8C%E6%AD%A5%E4%B8%8E%E5%BC%82%E6%AD%A5"><span class="toc-number">2.2.</span> <span class="toc-text">同步与异步</span></a></li></ol></li></ol>
 			 </div>
 	   <script type="text/javascript">
 		function showToc(){
@@ -233,10 +233,27 @@
 <li>非阻塞地获取锁。如果尝试获取锁失败，并不进入阻塞状态，而是直接返回，那这个线程也有机会释放曾经持有的锁。这样也能破坏不可抢占条件。</li>
 </ul>
 <p><strong>这三个方案对应Lock接口中的三个方法：</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">// 支持中断的API</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">lockInterruptibly</span><span class="params">()</span> <span class="keyword">throws</span> InterruptedException</span>;</span><br><span class="line"><span class="comment">// 支持超时的API</span></span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">tryLock</span><span class="params">(<span class="keyword">long</span> time, TimeUnit unit)</span> <span class="keyword">throws</span> InterruptedException</span>;</span><br><span class="line"><span class="comment">// 支持非阻塞获取锁的API</span></span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">tryLock</span><span class="params">()</span></span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 支持中断的API</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">lockInterruptibly</span><span class="params">()</span> <span class="keyword">throws</span> InterruptedException</span>;</span><br><span class="line"><span class="comment">// 支持超时的API</span></span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">tryLock</span><span class="params">(<span class="keyword">long</span> time, TimeUnit unit)</span> <span class="keyword">throws</span> InterruptedException</span>;</span><br><span class="line"><span class="comment">// 支持非阻塞获取锁的API</span></span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">tryLock</span><span class="params">()</span></span>;</span><br></pre></td></tr></table></figure>
 
 <h2 id="可重入锁"><a href="#可重入锁" class="headerlink" title="可重入锁"></a>可重入锁</h2><p>可重入锁，指的是线程可以重复获取同一把锁。<br>可重入函数，指的是多个线程可以同时调用该函数，并且每个线程都能得到正确结果，是线程安全的。</p>
-<h2 id="公平锁与非公平锁"><a href="#公平锁与非公平锁" class="headerlink" title="公平锁与非公平锁"></a>公平锁与非公平锁</h2>
+<h2 id="公平锁与非公平锁"><a href="#公平锁与非公平锁" class="headerlink" title="公平锁与非公平锁"></a>公平锁与非公平锁</h2><p>公平锁表示线程获取锁的顺序是按照线程请求锁的时间早晚来决定的，也就是最早请求锁的线程将最早获取到锁。而非公平锁则在运行时闯入，也就是先来不一定先得。</p>
+<h2 id="用锁的最佳实践"><a href="#用锁的最佳实践" class="headerlink" title="用锁的最佳实践"></a>用锁的最佳实践</h2><p>并发大师 Doug Lea《Java 并发编程：设计原则与模式》一书中，推荐的三个用锁的最佳实践，它们分别是：</p>
+<ul>
+<li>永远只在更新对象的成员变量时加锁</li>
+<li>永远只在访问可变的成员变量时加锁</li>
+<li>永远不在调用其他对象的方法时加锁</li>
+</ul>
+<h1 id="Condition"><a href="#Condition" class="headerlink" title="Condition"></a>Condition</h1><p>Condition 实现了管程模型里面的条件变量。<br>Java 语言内置的管程里只有一个条件变量，而 Lock&amp;Condition 实现的管程是支持多个条件变量的。</p>
+<h2 id="利用两个条件变量快速实现阻塞队列"><a href="#利用两个条件变量快速实现阻塞队列" class="headerlink" title="利用两个条件变量快速实现阻塞队列"></a>利用两个条件变量快速实现阻塞队列</h2><p>一个阻塞队列，需要两个条件变量，一个是队列不空（空队列不允许出队），另一个是队列不满（队列已满不允许入队）。<br>下面是伪代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BlockedQueue</span>&lt;<span class="title">T</span>&gt;</span>&#123;</span><br><span class="line">  <span class="keyword">final</span> Lock lock =</span><br><span class="line">    <span class="keyword">new</span> ReentrantLock();</span><br><span class="line">  <span class="comment">// 条件变量：队列不满  </span></span><br><span class="line">  <span class="keyword">final</span> Condition notFull =</span><br><span class="line">    lock.newCondition();</span><br><span class="line">  <span class="comment">// 条件变量：队列不空  </span></span><br><span class="line">  <span class="keyword">final</span> Condition notEmpty =</span><br><span class="line">    lock.newCondition();</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 入队</span></span><br><span class="line">  <span class="function"><span class="keyword">void</span> <span class="title">enq</span><span class="params">(T x)</span> </span>&#123;</span><br><span class="line">    lock.lock();</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">      <span class="keyword">while</span> (队列已满)&#123;</span><br><span class="line">        <span class="comment">// 等待队列不满</span></span><br><span class="line">        notFull.await();</span><br><span class="line">      &#125;  </span><br><span class="line">      <span class="comment">// 省略入队操作...</span></span><br><span class="line">      <span class="comment">//入队后,通知可出队</span></span><br><span class="line">      notEmpty.signal();</span><br><span class="line">    &#125;<span class="keyword">finally</span> &#123;</span><br><span class="line">      lock.unlock();</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 出队</span></span><br><span class="line">  <span class="function"><span class="keyword">void</span> <span class="title">deq</span><span class="params">()</span></span>&#123;</span><br><span class="line">    lock.lock();</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">      <span class="keyword">while</span> (队列已空)&#123;</span><br><span class="line">        <span class="comment">// 等待队列不空</span></span><br><span class="line">        notEmpty.await();</span><br><span class="line">      &#125;  </span><br><span class="line">      <span class="comment">// 省略出队操作...</span></span><br><span class="line">      <span class="comment">//出队后，通知可入队</span></span><br><span class="line">      notFull.signal();</span><br><span class="line">    &#125;<span class="keyword">finally</span> &#123;</span><br><span class="line">      lock.unlock();</span><br><span class="line">    &#125;  </span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Lock 和 Condition 实现的管程，线程等待和通知需要调用 await()、signal()、signalAll()，它们的语义和 wait()、notify()、notifyAll() 是相同的。<br>wait()、notify()、notifyAll() 只有在 synchronized 实现的管程里才能使用。</p>
+<h2 id="同步与异步"><a href="#同步与异步" class="headerlink" title="同步与异步"></a>同步与异步</h2><p>通俗点来讲就是调用方是否需要等待结果，如果需要等待结果，就是同步；如果不需要等待结果，就是异步。</p>
+<p>同步，是 Java 代码默认的处理方式。如果你想让你的程序支持异步，可以通过下面两种方式来实现：</p>
+<ul>
+<li>调用方创建一个子线程，在子线程中执行方法调用，这种调用我们称为异步调用；</li>
+<li>方法实现的时候，创建一个新的线程执行主要逻辑，主线程直接 return，这种方法我们一般称为异步方法。</li>
+</ul>
+
       
 
       
@@ -519,11 +536,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">面经</a>
+                <a href="javascript:void(0)" class="js-tag color1">Spring5 框架</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Spring5 框架</a>
+                <a href="javascript:void(0)" class="js-tag color3">面经</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -539,11 +556,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">算法</a>
+                <a href="javascript:void(0)" class="js-tag color4">LeetCode</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">LeetCode</a>
+                <a href="javascript:void(0)" class="js-tag color3">算法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -567,15 +584,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">SpringSecurity</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Vue</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">SpringSecurity</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">VueAdmin项目</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">玩转Spring全家桶</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -587,15 +608,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">玩转Spring全家桶</a>
+                <a href="javascript:void(0)" class="js-tag color3">剑指offer</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">中软实训</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">剑指offer</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -623,11 +640,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">读书笔记</a>
+                <a href="javascript:void(0)" class="js-tag color5">华为机试</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">华为机试</a>
+                <a href="javascript:void(0)" class="js-tag color5">读书笔记</a>
               </li>
              
               <li class="article-tag-list-item">
