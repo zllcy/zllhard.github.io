@@ -16,7 +16,7 @@
 <meta property="og:description" content="Java SDK 并发包中的工具类，核心还是对管程的实现。">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-02-28T11:58:46.318Z">
-<meta property="article:modified_time" content="2022-03-08T06:14:40.453Z">
+<meta property="article:modified_time" content="2022-03-12T14:33:51.299Z">
 <meta property="article:author" content="c^_^y">
 <meta property="article:tag" content="Java并发编程实战">
 <meta name="twitter:card" content="summary">
@@ -202,7 +202,7 @@
 		<div id="toc-article" class="toc-article">
 			<span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
 			<strong class="toc-title">文章目录</strong>
-			   <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Lock"><span class="toc-number">1.</span> <span class="toc-text">Lock</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%AF%E9%87%8D%E5%85%A5%E9%94%81"><span class="toc-number">1.1.</span> <span class="toc-text">可重入锁</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%AC%E5%B9%B3%E9%94%81%E4%B8%8E%E9%9D%9E%E5%85%AC%E5%B9%B3%E9%94%81"><span class="toc-number">1.2.</span> <span class="toc-text">公平锁与非公平锁</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%A8%E9%94%81%E7%9A%84%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5"><span class="toc-number">1.3.</span> <span class="toc-text">用锁的最佳实践</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Condition"><span class="toc-number">2.</span> <span class="toc-text">Condition</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%A9%E7%94%A8%E4%B8%A4%E4%B8%AA%E6%9D%A1%E4%BB%B6%E5%8F%98%E9%87%8F%E5%BF%AB%E9%80%9F%E5%AE%9E%E7%8E%B0%E9%98%BB%E5%A1%9E%E9%98%9F%E5%88%97"><span class="toc-number">2.1.</span> <span class="toc-text">利用两个条件变量快速实现阻塞队列</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%90%8C%E6%AD%A5%E4%B8%8E%E5%BC%82%E6%AD%A5"><span class="toc-number">2.2.</span> <span class="toc-text">同步与异步</span></a></li></ol></li></ol>
+			   <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Lock"><span class="toc-number">1.</span> <span class="toc-text">Lock</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%AF%E9%87%8D%E5%85%A5%E9%94%81"><span class="toc-number">1.1.</span> <span class="toc-text">可重入锁</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%AC%E5%B9%B3%E9%94%81%E4%B8%8E%E9%9D%9E%E5%85%AC%E5%B9%B3%E9%94%81"><span class="toc-number">1.2.</span> <span class="toc-text">公平锁与非公平锁</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%A8%E9%94%81%E7%9A%84%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5"><span class="toc-number">1.3.</span> <span class="toc-text">用锁的最佳实践</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Condition"><span class="toc-number">2.</span> <span class="toc-text">Condition</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%A9%E7%94%A8%E4%B8%A4%E4%B8%AA%E6%9D%A1%E4%BB%B6%E5%8F%98%E9%87%8F%E5%BF%AB%E9%80%9F%E5%AE%9E%E7%8E%B0%E9%98%BB%E5%A1%9E%E9%98%9F%E5%88%97"><span class="toc-number">2.1.</span> <span class="toc-text">利用两个条件变量快速实现阻塞队列</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%90%8C%E6%AD%A5%E4%B8%8E%E5%BC%82%E6%AD%A5"><span class="toc-number">2.2.</span> <span class="toc-text">同步与异步</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Semaphore"><span class="toc-number">3.</span> <span class="toc-text">Semaphore</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BF%A1%E5%8F%B7%E9%87%8F%E6%A8%A1%E5%9E%8B"><span class="toc-number">3.1.</span> <span class="toc-text">信号量模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BF%AB%E9%80%9F%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AA%E9%99%90%E6%B5%81%E5%99%A8"><span class="toc-number">3.2.</span> <span class="toc-text">快速实现一个限流器</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#ReadWriteLock"><span class="toc-number">4.</span> <span class="toc-text">ReadWriteLock</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BF%AB%E9%80%9F%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AA%E7%BC%93%E5%AD%98"><span class="toc-number">4.1.</span> <span class="toc-text">快速实现一个缓存</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0%E7%BC%93%E5%AD%98%E7%9A%84%E6%8C%89%E9%9C%80%E5%8A%A0%E8%BD%BD"><span class="toc-number">4.2.</span> <span class="toc-text">实现缓存的按需加载</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#StampedLock"><span class="toc-number">5.</span> <span class="toc-text">StampedLock</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#StampedLock-%E6%94%AF%E6%8C%81%E7%9A%84%E4%B8%89%E7%A7%8D%E9%94%81%E6%A8%A1%E5%BC%8F"><span class="toc-number">5.1.</span> <span class="toc-text">StampedLock 支持的三种锁模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#StampedLock-%E4%BD%BF%E7%94%A8%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="toc-number">5.2.</span> <span class="toc-text">StampedLock 使用注意事项</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#StampedLock-%E7%94%A8%E6%B3%95%E6%A8%A1%E6%9D%BF"><span class="toc-number">5.3.</span> <span class="toc-text">StampedLock 用法模板</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#CountDownLatch"><span class="toc-number">6.</span> <span class="toc-text">CountDownLatch</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#CyclicBarrier"><span class="toc-number">7.</span> <span class="toc-text">CyclicBarrier</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%B9%B6%E5%8F%91%E5%AE%B9%E5%99%A8"><span class="toc-number">8.</span> <span class="toc-text">并发容器</span></a></li></ol>
 			 </div>
 	   <script type="text/javascript">
 		function showToc(){
@@ -253,7 +253,47 @@
 <li>调用方创建一个子线程，在子线程中执行方法调用，这种调用我们称为异步调用；</li>
 <li>方法实现的时候，创建一个新的线程执行主要逻辑，主线程直接 return，这种方法我们一般称为异步方法。</li>
 </ul>
+<h1 id="Semaphore"><a href="#Semaphore" class="headerlink" title="Semaphore"></a>Semaphore</h1><h2 id="信号量模型"><a href="#信号量模型" class="headerlink" title="信号量模型"></a>信号量模型</h2><p>信号量模型包括一个计数器，一个等待队列，三个方法。计数器和等待队列对外是透明的，只能通过信号量模型提供的三个方法来访问它们。</p>
+<p>这三个方法分别是：</p>
+<ul>
+<li>init()：设置计数器的初始值。</li>
+<li>down()：计数器的值减 1；如果此时计数器的值小于 0，则当前线程将被阻塞，否则当前线程可以继续执行。</li>
+<li>up()：计数器的值加 1；如果此时计数器的值小于或者等于 0，则唤醒等待队列中的一个线程，并将其从等待队列中移除。<br>这三个方法都具有原子性。<br>down()、up() 这两个操作历史上最早称为 P 操作和 V 操作，所以信号量模型也被称为 PV 原语。</li>
+</ul>
+<h2 id="快速实现一个限流器"><a href="#快速实现一个限流器" class="headerlink" title="快速实现一个限流器"></a>快速实现一个限流器</h2><p>Semaphore可以允许 N 个线程访问一个临界区，可以用于池化技术。</p>
+<p>限流器，是指不允许多于 N 个线程同时进入临界区。</p>
+<h1 id="ReadWriteLock"><a href="#ReadWriteLock" class="headerlink" title="ReadWriteLock"></a>ReadWriteLock</h1><p>读写锁的三个基本原则：</p>
+<ul>
+<li>允许多个线程同时读共享变量；</li>
+<li>只允许一个线程写共享变量；</li>
+<li>如果一个写线程正在执行写操作，此时禁止读线程读共享变量。</li>
+</ul>
+<h2 id="快速实现一个缓存"><a href="#快速实现一个缓存" class="headerlink" title="快速实现一个缓存"></a>快速实现一个缓存</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Cache</span>&lt;<span class="title">K</span>,<span class="title">V</span>&gt; </span>&#123;</span><br><span class="line">  <span class="keyword">final</span> Map&lt;K, V&gt; m =</span><br><span class="line">    <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">  <span class="keyword">final</span> ReadWriteLock rwl =</span><br><span class="line">    <span class="keyword">new</span> ReentrantReadWriteLock();</span><br><span class="line">  <span class="comment">// 读锁</span></span><br><span class="line">  <span class="keyword">final</span> Lock r = rwl.readLock();</span><br><span class="line">  <span class="comment">// 写锁</span></span><br><span class="line">  <span class="keyword">final</span> Lock w = rwl.writeLock();</span><br><span class="line">  <span class="comment">// 读缓存</span></span><br><span class="line">  <span class="function">V <span class="title">get</span><span class="params">(K key)</span> </span>&#123;</span><br><span class="line">	<span class="comment">// 使用读锁</span></span><br><span class="line">    r.lock();</span><br><span class="line">    <span class="keyword">try</span> &#123; <span class="keyword">return</span> m.get(key); &#125;</span><br><span class="line">    <span class="keyword">finally</span> &#123; r.unlock(); &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 写缓存</span></span><br><span class="line">  <span class="function">V <span class="title">put</span><span class="params">(K key, V value)</span> </span>&#123;</span><br><span class="line">	<span class="comment">// 使用写锁</span></span><br><span class="line">    w.lock();</span><br><span class="line">    <span class="keyword">try</span> &#123; <span class="keyword">return</span> m.put(key, v); &#125;</span><br><span class="line">    <span class="keyword">finally</span> &#123; w.unlock(); &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>缓存的数据保存在 Cache 类内部的 HashMap 里面，因为 HashMap 不是线程安全的，所以需要使用读写锁 ReadWriteLock 来保证其线程安全。<br>读缓存时使用读锁，写缓存时使用写锁。</p>
+<h2 id="实现缓存的按需加载"><a href="#实现缓存的按需加载" class="headerlink" title="实现缓存的按需加载"></a>实现缓存的按需加载</h2><p>按需加载也叫懒加载，指的是只有当应用查询缓存，并且数据不在缓存里的时候，才触发加载源头相关数据进缓存的操作。</p>
+<p>从数据库中读取到缓存中时会用到写锁，并且要注意在获取写锁后并不是立刻去数据库中查询，而是再次判断缓存中是否存在。<br>再次判断缓存的原因在于在高并发的场景下，多个线程会竞争写锁，当一个线程竞争到写锁后会去更新缓存，而其他线程后续竞争到写锁后又会去更新缓存，这就造成重复查询数据库的问题。</p>
+<p>ReadWriteLock不支持锁的升级（将读锁升级为写锁），如果读锁没有被释放，再获取写锁会导致写锁永久等待，最终导致相关线程都被阻塞。<br>虽然锁的升级是不允许的，但是锁的降级（在释放写锁前降级为读锁）却是允许的。</p>
+<h1 id="StampedLock"><a href="#StampedLock" class="headerlink" title="StampedLock"></a>StampedLock</h1><p>在读多写少的场景中，StampedLock 的性能要比读写锁好。</p>
+<h2 id="StampedLock-支持的三种锁模式"><a href="#StampedLock-支持的三种锁模式" class="headerlink" title="StampedLock 支持的三种锁模式"></a>StampedLock 支持的三种锁模式</h2><p>StampedLock 支持三种模式，分别是：写锁、悲观读锁和乐观读。<br>其中写锁、悲观读锁的语义和 ReadWriteLock 的写锁、读锁的语义非常类似。不同的是：StampedLock 里的写锁和悲观读锁加锁成功之后，都会返回一个 stamp；然后解锁的时候，需要传入这个 stamp。</p>
+<p>StampedLock 提供的乐观读，是允许一个线程获取写锁的，也就是说不是所有的写操作都被阻塞。<br>通过<code>tryOptimisticRead()</code>方法可以获取乐观读。<br>注意乐观读这个操作是无锁的，所以在读完之后要判断是否存在过写操作，如果在执行乐观读操作的期间，存在写操作，会把乐观读升级为悲观读锁。</p>
+<h2 id="StampedLock-使用注意事项"><a href="#StampedLock-使用注意事项" class="headerlink" title="StampedLock 使用注意事项"></a>StampedLock 使用注意事项</h2><ol>
+<li>StampedLock 不支持重入。</li>
+<li>StampedLock 的悲观读锁、写锁都不支持条件变量。</li>
+<li>如果线程阻塞在 StampedLock 的 readLock() 或者 writeLock() 上时，此时调用该阻塞线程的 interrupt() 方法，会导致 CPU 飙升。如果需要支持中断功能，一定使用可中断的悲观读锁 readLockInterruptibly() 和写锁 writeLockInterruptibly()。</li>
+</ol>
+<h2 id="StampedLock-用法模板"><a href="#StampedLock-用法模板" class="headerlink" title="StampedLock 用法模板"></a>StampedLock 用法模板</h2><p><strong>StampedLock 读模板</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">final</span> StampedLock sl = </span><br><span class="line">  <span class="keyword">new</span> StampedLock();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 乐观读</span></span><br><span class="line"><span class="keyword">long</span> stamp = </span><br><span class="line">  sl.tryOptimisticRead();</span><br><span class="line"><span class="comment">// 读入方法局部变量</span></span><br><span class="line">......</span><br><span class="line"><span class="comment">// 校验stamp</span></span><br><span class="line"><span class="keyword">if</span> (!sl.validate(stamp))&#123;</span><br><span class="line">  <span class="comment">// 升级为悲观读锁</span></span><br><span class="line">  stamp = sl.readLock();</span><br><span class="line">  <span class="keyword">try</span> &#123;</span><br><span class="line">    <span class="comment">// 读入方法局部变量</span></span><br><span class="line">    .....</span><br><span class="line">  &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">    <span class="comment">//释放悲观读锁</span></span><br><span class="line">    sl.unlockRead(stamp);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//使用方法局部变量执行业务操作</span></span><br><span class="line">......</span><br></pre></td></tr></table></figure>
 
+<p><strong>StampedLock 写模板</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">long</span> stamp = sl.writeLock();</span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">  <span class="comment">// 写共享变量</span></span><br><span class="line">  ......</span><br><span class="line">&#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">  sl.unlockWrite(stamp);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h1 id="CountDownLatch"><a href="#CountDownLatch" class="headerlink" title="CountDownLatch"></a>CountDownLatch</h1><p>在日常开发中经常会遇到需要在主线程中开启多个线程去并行执行任务，并且主线程需要等待所有子线程执行完毕后再进行汇总的场景。在CountDownLatch出现之前一般都使用线程的join（）方法来实现这一点，但是join方法不够灵活，不能够满足不同场景的需要，所以JDK开发组提供了CountDownLatch这个类。</p>
+<p>CountDownLatch与join方法的区别。一个区别是，调用一个子线程的join（）方法后，该线程会一直被阻塞直到子线程运行完毕，而CountDownLatch则使用计数器来允许子线程运行完毕或者在运行中递减计数，也就是CountDownLatch可以在子线程运行的任何时候让await方法返回而不一定必须等到线程结束。另外，使用线程池来管理线程时一般都是直接添加Runable到线程池，这时候就没有办法再调用线程的join方法了，就是说countDownLatch相比join方法让我们对线程同步有更灵活的控制。</p>
+<p>CountDownLatch是使用AQS实现的，使用AQS的状态变量来存放计数器的值。首先在初始化CountDownLatch时设置状态值（计数器值），当多个线程调用countdown方法时实际是原子性递减AQS的状态值。当线程调用await方法后当前线程会被放入AQS的阻塞队列等待计数器为0再返回。其他线程调用countdown方法让计数器值递减1，当计数器值变为0时，当前线程还要调用AQS的doReleaseShared方法来激活由于调用await（）方法而被阻塞的线程。</p>
+<h1 id="CyclicBarrier"><a href="#CyclicBarrier" class="headerlink" title="CyclicBarrier"></a>CyclicBarrier</h1><p>CountDownLatch的计数器是一次性的，也就是等到计数器值变为0后，再调用CountDownLatch的await和countdown方法都会立刻返回，这就起不到线程同步的效果了。所以为了满足计数器可以重置的需要，JDK开发组提供了CyclicBarrier类，并且CyclicBarrier类的功能并不限于CountDownLatch的功能。<br>从字面意思理解，CyclicBarrier是回环屏障的意思，它可以让一组线程全部达到一个状态后再全部同时执行。这里之所以叫作回环是因为当所有等待线程执行完毕，并重置CyclicBarrier的状态后它可以被重用。之所以叫作屏障是因为线程调用await方法后就会被阻塞，这个阻塞点就称为屏障点，等所有线程都调用了await方法后，线程们就会冲破屏障，继续向下运行。</p>
+<p>CycleBarrier与CountDownLatch的不同在于，前者是可以复用的，并且前者特别适合分段任务有序执行的场景。<br>CycleBarrier，其通过独占锁ReentrantLock实现计数器原子性更新，并使用条件变量队列来实现线程同步。</p>
+<h1 id="并发容器"><a href="#并发容器" class="headerlink" title="并发容器"></a>并发容器</h1>
       
 
       
@@ -556,11 +596,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">LeetCode</a>
+                <a href="javascript:void(0)" class="js-tag color3">算法</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">算法</a>
+                <a href="javascript:void(0)" class="js-tag color4">LeetCode</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -640,11 +680,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">华为机试</a>
+                <a href="javascript:void(0)" class="js-tag color5">读书笔记</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">读书笔记</a>
+                <a href="javascript:void(0)" class="js-tag color5">华为机试</a>
               </li>
              
               <li class="article-tag-list-item">
