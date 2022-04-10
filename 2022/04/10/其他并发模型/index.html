@@ -8,14 +8,17 @@
   <link rel="dns-prefetch" href="http://example.com">
   <title>其他并发模型 | 张显宗，我牙疼</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="article">
+  <meta name="description" content="其他并发模型这一章介绍的是其他语言或者其他领域所运用到的并发编程模型，这些模型中的一些概念和操作系统很相关，语言会有不同，但是思想需要互相借鉴咯。">
+<meta property="og:type" content="article">
 <meta property="og:title" content="其他并发模型">
 <meta property="og:url" content="http://example.com/2022/04/10/%E5%85%B6%E4%BB%96%E5%B9%B6%E5%8F%91%E6%A8%A1%E5%9E%8B/index.html">
 <meta property="og:site_name" content="张显宗，我牙疼">
+<meta property="og:description" content="其他并发模型这一章介绍的是其他语言或者其他领域所运用到的并发编程模型，这些模型中的一些概念和操作系统很相关，语言会有不同，但是思想需要互相借鉴咯。">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2022-04-10T01:53:55.000Z">
-<meta property="article:modified_time" content="2022-04-10T01:53:55.713Z">
+<meta property="article:published_time" content="2022-04-10T01:53:55.713Z">
+<meta property="article:modified_time" content="2022-04-10T06:40:53.508Z">
 <meta property="article:author" content="c^_^y">
+<meta property="article:tag" content="Java并发编程实战">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="张显宗，我牙疼" type="application/atom+xml">
@@ -185,18 +188,77 @@
 		
         
         <a href="/2022/04/10/%E5%85%B6%E4%BB%96%E5%B9%B6%E5%8F%91%E6%A8%A1%E5%9E%8B/" class="archive-article-date">
-  	<time datetime="2022-04-10T01:53:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-04-10</time>
+  	<time datetime="2022-04-10T01:53:55.713Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-04-10</time>
 </a>
         
       </header>
     
 	<!-- 目录内容 -->
 	
+		<p class="show-toc-btn" id="show-toc-btn" onclick="showToc();" style="display:none">
+			  <span class="btn-bg"></span>
+			  <span class="btn-text">文章导航</span>
+			  </p>
+		<div id="toc-article" class="toc-article">
+			<span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
+			<strong class="toc-title">文章目录</strong>
+			   <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Actor%E6%A8%A1%E5%9E%8B"><span class="toc-number">1.</span> <span class="toc-text">Actor模型</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B6%88%E6%81%AF%E5%92%8C%E5%AF%B9%E8%B1%A1%E6%96%B9%E6%B3%95%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-number">1.1.</span> <span class="toc-text">消息和对象方法的区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Actor-%E7%9A%84%E8%A7%84%E8%8C%83%E5%8C%96%E5%AE%9A%E4%B9%89"><span class="toc-number">1.2.</span> <span class="toc-text">Actor 的规范化定义</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%BD%AF%E4%BB%B6%E4%BA%8B%E5%8A%A1%E5%86%85%E5%AD%98"><span class="toc-number">2.</span> <span class="toc-text">软件事务内存</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%A8-STM-%E5%AE%9E%E7%8E%B0%E8%BD%AC%E8%B4%A6"><span class="toc-number">2.1.</span> <span class="toc-text">用 STM 实现转账</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8D%8F%E7%A8%8B"><span class="toc-number">3.</span> <span class="toc-text">协程</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#CSP-%E6%A8%A1%E5%9E%8B"><span class="toc-number">4.</span> <span class="toc-text">CSP 模型</span></a></li></ol>
+			 </div>
+	   <script type="text/javascript">
+		function showToc(){
+			var toc_article = document.getElementById("toc-article");
+			var show_toc_btn = document.getElementById("show-toc-btn");
+			toc_article.setAttribute("style","display:block");
+			show_toc_btn.setAttribute("style","display:none");
+			};
+		function showBtn(){
+			var toc_article = document.getElementById("toc-article");
+			var show_toc_btn = document.getElementById("show-toc-btn");
+			toc_article.setAttribute("style","display:none");
+			show_toc_btn.setAttribute("style","display:block");
+			};
+	   </script>
+		  
 	<!-- 目录内容结束 -->
 
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <p>其他并发模型这一章介绍的是其他语言或者其他领域所运用到的并发编程模型，这些模型中的一些概念和操作系统很相关，语言会有不同，但是思想需要互相借鉴咯。</p>
+<span id="more"></span>
+
+<h1 id="Actor模型"><a href="#Actor模型" class="headerlink" title="Actor模型"></a>Actor模型</h1><p>Actor 模型本质上是一种计算模型，基本的计算单元称为 Actor，换言之，在 Actor 模型中，所有的计算都是在 Actor 中执行的。<br>在 Actor 模型里，一切都是 Actor，并且 Actor 之间是完全隔离的，不会共享任何变量。</p>
+<p>Java 语言本身并不支持 Actor 模型，需要借助第三方类库 Akka。<br>Actor 之间的通信方式完美地遵守了消息机制，而不是通过对象方法来实现对象之间的通信。</p>
+<h2 id="消息和对象方法的区别"><a href="#消息和对象方法的区别" class="headerlink" title="消息和对象方法的区别"></a>消息和对象方法的区别</h2><p>Actor 内部有一个邮箱（Mailbox），接收到的消息都是先放到邮箱里，如果邮箱里有积压的消息，那么新收到的消息就不会马上得到处理，也正是因为 Actor 使用单线程处理消息，所以不会出现并发问题。</p>
+<p>在 Actor 模型里，发送消息仅仅是把消息发出去而已，接收消息的 Actor 在接收到消息后，也不一定会立即处理，也就是说 Actor 中的消息机制完全是异步的。而调用对象方法，实际上是同步的，对象方法 return 之前，调用方会一直等待。</p>
+<p>调用对象方法，需要持有对象的引用，所有的对象必须在同一个进程中。而在 Actor 中发送消息，类似于现实中的写信，只需要知道对方的地址就可以，发送消息和接收消息的 Actor 可以不在一个进程中，也可以不在同一台机器上。因此，Actor 模型不但适用于并发计算，还适用于分布式计算。</p>
+<h2 id="Actor-的规范化定义"><a href="#Actor-的规范化定义" class="headerlink" title="Actor 的规范化定义"></a>Actor 的规范化定义</h2><p>Actor 是一种基础的计算单元，具体来讲包括三部分能力：</p>
+<ol>
+<li>处理能力，处理接收到的消息。</li>
+<li>存储能力，Actor 可以存储自己的内部状态，并且内部状态在不同 Actor 之间是绝对隔离的。</li>
+<li>通信能力，Actor 可以和其他 Actor 之间通信。</li>
+</ol>
+<p>当一个 Actor 接收的一条消息之后，这个 Actor 可以做以下三件事：</p>
+<ol>
+<li>创建更多的 Actor；</li>
+<li>发消息给其他 Actor；</li>
+<li>确定如何处理下一条消息。</li>
+</ol>
+<h1 id="软件事务内存"><a href="#软件事务内存" class="headerlink" title="软件事务内存"></a>软件事务内存</h1><p>软件事务内存（Software Transactional Memory，简称 STM），传统的数据库事务，支持 4 个特性：原子性（Atomicity）、一致性（Consistency）、隔离性（Isolation）和持久性（Durability），也就是大家常说的 ACID，STM 由于不涉及到持久化，所以只支持 ACI。</p>
+<h2 id="用-STM-实现转账"><a href="#用-STM-实现转账" class="headerlink" title="用 STM 实现转账"></a>用 STM 实现转账</h2><p>Java 语言并不支持 STM，需要借助第三方的类库 Multiverse 来支持。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Account</span></span>&#123;</span><br><span class="line">  <span class="comment">//余额</span></span><br><span class="line">  <span class="keyword">private</span> TxnLong balance;</span><br><span class="line">  <span class="comment">//构造函数</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="title">Account</span><span class="params">(<span class="keyword">long</span> balance)</span></span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.balance = StmUtils.newTxnLong(balance);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">//转账</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">transfer</span><span class="params">(Account to, <span class="keyword">int</span> amt)</span></span>&#123;</span><br><span class="line">    <span class="comment">//原子化操作</span></span><br><span class="line">    atomic(()-&gt;&#123;</span><br><span class="line">      <span class="keyword">if</span> (<span class="keyword">this</span>.balance.get() &gt; amt) &#123;</span><br><span class="line">        <span class="keyword">this</span>.balance.decrement(amt);</span><br><span class="line">        to.balance.increment(amt);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>使用 TxnLong 类型定义余额，将转账的操作放到了 atomic(()-&gt;{}) 中。</p>
+<p>STM 的实现方案都是基于 MVCC 的。<br>MVCC 可以简单地理解为数据库事务在开启的时候，会给数据库打一个快照，以后所有的读写都是基于这个快照的。当提交事务的时候，如果所有读写过的数据在该事务执行期间没有发生过变化，那么就可以提交；如果发生了变化，说明该事务和有其他事务读写的数据冲突了，这个时候是不可以提交的。<br>为了记录数据是否发生了变化，可以给每条数据增加一个版本号，这样每次成功修改数据都会增加版本号的值。</p>
+<h1 id="协程"><a href="#协程" class="headerlink" title="协程"></a>协程</h1><p>协程可以理解为一种轻量级的线程。<br>在学操作系统的时候，线程会分为内核态线程和用户态线程，其实我一直感觉用户态线程就像是协程的概念。<br>Golang、Python、Lua、Kotlin 等都支持协程，Java OpenSDK 中 Loom 项目的目标就是支持协程。</p>
+<p>在 Java 里使用多线程并发地处理 I/O，基本上用的都是异步非阻塞模型，因为如果使用同步处理的话就需要线程等待，而线程等待，本质上就是一种严重的浪费。不过对于协程来说，等待的成本就没有那么高了，所以基于协程实现同步非阻塞是一个可行的方案。</p>
+<h1 id="CSP-模型"><a href="#CSP-模型" class="headerlink" title="CSP 模型"></a>CSP 模型</h1><p>CSP 模型是 Golang 解决协作问题的一种模型，和 Actor 模型看上去非常相似，它让协程之间以消息传递方式来通信。<br>Golang 中协程之间通信推荐的是使用 channel。</p>
+<p>Golang 实现的 CSP 模型可以类比为生产者 - 消费者模式，而 channel 可以类比为生产者 - 消费者模式中的阻塞队列。<br>Golang 中 channel 的容量可以是 0，容量为 0 的 channel 在 Golang 中被称为无缓冲的 channel，容量大于 0 的则被称为有缓冲的 channel。<br>Golang 中的 channel 是支持双向传输的，但是 Golang 可以将一个双向的 channel 变成一个单向的 channel。</p>
+<p><strong>CSP 模型与 Actor 模型的区别</strong></p>
+<ol>
+<li>Actor 的 mailbox 和 CSP 的 channel 有区别。Actor 模型中的 mailbox 对于程序员来说是“透明”的，mailbox 明确归属于一个特定的 Actor，是 Actor 模型中的内部机制；而且 Actor 之间是可以直接通信的，不需要通信中介。但 CSP 模型中的 channel 就不一样了，它对于程序员来说是“可见”的，是通信的中介，传递的消息都是直接发送到 channel 中的。</li>
+<li>Actor 模型中发送消息是非阻塞的，而 CSP 模型中是阻塞的。</li>
+<li>Actor 模型理论上不保证消息百分百送达，而在 Golang 实现的 CSP 模型中，是能保证消息百分百送达的。不过这种百分百送达也是有代价的，那就是有可能会导致死锁。</li>
+</ol>
+
       
 
       
@@ -204,6 +266,17 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Java并发编程实战</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -472,11 +545,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Spring5 框架</a>
+                <a href="javascript:void(0)" class="js-tag color2">Java基础</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Java基础</a>
+                <a href="javascript:void(0)" class="js-tag color1">Spring5 框架</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -496,11 +569,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">MyBatisPlus</a>
+                <a href="javascript:void(0)" class="js-tag color3">MyBatis</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">MyBatis</a>
+                <a href="javascript:void(0)" class="js-tag color2">MyBatisPlus</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -516,11 +589,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">SpringSecurity</a>
+                <a href="javascript:void(0)" class="js-tag color4">Vue</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Vue</a>
+                <a href="javascript:void(0)" class="js-tag color5">SpringSecurity</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -556,6 +629,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Java并发编程实战</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">开源项目</a>
               </li>
              
@@ -565,10 +642,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">毕业设计</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Java并发编程实战</a>
               </li>
              
               <li class="article-tag-list-item">
