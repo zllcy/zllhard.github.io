@@ -189,82 +189,9 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>学习设计原则需要学习设计原则的定义和初衷，知道这个设计原则用来解决什么问题，有哪些应用场景。</p>
-<h1 id="单一职责原则（SRP）"><a href="#单一职责原则（SRP）" class="headerlink" title="单一职责原则（SRP）"></a>单一职责原则（SRP）</h1><p>A class or module should have a single responsibility。<br>一个类或者模块只负责完成一个职责（或者功能）。</p>
-<p>其中一个模块可以有多个类组成。</p>
-<h2 id="如何判断类的职责是否足够单一？"><a href="#如何判断类的职责是否足够单一？" class="headerlink" title="如何判断类的职责是否足够单一？"></a>如何判断类的职责是否足够单一？</h2><p>这个评判标准其实不是固定的。在某种应用场景或者当下的需求背景下，一个类的设计可能已经满足单一职责原则了，但如果换个应用场景或着在未来的某个需求背景下，可能就不满足了，需要继续拆分成粒度更细的类。<br>我们可以先写一个粗粒度的类，满足业务需求。随着业务的发展，如果粗粒度的类越来越庞大，代码越来越多，这个时候，我们就可以将这个粗粒度的类，拆分成几个更细粒度的类。这就是所谓的持续重构。</p>
-<p>可以尽量满足单一职责原则，比如参照下列方法：</p>
-<ul>
-<li>如果类中代码行数、属性、方法过多，可以考虑拆分；</li>
-<li>依赖其他类过多、其他类依赖该类过多也可以考虑拆分；</li>
-<li>类中私有方法过多，可以将私有方法拆分出来；</li>
-<li>类的职责需要明确；</li>
-<li>类中大量方法只操作几个属性，可以将这几个属性拆分出来。</li>
-</ul>
-<h2 id="类的职责是否设计得越单一越好？"><a href="#类的职责是否设计得越单一越好？" class="headerlink" title="类的职责是否设计得越单一越好？"></a>类的职责是否设计得越单一越好？</h2><p>答案是否定的，因为类被拆分后，可能会出现更改需求后，拆分后的这些类都需要修改的情况，这样就造成代码的可维护性变差。</p>
-<h1 id="开闭原则（OCP）"><a href="#开闭原则（OCP）" class="headerlink" title="开闭原则（OCP）"></a>开闭原则（OCP）</h1><p>software entities (modules, classes, functions, etc.) should be open for extension , but closed for modification。<br>软件实体（模块、类、方法等）应该“对扩展开放、对修改关闭”。</p>
-<p>添加一个新的功能应该是，在已有代码基础上扩展代码（新增模块、类、方法等），而非修改已有代码（修改模块、类、方法等）。</p>
-<p>从案例中发现如果一开始代码不满足开闭原则则需要对代码进行重构，还是比较复杂的，但是重构代码后再添加新功能就不用改动很多代码。</p>
-<h2 id="修改代码就意味着违背开闭原则吗？"><a href="#修改代码就意味着违背开闭原则吗？" class="headerlink" title="修改代码就意味着违背开闭原则吗？"></a>修改代码就意味着违背开闭原则吗？</h2><p>如果一次代码修改没有破坏原有的代码的正常运行，没有破坏原有的单元测试，那是一个合格的代码改动。</p>
-<p>添加一个新功能，不可能任何模块、类、方法的代码都不“修改”，这个是做不到的。类需要创建、组装、并且做一些初始化操作，才能构建成可运行的的程序，这部分代码的修改是在所难免的。我们要做的是尽量让修改操作更集中、更少、更上层，尽量让最核心、最复杂的那部分逻辑代码满足开闭原则。</p>
-<h2 id="如何做到“对扩展开放、修改关闭”？"><a href="#如何做到“对扩展开放、修改关闭”？" class="headerlink" title="如何做到“对扩展开放、修改关闭”？"></a>如何做到“对扩展开放、修改关闭”？</h2><ul>
-<li>在写代码时多思考未来会有哪些需求更改，为这些修改留下扩展点。</li>
-<li>将可能变化的代码封装起来，向上层提供抽象接口，后续变化时扩展一个新实现替换实现即可。</li>
-<li>最常用来提高代码扩展性的方法有：多态、依赖注入、基于接口而非实现编程，以及大部分的设计模式（比如，装饰、策略、模板、职责链、状态等）。</li>
-</ul>
-<h1 id="里式替换原则（LSP）"><a href="#里式替换原则（LSP）" class="headerlink" title="里式替换原则（LSP）"></a>里式替换原则（LSP）</h1><p>Functions that use pointers of references to base classes must be able to use objects of derived classes without knowing it。<br>子类对象（object of subtype/derived class）能够替换程序（program）中父类对象（object of base/parent class）出现的任何地方，并且保证原来程序的逻辑行为（behavior）不变及正确性不被破坏。</p>
-<p><strong>里式替换原则和多态的关系</strong><br>多态是面向对象编程的一大特性，也是面向对象编程语言的一种语法。它是一种代码实现的思路。而里式替换是一种设计原则，是用来指导继承关系中子类该如何设计的，子类的设计要保证在替换父类的时候，不改变原有程序的逻辑以及不破坏原有程序的正确性。<br>里式替换原则需要用到多态这个特性，但是单纯的多态可能会在子类对象替换父类对象后使得原来的程序逻辑变化。</p>
-<h2 id="哪些代码明显违背了-LSP？"><a href="#哪些代码明显违背了-LSP？" class="headerlink" title="哪些代码明显违背了 LSP？"></a>哪些代码明显违背了 LSP？</h2><ol>
-<li>子类违背父类声明要实现的功能。</li>
-<li>子类违背父类对输入、输出、异常的约定。</li>
-<li>子类违背父类注释中所罗列的任何特殊说明。</li>
-</ol>
-<h1 id="接口隔离原则（ISP）"><a href="#接口隔离原则（ISP）" class="headerlink" title="接口隔离原则（ISP）"></a>接口隔离原则（ISP）</h1><p>Clients should not be forced to depend upon interfaces that they do not use。<br>客户端不应该被强迫依赖它不需要的接口。其中的“客户端”，可以理解为接口的调用者或者使用者。</p>
-<p>在这条原则中，我们可以把“接口”理解为下面三种东西：</p>
-<ul>
-<li>一组 API 接口集合</li>
-<li>单个 API 接口或函数</li>
-<li>OOP 中的接口概念</li>
-</ul>
-<h2 id="把“接口”理解为一组-API-接口集合"><a href="#把“接口”理解为一组-API-接口集合" class="headerlink" title="把“接口”理解为一组 API 接口集合"></a>把“接口”理解为一组 API 接口集合</h2><p>在设计微服务或者类库接口的时候，如果部分接口只被部分调用者使用，那我们就需要将这部分接口隔离出来，单独给对应的调用者使用，而不是强迫其他调用者也依赖这部分不会被用到的接口。</p>
-<h2 id="把“接口”理解为单个-API-接口或函数"><a href="#把“接口”理解为单个-API-接口或函数" class="headerlink" title="把“接口”理解为单个 API 接口或函数"></a>把“接口”理解为单个 API 接口或函数</h2><p>函数的设计要功能单一，不要将多个不同的功能逻辑在一个函数中实现。</p>
-<h2 id="把“接口”理解为-OOP-中的接口概念"><a href="#把“接口”理解为-OOP-中的接口概念" class="headerlink" title="把“接口”理解为 OOP 中的接口概念"></a>把“接口”理解为 OOP 中的接口概念</h2><p>对于多个具体的功能接口，可以单独设计接口，不要放到一个大接口中，这样可以避免依赖不需要的接口和实现不需要的接口方法。</p>
-<h1 id="控制反转、依赖反转、依赖注入"><a href="#控制反转、依赖反转、依赖注入" class="headerlink" title="控制反转、依赖反转、依赖注入"></a>控制反转、依赖反转、依赖注入</h1><h2 id="控制反转（IOC）"><a href="#控制反转（IOC）" class="headerlink" title="控制反转（IOC）"></a>控制反转（IOC）</h2><p>这里的“控制”指的是对程序执行流程的控制，而“反转”指的是在没有使用框架之前，程序员自己控制整个程序的执行。在使用框架之后，整个程序的执行流程可以通过框架来控制。流程的控制权从程序员“反转”到了框架。</p>
-<h2 id="依赖注入（DI）"><a href="#依赖注入（DI）" class="headerlink" title="依赖注入（DI）"></a>依赖注入（DI）</h2><p>不通过 new() 的方式在类内部创建依赖类对象，而是将依赖的类对象在外部创建好之后，通过构造函数、函数参数等方式传递（或注入）给类使用。</p>
-<h2 id="依赖注入框架（DI-Framework）"><a href="#依赖注入框架（DI-Framework）" class="headerlink" title="依赖注入框架（DI Framework）"></a>依赖注入框架（DI Framework）</h2><p>单单使用依赖注入的话，创建对象、组装（或注入）对象的工作仅仅是被移动到了更上层代码而已，具体代码还是需要程序员自己来实现。但是对象创建和依赖注入的工作，本身跟具体的业务无关，我们完全可以抽象成框架来自动完成，这就需要依赖注入框架的支持了。<br>Java Spring 框架就是一个控制反转容器（Inversion Of Control Container）。Spring 框架的控制反转主要是通过依赖注入来实现的。</p>
-<h2 id="依赖反转原则（DIP）"><a href="#依赖反转原则（DIP）" class="headerlink" title="依赖反转原则（DIP）"></a>依赖反转原则（DIP）</h2><p>High-level modules shouldn’t depend on low-level modules. Both modules should depend on abstractions. In addition, abstractions shouldn’t depend on details. Details depend on abstractions.<br>高层模块（high-level modules）不要依赖低层模块（low-level）。高层模块和低层模块应该通过抽象（abstractions）来互相依赖。除此之外，抽象（abstractions）不要依赖具体实现细节（details），具体实现细节（details）依赖抽象（abstractions）。</p>
-<p>在调用链上，调用者属于高层，被调用者属于低层。</p>
-<h1 id="KISS-原则"><a href="#KISS-原则" class="headerlink" title="KISS 原则"></a>KISS 原则</h1><p>Keep It Simple and Stupid.<br>尽量保持简单。</p>
-<p>KISS 原则是保持代码可读和可维护的重要手段。</p>
-<p>代码行数越少不代表越简单，还要考虑逻辑复杂度、实现难度、代码的可读性等。<br>本身就复杂的问题，用复杂的方法解决，并不违背 KISS 原则。</p>
-<h2 id="如何写出满足-KISS-原则的代码？"><a href="#如何写出满足-KISS-原则的代码？" class="headerlink" title="如何写出满足 KISS 原则的代码？"></a>如何写出满足 KISS 原则的代码？</h2><ul>
-<li>不要使用同事可能不懂的技术来实现代码。</li>
-<li>不要重复造轮子，要善于使用已经有的工具类库。</li>
-<li>不要过度优化，牺牲代码的可读性。</li>
-</ul>
-<h1 id="YAGNI-原则"><a href="#YAGNI-原则" class="headerlink" title="YAGNI 原则"></a>YAGNI 原则</h1><p>You Ain’t Gonna Need It.<br>你不会需要它。</p>
-<p>不要去设计当前用不到的功能；不要去编写当前用不到的代码。那就是让我们不要做过度设计，但这不是说不要去考虑代码的扩展性。<br>不要在项目中提前引入不需要依赖的开发包。</p>
-<h1 id="DRY-原则"><a href="#DRY-原则" class="headerlink" title="DRY 原则"></a>DRY 原则</h1><p>Don’t Repeat Yourself.<br>不要重复自己。</p>
-<p>不要写重复的代码。<br>代码重复情况有实现逻辑重复、功能语义重复和代码执行重复。</p>
-<h2 id="实现逻辑重复"><a href="#实现逻辑重复" class="headerlink" title="实现逻辑重复"></a>实现逻辑重复</h2><p>如果代码的实现逻辑是相同的，但语义不同，我们判定它并不违反 DRY 原则。</p>
-<h2 id="功能语义重复"><a href="#功能语义重复" class="headerlink" title="功能语义重复"></a>功能语义重复</h2><p>如果代码的实现逻辑不重复，但语义重复，也就是功能重复，我们认为它违反了 DRY 原则。</p>
-<h2 id="代码执行重复"><a href="#代码执行重复" class="headerlink" title="代码执行重复"></a>代码执行重复</h2><p>代码执行重复也违反了 DRY 原则。</p>
-<h2 id="代码复用性"><a href="#代码复用性" class="headerlink" title="代码复用性"></a>代码复用性</h2><p>代码的可复用性表示一段代码可被复用的特性或能力：我们在编写代码的时候，让代码尽量可复用。</p>
-<p>代码复用性和 DRY 原则不一样，“不重复”并不代表“可复用”，但是本质上都是为了减少代码量，提高代码的可读性和可维护性。</p>
-<h3 id="怎么提高代码复用性？"><a href="#怎么提高代码复用性？" class="headerlink" title="怎么提高代码复用性？"></a>怎么提高代码复用性？</h3><ul>
-<li>减少代码耦合。</li>
-<li>满足单一职责原则。</li>
-<li>模块化，将功能独立的代码，封装成模块。</li>
-<li>业务与非业务逻辑分离。</li>
-<li>通用代码下沉，代码分层后，我们只允许上层代码调用下层，所以需要将通用代码下沉方便复用。</li>
-<li>继承、多态、抽象、封装，利用继承，可以将公共的代码抽取到父类，子类复用父类的属性和方法。利用多态，我们可以动态地替换一段代码的部分逻辑，让这段代码可复用。越抽象、越不依赖具体的实现，越容易复用。代码封装成模块，隐藏可变的细节、暴露不变的接口，就越容易复用。</li>
-<li>应用模板等设计模式。</li>
-</ul>
-<h3 id="代码复用性一定要考虑吗？"><a href="#代码复用性一定要考虑吗？" class="headerlink" title="代码复用性一定要考虑吗？"></a>代码复用性一定要考虑吗？</h3><p>除非有非常明确的复用需求，否则，为了暂时用不到的复用需求，花费太多的时间、精力，投入太多的开发成本，并不是一个值得推荐的做法。这也违反 YAGNI 原则。<br>在之后我们开发新的功能的时候，发现可以复用之前写的这段代码，那我们就重构这段代码，让其变得更加可复用。</p>
-<h1 id="迪米特法则（LOD）"><a href="#迪米特法则（LOD）" class="headerlink" title="迪米特法则（LOD）"></a>迪米特法则（LOD）</h1><p>Each unit should have only limited knowledge about other units: only units “closely” related to the current unit. Or: Each unit should only talk to its friends; Don’t talk to strangers.<br>每个模块（unit）只应该了解那些与它关系密切的模块（units: only units “closely” related to the current unit）的有限知识（knowledge）。或者说，每个模块只和自己的朋友“说话”（talk），不和陌生人“说话”（talk）。</p>
-<p>不该有直接依赖关系的类之间，不要有依赖；有依赖关系的类之间，尽量只依赖必要的接口（也就是定义中的“有限知识”）。</p>
-<h2 id="何为“高内聚、松耦合”？"><a href="#何为“高内聚、松耦合”？" class="headerlink" title="何为“高内聚、松耦合”？"></a>何为“高内聚、松耦合”？</h2><p>“高内聚”用来指导类本身的设计，“松耦合”用来指导类与类之间依赖关系的设计。</p>
-<p>所谓高内聚，就是指相近的功能应该放到同一个类中，不相近的功能不要放到同一个类中。<br>所谓松耦合是说，在代码中，类与类之间的依赖关系简单清晰。即使两个类有依赖关系，一个类的代码改动不会或者很少导致依赖类的代码改动。</p>
-
+        
+          <a class=".article-more-a" style="display: none;" href="/2022/05/02/%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99/#more">more >></a>
+        
       
 
       
@@ -1237,6 +1164,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">JavaWeb</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Spring5 框架</a>
               </li>
              
@@ -1245,19 +1176,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">JavaWeb</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">JVM</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">LeetCode</a>
+                <a href="javascript:void(0)" class="js-tag color3">算法</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">算法</a>
+                <a href="javascript:void(0)" class="js-tag color4">LeetCode</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1269,11 +1196,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">SpringBoot</a>
+                <a href="javascript:void(0)" class="js-tag color4">SSM</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">SSM</a>
+                <a href="javascript:void(0)" class="js-tag color1">SpringBoot</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1285,15 +1212,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">VueAdmin项目</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Vue</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">redis</a>
+                <a href="javascript:void(0)" class="js-tag color1">VueAdmin项目</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1305,11 +1228,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">中软实训</a>
+                <a href="javascript:void(0)" class="js-tag color1">redis</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">剑指offer</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">中软实训</a>
               </li>
              
               <li class="article-tag-list-item">
